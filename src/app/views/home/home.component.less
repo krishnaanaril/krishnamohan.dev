@@ -1,0 +1,79 @@
+.bg {  
+  /* The image used */
+  background-image: url("/assets/img/cover.jpg");
+
+  /* Full height */
+  height: 100%;  
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.titleName{  
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;  
+  @media only screen and (min-width: 1024px) {
+    font-size: 75px;
+  }
+  @media only screen and (max-width: 1023px) {
+    font-size: 50px;
+  }
+  display: flex;
+  flex-direction: row-reverse;    
+}
+
+.rigthContainer{
+  display: grid;
+  grid-template-columns: [col];
+  grid-template-rows: [rows] auto [rows] auto [rows] auto [row];
+  margin: 1em 0;
+  padding: 10px;
+}
+
+.rigthContainer div{
+  line-height: 1.0;
+}
+
+.a {
+  grid-column: col 1;
+  grid-row: row 1;
+}
+
+.b {
+  grid-column: col 1;
+  grid-row: row 2;
+}
+
+.c {
+  grid-column: col 1;
+  grid-row: row 3;
+}
+
+.d {
+  grid-column: col 1;
+  grid-row: row 4;
+}
+
+.smIcon{
+  @media only screen and (min-width: 1024px) {
+    width: 64px;
+    height: 64px;
+  }
+  @media only screen and (max-width: 1023px) {
+    width: 48px;
+    height: 48px;
+  }  
+  pointer-events: none;
+}
+
+.smIcon:hover{
+  fill: red;
+}
+
+.imageCredit{
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}

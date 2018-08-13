@@ -1,7 +1,28 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div>
-  <a routerlink="/home">
-    Home
-  </a>
-</div>
+<nav class="navbar navbar-expand-md fixed-top navbar-dark nav-custom">
+  <a class="navbar-brand" href="#">Krishna Mohan</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample04">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/projects" routerLinkActive="active">Projects</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://krishnaanaril.github.io/">Blog</a>
+      </li>
+    </ul>    
+  </div>
+</nav>
 <router-outlet></router-outlet>
