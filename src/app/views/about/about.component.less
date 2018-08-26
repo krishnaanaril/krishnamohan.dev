@@ -1,10 +1,30 @@
-div {
-    margin-top: 3.5em;
-    border: 1px solid red;
-    height: 100%;
-    background-color: white;
+.aboutCover{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-flow: wrap-reverse;
+	height:100%;
+	margin-top: 100px;
 }
 
-h1{
-    font-family: 'Times New Roman', Times, serif;    
+.img-circle {
+	border-radius: 50%;
+	@media only screen and (min-width: 1024px) {
+		height: 400px;
+		width: 400px;
+	}
+	@media only screen and (max-width: 1023px) {
+		height: 200px;
+		width: 200px;
+	}
+	
+}
+
+.leftPane{
+	max-width: 512px;
+}
+
+.rightPane{
+	max-width: 512px;
+	margin-top: 100px;
 }
