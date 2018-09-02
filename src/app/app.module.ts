@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './views/home/home.component';
 import { AboutComponent } from './views/about/about.component';
 import { ProjectsComponent } from './views/projects/projects.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 // import { MaterialModule } from './material.module';
 
 @NgModule({
@@ -21,7 +23,8 @@ import { ProjectsComponent } from './views/projects/projects.component';
   imports: [
     AppRoutingModule,
     // BrowserAnimationsModule,
-    BrowserModule,    
+    BrowserModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),    
     // FlexLayoutModule, 
     // HttpClientModule,
     // MaterialModule

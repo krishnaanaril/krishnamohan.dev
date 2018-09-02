@@ -8,52 +8,40 @@
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;    
 }
 
 .titleName{  
-  font-family: Arial, Helvetica, sans-serif;
+  // font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;  
   @media only screen and (min-width: 1024px) {
     font-size: 75px;
   }
-  @media only screen and (max-width: 1023px) {
-    font-size: 50px;
+  @media only screen and (max-width: 1023px) and (min-width:400px){
+    font-size: 30px;
+  }
+  @media only screen and (max-width: 400px){
+    font-size: 25px;
   }
   display: flex;
-  flex-direction: row-reverse;    
+  flex-direction: row;
+  justify-content: space-around;    
+  max-width: 1024px;
+  height: 100%;
+  vertical-align: middle;
+  margin:auto;
 }
 
 .rigthContainer{
-  display: grid;
-  grid-template-columns: [col];
-  grid-template-rows: [rows] auto [rows] auto [rows] auto [row];
-  margin: 1em 0;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  // padding: 10px;  
 }
 
 .rigthContainer div{
   line-height: 1.0;
-}
-
-.a {
-  grid-column: col 1;
-  grid-row: row 1;  
-}
-
-.b {
-  grid-column: col 1;
-  grid-row: row 2;
-}
-
-.c {
-  grid-column: col 1;
-  grid-row: row 3;
-}
-
-.d {
-  grid-column: col 1;
-  grid-row: row 4;
 }
 
 .smIcon{
@@ -62,11 +50,16 @@
     height: 64px;
     margin: 10px;
   }
-  @media only screen and (max-width: 1023px) {
+  @media only screen and (max-width: 1023px) and (min-width:400px){
     width: 48px;
     height: 48px;
     margin: 5px;
   }  
+  @media only screen and (max-width: 400px){
+    width: 36;
+    height: 36px;
+    margin: 5px;
+  }
   pointer-events: none;  
 }
 
@@ -74,4 +67,18 @@
   width: 24px;
   height: 24px;
   pointer-events: none;
+}
+
+.socialIcons{
+  margin:auto;
+}
+
+.myName{
+  margin:auto;
+}
+
+.imageCredits{
+  position: fixed;
+  left: .2rem;
+  bottom: .2rem;
 }

@@ -1,10 +1,8 @@
 .aboutCover{
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	flex-flow: wrap-reverse;
+	
 	height:100%;
-	margin-top: 100px;
+	// margin-top: 100px;
+	
 }
 
 .img-circle {
@@ -22,9 +20,28 @@
 
 .leftPane{
 	max-width: 512px;
+	margin:auto;
 }
 
 .rightPane{
 	max-width: 512px;
-	margin-top: 100px;
+	margin:auto;
+	font-family: 'Montserrat', sans-serif;
+	@media screen and (max-width:512px){
+		padding: 10px;		
+	}
+}
+
+.matter{
+	margin: auto;
+	max-width: 1024px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-flow: wrap-reverse;
+	height: 100%;
+	padding-top:40px;
+	// @media screen and (max-width: 768px) {
+	// 	padding-top: 0px; 
+	// }
 }
