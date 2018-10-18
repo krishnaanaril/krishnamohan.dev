@@ -24,8 +24,8 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     // BrowserAnimationsModule,
     BrowserModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),    
-    // FlexLayoutModule, 
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    // FlexLayoutModule,
     // HttpClientModule,
     // MaterialModule
   ],

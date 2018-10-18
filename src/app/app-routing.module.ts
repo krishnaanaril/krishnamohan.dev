@@ -5,17 +5,17 @@ import { HomeComponent } from './views/home/home.component';
 import { AboutComponent } from './views/about/about.component';
 import { ProjectsComponent } from './views/projects/projects.component';
 
-const routes: Routes = [  
+const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
   },
   {
-    path: 'about', 
+    path: 'about',
     component: AboutComponent
   },
   {
-    path: 'projects', 
+    path: 'projects',
     component: ProjectsComponent
   },
   {
