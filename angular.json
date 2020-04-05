@@ -4,6 +4,14 @@
   "newProjectRoot": "projects",
   "projects": {
     "angular-portfolio": {
+      "i18n": {
+        "locales": {
+          "fr": {
+            "translation": "src/locale/messages.fr.xlf",
+            "baseHref": ""
+          }
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -12,7 +20,8 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "options": {            
+          "options": {
+            "aot": true,            
             "outputPath": "dist/angular-portfolio",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -34,6 +43,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -52,6 +67,12 @@
               "serviceWorker": true
             },
             "production-fr": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -69,7 +90,6 @@
               "buildOptimizer": true,
               "outputPath": "dist/my-project-fr/",
               "i18nFile": "src/locale/messages.fr.xlf",
-              "i18nFormat": "xlf",
               "i18nLocale": "fr",
               "i18nMissingTranslation": "error"
             }
@@ -153,7 +173,7 @@
   "defaultProject": "angular-portfolio",
   "schematics": {
     "@schematics/angular:component": {
-      "styleext": "less"
+      "style": "less"
     }
   }
 }
