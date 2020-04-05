@@ -18,11 +18,12 @@ const routes: Routes = [
     path: 'projects',
     component: ProjectsComponent
   },
+  { path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule) },
   {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
-  },
+  }  
 ];
 
 @NgModule({

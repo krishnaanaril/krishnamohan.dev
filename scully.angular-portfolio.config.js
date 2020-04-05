@@ -3,5 +3,11 @@ exports.config = {
   projectName: "angular-portfolio",
   outDir: './dist/static',
   routes: {
+    '/blog/:title': {
+      type: 'contentFolder',
+      title: {
+        folder: "./mdblog"
+      }
+    },
   }
 };
