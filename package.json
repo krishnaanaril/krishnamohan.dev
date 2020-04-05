@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod && echo krishnamohan.dev > ./dist/angular-portfolio/CNAME && npx ngh --dir=dist/angular-portfolio"
+    "deploy": "ng build --prod && echo krishnamohan.dev > ./dist/angular-portfolio/CNAME && npx ngh --dir=dist/angular-portfolio",
+    "scully": "scully",
+    "scully:serve": "scully serve"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +26,9 @@
     "@angular/platform-browser-dynamic": "^9.1.0",
     "@angular/router": "^9.1.0",
     "@angular/service-worker": "^9.1.0",
+    "@scullyio/init": "0.0.23",
+    "@scullyio/ng-lib": "latest",
+    "@scullyio/scully": "latest",
     "bootstrap": "^4.4.1",
     "core-js": "^2.5.4",
     "jquery": "^3.4.1",

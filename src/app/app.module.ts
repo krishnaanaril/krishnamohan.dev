@@ -9,6 +9,7 @@ import { AboutComponent } from './views/about/about.component';
 import { ProjectsComponent } from './views/projects/projects.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 // import { MaterialModule } from './material.module';
 
 @NgModule({
@@ -23,6 +24,7 @@ import { environment } from '../environments/environment';
     // BrowserAnimationsModule,
     BrowserModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    ScullyLibModule,
     // FlexLayoutModule,
     // HttpClientModule,
     // MaterialModule
