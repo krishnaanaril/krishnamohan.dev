@@ -1,0 +1,102 @@
+{
+  "configVersion": 1,
+  "timestamp": 1586057197243,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main-es2015.fba17381cf50cf9f9280.js",
+        "/main-es5.fba17381cf50cf9f9280.js",
+        "/polyfills-es2015.bbb42ff2e1c488ff52d5.js",
+        "/polyfills-es5.44631d78406800e4963c.js",
+        "/runtime-es2015.c9afb3256f2870e161de.js",
+        "/runtime-es5.c9afb3256f2870e161de.js",
+        "/scripts.f6fa858fac9509d4d711.js",
+        "/styles.d1b83e92caa0f7c4e74f.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/img/cover-old.jpg",
+        "/assets/img/cover.jpg",
+        "/assets/img/dp.jpg",
+        "/assets/img/facebook.svg",
+        "/assets/img/github.svg",
+        "/assets/img/icons/baseline-home-24px.svg",
+        "/assets/img/imageCredit.svg",
+        "/assets/img/instagram.svg",
+        "/assets/img/linkedin.svg",
+        "/assets/img/stackoverflow.svg",
+        "/assets/img/twitter.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/icons/icon-128x128.png": "568d6f5a6e3a40aa977c53b2608e6b2793f2eef9",
+    "/assets/icons/icon-144x144.png": "dd9404e54c0bf578c680b728377fd72ff6e2315d",
+    "/assets/icons/icon-152x152.png": "93d990ec0e526acb6167bba5c00669c859838f5c",
+    "/assets/icons/icon-192x192.png": "843ee44578e71c9e37c3eebf0827f66bc0b32a31",
+    "/assets/icons/icon-384x384.png": "cab4c56d86b9193143be9a03296022378543aeaa",
+    "/assets/icons/icon-512x512.png": "ca73d5904e3cef749de67467e8bd01d0d5e34614",
+    "/assets/icons/icon-72x72.png": "b5f56833382c718c4fbc058ec890cbde9919325b",
+    "/assets/icons/icon-96x96.png": "9ccadffb2d19670aaca77eb9b3de1438e7eeeb41",
+    "/assets/img/cover-old.jpg": "00d7a31d087eb7b46a3506ba1e81a619ff59ee40",
+    "/assets/img/cover.jpg": "f0d15878565a39f627aed924fdf7794fdc88a5e5",
+    "/assets/img/dp.jpg": "3f87407be261cb3c5e8c2afc3ed0d19e4a796006",
+    "/assets/img/facebook.svg": "a97071c2a7cae10084a99e95bc718699e8474529",
+    "/assets/img/github.svg": "b4a23e90e6f9efd4a44b1a0d90c84429b43882c3",
+    "/assets/img/icons/baseline-home-24px.svg": "68559f8a8d88402c37e38f284bb0a3b63b5ee212",
+    "/assets/img/imageCredit.svg": "6a7d30ae7cf17223ea86faf1b3a66ca879c02bf4",
+    "/assets/img/instagram.svg": "e25d73d58f43cc422ebfa19b863d2a7259f00bd0",
+    "/assets/img/linkedin.svg": "0ac80f9881b6cbc0d2a14e1d46dacfc658d542f5",
+    "/assets/img/stackoverflow.svg": "9b8ee3eced1ba3e543fddb5af9b3f2f872dc9908",
+    "/assets/img/twitter.svg": "81114721588419cc427b1eadc0f60cb9431c16ba",
+    "/favicon.ico": "a2c72cee8720f6a168ed605c5285c277a3f3bf92",
+    "/index.html": "642cd79ab192c7f19ba3b37d0c48f51810cbed3e",
+    "/main-es2015.fba17381cf50cf9f9280.js": "dd87e01be7cd8274136a3caef7dc1d0bb6b8fc2a",
+    "/main-es5.fba17381cf50cf9f9280.js": "ba0b4395f5e2d9935ead16dd6a8626077a9bb7a4",
+    "/polyfills-es2015.bbb42ff2e1c488ff52d5.js": "72ad4ccc0a3916ae4598199447cdeadd6d380570",
+    "/polyfills-es5.44631d78406800e4963c.js": "fbae02af3e07434ecb346867d6419f3b2427b7e9",
+    "/runtime-es2015.c9afb3256f2870e161de.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/runtime-es5.c9afb3256f2870e161de.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/scripts.f6fa858fac9509d4d711.js": "5930d89605560fc5f84e75cc6ea5e1424ab72e5b",
+    "/styles.d1b83e92caa0f7c4e74f.css": "426c0d21302344931fcea0885c3caa9b2157815b"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
