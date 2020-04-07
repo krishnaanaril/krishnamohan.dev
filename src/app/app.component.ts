@@ -10,9 +10,6 @@ import { MatIconRegistry } from '@angular/material/icon';
 })
 export class AppComponent {
   title = 'Krishna Mohan\'s portfolio';
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
-    iconRegistry.addSvgIcon(
-        'home',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/baseline-home-24px.svg'));
+  constructor() {    
   }
 }
