@@ -75,31 +75,34 @@ Now we’ve added the additional libraries for your requirement and can we start
 
 We can store ‘adal’ related configuration in the environment.ts file. I’ve attached the sample format below.
 
-<img src="assets/blog/images/1*FEMK8Ggrj7MYZ-wDHs21sg.png" style="max-width:100%">
+![](assets/images/02_03.png)
+*Gist: https://gist.github.com/krishnaanaril/b1b8798373a6bbe42e7f288ceb9ca1a9*
 
 Once the user is authenticated, to handle callback you need to add the following code in the redirect component’s ngOnInit method.
 
-<img src="assets/blog/images/1*wVYXmGnOHIwQhSlT7HP1sQ.png" style="max-width:100%">
+![](assets/images/02_04.png)
 
 Here I’ve written the code to embed the first of the available reports to a user. You can update it to suit your needs. First we need to get the access token and get the first of the available reports. The code is as follows.
 
 
-<img alt="Gist: https://gist.github.com/krishnaanaril/398f8e51136e649bf35e41baf8367efe" src="assets/blog/images/1*pi3YFR4v-L_pm0DmxeGDfQ.png" style="max-width:100%">
+![](assets/images/02_05.png)
+*Gist: https://gist.github.com/krishnaanaril/398f8e51136e649bf35e41baf8367efe*
 
 The method ‘getReportsInGroup’ will be invoking the corresponding Power BI REST API.
 
-<img alt="https://gist.github.com/krishnaanaril/427e4ef6b171fa109787617b3c0e6953" src="assets/blog/images/1*3R3a9CWhsTW-zikRykTUOw.png" style="max-width:100%">
+![](assets/images/02_06.png)
+*Gist: https://gist.github.com/krishnaanaril/427e4ef6b171fa109787617b3c0e6953*
 
 Next, we need to embed the report in the HTML page. This is similar to ‘Embed for your customers’, except the token type which is ‘Aad’ and access token instead of embed token. Embedding report code is as follows.
 
-<img alt="Embedding report for your organization" src="assets/blog/images/1*nSf19cMWL_4nRFcPz5a_Og.png" style="max-width:100%">
+![Embedding report for your organization](assets/images/02_06.png)
+*Embedding report for your organization*
 
 ### Conclusion
 
 Now you’re done with your Angular app, run it and verify the reports. Dashboards and Tiles can be embedded in a similar way. You can find those snippets here.
 
 * [Dashboard](https://gist.github.com/krishnaanaril/1392403aa328684738e4ed6f0b8a664f)
-
 * [Tile](https://gist.github.com/krishnaanaril/211f5b390a5e7e038b7a67dfe387fb29)
 
-If you’ve any queries or you’ve found any mistakes in the article, please do share it in the comments.
+

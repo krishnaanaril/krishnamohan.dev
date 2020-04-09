@@ -15,6 +15,7 @@
     "deploy": "npm run pre-deploy && npm run gh-deploy",
     "scan-routes": "npm run scully -- --scanRoutes",
     "serve-static": "npm run scully serve",
+    "serve-local": "npm run build && npm run build-static && npm run serve-static",
     "scully": "scully",
     "scully:serve": "scully serve"
   },
