@@ -1,10 +1,8 @@
 ---
 title: Generating Code Coverage Reports in Dotnet Core
 description: Unlike other application frameworks .NET Core do not provide code coverage reports out of the box. Here I’ll be using a different approach which actually suited my web application. Without further ado, let’s get started.
-publish: true
+published: true
 ---
-
-# Generating Code Coverage Reports in Dotnet Core
 
 Unlike other application frameworks **.NET Core** do not provide code coverage reports out of the box, even the code coverage [support ](https://github.com/microsoft/vstest/issues/981)was provided only in dotnet core version 2.1. But the ‘**Code Coverage Analysis**’ is provided with Visual Studio Enterprise edition. You can find more information [here](https://docs.microsoft.com/en-us/visualstudio/test/using-code-coverage-to-determine-how-much-code-is-being-tested?view=vs-2017).
 

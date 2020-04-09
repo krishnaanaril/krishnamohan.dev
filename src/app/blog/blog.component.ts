@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router, ROUTES } from '@angular/router';
+import { ScullyRoutesService } from '@scullyio/ng-lib';
+import { Observable } from 'rxjs';
 
 declare var ng: any;
 
@@ -11,7 +13,15 @@ declare var ng: any;
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class BlogComponent implements OnInit {
-  ngOnInit() {}
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  current$: Observable<any> = this.scully.getCurrent();
+
+  ngOnInit() {
+    this.current$.subscribe((route) => {
+      console.log(route);
+    });
+  }
+
+  constructor(private router: Router, private route: ActivatedRoute,
+    private scully: ScullyRoutesService) {}
 }

@@ -3,7 +3,7 @@
 <hr>
 <ul>
     <ng-container *ngFor="let page of links$ | async">
-        <li *ngIf="page.publish">
+        <li *ngIf="page.published">
             <a [routerLink]="page.route">{{ page.title }}</a>
         </li>
     </ng-container>
