@@ -8,6 +8,10 @@ body, html {
     font-family: 'Montserrat', sans-serif;
 }
 
+body {
+    margin: 30px 10px;
+}
+
 .main-font{
     color: black;
 }

@@ -11,17 +11,11 @@ That’s okay, we’ve other tools available to get the code coverage reports an
 ## Contents
 
 * Prerequisites
-
 * Creating dotnet application and adding test project
-
 * Running tests with CLI
-
 * Convert *.coverage file to *.coveragexml file
-
 * Generate Reports using ReportGenerator
-
 * Powershell script with all the steps
-
 * Conclusion
 
 ## Prerequisites
@@ -29,11 +23,8 @@ That’s okay, we’ve other tools available to get the code coverage reports an
 You need to install/Configure:
 
 * Dotnet core version 2.1 or above.
-
 * Visual Studio 2017 or above / Visual studio code.
-
 * [Daniel Palme](https://github.com/danielpalme)’s [ReportGenerator](https://danielpalme.github.io/ReportGenerator/usage.html)
-
 * [Microsoft.CodeCoverage](https://www.nuget.org/packages/Microsoft.CodeCoverage/)
 
 ## Creating dotnet application and adding test project
@@ -106,7 +97,7 @@ Eg: dotnet C:\Users\krishnamohan\.nuget\packages\reportgenerator\4.1.10\tools\ne
 
 This will generate reports in *.htm format in the given output folder. If you open the index.htm file you can view the report.
 
-<img alt="Sample Report Image" src="assets/blog/images/1*EY_bwW_guPo1kZfHiFFsnA.png" style="max-width:100%">
+![Sample Report Image](assets/images/03_01.png)*Sample Report Image. Source: https://github.com/danielpalme/ReportGenerator*
 
 ## Powershell script with all the steps
 
