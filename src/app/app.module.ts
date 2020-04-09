@@ -13,7 +13,6 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
 @NgModule({
   declarations: [
     AppComponent
-    
   ],
   imports: [
     AppRoutingModule,

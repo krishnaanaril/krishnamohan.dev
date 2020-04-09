@@ -10,6 +10,6 @@ import { MatIconRegistry } from '@angular/material/icon';
 })
 export class AppComponent {
   title = 'Krishna Mohan\'s portfolio';
-  constructor() {    
+  constructor() {
   }
 }
