@@ -1,5 +1,5 @@
-import {NgModule} from '@angular/core';
-import {CdkTableModule} from '@angular/cdk/table';
+import { NgModule } from '@angular/core';
+import { CdkTableModule } from '@angular/cdk/table';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -76,6 +76,6 @@ import {
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-  ]
+  ],
 })
 export class MaterialModule {}

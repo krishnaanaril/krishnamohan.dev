@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.less']
+  styleUrls: ['./home.component.less'],
 })
 export class HomeComponent implements OnInit {
-
   links$: Observable<any> = this.scully.available$;
 
-  constructor(private scully: ScullyRoutesService) { }
+  constructor(private scully: ScullyRoutesService) {}
 
   ngOnInit(): void {
-    this.links$.subscribe(links => {
+    this.links$.subscribe((links) => {
       console.log(links);
     });
   }
-
 }
