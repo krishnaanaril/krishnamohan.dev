@@ -18,43 +18,31 @@ Creating dashboards/reports using Power BI are out of scope of this article, you
 ### Contents
 
 * Prerequisite
-
 * Overview
-
 * Set up your embedded analytics development environment
-
 * Set up your Power BI environment
-
 * Create Angular client
-
 * Conclusion
 
 ### Prerequisites
 
 * [Power BI pro account](https://powerbi.microsoft.com/en-us/pricing/)
-
 * [Microsoft Azure Subscription](https://azure.microsoft.com/en-us/free/)
-
 * [Azure Active Directory Tenant](https://docs.microsoft.com/en-us/power-bi/developer/create-an-azure-active-directory-tenant) Setup. If it is already done for your organization, you can find it [here](https://www.whatismytenantid.com/).
-
 * Visual Studio Code
-
 * npm, node, angular-cli
 
 ### Overview
 
 A high level diagram showing how this works is shown below.
 
-<img alt="" src="assets/blog/images/1*oV0snQoXznc-Vm05Tl0ZJg.png" style="max-width:100%">
+![](assets/images/02_01.png)
 
 The workflow is as follows.
 
  1. When user browses UI, he/she is asked to login with his/her power bi credentials.
-
  2. User credentials are validated with Azure AD to generate access tokens.
-
  3. UI calls Power BI API to get the report specific data with the token.
-
  4. Power BI API returns report data, and UI displays it in the web page.
 
 ### Set up your embedded analytics development environment
@@ -64,7 +52,6 @@ Refer [this](http://When user browses UI, he/she is asked to login with his/her 
 Here we need to do few more steps than what is mentioned in the documentation.
 
  1. Redirect URL should be the URL in the application that should be displayed post user authentication.
-
  2. Set the key ‘oauth2AllowImplicitFlow’ in Azure Active Directory app manifest to true as we are using browser based clients.
 
 ### Set up your Power BI environment
@@ -83,8 +70,8 @@ In the HTML page, create a ‘div’ with id ‘embedReport’. We’ll be showi
 
 Now we’ve added the additional libraries for your requirement and can we start coding the the authentication service as follows.
 
-<img src="assets/blog/images/1*7pFOM2VGDUxCn3LWVs_dsw.png" style="max-width:100%">
-
+![](assets/images/02_02.png)
+*Gist: https://gist.github.com/krishnaanaril/9a07c99efe7db86b8ede17d4177be303*
 
 We can store ‘adal’ related configuration in the environment.ts file. I’ve attached the sample format below.
 

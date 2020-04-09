@@ -28,31 +28,20 @@ Creating dashboards/reports using Power BI are out of scope of this article, you
 ### Contents
 
 * Prerequisite
-
 * Overview
-
 * Set up your embedded analytics development environment
-
 * Set up your Power BI environment
-
 * Create a Web API
-
 * Create Angular client
-
 * Conclusion
 
 ### Prerequisites
 
 * [Power BI pro account](https://powerbi.microsoft.com/en-us/pricing/)
-
 * [Microsoft Azure Subscription](https://azure.microsoft.com/en-us/free/)
-
 * [Azure Active Directory Tenant](https://docs.microsoft.com/en-us/power-bi/developer/create-an-azure-active-directory-tenant) Setup. If it is already done for your organization, you can find it [here](https://www.whatismytenantid.com/).
-
 * Visual Studio (2013 or later)
-
 * Visual Studio Code
-
 * npm, node, angular-cli
 
 ### Overview
