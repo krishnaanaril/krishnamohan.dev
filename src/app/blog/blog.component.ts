@@ -16,11 +16,7 @@ export class BlogComponent implements OnInit {
 
   current$: Observable<any> = this.scully.getCurrent();
 
-  ngOnInit() {
-    this.current$.subscribe((route) => {
-      console.log(route);
-    });
-  }
+  ngOnInit() {}
 
   constructor(private router: Router, private route: ActivatedRoute,
     private scully: ScullyRoutesService) {}
