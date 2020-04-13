@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router, ROUTES } from '@angular/router';
-import { ScullyRoutesService } from '@scullyio/ng-lib';
+import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
+import { MetaService } from '../meta.service';
 
 declare var ng: any;
 
@@ -16,8 +17,20 @@ export class BlogComponent implements OnInit {
 
   current$: Observable<any> = this.scully.getCurrent();
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   constructor(private router: Router, private route: ActivatedRoute,
-    private scully: ScullyRoutesService) {}
+    private scully: ScullyRoutesService,
+    private metaService: MetaService) {
+    this.current$.subscribe((blog: ScullyRoute) => {
+      this.metaService.setMetaForCurrentPage({
+        title: blog.title,
+        description: blog.description,
+        imageUrl: 'assets/images/dp.jpg',
+        keywords: 'Blog, Portfolio, Developer, Engineer',
+        siteUrl: blog.route,
+        type: 'website'
+      });
+    });
+  }
 }
