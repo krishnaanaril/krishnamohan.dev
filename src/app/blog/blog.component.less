@@ -10,22 +10,38 @@
 
 .blog-post {
   margin: auto;
-  word-break: break-all;
+  word-wrap: break-word;
   hyphens: auto;
   max-width: @tab-width;
   font-size: 18px;
   line-height: 1.5;
-  .font-raleway
+  .font-raleway;
+  margin: 0px 10px;
 }
 
 img {
-  width:75%;
+  width:100%;
   display: block;
   margin: auto;
 }
 
+a {
+  color: hsl(225, 46%, 42%);
+  text-decoration-line: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: hsl(258, 83%, 45%);
+  text-decoration: underline;
+  text-decoration-color: hsl(9, 81%, 61%);
+  text-decoration-style: solid;
+  text-decoration-thickness: 2px;
+}
+
 img + em {
   display: block;
+  word-break: break-all;
   text-align: center;
   font-size: 0.9rem;
   color: grey;
@@ -57,7 +73,7 @@ code {
   line-height: 1;
   word-break: normal;
   display: block;
-  margin: 50px auto;
+  margin: 50px auto 10px auto;
   text-align: center;
   .font-zilla-slab;
   @media all and (max-width: @tab-width) {
@@ -71,4 +87,16 @@ hr {
 
 .post-footer {
   &:extend(.blog-post);
+}
+
+mat-chip-list {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.keywords {
+  background-color: hsl(0, 0, 96%);
+  padding: 10px;
+  border: 1px solid grey;
 }
