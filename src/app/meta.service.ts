@@ -29,6 +29,6 @@ export class MetaService {
     this.meta.addTag({name: 'twitter:site', content: '@krishnaanaril'});
     this.meta.addTag({name: 'twitter:creator', content: '@krishnaanaril'});
     // Optional
-    this.meta.addTag({name: 'keywords', content: metaData.keywords});
+    this.meta.addTag({name: 'keywords', content: metaData.keywords.join(', ')});
   }
 }

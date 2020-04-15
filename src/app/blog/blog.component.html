@@ -1,8 +1,14 @@
-<h1 class="page-title">{{ (current$ | async)?.title }}</h1>
-<div class="blog-post">
+<div *ngIf="metaData" class="blog-post">
+    <div class="title-section">
+        <h1 class="blog-title">{{ metaData.title }}</h1>
+        <div>{{ metaData.date }}</div>
+        <div>{{ metaData.category }}</div>
+        <div>{{ metaData.keywords[0] }}</div>
+    </div>
+    <hr>
     <scully-content></scully-content>
-</div>
-<hr>
-<div class="post-footer">
-    Have questions/comments? Tweet @<a href="https://twitter.com/krishnaanaril">krishnaanaril</a>
+    <hr>
+    <div class="post-footer">
+        Have questions/comments? Tweet @<a href="https://twitter.com/krishnaanaril">krishnaanaril</a>
+    </div>
 </div>

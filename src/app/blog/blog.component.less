@@ -1,4 +1,4 @@
-
+@import (reference) "../../styles.less";
 
  ::slotted(h1)  {
   color:rgb(51, 6, 37);
@@ -10,7 +10,12 @@
 
 .blog-post {
   margin: auto;
-  max-width: 1024px;
+  word-break: break-all;
+  hyphens: auto;
+  max-width: @tab-width;
+  font-size: 18px;
+  line-height: 1.5;
+  .font-raleway
 }
 
 img {
@@ -46,12 +51,22 @@ code {
   display: block;
 }
 
-.page-title {
-  max-width: 720px;
-  font-size: 2rem;
+.blog-title {   
+  font-weight: normal; 
+  font-size: 4.5rem;
+  line-height: 1;
+  word-break: normal;
   display: block;
-  margin: auto;
+  margin: 50px auto;
   text-align: center;
+  .font-zilla-slab;
+  @media all and (max-width: @tab-width) {
+    font-size: 3rem;
+  }
+}
+
+hr {
+  width: 100px;
 }
 
 .post-footer {

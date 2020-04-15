@@ -12,7 +12,7 @@
 <h1>Krishna Mohan A M</h1>
 <i class="bx bxl-facebook bx-border-circle"></i>
 <hr>
-<ul>
+<ul class="blog-links">
     <ng-container *ngFor="let page of links$ | async">
         <li *ngIf="page.published">
             <a [routerLink]="page.route">{{ page.title }}</a>

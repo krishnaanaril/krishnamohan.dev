@@ -19,7 +19,8 @@ export class HomeComponent implements OnInit {
       title: 'Krishna Mohan A M',
       description: 'I\'m a Full Stack Developer, who works mainly in Microsoft stack. Angular, Dotnet Core and Sql Server are my primary weapons.',
       imageUrl: '',
-      keywords: 'Blog, Portfolio, Developer, Engineer',
+      date: '',
+      keywords: ['Blog, Portfolio, Developer, Engineer'],
       siteUrl: 'https://krishnamohan.dev',
       type: 'website'
     })
