@@ -111,7 +111,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.meta.addTag({
             name: 'keywords',
-            content: metaData.keywords
+            content: metaData.keywords.join(', ')
           });
         }
       }]);

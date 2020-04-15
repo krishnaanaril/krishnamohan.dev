@@ -41,7 +41,7 @@ class MetaService {
         this.meta.addTag({ name: 'twitter:site', content: '@krishnaanaril' });
         this.meta.addTag({ name: 'twitter:creator', content: '@krishnaanaril' });
         // Optional
-        this.meta.addTag({ name: 'keywords', content: metaData.keywords });
+        this.meta.addTag({ name: 'keywords', content: metaData.keywords.join(', ') });
     }
 }
 MetaService.ɵfac = function MetaService_Factory(t) { return new (t || MetaService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["Meta"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["Title"])); };
