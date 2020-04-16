@@ -1,5 +1,75 @@
 @import (reference) "../../styles.less";
 
+@card-width: 300px;
+
 .blog-links {
-    .font-raleway
+    .font-raleway;
+    max-width: @tab-width;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+.author-title-block {
+    max-width: @tab-width;
+    margin: 60px auto 20px auto;
+}
+
+.author-title {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.author-avatar {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0px auto;
+}
+
+.author-subtitle {
+    text-align: center;
+    margin-top: 5px;
+    span {
+        border-bottom: 2px solid;
+        padding-bottom: 5px;
+    }
+}
+
+.blog-card {
+    max-width: @card-width;
+    margin: 10px;
+    @media all and (max-width: @tab-width) {
+        margin: 10px auto;
+      }
+    & > mat-card-header {
+        .font-zilla-slab; 
+        & > .mat-card-header-text {
+            margin: 0;
+            padding: 0;
+        }       
+    }
+    & > mat-card-content {
+        .font-raleway;
+    }
+    & > mat-card-actions {
+        margin: 0px;
+        padding: 0px;
+        & > a {
+            .font-montserrat;
+            margin: 5px;
+        }
+    }    
+}
+
+.filling-empty-space-childs {
+    width: @card-width; /*the width of the images in this example*/
+    margin: 10px;
+    height: 0px; /*Important! for the divs to collapse should they fall in a new row*/    
+    padding: 16px;
 }

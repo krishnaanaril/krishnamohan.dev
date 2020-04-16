@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
     private metaService: MetaService) {}
 
   ngOnInit(): void {
+    this.links$.subscribe(link => console.log(link));
     this.metaService.setMetaForCurrentPage({
       title: 'Krishna Mohan A M',
       description: 'I\'m a Full Stack Developer, who works mainly in Microsoft stack. Angular, Dotnet Core and Sql Server are my primary weapons.',

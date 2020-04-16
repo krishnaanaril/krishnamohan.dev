@@ -9,7 +9,7 @@ keywords: powerbi, angular
 
 Power BI can be embedded for the users of your organization who have access to it. This requires the users to sign-in to their Power BI account to view their content, which are the reports they own or the ones that have been shared with them.
 
-This is the second part of the two-part article series. You can find the first one [here](https://medium.com/@krishnaanaril/embedding-power-bi-in-angular-part-1-a1847de9a2e8).
+This is the second part of the two-part article series. You can find the first one [here](https://krishnamohan.dev/blog/embedding-power-bi-in-angular-part-1).
 
 ## Embedding for your organization
 

@@ -1,11 +1,26 @@
-<h1>Krishna Mohan A M</h1>
-<i class="bx bxl-facebook bx-border-circle"></i>
-<hr>
-<ul class="blog-links">
-    <ng-container *ngFor="let page of links$ | async">
-        <li *ngIf="page.published">
-            <a [routerLink]="page.route">{{ page.title }}</a>
-        </li>
-    </ng-container>
-</ul>
+<div class="author-title-block">
+  <img src="/assets/images/dp.jpg" alt="Krishna Mohan's Avatar" class="author-avatar">
+  <h1 class="author-title">Krishna Mohan A M</h1>
+  <p class="author-subtitle">
+    <span>Software Engineer</span> . <span>Artist</span> . <span>Amateur Footballer</span>
+  </p>
+</div>
 
+<div class="blog-links">
+  <ng-container *ngFor="let page of links$ | async">
+    <mat-card class="blog-card" *ngIf="page.published">
+      <mat-card-header>
+        <h2>{{ page.title }}</h2>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          {{page.description}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a [routerLink]="page.route">READ MORE</a>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+  <div class="filling-empty-space-childs"></div>
+</div>

@@ -20,7 +20,7 @@ Microsoft provides sample .net applications for both ways. The source code is av
 
 There weren’t much tutorials available on-line, and I was bit confused with the distinction between the above two approaches. But I was not alone in this pursuit, [someone](https://medium.com/@ramandeep.singh.1983/power-bi-overview-and-angular-embedding-how-to-f73390f4a399) have already figured out the “Embedding for customers” and it was really helpful. I wasn’t satisfied with that and after spending a couple of days in Power BI forums and GitHub repositories, I’ve finally figured out how to do it both.
 
-This is the first part of the two-part article series. You can find the second one [here](https://medium.com/@krishnaanaril/embedding-powerbi-in-angular-part-2-6b268deb2275).
+This is the first part of the two-part article series. You can find the second one [here](https://krishnamohan.dev/blog/embedding-powerbi-in-angular-part-2).
 
 ## Embedding for Customers
 
@@ -55,17 +55,11 @@ A high level diagram showing how this works is shown below.
 The work flow is as follows.
 
  1. When user browse UI, it invokes API for embed token.
-
  2. API authenticates application using master account credentials and request for tokens.
-
  3. Azure AD returns token on successful validation, else reject the request.
-
  4. Embed token is returned to UI from API.
-
  5. UI calls Power BI API to get the report specific data with the token.
-
  6. Power BI API returns report data, and UI displays it in the web page.
-
  7. (Optional) User authorization via custom roles stored in the SQL server (or by any other means).
 
 ### Set up your embedded analytics development environment
@@ -93,11 +87,11 @@ We need to add Microsoft Power BI client [library](https://www.nuget.org/package
 
 As API methods, I’ve created three methods for Reports, Dashboards and Tiles respectively.
 
- 1. **GetReportEmbedToken **— This method accepts two optional parameters, username and roles, which is used for enabling row-level security (RLS). You can find more info about RLS [here](https://docs.microsoft.com/en-us/power-bi/service-admin-rls). In the method, we are returning the embed token for the first report available in the workspace.
+ 1. **GetReportEmbedToken**— This method accepts two optional parameters, username and roles, which is used for enabling row-level security (RLS). You can find more info about RLS [here](https://docs.microsoft.com/en-us/power-bi/service-admin-rls). In the method, we are returning the embed token for the first report available in the workspace.
 
- 2. **GetDashboardEmbedToken **— This method returns the embed token for the first dashboard in the workspace.
+ 2. **GetDashboardEmbedToken**— This method returns the embed token for the first dashboard in the workspace.
 
- 3. **GetTileEmbedToken **— This method returns the embed token for the first tile in the first dashboard which is available in the workspace.
+ 3. **GetTileEmbedToken**— This method returns the embed token for the first tile in the first dashboard which is available in the workspace.
 
 ![](assets/images/01_05.png)*API method for getting embed token. Gist: https://gist.github.com/krishnaanaril/b093ab817d8fc29e4096346e034ccf3f*
 
@@ -111,7 +105,7 @@ Here we need to create a service to call the API we created above. For that, let
 
 In the HTML page, create a ‘div’ with id ‘embedReport’. We’ll be showing report in this div. Embedding in div is done using Power BI JavaScript [library](https://github.com/Microsoft/PowerBI-JavaScript). You can add it to your angular application by running the following command.
 
->  npm install — save powerbi-client
+>  `npm install — save powerbi-client`
 
 Next, we need to create a method in component class to embed the reports as follows.
 
@@ -123,4 +117,3 @@ For embedding reports for customers, type should be ‘reports’ and token type
 
 Now you’re done with your Angular app and its corresponding Web API, run it and verify the reports.
 
-If you’ve any queries or you’ve found any mistakes in the article, please do share it in the comments.

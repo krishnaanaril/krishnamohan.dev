@@ -38,7 +38,8 @@ body {
     li {
         font-size: 1.2rem;
         display: inline-block;
-        margin: 5px 25px;        
+        margin: 5px 25px;  
+        cursor: pointer;      
     }
     li:hover {
         color: grey;
@@ -57,4 +58,18 @@ body {
     font-weight: bolder;
     padding: 0;
     .font-raleway;
+}
+
+a {
+    color: hsl(225, 46%, 42%);
+    text-decoration-line: none;
+    font-weight: bold;
+    &:hover {
+        color: hsl(258, 83%, 45%);
+        border-bottom: 2px solid hsl(9, 81%, 61%);
+      }
+  }
+
+  .mat-card-header-text {
+    margin: 0px !important;
 }

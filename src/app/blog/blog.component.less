@@ -24,20 +24,6 @@ img {
   margin: auto;
 }
 
-a {
-  color: hsl(225, 46%, 42%);
-  text-decoration-line: none;
-  font-weight: bold;
-}
-
-a:hover {
-  color: hsl(258, 83%, 45%);
-  text-decoration: underline;
-  text-decoration-color: hsl(9, 81%, 61%);
-  text-decoration-style: solid;
-  text-decoration-thickness: 2px;
-}
-
 img + em {
   display: block;
   word-break: break-all;
@@ -78,6 +64,15 @@ code {
   @media all and (max-width: @tab-width) {
     font-size: 3rem;
   }
+}
+
+blockquote::before {
+  content: '\201C';
+  position: absolute;
+  top: 0.3em;
+  left: -0.01em;
+  font-size: 4em;
+  color: #ffe66a;
 }
 
 hr {
