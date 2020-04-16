@@ -9,7 +9,8 @@ import { MetaService } from '../meta.service';
   styleUrls: ['./home.component.less'],
 })
 export class HomeComponent implements OnInit {
-  links$: Observable<any> = this.scully.available$;
+
+  links$: Observable<any> = this.scully.available$;  
 
   constructor(private scully: ScullyRoutesService,
     private metaService: MetaService) {}

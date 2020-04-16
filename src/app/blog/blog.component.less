@@ -15,8 +15,7 @@
   max-width: @tab-width;
   font-size: 18px;
   line-height: 1.5;
-  .font-raleway;
-  margin: 0px 10px;
+  .font-raleway;  
 }
 
 img {
@@ -73,7 +72,7 @@ code {
   line-height: 1;
   word-break: normal;
   display: block;
-  margin: 50px auto 10px auto;
+  margin: 0px auto 10px auto;
   text-align: center;
   .font-zilla-slab;
   @media all and (max-width: @tab-width) {
@@ -89,10 +88,14 @@ hr {
   &:extend(.blog-post);
 }
 
-mat-chip-list {
+.sub-items-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+}
+
+mat-chip-list {  
+  .sub-items-container;
+  margin: 50px auto 5px auto;
 }
 
 .keywords {

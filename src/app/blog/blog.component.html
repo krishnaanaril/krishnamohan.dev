@@ -1,11 +1,12 @@
 <div *ngIf="metaData" class="blog-post">
     <div class="title-section">
-        <h1 class="blog-title">{{ metaData.title }}</h1>
         <mat-chip-list aria-label="Blog tags/keywords">
-            <mat-chip class="keywords" color="primary" *ngFor="let keyword of metaData.keywords">{{ keyword}}</mat-chip>            
-          </mat-chip-list>          
-        <div>{{ metaData.date }}</div>
-        <div>{{ metaData.category }}</div>       
+            <mat-chip class="keywords" color="primary" *ngFor="let keyword of metaData.keywords">{{ keyword}}</mat-chip>
+        </mat-chip-list>
+        <h1 class="blog-title">{{ metaData.title }}</h1>
+        <div class="sub-items-container">
+            <time [datetime]="metaData.date">{{ metaData.date | date }}</time>
+        </div>
     </div>
     <hr>
     <scully-content></scully-content>
