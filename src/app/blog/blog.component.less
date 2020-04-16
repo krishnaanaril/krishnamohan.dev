@@ -10,6 +10,9 @@
 
 .blog-post {
   margin: auto;
+  @media all and (max-width: @tab-width) {
+    margin: 0 10px;
+  }
   word-wrap: break-word;
   hyphens: auto;
   max-width: @tab-width;
@@ -64,15 +67,6 @@ code {
   @media all and (max-width: @tab-width) {
     font-size: 3rem;
   }
-}
-
-blockquote::before {
-  content: '\201C';
-  position: absolute;
-  top: 0.3em;
-  left: -0.01em;
-  font-size: 4em;
-  color: #ffe66a;
 }
 
 hr {
