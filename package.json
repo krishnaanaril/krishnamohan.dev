@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "build-static": "npm run scully -- --nw",
     "replace-files": "rm -r ./dist/angular-portfolio/ && cp -r ./dist/static/ ./dist/angular-portfolio",
-    "gh-deploy": "ng deploy --no-build --cname=krishnamohan.dev",
+    "gh-deploy": "ng deploy --no-silent --no-build --cname=krishnamohan.dev",
     "pre-deploy": "npm run build && npm run build-static && npm run replace-files",
     "deploy": "npm run pre-deploy && npm run gh-deploy",
     "scan-routes": "npm run scully -- --scanRoutes",
