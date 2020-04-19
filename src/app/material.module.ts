@@ -3,9 +3,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
-import {
-  MatToolbarModule
-} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   exports: [
@@ -13,7 +11,7 @@ import {
     MatButtonModule,
     MatCardModule,
     MatChipsModule,
-    MatToolbarModule
+    MatToolbarModule,
   ],
 })
-export class MaterialModule { }
+export class MaterialModule {}

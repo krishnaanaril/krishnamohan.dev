@@ -19,7 +19,7 @@ import { MaterialModule } from './material.module';
       enabled: environment.production,
     }),
     ScullyLibModule,
-    MaterialModule
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

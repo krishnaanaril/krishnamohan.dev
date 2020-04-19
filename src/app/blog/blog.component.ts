@@ -15,7 +15,6 @@ declare var ng: any;
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class BlogComponent implements OnInit, OnDestroy {
-
   private subscriptions = new Subscription();
   current$: Observable<any> = this.scully.getCurrent();
   metaData: MetaData;
@@ -29,18 +28,23 @@ export class BlogComponent implements OnInit, OnDestroy {
           date: blog.date,
           category: blog.category ? blog.category : '',
           imageUrl: blog.image ? blog.image : '',
-          keywords: blog.keywords? blog.keywords.split(',').map(elem => elem.trim()) : [],
+          keywords: blog.keywords
+            ? blog.keywords.split(',').map((elem) => elem.trim())
+            : [],
           siteUrl: blog.route,
-          type: 'website'
+          type: 'website',
         };
         this.metaService.setMetaForCurrentPage(this.metaData);
       })
     );
-   }
+  }
 
-  constructor(private router: Router, private route: ActivatedRoute,
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
     private scully: ScullyRoutesService,
-    private metaService: MetaService) { }
+    private metaService: MetaService
+  ) {}
 
   ngOnDestroy() {
     this.subscriptions.unsubscribe();
