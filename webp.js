@@ -1,7 +1,7 @@
 const imagemin = require('imagemin'),
     webp = require("imagemin-webp"),   // imagemin's WebP plugin.
-    outputFolder = "./assets/img",            // Output folder
-    images = 'assets/img/*.{jpg,png}';        // PNG & JPEG images
+    outputFolder = "./src/assets/images",            // Output folder
+    images = './src/assets/images/*.{jpg,png}';        // PNG & JPEG images
 
 
 
