@@ -12,6 +12,5 @@ const imagemin = require('imagemin'),
             webp({ quality: 50 })
         ]
     });
-
-    console.log('Images optimized 1');
+    console.log('Images optimized.');
 })();
