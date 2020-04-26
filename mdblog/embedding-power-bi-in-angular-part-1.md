@@ -105,7 +105,9 @@ Here we need to create a service to call the API we created above. For that, let
 
 In the HTML page, create a ‘div’ with id ‘embedReport’. We’ll be showing report in this div. Embedding in div is done using Power BI JavaScript [library](https://github.com/Microsoft/PowerBI-JavaScript). You can add it to your angular application by running the following command.
 
->  `npm install — save powerbi-client`
+```bash
+npm install --save powerbi-client
+```
 
 Next, we need to create a method in component class to embed the reports as follows.
 

@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, OnDestroy, AfterViewChecked } from '@angular/core';
 import { ActivatedRoute, Router, ROUTES } from '@angular/router';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { Observable, Subscription } from 'rxjs';
 import { MetaService } from '../meta.service';
 import { MetaData } from '../meta-data.model';
+import { HighlightService } from './highlight.service';
 
 declare var ng: any;
 
@@ -14,7 +15,7 @@ declare var ng: any;
   preserveWhitespaces: true,
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class BlogComponent implements OnInit, OnDestroy {
+export class BlogComponent implements OnInit, AfterViewChecked, OnDestroy {
   private subscriptions = new Subscription();
   current$: Observable<any> = this.scully.getCurrent();
   metaData: MetaData;
@@ -39,10 +40,15 @@ export class BlogComponent implements OnInit, OnDestroy {
     );
   }
 
-  constructor(    
+  constructor(
     private scully: ScullyRoutesService,
-    private metaService: MetaService
-  ) {}
+    private metaService: MetaService,
+    private highlightService: HighlightService
+  ) { }
+
+  ngAfterViewChecked() {
+    this.highlightService.highlightAll();
+  }
 
   ngOnDestroy() {
     this.subscriptions.unsubscribe();

@@ -38,13 +38,17 @@ If you’ve a dotnet core application with version 1.x, you can do the following
 
 • Upgraded test related nuget refernces to latest version
 
-`<PackageReference Include=”Microsoft.NET.Test.Sdk” Version=”15.9.0" />
+```xml
+<PackageReference Include=”Microsoft.NET.Test.Sdk” Version=”15.9.0" />
 <PackageReference Include=”MSTest.TestAdapter” Version=”1.3.2" />
- <PackageReference Include=”MSTest.TestFramework” Version=”1.3.2" />`
+ <PackageReference Include=”MSTest.TestFramework” Version=”1.3.2" />
+ ```
 
 • Add the following config in *.csproj files. More information is available [here.](https://github.com/Microsoft/vstest/issues/800)
 
-`<DebugType>Full</DebugType>`
+```xml
+<DebugType>Full</DebugType>
+```
 
 ## Running tests with CLI
 
@@ -91,7 +95,7 @@ To get the xml file you can use the following command:
 
 We need to run another command using the installed ReportGenerator.dll.
 
-```bash
+```shell
 dotnet <UserProfile>\.nuget\packages\reportgenerator\<version>\tools\netcoreapp2.1\ReportGenerator.dll "-reports:<Coveragexml file path>" "-targetdir:<path to coverage report>"
 <#
 Eg: dotnet C:\Users\krishnamohan\.nuget\packages\reportgenerator\4.1.10\tools\netcoreapp2.1\ReportGenerator.dll "-reports:d:\MyTestOutput.coveragexml" "-targetdir:d:\coveragereport"
@@ -104,7 +108,7 @@ This will generate reports in *.htm format in the given output folder. If you op
 
 ## Powershell script with all the steps
 
- ```sh
+ ```powershell
  param(
     [Parameter(Mandatory=$true)]
     [string]$testProjectPath,

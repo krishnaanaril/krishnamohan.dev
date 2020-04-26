@@ -63,10 +63,14 @@ Read [this](https://docs.microsoft.com/en-us/power-bi/developer/embed-sample-for
 Our application should authenticate user to Azure Active Directory (AD) and generate the access token. This access token is used as the [bearer ](https://oauth.net/2/bearer-tokens/)token for subsequent Power BI API requests.
 
 For authenticating with Azure AD, we’ll be using [this](https://github.com/AzureAD/azure-activedirectory-library-for-js) library. You can add this to your angular project by running the following command.
-> `npm install adal-angular`
+```bash
+npm install adal-angular
+```
 
 In the HTML page, create a ‘div’ with id ‘embedReport’. We’ll be showing report in this div. Embedding in div is done using Power BI JavaScript [library](https://github.com/Microsoft/PowerBI-JavaScript). You can add it to your angular application by running the following command.
-> `npm install — save powerbi-client`
+```bash
+npm install --save powerbi-client
+```
 
 Now we’ve added the additional libraries for your requirement and can we start coding the the authentication service as follows.
 
