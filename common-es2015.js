@@ -32,16 +32,22 @@ class MetaService {
         this.meta.addTag({ name: 'og:title', content: metaData.title });
         this.meta.addTag({ name: 'og:description', content: metaData.description });
         this.meta.addTag({ name: 'og:image', content: metaData.imageUrl });
-        // Twitter 
+        // Twitter
         this.meta.addTag({ name: 'twitter:card', content: 'summary_large_image' });
         this.meta.addTag({ name: 'twitter:url', content: metaData.siteUrl });
         this.meta.addTag({ name: 'twitter:title', content: metaData.title });
-        this.meta.addTag({ name: 'twitter:description', content: metaData.description });
+        this.meta.addTag({
+            name: 'twitter:description',
+            content: metaData.description,
+        });
         this.meta.addTag({ name: 'twitter:image', content: metaData.imageUrl });
         this.meta.addTag({ name: 'twitter:site', content: '@krishnaanaril' });
         this.meta.addTag({ name: 'twitter:creator', content: '@krishnaanaril' });
         // Optional
-        this.meta.addTag({ name: 'keywords', content: metaData.keywords.join(', ') });
+        this.meta.addTag({
+            name: 'keywords',
+            content: metaData.keywords.join(', '),
+        });
     }
 }
 MetaService.ɵfac = function MetaService_Factory(t) { return new (t || MetaService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["Meta"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["Title"])); };
@@ -49,7 +55,7 @@ MetaService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjec
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MetaService, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
         args: [{
-                providedIn: 'root'
+                providedIn: 'root',
             }]
     }], function () { return [{ type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["Meta"] }, { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["Title"] }]; }, null); })();
 

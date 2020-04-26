@@ -78,7 +78,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.meta.addTag({
             name: 'og:image',
             content: metaData.imageUrl
-          }); // Twitter 
+          }); // Twitter
 
           this.meta.addTag({
             name: 'twitter:card',

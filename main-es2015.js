@@ -167,7 +167,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector
                 enabled: _environments_environment__WEBPACK_IMPORTED_MODULE_6__["environment"].production,
             }),
             _scullyio_ng_lib__WEBPACK_IMPORTED_MODULE_7__["ScullyLibModule"],
-            _material_module__WEBPACK_IMPORTED_MODULE_8__["MaterialModule"]
+            _material_module__WEBPACK_IMPORTED_MODULE_8__["MaterialModule"],
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]], imports: [_app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
         _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_1__["BrowserAnimationsModule"],
@@ -185,7 +185,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector
                         enabled: _environments_environment__WEBPACK_IMPORTED_MODULE_6__["environment"].production,
                     }),
                     _scullyio_ng_lib__WEBPACK_IMPORTED_MODULE_7__["ScullyLibModule"],
-                    _material_module__WEBPACK_IMPORTED_MODULE_8__["MaterialModule"]
+                    _material_module__WEBPACK_IMPORTED_MODULE_8__["MaterialModule"],
                 ],
                 providers: [],
                 bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]],
@@ -239,7 +239,7 @@ MaterialModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInj
                     _angular_material_button__WEBPACK_IMPORTED_MODULE_2__["MatButtonModule"],
                     _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardModule"],
                     _angular_material_chips__WEBPACK_IMPORTED_MODULE_4__["MatChipsModule"],
-                    _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_5__["MatToolbarModule"]
+                    _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_5__["MatToolbarModule"],
                 ],
             }]
     }], null, null); })();
