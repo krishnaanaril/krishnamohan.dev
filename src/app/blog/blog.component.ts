@@ -39,9 +39,7 @@ export class BlogComponent implements OnInit, OnDestroy {
     );
   }
 
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
+  constructor(    
     private scully: ScullyRoutesService,
     private metaService: MetaService
   ) {}

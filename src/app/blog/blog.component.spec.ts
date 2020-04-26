@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BlogComponent } from './Blog.component';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ScullyRoutesService } from '@scullyio/ng-lib';
+import { MetaService } from '../meta.service';
 
 describe('BlogComponent', () => {
   let component: BlogComponent;
@@ -9,6 +12,7 @@ describe('BlogComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [BlogComponent],
+      providers: [ScullyRoutesService, MetaService]
     }).compileComponents();
   }));
 
