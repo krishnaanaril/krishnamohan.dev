@@ -67,6 +67,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "prettier": "^2.0.4",
     "protractor": "^5.4.0",
+    "scully-plugin-webpimages": "0.0.5",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
     "typescript": "~3.8.3"
