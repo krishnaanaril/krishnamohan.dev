@@ -29,7 +29,7 @@ Want merge changes without a commit? Then use `git merge branch1 --squash`. This
 ## Git Rebase
 Rebase too helps in merging branches, but in a different way. Here first all changes in the target branch will be saved to a temporary area, then target branch is reset to source branch and saved commits are replayed one by one on top of it.
 [image]
-In case of conflict rebasing process will be paused and we need to manually fix the conflicts. Once done you can run `git rebase --continue` to continue the process. Else you can skip the commit using `git rebase --skip`
+In case of conflict rebasing process will be paused and we need to manually fix the conflicts. Once done you can run `git rebase --continue` to continue the process. Else you can skip the commit using `git rebase --skip`. 
 
 ###  Questions
 1. What is --exec <cmd>? 
