@@ -12,7 +12,7 @@ describe('BlogComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [BlogComponent],
-      providers: [ScullyRoutesService, MetaService]
+      providers: [ScullyRoutesService, MetaService],
     }).compileComponents();
   }));
 

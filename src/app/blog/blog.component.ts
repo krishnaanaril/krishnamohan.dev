@@ -1,10 +1,15 @@
-import { Component, OnInit, ViewEncapsulation, OnDestroy, AfterViewChecked } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewEncapsulation,
+  OnDestroy,
+  AfterViewChecked,
+} from '@angular/core';
 import { ActivatedRoute, Router, ROUTES } from '@angular/router';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { Observable, Subscription } from 'rxjs';
 import { MetaService } from '../meta.service';
 import { MetaData } from '../meta-data.model';
-
 
 declare var ng: any;
 
@@ -43,8 +48,8 @@ export class BlogComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   constructor(
     private scully: ScullyRoutesService,
-    private metaService: MetaService    
-  ) { }
+    private metaService: MetaService
+  ) {}
 
   ngAfterViewChecked() {}
 
