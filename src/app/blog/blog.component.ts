@@ -4,7 +4,7 @@ import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { Observable, Subscription } from 'rxjs';
 import { MetaService } from '../meta.service';
 import { MetaData } from '../meta-data.model';
-import { HighlightService } from './highlight.service';
+
 
 declare var ng: any;
 
@@ -43,13 +43,10 @@ export class BlogComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   constructor(
     private scully: ScullyRoutesService,
-    private metaService: MetaService,
-    private highlightService: HighlightService
+    private metaService: MetaService    
   ) { }
 
-  ngAfterViewChecked() {
-    this.highlightService.highlightAll();
-  }
+  ngAfterViewChecked() {}
 
   ngOnDestroy() {
     this.subscriptions.unsubscribe();
