@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators'
+import { map } from 'rxjs/operators';
 import { MetaService } from '../meta.service';
 
 @Component({
@@ -11,15 +11,15 @@ import { MetaService } from '../meta.service';
 })
 export class HomeComponent implements OnInit {
   links$: Observable<any> = this.scully.available$.pipe(
-    map((links: ScullyRoute[])=> links.reverse())
-  );  
+    map((links: ScullyRoute[]) => links.reverse())
+  );
 
   constructor(
     private scully: ScullyRoutesService,
     private metaService: MetaService
   ) {}
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
     this.metaService.setMetaForCurrentPage({
       title: 'Krishna Mohan A M',
       description:
