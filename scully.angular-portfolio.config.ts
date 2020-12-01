@@ -1,10 +1,7 @@
-const {webpImagesPlugin} = require("scully-plugin-webpimages");
+import { ScullyConfig } from '@scullyio/scully';
 
-const postRenderers = ['webpimages'];
-
-exports.config = {
+export const config: ScullyConfig = {
   projectRoot: "./src",
-  defaultPostRenderers: postRenderers,
   projectName: "angular-portfolio",
   outDir: './dist/static',
   routes: {
