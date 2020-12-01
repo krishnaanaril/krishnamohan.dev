@@ -51,7 +51,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "angular-cli-ghpages": "^0.6.2",
-    "codelyzer": "^5.1.2",
+    "codelyzer": "^5.2.2",
     "copy-webpack-plugin": "^4.5.2",
     "imagemin": "^7.0.1",
     "imagemin-mozjpeg": "^9.0.0",
