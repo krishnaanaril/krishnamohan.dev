@@ -102,11 +102,7 @@ class HomeComponent {
     constructor(scully, metaService) {
         this.scully = scully;
         this.metaService = metaService;
-        this.links$ = this.scully.available$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((links) => links.sort((a, b) => {
-            const aDate = new Date(a.date);
-            const bDate = new Date(b.date);
-            return bDate.getTime() - aDate.getTime();
-        })));
+        this.links$ = this.scully.available$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((links) => links.reverse()));
     }
     ngOnInit() {
         this.metaService.setMetaForCurrentPage({

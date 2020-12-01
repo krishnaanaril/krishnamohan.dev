@@ -225,11 +225,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.scully = scully;
         this.metaService = metaService;
         this.links$ = this.scully.available$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (links) {
-          return links.sort(function (a, b) {
-            var aDate = new Date(a.date);
-            var bDate = new Date(b.date);
-            return bDate.getTime() - aDate.getTime();
-          });
+          return links.reverse();
         }));
       }
 
