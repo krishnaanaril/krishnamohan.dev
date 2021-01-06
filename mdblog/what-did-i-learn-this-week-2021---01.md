@@ -2,12 +2,11 @@
 title: What did I learn this week (2021) - 01
 description: Weekly summarisation and review of things I've learned in the first week of January 2021 
 published: true
-date: 2020-05-08
-category: tech
+date: 2021-01-03
+category: learnings
 keywords: space, css
 ---
 
-# What did I learn this week (2021) - 01
 
 Since this is the first and shortest week of the year, I don't have much items here.
 
