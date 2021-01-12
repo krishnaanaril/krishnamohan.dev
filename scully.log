@@ -102,3 +102,144 @@ Using stored unhandled routes!.
       document.querySelector('scully-content')
       ----------------
       
+
+      ----------------
+      Error, missing "<scully-content>" in route "/blog/___UNPUBLISHED___kju8uh4x_62C0Ts2JBr7WOmQSinAr8iU7zkYXsZib"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "http://localhost:4200/blog/___UNPUBLISHED___kju8uh4x_62C0Ts2JBr7WOmQSinAr8iU7zkYXsZib"
+      when you serve your app with ng serve and then in the browsers console run:
+      document.querySelector('scully-content')
+      ----------------
+      
+
+      ----------------
+      Error, missing "<scully-content>" in route "/blog/___UNPUBLISHED___k8sj0zo9_jBeMj59zOKD2ig1l5ep1ncjL6fUUUn8g"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "http://localhost:4200/blog/___UNPUBLISHED___k8sj0zo9_jBeMj59zOKD2ig1l5ep1ncjL6fUUUn8g"
+      when you serve your app with ng serve and then in the browsers console run:
+      document.querySelector('scully-content')
+      ----------------
+      
+
+----------------------------------
+Using stored unhandled routes!.
+   To discover new routes in the angular app use "npm run scully -- --scanRoutes"
+----------------------------------
+Puppeteer error while rendering "/blog/embedding-power-bi-in-angular-part-1"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/embedding-powerbi-in-angular-part-2"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/file-upload---with-angular-and-dotnet-core-web-api"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/generating-code-coverage-reports-in-dotnet-core"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/___UNPUBLISHED___k8sj0zo9_jBeMj59zOKD2ig1l5ep1ncjL6fUUUn8g"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/understanding-git"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/understanding-google-outages"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/what-did-i-learn-this-week-2021---01"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/___UNPUBLISHED___kju8uh4x_62C0Ts2JBr7WOmQSinAr8iU7zkYXsZib"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering ""
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/embedding-power-bi-in-angular-part-1"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/embedding-powerbi-in-angular-part-2"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/file-upload---with-angular-and-dotnet-core-web-api"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/generating-code-coverage-reports-in-dotnet-core"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/___UNPUBLISHED___k8sj0zo9_jBeMj59zOKD2ig1l5ep1ncjL6fUUUn8g"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/understanding-git"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/understanding-google-outages"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/what-did-i-learn-this-week-2021---01"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/___UNPUBLISHED___kju8uh4x_62C0Ts2JBr7WOmQSinAr8iU7zkYXsZib"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering ""
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+
+      ----------------
+      Error, missing "<scully-content>" in route "/blog/___UNPUBLISHED___k8sj0zo9_jBeMj59zOKD2ig1l5ep1ncjL6fUUUn8g"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "http://localhost:4200/blog/___UNPUBLISHED___k8sj0zo9_jBeMj59zOKD2ig1l5ep1ncjL6fUUUn8g"
+      when you serve your app with ng serve and then in the browsers console run:
+      document.querySelector('scully-content')
+      ----------------
+      
+Puppeteer error while rendering "/blog/embedding-powerbi-in-angular-part-2"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/generating-code-coverage-reports-in-dotnet-core"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/understanding-git"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/understanding-google-outages"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/what-did-i-learn-this-week-2021---01"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+Puppeteer error while rendering "/blog/___UNPUBLISHED___kju8uh4x_62C0Ts2JBr7WOmQSinAr8iU7zkYXsZib"
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.Puppeteer error while rendering ""
+TimeoutError: Navigation timeout of 30000 ms exceeded
+ we will retry rendering this page up to 3 times.
+
+
+----------------------------------
+Using stored unhandled routes!.
+   To discover new routes in the angular app use "npm run scully -- --scanRoutes"
+----------------------------------
+
+      ----------------
+      Error, missing "<scully-content>" in route "/blog/what-did-i-learn-this-week-2021---02"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "http://localhost:4200/blog/what-did-i-learn-this-week-2021---02"
+      when you serve your app with ng serve and then in the browsers console run:
+      document.querySelector('scully-content')
+      ----------------
+      
+
+      ----------------
+      Error, missing "<scully-content>" in route "/blog/___UNPUBLISHED___k8sj0zo9_jBeMj59zOKD2ig1l5ep1ncjL6fUUUn8g"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "http://localhost:4200/blog/___UNPUBLISHED___k8sj0zo9_jBeMj59zOKD2ig1l5ep1ncjL6fUUUn8g"
+      when you serve your app with ng serve and then in the browsers console run:
+      document.querySelector('scully-content')
+      ----------------
+      
