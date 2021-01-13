@@ -2,11 +2,9 @@
 title: 'What did I learn this week (2021) - 02'
 description: 'Weekly summarisation and review of things I''ve learned in the second week of January 2021'
 published: true
-date: 2021-01-03T00:00:00.000Z
+date: 2021-01-10T00:00:00.000Z
 category: learnings
-keywords: 'space, css'
-slugs:
-    - ___UNPUBLISHED___kju8uh4x_62C0Ts2JBr7WOmQSinAr8iU7zkYXsZib
+keywords: 'resume, f#'    
 ---
 
 # What did I learn this week (2021) - 02
