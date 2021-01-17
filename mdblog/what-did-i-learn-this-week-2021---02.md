@@ -7,8 +7,6 @@ category: learnings
 keywords: 'resume, f#'    
 ---
 
-# What did I learn this week (2021) - 02
-
 1. Watched the Scott Wlashin talk - [The Functional Programming Toolkit](https://www.youtube.com/watch?v=Nrp_LZ-XGsY) and I got a high level understanding of Monad, Monoid, Functor and Effects.
 2. I came to know that largest terrestial vehicle is a German made '[Bagger 288](https://en.wikipedia.org/wiki/Bagger_288)' whose construction is completed in 1978.
 3. There is a [deep learning based ai tool](https://deepai.org/machine-learning-model/colorizer) for colorizing old images, and it is working pretty good with my given samples. Source code of this tool is available in [github](https://github.com/jantic/DeOldify).
