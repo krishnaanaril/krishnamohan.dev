@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
       siteUrl: 'https://krishnamohan.dev',
       type: 'website',
     });
-    this.links$ = this.scully.available$.pipe(      
+    this.links$ = this.scully.available$.pipe(
       map((links: ScullyRoute[]) => links.slice().reverse())
     );
   }
