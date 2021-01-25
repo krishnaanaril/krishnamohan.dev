@@ -1,6 +1,6 @@
 ---
 title: What did I learn this week (2021) - 03
-description: 'Weekly summarisation and review of things I''ve learned in the third week of January 2021'
+description: 'Weekly summarization and review of things I''ve learned in the third week of January 2021'
 published: true
 date: 2021-01-17T00:00:00.000Z
 category: learnings
@@ -17,7 +17,7 @@ keywords: 'cloud, finance'
 
 4. [Aaron Swartz](https://en.wikipedia.org/wiki/Aaron_Swartz)'s Amazon [wishlist](https://www.amazon.com/hz/wishlist/ls/2A6HM9B19FOPW/), which is a good collection of interesting books. Aaron Swartz died on Jan 11 8 years ago.
 
-5. In physics, the [n-body problem](https://en.wikipedia.org/wiki/N-body_problem) is the problem of predicting the individual motions of a group of celstial objects interacting with each other gravitationally. The [three-body problem](https://en.wikipedia.org/wiki/Three-body_problem) is a special case of n-body problem and there is a famous 
+5. In physics, the [n-body problem](https://en.wikipedia.org/wiki/N-body_problem) is the problem of predicting the individual motions of a group of celestial objects interacting with each other gravitationally. The [three-body problem](https://en.wikipedia.org/wiki/Three-body_problem) is a special case of n-body problem and there is a famous 
 [Chinese novel series](https://en.wikipedia.org/wiki/Remembrance_of_Earth%27s_Past) associated with it.
 
 6. Came to know about [Vitalik Buterin](https://en.wikipedia.org/wiki/Vitalik_Buterin), the founder of [Ethereum](https://en.wikipedia.org/wiki/Ethereum) and his [blog](https://vitalik.ca/general/2020/11/08/concave.html).
