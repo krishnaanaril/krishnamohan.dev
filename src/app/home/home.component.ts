@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { MetaService } from '../meta.service';
 
 @Component({
@@ -10,9 +10,7 @@ import { MetaService } from '../meta.service';
   styleUrls: ['./home.component.less'],
 })
 export class HomeComponent implements OnInit {
-  links$: Observable<any> = this.scully.available$.pipe(
-    map((links: ScullyRoute[]) => links.reverse())
-  );
+  links$: Observable<any>;
 
   constructor(
     private scully: ScullyRoutesService,
@@ -30,5 +28,8 @@ export class HomeComponent implements OnInit {
       siteUrl: 'https://krishnamohan.dev',
       type: 'website',
     });
+    this.links$ = this.scully.available$.pipe(      
+      map((links: ScullyRoute[]) => links.slice().reverse())
+    );
   }
 }
