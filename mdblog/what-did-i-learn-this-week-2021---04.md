@@ -4,7 +4,7 @@ description: 'Weekly summarization and review of things I''ve learned in the fou
 published: true
 date: 2021-01-24T00:00:00.000Z
 category: learnings
-keywords: 'cloud'
+keywords: cloud, ddd, css
 ---
 
 1. How to add css class to an element in [browser devtools](https://developers.google.com/web/tools/chrome-devtools/css#classes) with auto completion. I was learning tailwindcss with angular with each change requiring a rebuild. I thought of creating an extension with tailwind intellisense in browser similar to the VS code extension, but then I found this in-built feature.

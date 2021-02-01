@@ -1,10 +1,10 @@
 ---
 title: What did I learn this week 2021 - 05
-description: blog description
+description: 'Weekly summarization and review of things I''ve learned in the final week of January 2021'
 published: true
 date: 2021-01-31T00:00:00.000Z
 category: learnings
-keywords: 'cloud'
+keywords: 'dark patterns', Gandhi, Finance
 ---
 
 1. [Projection Clock](https://en.wikipedia.org/wiki/Projection_clock): I wasn't aware of this product, but seems useful. Need to try it.
@@ -15,7 +15,7 @@ keywords: 'cloud'
 6. Gandhi's books are available for free as [ebooks](https://www.mkgandhi.org/ebks/gandhiebooks.htm).
 7. [Short Squeeze](https://www.investopedia.com/terms/s/shortsqueeze.asp): A short squeeze occurs when a stock or other asset jumps sharply higher, forcing traders who had bet that its price would fall, to buy it in order to forestall even greater losses. Their scramble to buy only adds to the upward pressure on the stock's price. 
 8. **Pre mortem** : A pre-mortem, or pre-mortem, is a managerial strategy in which a project team imagines that a project or organization has failed, and then works backward to determine what potentially could lead to the failure of the project or organization.
-9. [Dark Patterns](https://webtransparency.cs.princeton.edu/dark-patterns/): There are 15 types of dark patterns categorised into 7 groups as follows:
+9. [Dark Patterns](https://webtransparency.cs.princeton.edu/dark-patterns/): There are 15 types of dark patterns categorized into 7 groups as follows:
     * Sneaking
 
         1. **Sneak into basket**: Adding additional products to user's cart without their consent.
