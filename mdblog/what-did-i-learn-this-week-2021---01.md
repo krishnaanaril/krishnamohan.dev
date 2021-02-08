@@ -1,6 +1,6 @@
 ---
 title: What did I learn this week (2021) - 01
-description: Weekly summarisation and review of things I've learned in the first week of January 2021 
+description: Weekly summarization and review of things I've learned in the first week of January 2021 
 published: true
 date: 2021-01-03
 category: learnings

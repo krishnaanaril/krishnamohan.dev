@@ -4,7 +4,7 @@ description: 'Weekly summarization and review of things I''ve learned in the fin
 published: true
 date: 2021-01-31T00:00:00.000Z
 category: learnings
-keywords: 'dark patterns', Gandhi, Finance
+keywords: dark-patterns, Gandhi, Finance
 ---
 
 1. [Projection Clock](https://en.wikipedia.org/wiki/Projection_clock): I wasn't aware of this product, but seems useful. Need to try it.
