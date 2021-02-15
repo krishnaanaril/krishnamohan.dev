@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map, take, tap } from 'rxjs/operators';
 import { MetaService } from '../meta.service';
 
 @Component({
@@ -29,7 +29,17 @@ export class HomeComponent implements OnInit {
       type: 'website',
     });
     this.links$ = this.scully.available$.pipe(
-      map((links: ScullyRoute[]) => links.slice().reverse())
+      map(
+        (links: ScullyRoute[]) =>
+          links.slice().sort((a, b) => {
+            const aDate = new Date(a.date);
+            const bDate = new Date(b.date);
+            if (aDate < bDate) return 1;
+            if (aDate > bDate) return -1;
+            return 0;
+          }),
+        take(6)
+      )
     );
   }
 }
