@@ -1,8 +1,8 @@
 <div *ngIf="metaData" class="blog-post">
     <div class="title-section">
-        <mat-chip-list aria-label="Blog tags/keywords">
-            <mat-chip class="keywords" color="primary" *ngFor="let keyword of metaData.keywords">{{ keyword}}</mat-chip>
-        </mat-chip-list>
+        <div aria-label="Blog tags/keywords">
+            <div class="keywords" color="primary" *ngFor="let keyword of metaData.keywords">{{ keyword}}</div>
+        </div>
         <h1 class="blog-title">{{ metaData.title }}</h1>
         <div class="sub-items-container">
             <time [datetime]="metaData.date">{{ metaData.date | date }}</time>

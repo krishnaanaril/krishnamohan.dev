@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ScullyLibModule } from '@scullyio/ng-lib';
-import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,8 +17,7 @@ import { MaterialModule } from './material.module';
     ServiceWorkerModule.register('/ngsw-worker.js', {
       enabled: environment.production,
     }),
-    ScullyLibModule,
-    MaterialModule,
+    ScullyLibModule    
   ],
   providers: [],
   bootstrap: [AppComponent],

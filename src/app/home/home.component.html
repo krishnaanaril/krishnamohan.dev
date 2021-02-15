@@ -4,27 +4,27 @@
     <source type="image/jpeg" srcset="/assets/images/dp.jpg">
     <img src="/assets/images/dp.jpg" alt="Krishna Mohan's Avatar" class="author-avatar">
   </picture>
-  <h1 class="author-title">Krishna Mohan A M</h1>
+  <h1 class="text-3xl m-auto">Krishna Mohan A M</h1>
   <p class="author-subtitle">
     <span>Software Engineer</span> . <span>Artist</span> . <span>Amateur Footballer</span>
   </p>
 </div>
 
-<div class="blog-links">
+<div class="">
   <ng-container *ngFor="let page of links$ | async">
-    <mat-card class="blog-card" *ngIf="page.published">
-      <mat-card-header>
-        <h2>{{ page.title }}</h2>
-      </mat-card-header>
-      <mat-card-content>
+    <div class="p-2 m-2 rounded-lg shadow-lg" *ngIf="page.published">
+      <div>
+        <h2 class="text-xl mt-0.5 mb-0.5">{{ page.title }}</h2>
+      </div>
+      <div class="text-gray-700 mt-1.5 mb-1.5">
         <p>
           {{page.description}}
         </p>
-      </mat-card-content>
-      <mat-card-actions>
+      </div>
+      <div>
         <a [routerLink]="page.route">READ MORE</a>
-      </mat-card-actions>
-    </mat-card>
+      </div>
+    </div>
   </ng-container>
   <div class="filling-empty-space-childs"></div>
 </div>
