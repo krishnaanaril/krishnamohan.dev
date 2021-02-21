@@ -1,35 +1,46 @@
-<div class="flex flex-col h-screen justify-evenly w-screen">
-  <div class="flex flex-col">
-    <h1 class="font-bold m-auto text-3xl">Krishna Mohan A M</h1>
-    <p class="">
-      <span>Software Engineer</span> . <span>Artist</span> . <span>Amateur Footballer</span>
-    </p>
-  </div>
-  <div class="m-4">
-    <picture>
-      <source type="image/webp" srcset="/assets/images/dp.webp">
-      <source type="image/jpeg" srcset="/assets/images/dp.jpg">
-      <img src="/assets/images/dp.jpg" alt="Krishna Mohan's Avatar"
-        class="filter-grayscale rounded-lg hover:filter-none">
-    </picture>
-  </div>
-</div>
-
-<div class="">
-  <ng-container *ngFor="let page of links$ | async">
-    <div class="p-2 m-2 rounded-lg shadow-lg" *ngIf="page.published">
-      <div>
-        <h2 class="text-xl mt-0.5 mb-0.5">{{ page.title }}</h2>
-      </div>
-      <div class="text-gray-700 mt-1.5 mb-1.5">
-        <p>
-          {{page.description}}
-        </p>
-      </div>
-      <div>
-        <a [routerLink]="page.route">READ MORE</a>
-      </div>
+<div class="container mx-auto">
+  <div
+    class="flex flex-col h-screen justify-evenly bg-gray-200 text-gray-800 lg:flex-row dark:bg-gray-800 dark:text-gray-50">
+    <div class="flex flex-col">
+      <h1 class="font-bold m-auto text-3xl">Krishna Mohan A M</h1>
+      <p class="m-auto">
+        <span>Software Engineer</span> . <span>Artist</span> . <span>Amateur Footballer</span>
+      </p>
     </div>
-  </ng-container>
-  <div class="filling-empty-space-childs"></div>
+    <div class="m-4">
+      <picture>
+        <source type="image/webp" srcset="/assets/images/dp.webp">
+        <source type="image/jpeg" srcset="/assets/images/dp.jpg">
+        <img src="/assets/images/dp.jpg" alt="Krishna Mohan's Avatar"
+          class="filter-grayscale rounded-lg hover:filter-none lg:w-1/4">
+      </picture>
+    </div>
+  </div>
+
+  <div class="bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
+    <div class="flex flex-row">
+      <h2 class="mx-auto text-2xl">Recent Blogs</h2>
+    </div>
+    <div class="flex flex-row flex-wrap justify-center">
+      <ng-container *ngFor="let page of (links$ | async); let i = index;">
+        <div class="p-2 m-2 rounded-lg shadow-lg w-full py-5 md:w-2/5 md:px-4 lg:w-1/3 lg:px-6 xl:w-1/4" *ngIf="page.published">
+          <img class="w-full" src="https://source.unsplash.com/random/640x420?sig={{i}}" [alt]="page.title">
+          <div class="px-6 py-4">
+            <div>
+              <h2 class="text-xl mt-0.5 mb-0.5">{{ page.title }}</h2>
+            </div>
+            <div class="text-gray-700 mt-1.5 mb-1.5 line-clamp-3 dark:text-gray-400">
+              <p>
+                {{page.description}}
+              </p>
+            </div>
+          </div>
+          <div>
+            <a [routerLink]="page.route">READ MORE</a>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="filling-empty-space-childs"></div>
+  </div>
 </div>

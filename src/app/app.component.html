@@ -1,12 +1,21 @@
-<div class="w-screen bg-gray-200">
-    <nav>
-        <ul class="hidden">
-            <li routerLink="/" routerLinkActive="nav-active" [routerLinkActiveOptions]="{ exact: true }">Home</li>
-            <li>Blog</li>
-            <li>Projects</li>
-            <li>About</li>
-        </ul>
-    </nav>
+<div class="bg-gray-200 text-gray-800 dark:bg-black dark:text-gray-50">
+    <div class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
+        <section class="flex flex-row justify-center">
+            <nav>
+                <ul class="lg:text-xl lg:flex lg:flex-row">
+                    <li class="p-3" routerLink="/" routerLinkActive="border-b-2" [routerLinkActiveOptions]="{ exact: true }">Home</li>
+                    <li class="p-3">Blog</li>
+                    <li class="p-3">Projects</li>
+                    <li class="p-3">About</li>
+                </ul>
+            </nav>
+        </section>
+    </div>
+    
+    <router-outlet></router-outlet>
+    <footer class="container mx-auto flex flex-row bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
+        <div class="mx-auto p-5 text-sm">            
+            <p>© 2020-present Krishna Mohan A M. All Rights Reserved.</p>
+        </div>
+    </footer>
 </div>
-
-<router-outlet></router-outlet>
