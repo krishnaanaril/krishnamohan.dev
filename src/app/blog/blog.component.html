@@ -1,17 +1,17 @@
-<div *ngIf="metaData" class="blog-post">
-    <div class="title-section">
-        <div aria-label="Blog tags/keywords">
-            <div class="keywords" color="primary" *ngFor="let keyword of metaData.keywords">{{ keyword}}</div>
-        </div>
-        <h1 class="blog-title">{{ metaData.title }}</h1>
-        <div class="sub-items-container">
+<div *ngIf="metaData" class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
+    <div class="">
+        <!-- <div aria-label="Blog tags/keywords">
+            <div color="primary" *ngFor="let keyword of metaData.keywords">{{ keyword}}</div>
+        </div> -->
+        <h1 class="text-3xl">{{ metaData.title }}</h1>
+        <div>
             <time [datetime]="metaData.date">{{ metaData.date | date }}</time>
         </div>
     </div>
     <hr>
     <scully-content></scully-content>
     <hr>
-    <div class="post-footer">
+    <!-- <div>
         Have questions/comments? Tweet @<a href="https://twitter.com/krishnaanaril">krishnaanaril</a>
-    </div>
+    </div> -->
 </div>
