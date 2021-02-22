@@ -7,7 +7,6 @@ category: learnings
 keywords: comics, dotnet
 ---
 
-# What did I learn this week (2021) - 07
 
 1. Author of famous [NewtonSoft.json](https://www.newtonsoft.com/json) is a kiwi(?) named [James Newton-King](https://twitter.com/JamesNK)
 2. [Bear Spray](https://en.wikipedia.org/wiki/Bear_spray) is a specific aerosol bear deterrent, whose active ingredients are capsaicin and related capsaicinoids, that is used to deter aggressive or charging bears.
