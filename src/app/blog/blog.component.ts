@@ -27,8 +27,7 @@ export class BlogComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   ngOnInit() {
     this.subscriptions.add(
-      this.current$.subscribe((blog: ScullyRoute) => {
-        console.log(blog);
+      this.current$.subscribe((blog: ScullyRoute) => {        
         this.metaData = {
           title: blog.title,
           description: blog.description,
