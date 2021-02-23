@@ -3,5 +3,37 @@ ol {
     @apply list-decimal
 }
 ul {
-    @apply list-disc
+    @apply list-disc pl-10
+}
+
+p {
+    @apply pt-5 pb-5
+}
+
+h2 {
+    @apply text-3xl mt-5 mb-5
+}
+
+h3 {
+    @apply text-2xl mt-3 mb-3
+}
+
+pre {
+    @apply p-5 bg-gray-300 overflow-x-auto    
+}
+
+pre {
+    &.dark {
+        @apply bg-gray-700
+    }
+}
+
+code {
+    @apply bg-gray-300 pt-1 pb-1 pl-2 pr-2    
+}
+
+code {
+    &.dark {
+        @apply bg-gray-700
+    }
 }
