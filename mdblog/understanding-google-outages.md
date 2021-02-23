@@ -4,6 +4,7 @@ description: An overview of two major outages happened on 14th December, 2020. T
 published: true
 date: 2021-01-06
 category: tech
+image: 'https://krishnamohan.dev/assets/banners/06.png'
 keywords: google, outage
 ---
 

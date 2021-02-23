@@ -4,6 +4,7 @@ description: Weekly summarization and review of things I've learned in the first
 published: true
 date: 2021-02-07T00:00:00.000Z
 category: learnings
+image: 'https://krishnamohan.dev/assets/banners/13.png'
 keywords: Politics, Farming
 ---
 

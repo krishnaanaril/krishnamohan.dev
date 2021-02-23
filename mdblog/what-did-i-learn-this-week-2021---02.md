@@ -4,6 +4,7 @@ description: 'Weekly summarisation and review of things I''ve learned in the sec
 published: true
 date: 2021-01-10T00:00:00.000Z
 category: learnings
+image: 'https://krishnamohan.dev/assets/banners/09.png'
 keywords: 'resume, f#'    
 ---
 

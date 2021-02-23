@@ -4,6 +4,7 @@ description: Power BI can be embedded for the users of your organization who hav
 published: true
 date: 2018-10-15
 category: tech
+image: 'https://krishnamohan.dev/assets/banners/02.png'
 keywords: powerbi, angular
 ---
 
