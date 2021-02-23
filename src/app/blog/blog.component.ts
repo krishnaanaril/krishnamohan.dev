@@ -24,6 +24,7 @@ declare var ng: any;
 export class BlogComponent implements OnInit, OnDestroy {
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
   current$: Observable<any> = this.scully.getCurrent();
+  metaData: MetaData;
 
   constructor(
     private scully: ScullyRoutesService,
@@ -43,8 +44,8 @@ export class BlogComponent implements OnInit, OnDestroy {
    * @param blog - ScullyRoute object
    */
   setMetaDataInPage(blog: ScullyRoute): void {
-    const metaData: MetaData = this.getMetaDataFromBlogRoute(blog);
-    this.metaService.setMetaForCurrentPage(metaData);
+    this.metaData = this.getMetaDataFromBlogRoute(blog);
+    this.metaService.setMetaForCurrentPage(this.metaData);
   }
 
   /**
