@@ -4,6 +4,7 @@ description: blog description
 publish: false
 date: 2020-09-02
 category: tech
+image: 'https://krishnamohan.dev/assets/banners/03.png'
 keywords: angular, dotnet, API
 ---
 

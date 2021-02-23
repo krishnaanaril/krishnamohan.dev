@@ -4,6 +4,7 @@ description: Unlike other application frameworks .NET Core do not provide code c
 published: true
 date: 2019-07-05
 category: tech
+image: 'https://krishnamohan.dev/assets/banners/04.png'
 keywords: dotnet
 ---
 

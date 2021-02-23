@@ -4,6 +4,7 @@ description: Power BI is a powerful tool which helps us to create quick and inte
 published: true
 date: 2018-10-15
 category: tech
+image: 'https://krishnamohan.dev/assets/banners/01.png'
 keywords: powerbi, angular, dotnet
 ---
 

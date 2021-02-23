@@ -4,6 +4,7 @@ description: Weekly summarization and review of things I've learned in the secon
 published: true
 date: 2021-02-14T00:00:00.000Z
 category: learnings
+image: 'https://krishnamohan.dev/assets/banners/14.png'
 keywords: comics, dotnet
 ---
 

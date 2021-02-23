@@ -4,6 +4,7 @@ description: Weekly summarization and review of things I've learned in the first
 published: true
 date: 2021-01-03
 category: learnings
+image: 'https://krishnamohan.dev/assets/banners/08.png'
 keywords: space, css
 ---
 

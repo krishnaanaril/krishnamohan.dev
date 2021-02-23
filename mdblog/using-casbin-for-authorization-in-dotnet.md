@@ -4,6 +4,7 @@ description: Casbin is a powerful and efficient open-source access control libra
 published: true
 date: 2021-02-14
 category: tech
+image: 'https://krishnamohan.dev/assets/banners/07.png'
 keywords: casbin, abac, auth, dotnet
 ---
 

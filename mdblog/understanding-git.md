@@ -4,6 +4,7 @@ description: In any git workflow, branching and merging code is unavoidable. In 
 published: true
 date: 2020-05-08
 category: tech
+image: 'https://krishnamohan.dev/assets/banners/05.png'
 keywords: git, rebase, tutorial
 ---
 
