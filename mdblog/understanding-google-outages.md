@@ -1,6 +1,6 @@
 ---
 title: Understanding Google Outages on December 14, 2020
-description: An overview of two major outages happend on 14th December, 2020. This is not an authoritative analysis but can be considered as notes regarding the aforesaid incidents.
+description: An overview of two major outages happened on 14th December, 2020. This is not an authoritative analysis but can be considered as notes regarding the aforesaid incidents.
 published: true
 date: 2021-01-06
 category: tech
@@ -19,7 +19,7 @@ Email delivery to other email addresses on Google-hosted domains were not affect
 
 ### Root Cause
 
-Our SMPT inbound service has a configuration system to update flags and service options while deployed in production and ‘@gmail.com’ domain name is specified as one of the configuration options. During an ongoing migration, a configuration change shifted formatting behaviour and provided and invalid domain name instead of “@gmail.com”. Due to this service incorrectly transformed lookups of certain email addresses ending in “@gmail.com” into non-existent email addresses resulting in 550 error code.
+Our SMPT inbound service has a configuration system to update flags and service options while deployed in production and ‘@gmail.com’ domain name is specified as one of the configuration options. During an ongoing migration, a configuration change shifted formatting behavior and provided and invalid domain name instead of “@gmail.com”. Due to this service incorrectly transformed lookups of certain email addresses ending in “@gmail.com” into non-existent email addresses resulting in 550 error code.
 
 ### Remediation & Prevention
 
@@ -28,7 +28,7 @@ Upon identifying the root cause, engineering team reverted the code change which
 As per the official statement they’ll be taking necessary actions to guard against the issue recurring and to reduce the impact of similar events.
 Impact on Other business
 
-Most impacted business are the email marketing platforms. Some of them even reported a peak of [90% bounce](https://news.ycombinator.com/item?id=25437340) for almost 24 hours. Since the error code was 550, the email delivery services might’ve started automatically removing, or at least stopping delivery to, a set of email addresses. But on the brighter side, since it’s a known timeframe, domain and error response, they can cleanly remove the suppression lists. An error code of 4xx (temporary error) might’ve reduced the impact and I’m not aware of any known side effects for this.
+Most impacted business are the email marketing platforms. Some of them even reported a peak of [90% bounce](https://news.ycombinator.com/item?id=25437340) for almost 24 hours. Since the error code was 550, the email delivery services might’ve started automatically removing, or at least stopping delivery to, a set of email addresses. But on the brighter side, since it’s a known time frame, domain and error response, they can cleanly remove the suppression lists. An error code of 4xx (temporary error) might’ve reduced the impact and I’m not aware of any known side effects for this.
 
 ## Google Cloud Outage
 
@@ -46,7 +46,7 @@ As a result, the quota for the account database was reduced, which prevented the
 
 ### Remediation & Prevention
 
-Once the root cause and potential fix were identified, engineers disabled the quota enforcement in one data canter. This quickly improved the situation and later the same mitigation was applied to all datacentres. As per the official statement they’ll be taking necessary actions to guard against the issue recurring and to reduce the impact of similar events.
+Once the root cause and potential fix were identified, engineers disabled the quota enforcement in one data canter. This quickly improved the situation and later the same mitigation was applied to all data-centres. As per the official statement they’ll be taking necessary actions to guard against the issue recurring and to reduce the impact of similar events.
 
 ### Impact on business
 
