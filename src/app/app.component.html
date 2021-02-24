@@ -3,7 +3,7 @@
         <section class="hidden lg:flex flex-row justify-center">
             <nav>
                 <ul class="lg:text-xl lg:flex lg:flex-row">
-                    <li class="p-3" routerLink="/" routerLinkActive="border-b-2" [routerLinkActiveOptions]="{ exact: true }">Home</li>
+                    <li class="p-3" routerLink="/" routerLinkActive="border-b-2 border-gray-700 dark:border-gray-300" [routerLinkActiveOptions]="{ exact: true }">Home</li>
                     <li class="p-3">Blog</li>
                     <li class="p-3">Projects</li>
                     <li class="p-3">About</li>
@@ -15,7 +15,7 @@
     <router-outlet></router-outlet>
     <footer class="container mx-auto flex flex-row bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
         <div class="mx-auto p-5 text-sm">            
-            <p>© 2020-present Krishna Mohan A M. All Rights Reserved.</p>
+            <p>© 2020-present <a class="font-bold" href="https://krishnamohan.dev/">Krishna Mohan A M</a>. All Rights Reserved.</p>
         </div>
     </footer>
 </div>
