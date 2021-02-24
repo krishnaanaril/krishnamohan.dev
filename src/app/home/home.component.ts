@@ -37,8 +37,7 @@ export class HomeComponent implements OnInit {
             if (aDate < bDate) return 1;
             if (aDate > bDate) return -1;
             return 0;
-          });
-          console.log(links);
+          });          
           return links.slice(0, 6);
         }
       )

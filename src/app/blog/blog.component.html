@@ -1,7 +1,7 @@
 <div *ngIf="metaData" class="container mx-auto min-h-screen bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
     <div class="">
         <div aria-label="Blog tags/keywords" class="pt-8 flex flex-row justify-center">
-            <div class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 rounded-full" *ngFor="let keyword of metaData.keywords">{{ keyword}}</div>
+            <div class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full" *ngFor="let keyword of metaData.keywords">{{ keyword}}</div>
         </div>
         <div class="max-w-screen-lg mx-auto">
             <h1 class="text-5xl pt-5 pb-5 text-center">{{ metaData.title }}</h1>
@@ -10,11 +10,11 @@
             <time class="text-center text-xl" [datetime]="metaData.date">{{ metaData.date | date }}</time>
         </div>
     </div>
-    <hr class="mx-auto w-1/4">
+    <hr class="mx-auto border-gray-800 w-1/4">
     <div class="max-w-screen-md mx-auto p-12 leading-8 ">
         <scully-content></scully-content>
     </div>
-    <hr>
+    <hr class="border-gray-800">
     <!-- <div>
         Have questions/comments? Tweet @<a href="https://twitter.com/krishnaanaril">krishnaanaril</a>
     </div> -->
