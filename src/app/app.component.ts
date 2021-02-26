@@ -9,5 +9,17 @@ import { MatIconRegistry } from '@angular/material/icon';
 })
 export class AppComponent {
   title = "Krishna Mohan's portfolio";
-  constructor() {}
+  displayMenu: boolean;
+
+  constructor() {
+    this.displayMenu = false;
+  }
+
+  closeMenu() {
+    this.displayMenu = false;
+  }
+
+  openMenu() {
+    this.displayMenu = true;
+  }
 }
