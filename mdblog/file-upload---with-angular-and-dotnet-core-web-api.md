@@ -19,7 +19,7 @@ In this blog post we'll have a minimal implementation of file upload using [Angu
 3. [Creating Angular Frontend]()
 4. [What's next]()
 
-## Prerequisite
+## Prerequisites
 
 * Install [Angular CLI](https://angular.io/cli#installing-angular-cli)
 * Install [Dotnet Core](https://dotnet.microsoft.com/download/dotnet-core/3.1). For this post I'll be using dotnet core version 3.1.
