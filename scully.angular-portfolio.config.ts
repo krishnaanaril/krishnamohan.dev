@@ -1,5 +1,6 @@
 import { ScullyConfig , setPluginConfig } from '@scullyio/scully';
 import { getSitemapPlugin, SitemapConfig } from '@gammastream/scully-plugin-sitemap';
+import '@notiz/scully-plugin-rss';
 
 
 const SitemapPlugin = getSitemapPlugin();

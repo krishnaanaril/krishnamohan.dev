@@ -54,6 +54,7 @@
     "@angular/compiler-cli": "^11.2.2",
     "@angular/language-service": "^11.2.2",
     "@gammastream/scully-plugin-sitemap": "^1.0.7",
+    "@notiz/scully-plugin-rss": "^1.1.0",
     "@tailwindcss/aspect-ratio": "latest",
     "@tailwindcss/line-clamp": "latest",
     "@tailwindcss/typography": "latest",

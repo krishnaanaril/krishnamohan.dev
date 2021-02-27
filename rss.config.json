@@ -1,0 +1,21 @@
+{
+    "title": "krishnamohan.dev",
+    "description": "Personal site of Krishna Mohan, who blogs about tech, football and trivia.",
+    "id": "https://krishnamohan.dev",
+    "link": "https://krishnamohan.dev",
+    "language": "en",
+    "image": "https://krishnamohan.dev/assets/images/dp.jpeg",
+    "favicon": "https://krishnamohan.dev/favicon.png",
+    "copyright": "2021 Krishna Mohan A M",
+    "generator": "Personal site of Krishna Mohan, who blogs about tech, football and trivia.",
+    "feedLinks": {
+      "json": "https://krishnamohan.dev/feed.json",
+      "atom": "https://krishnamohan.dev/feed.atom",
+      "xml": "https://krishnamohan.dev/feed.xml"
+    },
+    "outDir": "./dist/static",
+    "categories": ["Portfolio", "Blog", "Angular", "Dotnet"],
+    "blogPostRouteSlug": "/blog",
+    "newestPostsFirst": true
+  }
+  
