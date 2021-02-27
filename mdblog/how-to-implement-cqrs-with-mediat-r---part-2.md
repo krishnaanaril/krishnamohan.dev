@@ -25,7 +25,7 @@ For the sample case we will create a web api that try to do a task within 5 seco
 Run the following CLI command to create a WebAPI project.
 
 ```bash
-    dotnet new webapi MediatRSampleAPI
+dotnet new webapi MediatRSampleAPI
 ```
 ## Configure Serilog for logging (Optional)
 
@@ -37,43 +37,43 @@ I'll be using [Serilog](https://serilog.net/) and a flat file sink for logging. 
 
 Then update the `Program.cs` file.
 
-``` C#
-    public static void Main(string[] args)
+```csharp
+public static void Main(string[] args)
+{
+    Log.Logger = new LoggerConfiguration()
+                    .Enrich.FromLogContext()
+                    .WriteTo.File("logs/MediatRSample.txt", rollingInterval: RollingInterval.Day)
+                    .CreateLogger();
+    try
     {
-        Log.Logger = new LoggerConfiguration()
-                        .Enrich.FromLogContext()
-                        .WriteTo.File("logs/MediatRSample.txt", rollingInterval: RollingInterval.Day)
-                        .CreateLogger();
-        try
-        {
-            Log.Information("Starting up");
-            CreateHostBuilder(args).Build().Run();
-        }
-        catch (Exception ex)
-        {
-            Log.Fatal(ex, "Application start-up failed");
-        }
-        finally
-        {
-            Log.CloseAndFlush();
-        }
+        Log.Information("Starting up");
+        CreateHostBuilder(args).Build().Run();
     }
+    catch (Exception ex)
+    {
+        Log.Fatal(ex, "Application start-up failed");
+    }
+    finally
+    {
+        Log.CloseAndFlush();
+    }
+}
 
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .UseSerilog()
-            .ConfigureWebHostDefaults(webBuilder =>
-            {
-                webBuilder.UseStartup<Startup>();
-            });
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .UseSerilog()
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        });
 ```
 
 ## Install and Configure MediatR
 
 Next we need to install MediatR (version 9.0.0 at the time of writing) via Nuget. To configure MediatR, add the following snippet to the `ConfigureServices()` method in `Startup.cs` file.
 
-``` C#
-    services.AddMediatR(typeof(Startup));
+```csharp
+services.AddMediatR(typeof(Startup));
 ```
 ## Create a Notification message and its handler
 
@@ -81,49 +81,49 @@ Our notification message carries time in milliseconds. Handler just accepts the 
 
 I've added `Stopwatch` code to make sure that handler will wait for maximum 5 seconds. When cancellation is triggered and `OperationCanceledException` is thrown we need to catch it explicitly.
 
-``` C#
-    public class DelayNotificationMessage: INotification
-    {
-        public int TimeInMilliSeconds { get; set; }
-    }
+```csharp
+public class DelayNotificationMessage: INotification
+{
+    public int TimeInMilliSeconds { get; set; }
+}
 
-    public class Notifier03 : INotificationHandler<DelayNotificationMessage>
+public class Notifier03 : INotificationHandler<DelayNotificationMessage>
+{
+    private readonly ILogger<Notifier03> _logger;
+    public Notifier03(ILogger<Notifier03> logger)
     {
-        private readonly ILogger<Notifier03> _logger;
-        public Notifier03(ILogger<Notifier03> logger)
-        {
-            _logger = logger;
-        }
-        public async Task Handle(DelayNotificationMessage notification, CancellationToken cancellationToken)
-        {
-            _logger.LogInformation($"Notifier 03 -> Time In MIlli Seconds: {notification.TimeInMilliSeconds}");
-            Stopwatch stopwatch = Stopwatch.StartNew();
-            try
-            {
-                await Task.Delay(notification.TimeInMilliSeconds, cancellationToken);
-            }
-            catch(OperationCanceledException ex)
-            {
-                _logger.LogError("5 seconds passed and the task is cancelled");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex.Message);                
-            }
-            stopwatch.Stop();
-            _logger.LogInformation($"Elapsed Time: {stopwatch.ElapsedMilliseconds}");            
-        }
+        _logger = logger;
     }
+    public async Task Handle(DelayNotificationMessage notification, CancellationToken cancellationToken)
+    {
+        _logger.LogInformation($"Notifier 03 -> Time In MIlli Seconds: {notification.TimeInMilliSeconds}");
+        Stopwatch stopwatch = Stopwatch.StartNew();
+        try
+        {
+            await Task.Delay(notification.TimeInMilliSeconds, cancellationToken);
+        }
+        catch(OperationCanceledException ex)
+        {
+            _logger.LogError("5 seconds passed and the task is cancelled");
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex.Message);                
+        }
+        stopwatch.Stop();
+        _logger.LogInformation($"Elapsed Time: {stopwatch.ElapsedMilliseconds}");            
+    }
+}
 ```
 
 ## Create a mediator service
 
 Mediator Service is a class that is used by the initiator to publish messages to the handlers. Here we'll the add the following code in the service class where `CancellationToken` is an optional parameter.
 
-``` C#
-    public void DelayedNotify(int timeInMilliSeconds, CancellationToken cancellationToken = default)
-    {
-        _mediator.Publish(new DelayNotificationMessage { TimeInMilliSeconds = timeInMilliSeconds }, cancellationToken);
+```csharp
+public void DelayedNotify(int timeInMilliSeconds, CancellationToken cancellationToken = default)
+{
+    _mediator.Publish(new DelayNotificationMessage { TimeInMilliSeconds = timeInMilliSeconds }, cancellationToken);
         
 ```
 
@@ -131,20 +131,20 @@ Mediator Service is a class that is used by the initiator to publish messages to
 
 Now let's add a controller method that creates a cancellation token. CancellationToken is set to cancel after 5 seconds using the `CancelAfter` [method](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtokensource?view=net-5.0#methods) of `CancellationTokenSource`
 
-``` C#
-    [HttpGet("/dowithin5seconds")]
-    public async Task<string> DoWithin5Seconds(int timeInMilliSeconds)
-    {
-        CancellationTokenSource source = new CancellationTokenSource();
-        CancellationToken token = source.Token;
-        source.CancelAfter(5000);
-        _mediatorService.DelayedNotify(timeInMilliSeconds, token);
-        var message = "Finished within 5 seconds.";
+```csharp
+[HttpGet("/dowithin5seconds")]
+public async Task<string> DoWithin5Seconds(int timeInMilliSeconds)
+{
+    CancellationTokenSource source = new CancellationTokenSource();
+    CancellationToken token = source.Token;
+    source.CancelAfter(5000);
+    _mediatorService.DelayedNotify(timeInMilliSeconds, token);
+    var message = "Finished within 5 seconds.";
 
-        _logger.LogInformation(message);
+    _logger.LogInformation(message);
 
-        return message;
-    }
+    return message;
+}
 ```
 
 ## Run the application
@@ -152,7 +152,7 @@ Now let's add a controller method that creates a cancellation token. Cancellatio
 To run the project via dotnet cli, run the following command.
 
 ```bash
-    dotnet run --project <Path to *.csproj file>
+dotnet run --project <Path to *.csproj file>
 ```
 
 Once the port is open, invoke the `DoWithin5Seconds` method by entering 'http://localhost:62705/dowithin5seconds?timeInMilliSeconds=15000' in the browser (Your port number may vary. Also for the demo purpose it is better to disable https redirection).

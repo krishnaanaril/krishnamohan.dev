@@ -11,6 +11,7 @@ import { Observable, pipe, ReplaySubject } from 'rxjs';
 import { MetaService } from '../meta.service';
 import { MetaData } from '../meta-data.model';
 import { takeUntil } from 'rxjs/operators';
+import { CodeHighlightService } from '../code-highlight.service';
 
 declare var ng: any;
 
@@ -21,14 +22,15 @@ declare var ng: any;
   preserveWhitespaces: true,
   encapsulation: ViewEncapsulation.Emulated,
 })
-export class BlogComponent implements OnInit, OnDestroy {
+export class BlogComponent implements OnInit, AfterViewChecked, OnDestroy {
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
   current$: Observable<any> = this.scully.getCurrent();
   metaData: MetaData;
 
   constructor(
     private scully: ScullyRoutesService,
-    private metaService: MetaService
+    private metaService: MetaService, 
+    private highlightService: CodeHighlightService
   ) { }
 
   ngOnInit() {
@@ -37,6 +39,10 @@ export class BlogComponent implements OnInit, OnDestroy {
       .subscribe(
         (blog: ScullyRoute) => this.setMetaDataInPage(blog)
       );
+  }
+
+  ngAfterViewChecked() {
+    this.highlightService.highlightAll();
   }
 
   /**

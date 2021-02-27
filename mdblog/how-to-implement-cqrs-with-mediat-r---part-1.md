@@ -22,7 +22,7 @@ In this post we'll be using MediatR with a dotnet console application. If you wa
 Okay, As the first step we need a console application. We can do so by running our dotnet [cli command](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new).
 
 ```bash
-    dotnet new console MediatRSample
+dotnet new console MediatRSample
 ```
 
 ## Configure Serilog for logging (Optional)
@@ -33,36 +33,36 @@ I'll be using [Serilog](https://serilog.net/) and a flat file sink for logging. 
 - Serilog.Sinks.File
 
 Then update the `Program.cs` file.
-``` C#
-    static void Main(string[] args)
+``` csharp
+static void Main(string[] args)
+{
+    var services = ConfigureServices();
+    var serviceProvider = services.BuildServiceProvider();        
+}
+
+private static IServiceCollection ConfigureServices()
+{
+    IServiceCollection services = new ServiceCollection();
+
+    var serilogLogger = new LoggerConfiguration()
+                            .Enrich.FromLogContext()
+                            .WriteTo.File("logs/MediatRSample.txt", rollingInterval: RollingInterval.Day)
+                            .CreateLogger();
+
+    services.AddLogging(builder =>
     {
-        var services = ConfigureServices();
-        var serviceProvider = services.BuildServiceProvider();        
-    }
-
-    private static IServiceCollection ConfigureServices()
-    {
-        IServiceCollection services = new ServiceCollection();
-
-        var serilogLogger = new LoggerConfiguration()
-                                .Enrich.FromLogContext()
-                                .WriteTo.File("logs/MediatRSample.txt", rollingInterval: RollingInterval.Day)
-                                .CreateLogger();
-
-        services.AddLogging(builder =>
-        {
-            builder.AddSerilog(logger: serilogLogger, dispose: true);
-        });                        
-        return services;
-    }
+        builder.AddSerilog(logger: serilogLogger, dispose: true);
+    });                        
+    return services;
+}
 ```
 
 ## Install and Configure MediatR
 
 Next we need to install MediatR (version 9.0.0 at the time of writing) via Nuget. To configure MediatR, add the following snippet to the `ConfigureServices()` method.
 
-``` C#
-    services.AddMediatR(Assembly.GetExecutingAssembly());
+```csharp
+services.AddMediatR(Assembly.GetExecutingAssembly());
 ```
 
 ## Create a Notification message and its handler
@@ -73,35 +73,35 @@ Among the two message types provided by MediatR, here we are configuring notific
 
 This class implements `INotification`, a marker interface to represent a notification.
 
-``` C#
-    public class NotificationMessage: INotification
-    {
-        public string Message { get; set; }
-    }
+```csharp
+public class NotificationMessage: INotification
+{
+    public string Message { get; set; }
+}
 ```
 
 ### Create multiple handlers
 
 As notification messages can be handled by multiple handlers, we'll be creating two handlers.
 
-``` C#
-    public class Notifier01 : INotificationHandler<NotificationMessage>
+```csharp
+public class Notifier01 : INotificationHandler<NotificationMessage>
+{
+    public Task Handle(NotificationMessage notification, CancellationToken cancellationToken)
     {
-        public Task Handle(NotificationMessage notification, CancellationToken cancellationToken)
-        {
-            Console.WriteLine($"Notifier 01 -> Message: {notification.Message}");
-            return Task.CompletedTask;
-        }
+        Console.WriteLine($"Notifier 01 -> Message: {notification.Message}");
+        return Task.CompletedTask;
     }
+}
 
-    public class Notifier02 : INotificationHandler<NotificationMessage>
+public class Notifier02 : INotificationHandler<NotificationMessage>
+{
+    public Task Handle(NotificationMessage notification, CancellationToken cancellationToken)
     {
-        public Task Handle(NotificationMessage notification, CancellationToken cancellationToken)
-        {
-            Console.WriteLine($"Notifier 02 -> Message: {notification.Message}");
-            return Task.CompletedTask;
-        }
+        Console.WriteLine($"Notifier 02 -> Message: {notification.Message}");
+        return Task.CompletedTask;
     }
+}
 ```
 
 ## Create a Request/Response message and its handler
@@ -112,41 +112,41 @@ This message type supports both one way and two way communication, but can only 
 
 Response message class implement `IRequest`, a marker interface to represent a request.
 
-``` C#
-    // We need to mention response type in two way
-    public class Ping : IRequest<string> { } 
+```csharp
+// We need to mention response type in two way
+public class Ping : IRequest<string> { } 
 
-    public class OneWaySync : IRequest { }
+public class OneWaySync : IRequest { }
 ```
 ### Create handlers
 
 For a two way handler we define a class that implements `IRequestHandler`, otherwise for async request use `AsyncRequestHandler` and for sync request `RequestHandler` base classes.
 
-``` C#
-    public class PingHandler : IRequestHandler<Ping, string>
+```csharp
+public class PingHandler : IRequestHandler<Ping, string>
+{
+    public Task<string> Handle(Ping request, CancellationToken cancellationToken)
     {
-        public Task<string> Handle(Ping request, CancellationToken cancellationToken)
-        {
-            return Task.FromResult("Pong");
-        }
+        return Task.FromResult("Pong");
     }
+}
 
-    public class OneWayAsyncHandler : AsyncRequestHandler<OneWayAsync>
+public class OneWayAsyncHandler : AsyncRequestHandler<OneWayAsync>
+{
+    protected override Task Handle(OneWayAsync request, CancellationToken cancellationToken)
     {
-        protected override Task Handle(OneWayAsync request, CancellationToken cancellationToken)
-        {
-            Console.WriteLine("In Async One Way Handler");
-            return Task.CompletedTask;
-        }
+        Console.WriteLine("In Async One Way Handler");
+        return Task.CompletedTask;
     }
+}
 
-    public class OneWaySyncHandler : RequestHandler<OneWaySync>
+public class OneWaySyncHandler : RequestHandler<OneWaySync>
+{
+    protected override void Handle(OneWaySync request)
     {
-        protected override void Handle(OneWaySync request)
-        {
-            Console.WriteLine("In Sync One Way Handler");            
-        }
+        Console.WriteLine("In Sync One Way Handler");            
     }
+}
 ```
 
 ## Create a mediator service
@@ -155,84 +155,84 @@ Mediator service publishes messages to the handlers. This class contains the `IM
 
 ### Create `IMediatorService` interface
 
-``` C#
-    public interface IMediatorService
-    {
-        void Notify(string notifyText);
-        string RequestResponse();
-        void OneWay();
-    }
+```csharp
+public interface IMediatorService
+{
+    void Notify(string notifyText);
+    string RequestResponse();
+    void OneWay();
+}
 ```
 
 ### Create MediatorService Class
 
-``` C#
-    public class MediatorService : IMediatorService
+```csharp
+public class MediatorService : IMediatorService
+{
+    private readonly IMediator _mediator;
+    public MediatorService(IMediator mediator)
     {
-        private readonly IMediator _mediator;
-        public MediatorService(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
-        public void Notify(string notifyText)
-        {
-            _mediator.Publish(new NotificationMessage { Message = notifyText });
-        }
-
-        public string RequestResponse()
-        {
-            string response = Task.Run(
-                async () => await _mediator.Send(new Ping())
-                ).Result;
-            return response;
-        }
-
-        public void OneWay()
-        {
-            Task.Run(async () => await _mediator.Send(new OneWayAsync()));
-            _mediator.Send(new OneWaySync());
-        }        
+        _mediator = mediator;
     }
+    public void Notify(string notifyText)
+    {
+        _mediator.Publish(new NotificationMessage { Message = notifyText });
+    }
+
+    public string RequestResponse()
+    {
+        string response = Task.Run(
+            async () => await _mediator.Send(new Ping())
+            ).Result;
+        return response;
+    }
+
+    public void OneWay()
+    {
+        Task.Run(async () => await _mediator.Send(new OneWayAsync()));
+        _mediator.Send(new OneWaySync());
+    }        
+}
 ```
 
 ### Add MediatorService to DI configuration
 
 Add the following statement in `ConfigureServices()` method of `Program.cs`
 
-``` C#
-    services.AddTransient<IMediatorService, MediatorService>();
+```csharp
+services.AddTransient<IMediatorService, MediatorService>();
 ```
 
 ## Run the application
 
 Finally we need to issue commands/requests to these created handlers. For that we can create the following methods in the source class.
 
-``` C#
-    private readonly IMediatorService _notifierMediatorService;
+```csharp
+private readonly IMediatorService _notifierMediatorService;
 
-    // ...
+// ...
 
-    private void Notify()
-    {
-        _notifierMediatorService.Notify("Test Message");
-    }
+private void Notify()
+{
+    _notifierMediatorService.Notify("Test Message");
+}
 
-    private void RequestResonse()
-    {
-        string response = _notifierMediatorService.RequestResponse();
-        Console.WriteLine($"In App: {response}");
-    }
+private void RequestResonse()
+{
+    string response = _notifierMediatorService.RequestResponse();
+    Console.WriteLine($"In App: {response}");
+}
 
-    private void OneWay()
-    {
-        _notifierMediatorService.OneWay();
-    }
+private void OneWay()
+{
+    _notifierMediatorService.OneWay();
+}
 ```
 
 To run the project via dotnet cli, run the following command.
 
 ```bash
-    dotnet run --project <Path to *.csproj file>
+dotnet run --project <Path to *.csproj file>
 ```
 
 You'll get a similar output as below:

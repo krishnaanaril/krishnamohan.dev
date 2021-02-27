@@ -19,21 +19,5 @@ h3 {
 }
 
 pre {
-    @apply p-5 bg-gray-300 overflow-x-auto    
-}
-
-pre {
-    &.dark {
-        @apply bg-gray-700
-    }
-}
-
-code {
-    @apply bg-gray-300 pt-1 pb-1 pl-2 pr-2    
-}
-
-code {
-    &.dark {
-        @apply bg-gray-700
-    }
+    @apply p-5 text-base
 }
