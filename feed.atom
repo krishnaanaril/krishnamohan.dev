@@ -1,0 +1,1456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://krishnamohan.dev</id>
+    <title>krishnamohan.dev</title>
+    <updated>2021-02-27T17:46:39.507Z</updated>
+    <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
+    <link rel="alternate" href="https://krishnamohan.dev"/>
+    <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
+    <subtitle>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</subtitle>
+    <logo>https://krishnamohan.dev/assets/images/dp.jpeg</logo>
+    <icon>https://krishnamohan.dev/favicon.png</icon>
+    <rights>2021 Krishna Mohan A M</rights>
+    <category term="Portfolio"/>
+    <category term="Blog"/>
+    <category term="Angular"/>
+    <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[How to implement CQRS with MediatR - Part 2]]></title>
+        <id>/blog/how-to-implement-cqrs-with-mediat-r---part-2</id>
+        <link href="https://krishnamohan.dev/blog/how-to-implement-cqrs-with-mediat-r---part-2"/>
+        <updated>2021-02-27T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This post is about implementing mediator pattern in a dotnet WebAPI using MediatR library.]]></summary>
+        <content type="html"><![CDATA[<p>In this post we'll be using MediatR with a dotnet WebAPI. If you want to read about its implementation in a console application, check out my other blog <a href="https://krishnamohan.dev/blog/how-to-implement-cqrs-with-mediat-r---part-1">post</a>.</p>
+<p>For basic cases you can implement the message types and handlers mentioned in the Part 1. Here we are trying a different use case. The use of <code>CancellationToken</code> in <code>MediatR</code> to drop the ongoing request processing. This is very helpful if the request processing is blocked and we want to implement a timeout or if the request is dropped by the initiator.</p>
+<p>For the sample case we will create a web api that try to do a task within 5 seconds. The API method will accept time in milliseconds and if the given time is greater than 5 seconds the task will run for 5 seconds and then get cancelled, otherwise task will be executed for the given time.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Install <a href="https://dotnet.microsoft.com/download">dotnet core</a></li>
+<li>Install Visual Studio Code/Visual Studio IDE </li>
+</ul>
+<h2 id="creatingadotnetwebapiapplication">Creating a dotnet WebAPI application</h2>
+<p>Run the following CLI command to create a WebAPI project.</p>
+<pre><code class="bash language-bash">dotnet new webapi MediatRSampleAPI
+</code></pre>
+<h2 id="configureserilogforloggingoptional">Configure Serilog for logging (Optional)</h2>
+<p>I'll be using <a href="https://serilog.net/">Serilog</a> and a flat file sink for logging. To configure this we need to install the following dependencies via Nuget. </p>
+<ul>
+<li>Microsoft.Extensions.Logging</li>
+<li>Serilog</li>
+<li>Serilog.AspNetCore</li>
+<li>Serilog.Sinks.File</li>
+</ul>
+<p>Then update the <code>Program.cs</code> file.</p>
+<pre><code class="csharp language-csharp">public static void Main(string[] args)
+{
+    Log.Logger = new LoggerConfiguration()
+                    .Enrich.FromLogContext()
+                    .WriteTo.File("logs/MediatRSample.txt", rollingInterval: RollingInterval.Day)
+                    .CreateLogger();
+    try
+    {
+        Log.Information("Starting up");
+        CreateHostBuilder(args).Build().Run();
+    }
+    catch (Exception ex)
+    {
+        Log.Fatal(ex, "Application start-up failed");
+    }
+    finally
+    {
+        Log.CloseAndFlush();
+    }
+}
+
+public static IHostBuilder CreateHostBuilder(string[] args) =&gt;
+    Host.CreateDefaultBuilder(args)
+        .UseSerilog()
+        .ConfigureWebHostDefaults(webBuilder =&gt;
+        {
+            webBuilder.UseStartup&lt;Startup&gt;();
+        });
+</code></pre>
+<h2 id="installandconfiguremediatr">Install and Configure MediatR</h2>
+<p>Next we need to install MediatR (version 9.0.0 at the time of writing) via Nuget. To configure MediatR, add the following snippet to the <code>ConfigureServices()</code> method in <code>Startup.cs</code> file.</p>
+<pre><code class="csharp language-csharp">services.AddMediatR(typeof(Startup));
+</code></pre>
+<h2 id="createanotificationmessageanditshandler">Create a Notification message and its handler</h2>
+<p>Our notification message carries time in milliseconds. Handler just accepts the time given by the user and waits for that much time. In the meantime if the request is cancelled, waiting will be stopped and exit.</p>
+<p>I've added <code>Stopwatch</code> code to make sure that handler will wait for maximum 5 seconds. When cancellation is triggered and <code>OperationCanceledException</code> is thrown we need to catch it explicitly.</p>
+<pre><code class="csharp language-csharp">public class DelayNotificationMessage: INotification
+{
+    public int TimeInMilliSeconds { get; set; }
+}
+
+public class Notifier03 : INotificationHandler&lt;DelayNotificationMessage&gt;
+{
+    private readonly ILogger&lt;Notifier03&gt; _logger;
+    public Notifier03(ILogger&lt;Notifier03&gt; logger)
+    {
+        _logger = logger;
+    }
+    public async Task Handle(DelayNotificationMessage notification, CancellationToken cancellationToken)
+    {
+        _logger.LogInformation($"Notifier 03 -&gt; Time In MIlli Seconds: {notification.TimeInMilliSeconds}");
+        Stopwatch stopwatch = Stopwatch.StartNew();
+        try
+        {
+            await Task.Delay(notification.TimeInMilliSeconds, cancellationToken);
+        }
+        catch(OperationCanceledException ex)
+        {
+            _logger.LogError("5 seconds passed and the task is cancelled");
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex.Message);                
+        }
+        stopwatch.Stop();
+        _logger.LogInformation($"Elapsed Time: {stopwatch.ElapsedMilliseconds}");            
+    }
+}
+</code></pre>
+<h2 id="createamediatorservice">Create a mediator service</h2>
+<p>Mediator Service is a class that is used by the initiator to publish messages to the handlers. Here we'll the add the following code in the service class where <code>CancellationToken</code> is an optional parameter.</p>
+<pre><code class="csharp language-csharp">public void DelayedNotify(int timeInMilliSeconds, CancellationToken cancellationToken = default)
+{
+    _mediator.Publish(new DelayNotificationMessage { TimeInMilliSeconds = timeInMilliSeconds }, cancellationToken);
+</code></pre>
+<h2 id="addnewmethodinapicontroller">Add new method in API Controller</h2>
+<p>Now let's add a controller method that creates a cancellation token. CancellationToken is set to cancel after 5 seconds using the <code>CancelAfter</code> <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtokensource?view=net-5.0#methods">method</a> of <code>CancellationTokenSource</code></p>
+<pre><code class="csharp language-csharp">[HttpGet("/dowithin5seconds")]
+public async Task&lt;string&gt; DoWithin5Seconds(int timeInMilliSeconds)
+{
+    CancellationTokenSource source = new CancellationTokenSource();
+    CancellationToken token = source.Token;
+    source.CancelAfter(5000);
+    _mediatorService.DelayedNotify(timeInMilliSeconds, token);
+    var message = "Finished within 5 seconds.";
+
+    _logger.LogInformation(message);
+
+    return message;
+}
+</code></pre>
+<h2 id="runtheapplication">Run the application</h2>
+<p>To run the project via dotnet cli, run the following command.</p>
+<pre><code class="bash language-bash">dotnet run --project &lt;Path to *.csproj file&gt;
+</code></pre>
+<p>Once the port is open, invoke the <code>DoWithin5Seconds</code> method by entering 'http://localhost:62705/dowithin5seconds?timeInMilliSeconds=15000' in the browser (Your port number may vary. Also for the demo purpose it is better to disable https redirection).</p>
+<p>You'll get the response immediately, but the process will run for a maximum of 5 seconds. If you check the log file, you can see that the execution stopped at 5 seconds.</p>
+<pre><code class="bash language-bash">2021-02-27 12:46:57.384 +05:30 [INF] Executing endpoint 'MediatRSampleAPI.Controllers.SlowTestController.DoWithin5Seconds (MediatRSampleAPI)'
+2021-02-27 12:46:57.425 +05:30 [INF] Route matched with {action = "DoWithin5Seconds", controller = "SlowTest"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] DoWithin5Seconds(Int32) on controller MediatRSampleAPI.Controllers.SlowTestController (MediatRSampleAPI).
+2021-02-27 12:46:57.517 +05:30 [INF] Executing action method MediatRSampleAPI.Controllers.SlowTestController.DoWithin5Seconds (MediatRSampleAPI) - Validation state: "Valid"
+2021-02-27 12:46:57.524 +05:30 [INF] Notifier 03 -&gt; Time In MIlli Seconds: 15000
+2021-02-27 12:46:57.526 +05:30 [INF] Finished within 5 seconds.
+2021-02-27 12:47:02.576 +05:30 [ERR] 5 seconds passed and the task is cancelled
+2021-02-27 12:47:02.577 +05:30 [INF] Elapsed Time: 5052
+</code></pre>
+<p>Full source code is available in <a href="https://github.com/krishnaanaril/try-outs/tree/master/MediatRSample/MediatRSampleAPI">GitHub</a>.</p>
+<h2 id="finalthoughts">Final Thoughts</h2>
+<p>If you are more interested in the use of <code>CancellationToken</code>, please checkout the <a href="https://andrewlock.net/using-cancellationtokens-in-asp-net-core-mvc-controllers/">post</a> by Andrew Lock.</p>
+<p>One thing I haven't explored so far is exception handling with MediatR. It requires a blog post of its own and I'll be posting it soon</p>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[How to implement CQRS with MediatR - Part 1]]></title>
+        <id>/blog/how-to-implement-cqrs-with-mediat-r---part-1</id>
+        <link href="https://krishnamohan.dev/blog/how-to-implement-cqrs-with-mediat-r---part-1"/>
+        <updated>2021-02-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This post is about implementing mediator pattern in a dotnet console application using MediatR library.]]></summary>
+        <content type="html"><![CDATA[<p>I came to know about <a href="https://github.com/jbogard/MediatR">MediatR</a> library while reading the book <a href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/">.NET Microservices: Architecture for Containerized .NET Applications</a>. Frankly speaking, even though I was aware of <a href="https://github.com/krishnaanaril/try-outs/blob/master/design-patterns/behavioral/mediator.ts">mediator pattern</a>, I haven't used it any of the projects I've worked. May be this is due to the fact that, I've mostly worked in enterprise applications with hardly 100+ users. Any way I consider this as an opportunity to learn a new thing.</p>
+<p>In this post we'll be using MediatR with a dotnet console application. If you want to read about its implementation in a WebAPI, check out my other blog <a href="https://krishnamohan.dev/blog/how-to-implement-cqrs-with-mediat-r---part-2">post</a>.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Install <a href="https://dotnet.microsoft.com/download">dotnet core</a></li>
+<li>Install Visual Studio Code/Visual Studio IDE </li>
+</ul>
+<h2 id="creatingadotnetconsoleapplication">Creating a dotnet console application</h2>
+<p>Okay, As the first step we need a console application. We can do so by running our dotnet <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new">cli command</a>.</p>
+<pre><code class="bash language-bash">dotnet new console MediatRSample
+</code></pre>
+<h2 id="configureserilogforloggingoptional">Configure Serilog for logging (Optional)</h2>
+<p>I'll be using <a href="https://serilog.net/">Serilog</a> and a flat file sink for logging. To configure this we need to install the following dependencies via Nuget. </p>
+<ul>
+<li>Microsoft.Extensions.Logging</li>
+<li>Serilog</li>
+<li>Serilog.Sinks.File</li>
+</ul>
+<p>Then update the <code>Program.cs</code> file.</p>
+<pre><code class="csharp language-csharp">static void Main(string[] args)
+{
+    var services = ConfigureServices();
+    var serviceProvider = services.BuildServiceProvider();        
+}
+
+private static IServiceCollection ConfigureServices()
+{
+    IServiceCollection services = new ServiceCollection();
+
+    var serilogLogger = new LoggerConfiguration()
+                            .Enrich.FromLogContext()
+                            .WriteTo.File("logs/MediatRSample.txt", rollingInterval: RollingInterval.Day)
+                            .CreateLogger();
+
+    services.AddLogging(builder =&gt;
+    {
+        builder.AddSerilog(logger: serilogLogger, dispose: true);
+    });                        
+    return services;
+}
+</code></pre>
+<h2 id="installandconfiguremediatr">Install and Configure MediatR</h2>
+<p>Next we need to install MediatR (version 9.0.0 at the time of writing) via Nuget. To configure MediatR, add the following snippet to the <code>ConfigureServices()</code> method.</p>
+<pre><code class="csharp language-csharp">services.AddMediatR(Assembly.GetExecutingAssembly());
+</code></pre>
+<h2 id="createanotificationmessageanditshandler">Create a Notification message and its handler</h2>
+<p>Among the two message types provided by MediatR, here we are configuring notification messages.</p>
+<h3 id="createabareminimumdtodatatransferobject">Create a bare minimum DTO (Data Transfer Object)</h3>
+<p>This class implements <code>INotification</code>, a marker interface to represent a notification.</p>
+<pre><code class="csharp language-csharp">public class NotificationMessage: INotification
+{
+    public string Message { get; set; }
+}
+</code></pre>
+<h3 id="createmultiplehandlers">Create multiple handlers</h3>
+<p>As notification messages can be handled by multiple handlers, we'll be creating two handlers.</p>
+<pre><code class="csharp language-csharp">public class Notifier01 : INotificationHandler&lt;NotificationMessage&gt;
+{
+    public Task Handle(NotificationMessage notification, CancellationToken cancellationToken)
+    {
+        Console.WriteLine($"Notifier 01 -&gt; Message: {notification.Message}");
+        return Task.CompletedTask;
+    }
+}
+
+public class Notifier02 : INotificationHandler&lt;NotificationMessage&gt;
+{
+    public Task Handle(NotificationMessage notification, CancellationToken cancellationToken)
+    {
+        Console.WriteLine($"Notifier 02 -&gt; Message: {notification.Message}");
+        return Task.CompletedTask;
+    }
+}
+</code></pre>
+<h2 id="createarequestresponsemessageanditshandler">Create a Request/Response message and its handler</h2>
+<p>This message type supports both one way and two way communication, but can only be received by a single handler. If you have defined multiple handlers only the first one will receive the message.</p>
+<h3 id="createarequestmessagedto">Create a request message DTO</h3>
+<p>Response message class implement <code>IRequest</code>, a marker interface to represent a request.</p>
+<pre><code class="csharp language-csharp">// We need to mention response type in two way
+public class Ping : IRequest&lt;string&gt; { } 
+
+public class OneWaySync : IRequest { }
+</code></pre>
+<h3 id="createhandlers">Create handlers</h3>
+<p>For a two way handler we define a class that implements <code>IRequestHandler</code>, otherwise for async request use <code>AsyncRequestHandler</code> and for sync request <code>RequestHandler</code> base classes.</p>
+<pre><code class="csharp language-csharp">public class PingHandler : IRequestHandler&lt;Ping, string&gt;
+{
+    public Task&lt;string&gt; Handle(Ping request, CancellationToken cancellationToken)
+    {
+        return Task.FromResult("Pong");
+    }
+}
+
+public class OneWayAsyncHandler : AsyncRequestHandler&lt;OneWayAsync&gt;
+{
+    protected override Task Handle(OneWayAsync request, CancellationToken cancellationToken)
+    {
+        Console.WriteLine("In Async One Way Handler");
+        return Task.CompletedTask;
+    }
+}
+
+public class OneWaySyncHandler : RequestHandler&lt;OneWaySync&gt;
+{
+    protected override void Handle(OneWaySync request)
+    {
+        Console.WriteLine("In Sync One Way Handler");            
+    }
+}
+</code></pre>
+<h2 id="createamediatorservice">Create a mediator service</h2>
+<p>Mediator service publishes messages to the handlers. This class contains the <code>IMediator</code> object that is inject via DI and contains the knowledge of all the message types and its corresponding handlers.</p>
+<h3 id="createimediatorserviceinterface">Create <code>IMediatorService</code> interface</h3>
+<pre><code class="csharp language-csharp">public interface IMediatorService
+{
+    void Notify(string notifyText);
+    string RequestResponse();
+    void OneWay();
+}
+</code></pre>
+<h3 id="createmediatorserviceclass">Create MediatorService Class</h3>
+<pre><code class="csharp language-csharp">public class MediatorService : IMediatorService
+{
+    private readonly IMediator _mediator;
+    public MediatorService(IMediator mediator)
+    {
+        _mediator = mediator;
+    }
+    public void Notify(string notifyText)
+    {
+        _mediator.Publish(new NotificationMessage { Message = notifyText });
+    }
+
+    public string RequestResponse()
+    {
+        string response = Task.Run(
+            async () =&gt; await _mediator.Send(new Ping())
+            ).Result;
+        return response;
+    }
+
+    public void OneWay()
+    {
+        Task.Run(async () =&gt; await _mediator.Send(new OneWayAsync()));
+        _mediator.Send(new OneWaySync());
+    }        
+}
+</code></pre>
+<h3 id="addmediatorservicetodiconfiguration">Add MediatorService to DI configuration</h3>
+<p>Add the following statement in <code>ConfigureServices()</code> method of <code>Program.cs</code></p>
+<pre><code class="csharp language-csharp">services.AddTransient&lt;IMediatorService, MediatorService&gt;();
+</code></pre>
+<h2 id="runtheapplication">Run the application</h2>
+<p>Finally we need to issue commands/requests to these created handlers. For that we can create the following methods in the source class.</p>
+<pre><code class="csharp language-csharp">private readonly IMediatorService _notifierMediatorService;
+
+// ...
+
+private void Notify()
+{
+    _notifierMediatorService.Notify("Test Message");
+}
+
+private void RequestResonse()
+{
+    string response = _notifierMediatorService.RequestResponse();
+    Console.WriteLine($"In App: {response}");
+}
+
+private void OneWay()
+{
+    _notifierMediatorService.OneWay();
+}
+</code></pre>
+<p>To run the project via dotnet cli, run the following command.</p>
+<pre><code class="bash language-bash">dotnet run --project &lt;Path to *.csproj file&gt;
+</code></pre>
+<p>You'll get a similar output as below:</p>
+<pre><code class="bash language-bash">Notifier 01 -&gt; Message: Test Message
+Notifier 02 -&gt; Message: Test Message
+In App: Pong
+In Sync One Way Handler
+In Async One Way Handler
+</code></pre>
+<h2 id="finalthoughts">Final Thoughts</h2>
+<p>Among other things, one of the problem MediatR is trying to solve is <a href="https://stackoverflow.com/questions/2420193/how-to-avoid-dependency-injection-constructor-madness">DI Constructor Explosion</a> which is a highly debated topic. Also by using MediatR everything is done in-process, request initiator and handler runs in the same process which may be cumbersome in some scenarios. If you want event/notification to be completely independent, try <a href="https://www.goparamore.io/">MassTransit</a> or <a href="https://www.goparamore.io/">Brighter</a>.</p>
+<p>If you're interested to view the full solution, it is available in <a href="https://github.com/krishnaanaril/try-outs/tree/master/MediatRSample/MediatRSample">GitHub</a></p>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 08]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---08</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---08"/>
+        <updated>2021-02-21T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the third week of February 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li><strong>Adam Curtis</strong> - I came to know about this British documentary film maker recently, when his <a href="https://en.wikipedia.org/wiki/Can%27t_Get_You_Out_of_My_Head_(TV_series)">new documentary</a> released. He has a unique style of making and his subjects are unconventional. His documentaries are available in his <a href="https://www.youtube.com/c/AdamCurtisDocumentary">youtube channel</a>. I didn't get time to watch it, but need to do that soon.</li>
+<li><a href="https://atap.google.com/jacquard/">Jacquard By Google</a> is a platform for embedding sensors and feedback devices in fabrics and clothing in ways that seem natural and comfortable.  In one basic use-case, users can provide input to a mobile phone by touching or stroking the garment in a designated location. Honestly I'm not impressed by this tech and my thoughts are perfectly summed up by someone in the <a href="https://news.ycombinator.com/item?id=26162710">HN comment</a>.</li>
+<li><a href="https://en.wikipedia.org/wiki/Jacquard_machine">Jacquard Machine</a>: The Jacquard machine is a device fitted to a loom that simplifies the process of manufacturing textiles with such complex patterns as brocade, damask and matelassé.The resulting ensemble of the loom and Jacquard machine is then called a Jacquard loom. The machine was invented by Joseph Marie Jacquard in 1804.</li>
+<li><a href="https://compodoc.app/">Compodoc</a> is a documentation tool for Angular applications. It generates a static documentation of your application.</li>
+<li><strong>Olx wasn't an Indian company.</strong> Damn, I don't know how I got that idea but until last week i was considering olx as an indian company. Recently I watched a video related to AWS presented by Olx engineers and to my surprise they weren't Indians and I googled the company for the first time. OnLine eXchange also known as OLX Group is a <strong>Dutch-domiciled online marketplace</strong> headquartered in Amsterdam, and owned by <strong>Prosus</strong>, the international assets division of <strong>Naspers</strong>, founded in 2006 and operating in 45 countries.</li>
+<li><strong>Teller</strong>: A bank teller is an employee of a bank who deals directly with customers. In some places, this employee is known as a cashier or customer representative. </li>
+<li><a href="https://designli.co/blog/a-deep-dive-on-variable-rewards-and-how-to-use-them/">Variable Reward</a>: Variable reward (or unpredictable reward or variable schedule reward) is reward delivered intermittently. The reinforcement schedule is often designed to maximize behavior. Three Types of Variable Rewards:<ul>
+<li>Rewards of the Tribe</li>
+<li>Rewards of the Hunt</li>
+<li>Rewards of the Sel</li></ul></li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Using Casbin for authorization in dotnet]]></title>
+        <id>/blog/using-casbin-for-authorization-in-dotnet</id>
+        <link href="https://krishnamohan.dev/blog/using-casbin-for-authorization-in-dotnet"/>
+        <updated>2020-09-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Casbin is a powerful and efficient open-source access control library. It provides support for enforcing authorization based on various access control models. Here I'll be sharing my thoughts on Casbin.NET, an authorization library for dotnet.]]></summary>
+        <content type="html"><![CDATA[<p>Our organization, as part of common platform initiative, was trying to create an authorization mechanism for multiple applications in our ecosystem. Last week as a part of this initiative I was browsing internet to find a client library that makes use of Attribute based access control (ABAC). <a href="https://github.com/topics/abac">Casbin</a> is one of the most starred libraries in the topic ABAC.
+So I thought of giving it a try.</p>
+<p>The primary language for Casbin was Go, since it was developed in Go itself. But that wasn't a problem as they've already created similar libraries in java, dotnet and nodejs. I picked <a href="https://github.com/casbin/Casbin.NET">Casbin.Net</a> due to my proficiency in C#. For the sake of simplicity I'm only evaluating Casbin's ABAC feature here. For full feature list please see the <a href="https://casbin.org/docs/en/supported-models">official documentation</a>.</p>
+<h2 id="permmodelinglanguage">PERM Modeling Language</h2>
+<p>Casbin introduces a new policy language named PERM (Policy, Effect, Request and Matcher) modeling language. If interested you can learn more about it in the author's <a href="https://arxiv.org/abs/1903.09756">research paper</a>.</p>
+<p><img src="assets/images/PERM_MetaModel.svg" alt="PERM Meta Model" />
+<em>PERM Meta Model</em></p>
+<h3 id="request">Request</h3>
+<p>Request is defined as key-value pair. The key is always r, while the value is a list of attributes. An access request is usually represented by the classic triple: accessing entity (sub), accessed resource (obj) and the access method (act). In this condition, we have: <code>attributes = sub; obj; act</code>, or in PML's grammar: <code>r = sub, obj, act</code>.</p>
+<h3 id="policy">Policy</h3>
+<p>Policy is defined as key-value pair. The key is always p, which represents an abstract policy rule entity. The value attributes denotes the attribute names that p has. E.g.: <code>p = sub, obj, act</code>.</p>
+<h3 id="policyrule">Policy Rule</h3>
+<p>Policy rule is an instance of the above policy. The number of elements in the tuple will be identical with the attribute names in policy. For example, the above policy rule: <code>alice, data1, read</code> generates a binding to the attributes like: <code>p.sub = alice, p.obj = data1, p.act = read</code>.</p>
+<h3 id="matcher">Matcher</h3>
+<p>Matcher determines how the policy rules are evaluated against the request. The simplest matcher is: <code>m = r.sub == p.sub &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act</code> (m represents the matcher). It means the matcher returns true only if subject, object and action in the access request exactly match the respective fields in a policy rule.</p>
+<h3 id="effect">Effect</h3>
+<p>The effect primitive determines whether the request should be approved if
+multiple policy rules match the request. In a effect term, the <strong>quantifier</strong> aggregates the multiple decisions from the valid set for condition into a single boolean value. It can be 'some', 'max' or 'min'. condition functions in a similar way as matcher, but it is used for filtering valid decisions instead of matching the policy rules with the request. E.g: <code>e = some(where (p.eft == allow))</code></p>
+<h2 id="examples">Examples</h2>
+<p>First we need to create a Casbin enforcer object which accepts two parameters in its constructor. First parameter is <a href="https://casbin.org/docs/en/supported-models">Model</a> and the second one is <a href="https://casbin.org/docs/en/adapters">Adapter</a>.</p>
+<ul>
+<li><p>Model</p>
+<p>Model is defined in a file with .conf extension. A model <code>CONF</code> should have at least four sections: <code>[request_definition], [policy_definition], [policy_effect], [matchers]</code>. If a model uses RBAC, it should also add the <code>[role_definition]</code> section. A model <code>CONF</code> can contain comments. The comments start with <code>#</code>, and <code>#</code> will comment the rest of the line.
+The matcher evaluation in Casbin is implemented by expression evaluators in each language.</p></li>
+<li><p>Adapter</p>
+<p>In Casbin, the policy storage is implemented as an adapter (aka middleware for Casbin). For full set of supported adapters refer the <a href="https://casbin.org/docs/en/adapters#supported-adapters">documentation</a>. For the examples below I'm using the default file adapter, such that policy rules are defined in csv format.</p></li>
+</ul>
+<p>You can find the full source code in my <a href="https://github.com/krishnaanaril/try-outs/tree/master/casbin-poc">github repository</a>.</p>
+<h3 id="basic">Basic</h3>
+<p>For the basic example we are just checking whether the subject, object and action attributes of both policy and request match.</p>
+<ul>
+<li>basic_model.conf</li>
+</ul>
+<pre><code>[request_definition]
+r = sub, obj, act
+
+[policy_definition]
+p = sub, obj, act
+
+[policy_effect]
+e = some(where (p.eft == allow))
+
+[matchers]
+m = r.sub == p.sub &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act
+</code></pre>
+<ul>
+<li>basic_policy.csv</li>
+</ul>
+<pre><code>p, alice@example.com, BasicTest, Get
+</code></pre>
+<ul>
+<li>Verification Code</li>
+</ul>
+<pre><code class="csharp language-csharp">var e = new Enforcer("./casbin-config/basic_model.conf", "./casbin-config/basic_policy.csv");
+if (e.Enforce(sub, obj, act)) 
+{
+    // permit alice to read data1
+    Console.WriteLine("Access Granted");
+}
+else
+{
+    // deny the request, show an error
+    Console.WriteLine("Access Denied");
+}    
+</code></pre>
+<h3 id="basicwithenvironmentattribute">Basic with environment attribute</h3>
+<p>Here we are passing an extra attribute to add policies on environment. User have access to only dev environment and all other requests will fail.</p>
+<ul>
+<li>env_model.conf</li>
+</ul>
+<pre><code>[request_definition]
+r = sub, obj, act, env
+
+[policy_definition]
+p = sub, obj, act, env
+
+[policy_effect]
+e = some(where (p.eft == allow))
+
+[matchers]
+m = r.sub == p.sub &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act &amp;&amp; r.env == p.env
+</code></pre>
+<ul>
+<li>env_policy.csv</li>
+</ul>
+<pre><code>p, alice@example.com, BasicTest, Get, dev
+</code></pre>
+<ul>
+<li>Verification Code</li>
+</ul>
+<pre><code class="csharp language-csharp">var e = new Enforcer("./casbin-config/env_model.conf", "./casbin-config/env_policy.csv");
+if (e.Enforce(sub, obj, act, env)) 
+{
+    // permit alice to read data1
+    Console.WriteLine("Access Granted");
+}
+else
+{
+    // deny the request, show an error
+    Console.WriteLine("Access Denied");
+}   
+</code></pre>
+<h3 id="advancedusage">Advanced usage</h3>
+<p>Here please note the matcher statement of the model. A function is invoked from the environment object. Unlike previous examples here the request attribute <code>env</code> is an object with method <code>IsAPAC()</code> which returns true only if the given location is in the list of APAC countries.</p>
+<ul>
+<li>advanced_model.csv</li>
+</ul>
+<pre><code>[request_definition]
+r = sub, obj, act, env
+
+[policy_definition]
+p = sub, obj, act
+
+[policy_effect]
+e = some(where (p.eft == allow))
+
+[matchers]
+m = r.sub == p.sub &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act &amp;&amp; r.env.IsAPAC()
+</code></pre>
+<ul>
+<li>advanced_policy.csv</li>
+</ul>
+<pre><code>p, alice@example.com, BasicTest, Get
+</code></pre>
+<ul>
+<li>Verification Code</li>
+</ul>
+<pre><code class="csharp language-csharp">public class Environment {
+    private string _location;
+    private string[] APAC_COUNTRIES = {"India", "UAE", "Srilanka"};
+    public Environment(string location)
+    {
+        _location = location;
+    }
+    public bool IsAPAC() {
+        return Array.Exists(APAC_COUNTRIES, element =&gt; element == _location);
+    }
+}
+
+/*
+* Some lines of code
+*/
+
+var e = new Enforcer("./casbin-config/advanced_model.conf", "./casbin-config/advanced_policy.csv");
+Environment env = new Environment(location);
+if (e.Enforce(sub, obj, act, env)) 
+{
+    // permit alice to read data1
+    Console.WriteLine("Access Granted");
+}
+else
+{
+    // deny the request, show an error
+    Console.WriteLine("Access Denied");
+}  
+</code></pre>
+<h2 id="finalthoughts">Final Thoughts</h2>
+<p>I'm impressed with the documentation and ease of use of Casbin library. But I'm bit skeptical about its performance in real production environments. To gather some opinions I asked this question in <a href="https://news.ycombinator.com/item?id=26112460">Hacker News</a>, but unfortunately I got reply only from the library's author himself. I had a discussion with our senior architect, who recommended to use the standard <code>XACML</code> for which only some java libraries are available. As a next step, I need to check some libraries based on XACML</p>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 07]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---07</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---07"/>
+        <updated>2021-02-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the second week of February 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li>Author of famous <a href="https://www.newtonsoft.com/json">NewtonSoft.json</a> is a kiwi(?) named <a href="https://twitter.com/JamesNK">James Newton-King</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bear_spray">Bear Spray</a> is a specific aerosol bear deterrent, whose active ingredients are capsaicin and related capsaicinoids, that is used to deter aggressive or charging bears.</li>
+<li>Chimerism: Recently I read about the case of a failed dna test in <a href="https://time.com/4091210/chimera-twins/">time magazine</a>. Chimeras are animals or humans that contain the cells of two or more individuals. Their bodies contain two different sets of DNA.</li>
+<li>Difference between slug and snail is that snails have hard protective external shells. Previously I thought both were same.</li>
+<li><a href="https://tapas.io/">Tapas</a> &amp; <a href="https://www.webtoons.com/en/">Webtoons</a> are two popular web comics sites. I was thinking of creating a web comic platform with interface similar to whatsapp status.</li>
+<li><a href="https://gramener.com/comicgen">Comicgen</a> is a site to generate comic avatars based on a set of selectable inputs</li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 06]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---06</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---06"/>
+        <updated>2021-02-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the first week of February 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li>Myanmar's third and current constitution was published in 2008 and was drafted by the military named <a href="https://en.wikipedia.org/wiki/Tatmadaw">Tatmadaw</a>. 25% of seats in the Parliament of Myanmar are reserved for serving military officers. The ministries of home, border affairs and defense have to be headed by a serving military officer. The military also appoints one of the country's two vice presidents. Hence, the country's civilian leaders have little influence over the security establishment.</li>
+<li><strong>Shotgun surgery</strong> is an anti-pattern in software development and occurs where a developer adds features to an application codebase which span a multiplicity of implementors or implementations in a single change.</li>
+<li><code>relentless.com</code> redirects to <code>amazon.com</code></li>
+<li><a href="https://en.wikipedia.org/wiki/Conway%27s_law">Conway's law</a> is an adage stating that organizations design systems which mirror their own communication structure. </li>
+<li>How to plant tapioca stem cuttings. A worker named Sibychan, whom I called to help me plant some tapioca in the land showed me how to identify the top and bottom of a tapioca stem cutting. This is perfectly explainded by the below image.</li>
+</ol>
+<p><img src="https://www.flgardening.com/wp-content/uploads/2019/02/which-end-of-cassava-do-you-plant.png" alt="Tapioca Stem" /> Source: <a href="https://www.flgardening.com/">flgardening.com</a></p>
+<ol start="6">
+<li><p><a href="https://masstransit-project.com/">MassTransit</a>: MassTransit is a free, open-source distributed application framework for .NET. MassTransit makes it easy to create applications and services that leverage message-based, loosely-coupled asynchronous communication for higher availability, reliability, and scalability.</p></li>
+<li><p><a href="https://github.com/khellang/Scrutor">Scrutor</a> is a small open source library that provides a fluent API to register services in your Microsoft.Extensions.DependencyInjection container based on conventions.</p></li>
+<li><p><a href="https://fluentvalidation.net/">FluentValidation</a>: A small validation library for .NET that uses a fluent interface and lambda expressions for building validation rules</p></li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week 2021 - 05]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---05</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---05"/>
+        <updated>2021-01-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the final week of January 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li><p><a href="https://en.wikipedia.org/wiki/Projection_clock">Projection Clock</a>: I wasn't aware of this product, but seems useful. Need to try it.</p></li>
+<li><p><strong>Tendonitis of wrist:</strong> Swelling of the tissues (tendons) connecting muscle to bone in the wrist.</p></li>
+<li><p><strong>Flash Cookies:</strong> A flash cookie is a message used in Adobe Flash that is sent from a Web server to a Web browser and is then stored as a data file in the browser. Flash cookies behave like conventional cookies by personalizing the user's experience, but they can hold much more data than conventional cookies.</p></li>
+<li><p><strong>Etags:</strong> The ETag HTTP response header is an identifier for a specific version of a resource. It lets caches be more efficient and save bandwidth, as a web server does not need to resend a full response if the content has not changed. </p></li>
+<li><p><strong>HSTS:</strong> The HTTP Strict-Transport-Security response header (often abbreviated as HSTS) lets a web site tell browsers that it should only be accessed using HTTPS, instead of using HTTP.</p></li>
+<li><p>Gandhi's books are available for free as <a href="https://www.mkgandhi.org/ebks/gandhiebooks.htm">ebooks</a>.</p></li>
+<li><p><a href="https://www.investopedia.com/terms/s/shortsqueeze.asp">Short Squeeze</a>: A short squeeze occurs when a stock or other asset jumps sharply higher, forcing traders who had bet that its price would fall, to buy it in order to forestall even greater losses. Their scramble to buy only adds to the upward pressure on the stock's price. </p></li>
+<li><p><strong>Pre mortem</strong> : A pre-mortem, or pre-mortem, is a managerial strategy in which a project team imagines that a project or organization has failed, and then works backward to determine what potentially could lead to the failure of the project or organization.</p></li>
+<li><p><a href="https://webtransparency.cs.princeton.edu/dark-patterns/">Dark Patterns</a>: There are 15 types of dark patterns categorized into 7 groups as follows:</p>
+<ul>
+<li><p>Sneaking</p>
+<ol>
+<li><strong>Sneak into basket</strong>: Adding additional products to user's cart without their consent.</li>
+<li><strong>Hiddent costs</strong>: Revealing previously undisclosed charges to users right before they make a purchase.</li>
+<li><strong>Hidden Subscription</strong>: Charging users a recurring fee under the pretense of a one-time fee or a free trial.</li></ol></li>
+<li><p>Urgency</p>
+<ol start="4">
+<li><strong>Countdown Timer</strong>: Indicating to users that a deal or discount will expire using a counting-down timer.</li>
+<li><strong>Limited-time Message</strong>: Indicating to users that a deal or sale will expire will expire soon without specifying a deadline, thus creating uncertainty.</li></ol></li>
+<li><p>Misdirection</p>
+<ol start="6">
+<li><strong>Confirm Shaming</strong>: Using language and emotion (shame) to steer users away from making a certain choice.</li>
+<li><strong>Visual Interference</strong>: Using style and visual presentation to steer users to or away from certain choices.</li>
+<li><strong>Trick Questions</strong>: Using confusing language to steer users into making certain choices.</li>
+<li><strong>Pressured Selling</strong>: Pre-selecting more expensive variations of a product, or pressuring the user to accept the more expensive variations of a product and related products.</li></ol></li>
+<li><p>Social Proof</p>
+<ol start="10">
+<li><strong>Activity Messages</strong>: Informing the user about the activity on the website (e.g., purchases, views, visits).</li>
+<li><strong>Testimonials of Uncertain Origin</strong>: Testimonials on a product page whose origin is unclear.</li></ol></li>
+<li><p>Scarcity</p>
+<ol start="12">
+<li><strong>Low-stock Message</strong>: Indicating to users that limited quantities of a product are available, increasing its desirability.</li>
+<li><strong>High-demand Message</strong>: Indicating to users that a product is in high-demand and likely to sell out soon, increasing its desirability</li></ol></li>
+<li><p>Obstruction</p>
+<ol start="14">
+<li><strong>Hard to Cancel</strong>: Making it easy for the user to sign up for a recurring subscription but cancellation requires emailing or calling customer care.</li></ol></li>
+<li><p>Forced Action</p>
+<ol start="15">
+<li><strong>Forced Enrollment</strong>: Coercing users to create accounts or share their information to complete their tasks</li></ol></li></ul></li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 04]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---04</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---04"/>
+        <updated>2021-01-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the fourth week of January 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li><p>How to add css class to an element in <a href="https://developers.google.com/web/tools/chrome-devtools/css#classes">browser devtools</a> with auto completion. I was learning tailwindcss with angular with each change requiring a rebuild. I thought of creating an extension with tailwind intellisense in browser similar to the VS code extension, but then I found this in-built feature.</p></li>
+<li><p><a href="https://rhodesmill.org/brandon/2011/concentric-css/">Concentric CSS</a>: A CSS property suggested ordering: starts outside the box model, moves inward.</p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Windows_Insider">Widows Insider</a> is an open software testing program by Microsoft that allows users who own a valid license  of Windows 10 or Windows Server 2016 to register for pre-release builds of the operating system previously only accessible to software developers.</p></li>
+<li><p><strong>"Native advertising"</strong> is a method of advertising that presents ads as journalism or unbiased articles.</p>
+<p>This technique is used by publications like the New York Times, The Atlantic, Gawker, Buzzfeed, and others. Stories may be marked as sponsored, but disclaimers are subtle because the whole point is that users don't know it's an ad.</p></li>
+<li><p><a href="https://martinfowler.com/bliki/PolyglotPersistence.html">Polyglot Persistence</a>: Applications should be written in a mix of languages to take advantage of the fact that different languages are suitable for tackling different problems. </p></li>
+<li><p><a href="https://martinfowler.com/bliki/BoundedContext.html">Bounded Context</a> - DDD deals with large models by dividing them into different Bounded Contexts and being explicit about their interrelationships.</p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Polysemy">Polysemy</a> - It is the capacity for a word or phrase to have multiple meanings, usually related by contiguity of meaning within a semantic field.</p></li>
+<li><p><a href="https://avinetworks.com/glossary/ssl-termination/">SSL Termination</a> describes the transition process when data traffic becomes encrypted and unencrypted. This happens at the server end of a secure socket layer (SSL) connection. It helps to speed up the decryption process and reduces the processing burden on backend servers.</p></li>
+<li><p><a href="https://helm.sh/docs/topics/charts/">Helm Charts</a> are not charts and a packaging format. A chart is a collection of files that describe a related set of Kubernetes resources. </p></li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 03]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---03</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---03"/>
+        <updated>2021-01-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the third week of January 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li>The use of <a href="https://cleartax.in/s/guide-to-form-12bb#form">Form 12BB</a>. The Form 12BB is the form that you fill and give to your employer - not to the Income Tax Department - so that your employer can figure how much income tax is to be deducted from your monthly pay.</li>
+</ol>
+<p><code>“Here's the thumb rule : The more tax deductible allowances, exemptions and investments you claim, the less income tax(TDS) your employer will deduct from your paycheck”</code></p>
+<ol start="2">
+<li><p>Birds have a semi transparent eyelid that protects their eyes while flying. <a href="https://www.howitworksdaily.com/mythbuster-do-birds-have-eyelids/">Nictitating membrane of birds</a>. I learned about this while watching a video from the youtube channel 'Daily Dose of Internet'</p></li>
+<li><p>There are three <a href="https://www.sahapedia.org/aanachamayam-the-fineries-used-elephant-pageants-kerala">types</a> of 'Nettipattoms' (face ornament of elephants in Kerala)</p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Aaron_Swartz">Aaron Swartz</a>'s Amazon <a href="https://www.amazon.com/hz/wishlist/ls/2A6HM9B19FOPW/">wishlist</a>, which is a good collection of interesting books. Aaron Swartz died on Jan 11 8 years ago.</p></li>
+<li><p>In physics, the <a href="https://en.wikipedia.org/wiki/N-body_problem">n-body problem</a> is the problem of predicting the individual motions of a group of celestial objects interacting with each other gravitationally. The <a href="https://en.wikipedia.org/wiki/Three-body_problem">three-body problem</a> is a special case of n-body problem and there is a famous 
+<a href="https://en.wikipedia.org/wiki/Remembrance_of_Earth%27s_Past">Chinese novel series</a> associated with it.</p></li>
+<li><p>Came to know about <a href="https://en.wikipedia.org/wiki/Vitalik_Buterin">Vitalik Buterin</a>, the founder of <a href="https://en.wikipedia.org/wiki/Ethereum">Ethereum</a> and his <a href="https://vitalik.ca/general/2020/11/08/concave.html">blog</a>.</p></li>
+<li><p>LGTM acronym <a href="https://github.com/angular/components/pull/21542">found</a> in Github stands for 'Looks Good To Me.'</p></li>
+<li><p>People donate more to charity when they know a single victim’s story, versus statistics of a thousand deaths. It’s called the <a href="https://en.wikipedia.org/wiki/Identifiable_victim_effect">Identifiable Victim Effect</a>.</p></li>
+<li><p>A <a href="https://www.vmware.com/topics/glossary/content/hypervisor">hypervisor</a>, also known as a virtual machine monitor or VMM, is software that creates and runs virtual machines (VMs). A hypervisor allows one host computer to support multiple guest VMs by virtually sharing its resources, such as memory and processing. The machine on which VMs are created is called host machine and the created machines are called guest machines.</p></li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 02]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---02</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---02"/>
+        <updated>2021-01-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarisation and review of things I've learned in the second week of January 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li><p>Watched the Scott Wlashin talk - <a href="https://www.youtube.com/watch?v=Nrp_LZ-XGsY">The Functional Programming Toolkit</a> and I got a high level understanding of Monad, Monoid, Functor and Effects.</p></li>
+<li><p>I came to know that largest terrestial vehicle is a German made '<a href="https://en.wikipedia.org/wiki/Bagger_288">Bagger 288</a>' whose construction is completed in 1978.</p></li>
+<li><p>There is a <a href="https://deepai.org/machine-learning-model/colorizer">deep learning based ai tool</a> for colorizing old images, and it is working pretty good with my given samples. Source code of this tool is available in <a href="https://github.com/jantic/DeOldify">github</a>.</p></li>
+<li><p>I was browsing reddit and reading old CIA/KGB jokes. From one of the jokes I learned that the elite police tactical unit of France is known as <a href="https://en.wikipedia.org/wiki/GIGN">GIGN</a>.</p></li>
+<li><p>Learned about the reason behind the two google outages happend in 14th December, 2020. It is summarised in my <a href="https://krishnamohan.dev/blog/understanding-google-outages">blog post</a>.</p></li>
+<li><p>If you want to take a back up of your data in Google services:</p>
+<ul>
+<li>Go to <a href="https://takeout.google.com/">takeout.google.com</a>;</li>
+<li>Select the services and click next</li>
+<li>Choose file type, frequency and destination</li>
+<li>Click export</li></ul>
+<p>When the files are ready you'll get an email with download link.</p></li>
+<li><p>Today I found some free and open-source resume builders.:</p>
+<ul>
+<li><a href="https://rx-resume.web.app/">Reactive Resume</a> - <a href="https://github.com/AmruthPillai/Reactive-Resume">Source</a></li>
+<li><a href="https://resumake.io/">Resumake</a> - <a href="https://github.com/saadq/resumake.io">Source</a></li></ul></li>
+<li><p>Refreshed my idea regarding tail call optimisation with the help of this excellent <a href="https://eklitzke.org/how-tail-call-optimization-works">blog</a>. </p></li>
+<li><p>[Facebook Senior Software Engineer - Interview Guide](https://daqo.medium.com/facebook-senior-software-engineer-interview-the-only-post-youll-need-to-read-e4604ff2336d</p></li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Understanding Google Outages on December 14, 2020]]></title>
+        <id>/blog/understanding-google-outages</id>
+        <link href="https://krishnamohan.dev/blog/understanding-google-outages"/>
+        <updated>2020-09-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[An overview of two major outages happened on 14th December, 2020. This is not an authoritative analysis but can be considered as notes regarding the aforesaid incidents.]]></summary>
+        <content type="html"><![CDATA[<p>On that fateful day I was playing around with Youtube API to find a custom algorithm to avoid the default recommendations. All of sudden server errors started popping up for my API requests and for a moment I thought that I broke it. To verify this I logged in to Twitter and it was already trending there.</p>
+<p>There were multiple incidents on that day, but the most important were the Google cloud and Gmail outages.</p>
+<h2 id="gmailoutage">Gmail Outage</h2>
+<p>For a period of 6 hours on that day, the service responsible for handling incoming SMTP connections incorrectly responded with an error (<a href="https://docs.microsoft.com/en-us/exchange/mail-flow-best-practices/non-delivery-reports-in-exchange-online/fix-error-code-550-5-1-1-through-5-1-20-in-exchange-online">hard bounce</a>) to emails being sent to “@gmail.com” users. The error message indicated that the email address did not exist and as a result, the impacted emails were never delivered.</p>
+<p>Email delivery to other email addresses on Google-hosted domains were not affected by this issue and continued to function correctly. SMTP clients conforming to email standards treat error code 550 as a permanent delivery error and do not attempt to resend the email. In response to a permanent delivery error, intermediate SMTP relays send a bounce email back to the original sender, informing them of the delivery error.</p>
+<h3 id="rootcause">Root Cause</h3>
+<p>Our SMPT inbound service has a configuration system to update flags and service options while deployed in production and ‘@gmail.com’ domain name is specified as one of the configuration options. During an ongoing migration, a configuration change shifted formatting behavior and provided and invalid domain name instead of “@gmail.com”. Due to this service incorrectly transformed lookups of certain email addresses ending in “@gmail.com” into non-existent email addresses resulting in 550 error code.</p>
+<h3 id="remediationprevention">Remediation &amp; Prevention</h3>
+<p>Upon identifying the root cause, engineering team reverted the code change which resolved the immediate issue. But when they again deployed the same configuration system the next day a similar issue occurred. Formatting error related to “@gmail.com” was identified in the internal logs and they have to again revert it.</p>
+<p>As per the official statement they’ll be taking necessary actions to guard against the issue recurring and to reduce the impact of similar events.
+Impact on Other business</p>
+<p>Most impacted business are the email marketing platforms. Some of them even reported a peak of <a href="https://news.ycombinator.com/item?id=25437340">90% bounce</a> for almost 24 hours. Since the error code was 550, the email delivery services might’ve started automatically removing, or at least stopping delivery to, a set of email addresses. But on the brighter side, since it’s a known time frame, domain and error response, they can cleanly remove the suppression lists. An error code of 4xx (temporary error) might’ve reduced the impact and I’m not aware of any known side effects for this.</p>
+<h2 id="googlecloudoutage">Google Cloud Outage</h2>
+<p>For a period of 47 minutes on the same day, Google services that required Google OAuth access were unavailable. Cloud service accounts used by GCP workloads were not impacted and continued to function</p>
+<h3 id="rootcause-1">Root cause</h3>
+<p>Google uses an evolving suite of automation tools to manage the quota of various resources allocated for services. As part of an ongoing migration of the User ID Service to a new quota system, a change was made in October to register the User ID Service with the new quota system, but parts of the previous quota system were left in place which incorrectly reported the usage for the User ID Service as 0. An existing grace period on enforcing quota restrictions delayed the impact, which eventually expired, triggering automated quota systems to decrease the quota allowed for the User ID service and triggering this incident. Existing safety checks exist to prevent many unintended quota changes, but at the time they did not cover the scenario of zero reported load for a single service:</p>
+<ul>
+<li>Quota changes to large number of users, since only a single group was the target of the change,</li>
+<li>Lowering quota below usage, since the reported usage was inaccurately being reported as zero,</li>
+<li>Excessive quota reduction to storage systems, since no alert fired during the grace period,</li>
+<li>Low quota, since the difference between usage and quota exceeded the protection limit.</li>
+</ul>
+<p>As a result, the quota for the account database was reduced, which prevented the <a href="(https://en.wikipedia.org/wiki/Paxos_(computer_science)">Paxos leader</a> ) from writing. Shortly after, the majority of read operations became outdated which resulted in errors on authentication lookups.</p>
+<h3 id="remediationprevention-1">Remediation &amp; Prevention</h3>
+<p>Once the root cause and potential fix were identified, engineers disabled the quota enforcement in one data canter. This quickly improved the situation and later the same mitigation was applied to all data-centres. As per the official statement they’ll be taking necessary actions to guard against the issue recurring and to reduce the impact of similar events.</p>
+<h3 id="impactonbusiness">Impact on business</h3>
+<p>Almost all google services were impacted by this outage. Most services recovered automatically within a short period of time after the main issue ended, but some services like Cloud Console, Google BigQuery and  K8s Engine had unique and lingering impact.</p>
+<h2 id="references">References:</h2>
+<ol>
+<li>https://static.googleusercontent.com/media/www.google.com/en//appsstatus/ir/4et50yp2ckm8otv.pdf</li>
+<li>https://status.cloud.google.com/incident/zall/20013 </li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 01]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---01</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---01"/>
+        <updated>2021-01-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the first week of January 2021]]></summary>
+        <content type="html"><![CDATA[<p>Since this is the first and shortest week of the year, I don't have much items here.</p>
+<ol>
+<li><p>Learned about the '<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/zoom">zoom</a>' property in css. This helps to set the zoom level for a particular html element. It is an experimental property and not all browsers support it, especially Firefox.</p></li>
+<li><p>I found a <a href="https://tailwind-starter-kit.now.sh">tailwind starter kit</a> site which helps to bootstrap components easily. </p></li>
+<li><p>Atomic clocks used in satellites must be sent time updates twice per day to correct the clock's natural drift. I found this when I was googling to find the plausibility of time travelling. This information is mentioned in the <a href="https://www.nasa.gov/feature/jpl/what-is-an-atomic-clock">NASA site</a>.</p></li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[File Upload - With Angular and Dotnet Core Web API]]></title>
+        <id>/blog/file-upload---with-angular-and-dotnet-core-web-api</id>
+        <link href="https://krishnamohan.dev/blog/file-upload---with-angular-and-dotnet-core-web-api"/>
+        <updated>2020-09-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Minimal implementation of file upload using Angular and dotnet core web API.]]></summary>
+        <content type="html"><![CDATA[<h1 id="fileuploadwithangularanddotnetcorewebapi">File Upload - With Angular and Dotnet Core Web API</h1>
+<p>In this blog post we'll have a minimal implementation of file upload using <a href="https://angular.io">Angular</a> and dotnet core web API. No other fancy stuffs. To completely understand the gist,some familiarity with Angular and dotnet core is required.</p>
+<h2 id="contents">Contents</h2>
+<ol>
+<li>[Prerequisite]()</li>
+<li>[Creating Web API]()</li>
+<li>[Creating Angular Frontend]()</li>
+<li>[What's next]()</li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Install <a href="https://angular.io/cli#installing-angular-cli">Angular CLI</a></li>
+<li>Install <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1">Dotnet Core</a>. For this post I'll be using dotnet core version 3.1.</li>
+</ul>
+<h2 id="creatingwebapi">Creating Web API</h2>
+<p>First we need to create a <a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-3.1&tabs=visual-studio-code#create-a-web-project">dotnet core web api project</a> and then add <code>FileUploadController</code> <a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-3.1&tabs=visual-studio-code#create-a-web-project">Controller class</a></p>
+<h3 id="addserilogforloggingoptional">Add Serilog for logging (Optional)</h3>
+<p>For logging I'll be using <a href="https://serilog.net/">Serilog</a> and a flat file sink. To configure this we need to install the following dependencies via Nuget. </p>
+<ul>
+<li>Serilog</li>
+<li>Serilog.AspNetCore</li>
+<li>Serilog.Sinks.file</li>
+</ul>
+<p>Then update the <code>Program.cs</code> file.</p>
+<pre><code class="csharp language-csharp">    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Log.Logger = new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+            try
+            {
+                Log.Information("app starting");
+                CreateHostBuilder(args).Build().Run();
+                Log.Information("app terminated");
+            }
+            catch (Exception e)
+            {
+                Log.Fatal("app crashed", e);
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
+        }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =&gt;
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =&gt;
+                {
+                    webBuilder.UseStartup&lt;Startup&gt;();
+                })
+                .UseSerilog();
+    }
+</code></pre>
+<p>In <code>FileUploadController.cs</code> file add the parameter <code>ILogger&lt;FileUploadController&gt; logger</code> to the constructor.</p>
+<pre><code class="csharp language-csharp">    private readonly ILogger&lt;FileUploadController&gt; _logger;
+
+    public FileUploadController(ILogger&lt;FileUploadController&gt; logger)
+    {
+        _logger = logger;
+    }
+</code></pre>
+<h3 id="getuploadpathfromconfigurationoptional">Get upload path from configuration (Optional)</h3>
+<p>If you need to have file upload path configurable, you can add the path as key-value pair in <code>appsettings.json</code> file. e.g:</p>
+<pre><code class="json language-json">    "FileUploadPath": "C:\\KrishnaMohan\\Builds\\uploads"
+</code></pre>
+<p>And update <code>FileUploadController.cs</code> constructor to add the configuration parameter.</p>
+<pre><code class="csharp language-csharp">    private readonly IConfiguration _configuration;
+    private readonly ILogger&lt;FileUploadController&gt; _logger;
+
+    public FileUploadController(IConfiguration configuration, ILogger&lt;FileUploadController&gt; logger)
+    {
+        _configuration = configuration;
+        _logger = logger;
+    }
+</code></pre>
+<h3 id="addmethods">Add methods</h3>
+<p>Let's add two methods to handle single file upload and multiple file upload. Argument for methods will be of type <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.iformfile?view=aspnetcore-3.1">IFormFile</a> which represent the file send with HttpRequest.</p>
+<ul>
+<li>POST Method for Single File Upload</li>
+</ul>
+<pre><code class="csharp language-csharp">    [Route("single-file")]
+    [HttpPost]
+    public async Task&lt;IActionResult&gt; PostSingleFile(IFormFile formFile)
+    {            
+        long size = formFile.Length;        
+        _logger.LogInformation($"Got {1} files");            
+        if (formFile.Length &gt; 0)
+        {
+            var filePath = Path.Join(_configuration["FileUploadPath"], formFile.FileName);
+            _logger.LogInformation($"File Name: {formFile.FileName}. File Path: {filePath}");
+
+            using (var stream = System.IO.File.Create(filePath))
+            {
+                await formFile.CopyToAsync(stream);
+            }
+        }
+        _logger.LogInformation("All files saved successfully");
+
+        return Ok(new { count = 1, size });
+    }
+</code></pre>
+<ul>
+<li>POST Method for Multiple File Upload</li>
+</ul>
+<pre><code class="csharp language-csharp">    [Route("multiple-files")]
+    [HttpPost]
+    public async Task&lt;IActionResult&gt; PostMultipleFiles(List&lt;IFormFile&gt; files)
+    {
+        long size = files.Sum(f =&gt; f.Length);
+        _logger.LogInformation($"Got {files.Count} files");
+        foreach (var formFile in files)
+        {
+            if (formFile.Length &gt; 0)
+            {
+                var filePath = Path.Join(_configuration["FileUploadPath"], formFile.FileName);
+                _logger.LogInformation($"File Name: {formFile.FileName}. File Path: {filePath}");
+
+                using (var stream = System.IO.File.Create(filePath))
+                {
+                    await formFile.CopyToAsync(stream);
+                }
+            }
+        }
+        _logger.LogInformation("All files saved successfully");
+        return Ok(new { count = files.Count, size });
+    }
+</code></pre>
+<p>And that's it. We are done with the API part.</p>
+<h2 id="creatingangularfrontend">Creating Angular Frontend</h2>
+<p>Using Angular CLI create a <a href="https://angular.io/cli/new">new project</a> and add <code>file-upload</code> <a href="https://angular.io/cli/generate#component">component</a> and <a href="https://angular.io/cli/generate#service">service</a>. The logic for getting the user selected files resides in the component and the logic for sending post request resides in the service.</p>
+<ul>
+<li>Update <code>file-upload.service.ts</code> to add our methods to make the http request. Make sure that you import <a href="https://angular.io/api/common/http/HttpClientModule">HttpClientModule</a> in your module file. Here we'll be using <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData">FormData</a> to send the file along with the request.</li>
+</ul>
+<pre><code class="typescript language-typescript">    constructor(private httpClient: HttpClient) { }
+
+    postFile(filesToUpload: File): Observable&lt;boolean&gt; {
+        const endpoint = 'https://localhost:44352/api/fileupload/single-file';
+        const formData: FormData = new FormData();    
+        formData.append('formFile', filesToUpload, filesToUpload.name);      
+        return this.httpClient
+        .post(endpoint, formData)
+        .pipe(map(() =&gt; { return true; }));
+    }
+
+    postMultipleFiles(filesToUpload: FileList): Observable&lt;boolean&gt; {
+        const endpoint = 'https://localhost:44352/api/fileupload/multiple-files';
+        const formData: FormData = new FormData();
+        Array.from(filesToUpload).forEach(file =&gt; {
+        formData.append('files', file, file.name);  
+        });    
+        return this.httpClient
+        .post(endpoint, formData)
+        .pipe(map(() =&gt; { return true; }));
+    }
+</code></pre>
+<ul>
+<li>Add the following methods in <code>file-upload.component.ts</code> and update the constructor to add the service.</li>
+</ul>
+<pre><code class="typescript language-typescript">    export class FileUploadComponent {
+        filesToUpload: FileList;
+        constructor(private fileUploadService: FileUploadService){}
+
+        filesChange($event) {    
+            this.filesToUpload = $event.target.files;
+        }
+
+        uploadFiles() {    
+            if(this.filesToUpload.length &gt; 1) {
+            this.fileUploadService.postMultipleFiles(this.filesToUpload)
+            .subscribe((res)=&gt; console.log(res));
+            } else {
+            this.fileUploadService.postFile(this.filesToUpload[0])
+            .subscribe((res)=&gt; console.log(res));
+            }
+        }
+    }
+</code></pre>
+<ul>
+<li>Update <code>file-upload.component.html</code> to add the html inputs. Ideally we should use a form, but for simplicity I'm using button click event to trigger the upload. Also I've mentioned <code>image/*</code> in the accept attribute to only allow image file types but this is optional.</li>
+</ul>
+<pre><code class="html language-html">    &lt;label for="file"&gt;Choose File&lt;/label&gt;
+    &lt;input type="file" accept="image/*" multiple (change)="filesChange($event)"&gt;
+    &lt;button type="button" (click)="uploadFiles()"&gt;{{'Upload' | uppercase}}&lt;/button&gt;
+</code></pre>
+<h2 id="testing">Testing</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-aspnet-core-ef-step-02?view=vs-2019#run-the-application">Start the Web API</a> and Angular project (use <code>npm start</code>). </li>
+<li>Navigate to <code>http:/localhost:4200</code></li>
+<li>Select the files and click on <code>Update</code>.</li>
+<li>Verify the files are uploaded to the configured folder.</li>
+</ul>
+<h2 id="whatsnext">What's next</h2>
+<p>This a bare minimum code snippet which is not ideal for production envrionment. We can extend this with reactive forms and update the file to AWS S3 buckets. Well that is up for you.</p>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Understanding Git - Merge, Rebase & Bisect]]></title>
+        <id>/blog/understanding-git</id>
+        <link href="https://krishnamohan.dev/blog/understanding-git"/>
+        <updated>2020-05-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In any git workflow, branching and merging code is unavoidable. In this post we are having a not-so deeper look at the three important git commands viz. git-merge, git-rebase and git-bisect.]]></summary>
+        <content type="html"><![CDATA[<p>In any git workflow, branching and merging code is unavoidable. Here we are having a not-so deeper look at the three important git commands viz. <a href="https://git-scm.com/docs/git-merge">git-merge</a>, <a href="https://git-scm.com/docs/git-rebase">git-rebase</a> and <a href="https://git-scm.com/docs/git-bisect">git-bisect</a>. At the end you’ll get an idea why certain options and sub-commands exist and its use cases. You can then adapt it to suit your needs. </p>
+<h2 id="gitmerge">Git Merge</h2>
+<p>As the name suggests this command will incorporate changes from named commits/branches to the current branch. <code>git merge topic</code> command will merge topic branch to the current branch. Here topic branch’s <code>HEAD</code> is considered for merge. One thing to note is that, before merge you should commit or stash your uncommitted local changes to avoid confusions during conflict resolution. Also if there are uncommitted changes, <code>git merge --abort</code> in some cases find it difficult to construct the pre-merge state. </p>
+<p>Git merges can be broadly classified into two: </p>
+<ol>
+<li><strong>Fast Forward Merge</strong>: If there are no changes in the target branch, then source branch is merged without an extra commit.</li>
+</ol>
+<p><img src="assets/images/04_02.jpeg" alt="image" />
+<em>Fig-01</em></p>
+<ol start="2">
+<li><strong>True Merge</strong>: If there are changes in source and target branch, then an extra commit is required with both of them as parents.</li>
+</ol>
+<p><img src="assets/images/04_01.jpeg" alt="image" />
+<em>Fig-02</em></p>
+<p>If there are conflicts in files during merge, we need to manually resolve it. Git will mark conflicts in the <a href="https://stackoverflow.com/questions/39128500/working-tree-vs-working-directory">working tree</a>. We should edit the files and stage them. Run <code>git commit</code> or <code>git merge —-continue</code> to complete the merge.</p>
+<p>If you want to drop the merge, then run <code>git merge —-abort</code> or <code>git merge — -quit</code>. The difference between abort and quit is that, abort stops the current merge process and try to reconstruct the pre-merge state while quit leave the index and working-tree as is.</p>
+<p>You can also merge multiple branches as <code>git merge branch1 branch2</code>. The strategy used for this type of merging is <strong><a href="https://git-scm.com/docs/merge-strategies#Documentation/merge-strategies.txt-octopus">Octopus</a></strong> strategy and it refuses to do a complex merge that needs manual resolution. So you should make sure that branches in octopus merge touch different files. You can find the different merging strategies <a href="https://git-scm.com/docs/merge-strategies">here</a>.</p>
+<p>Want merge changes without a commit? Then use <code>git merge branch1 --squash</code>. This will merge the changes in ‘branch1’ to current branch without any merge information or commit. <code>git log</code> output will look like as if nothing happened.<code>--commit</code> flag is not allowed with this command and will fail.</p>
+<h2 id="gitrebase">Git Rebase</h2>
+<p>Rebase too helps in merging branches, but in a different way. Consider <code>git rebase master feature</code> command (short hand for <code>git switch feature</code>, <code>git rebase master</code>), here first all changes in the feature branch will be saved to a temporary area, then feature branch is reset to master branch and saved commits will be replayed one by one on top of it.</p>
+<p><img src="assets/images/04_03.jpeg" alt="image" />
+<em>Fig-03</em></p>
+<p>In case of conflict, rebasing process will be paused and we need to manually fix the conflicts. Once done you can run <code>git rebase --continue</code> to continue the process. To skip a commit, use <code>git rebase --skip</code>. In normal rebasing if the target branch contains merged commits, it will be dropped. We need to pass the option <code>--rebase-merges</code> to avoid this.</p>
+<p><img src="assets/images/04_04.jpeg" alt="image" />
+<em>Fig-04</em></p>
+<p>One of the powerful option in <code>git rebase</code> is interactive rebasing. It helps user to edit the commits, reorder or even remove them. There are 11 sub-commands that can be used with interactive rebasing, let’s see them one by one. For the purpose of explaining this consider the following branch with a linear history.</p>
+<p><img src="assets/images/04_05.jpeg" alt="image" />
+<em>Fig-05</em></p>
+<p>When i run <code>git rebase -i --root</code>, git will open text editor with commits and hints for using sub-commands. Each line will be in the following format: <code>sub-command commit-hash commit-message</code></p>
+<ol>
+<li><strong>pick</strong> - this command tells git to use this commit without any modification. e.g: <code>pick 9fadd5a add C</code></li>
+<li><strong>drop</strong> - to drop the commit. All the changes associated with this commit will be dropped. e.g: <code>drop 9fadd5a add C</code></li>
+<li><strong>reword</strong> - this command helps us to change the commit message. During rebasing when this command comes git will open the text editor to enter the new message. Once we enter the new message and saves it rebasing resumes automatically. e.g: <code>reword 9fadd5a add C</code></li>
+<li><strong>squash</strong> - this command helps us to merge the current commit with the previous commit by preserving the commit message. The below command will result in a new commit with message <code>add C add D.</code></li>
+</ol>
+<pre><code>pick 9fadd5a add C
+squash b390979 add D
+</code></pre>
+<ol start="5">
+<li><strong>fixup</strong> - this is similar to ‘squash’, but discard the commit message. The below command will result in a new commit with message <code>add C</code>.</li>
+</ol>
+<pre><code>pick 9fadd5a add C
+fixup b390979 add D
+</code></pre>
+<ol start="6">
+<li><strong>edit</strong> - Consider the scenario, you’ve missed a file during the commit. If it was the last commit we can use <code>git commit --amend</code>, otherwise we’ll use interactive rebase with <code>edit</code>. First we’ll stash the files to be committed, then do a rebase and mark the commit to be edited using edit. e.g: <code>edit 9fadd5a add C</code>. Rebasing halts when it reaches edit command. Here we can pop the stashed changes and run <code>git commit --amend</code> to add the missed files. Once done you can run <code>git rebase --continue</code> to continue rebasing.</li>
+<li><strong>exec</strong> - this command helps us to run a command or script. e.g: <code>exec ‘pwd’</code> will print current working directory during rebasing. This is just dumb example, but the command is really helpful in complex use cases.
+eg: <strong>exec 'pwd'</strong> will print current working directory during rebasing. This is just dumb example, but really helpful in complex use cases.</li>
+<li><strong>break</strong> - this command helps us to halt rebasing. To continue from here use <code>git rebase --continue</code>. e.g: <code>break</code> (in a single line)</li>
+</ol>
+<p>The remaining three commands are usually used together to replay merge commits. The commands are:</p>
+<ol start="9">
+<li><strong>label</strong> - this command helps us to provide an alternate name to the current HEAD.</li>
+<li><strong>reset</strong> - this command helps us to reset current HEAD to the given label.</li>
+<li><strong>merge</strong> - this command helps us to create a merge commit, if an original merge commit is provided, its message will be used otherwise we can provide a new one after '#'</li>
+</ol>
+<p>Here in this example, I’ll be using these commands to create a pseudo-merge commit from the linear git history (shown in the above figure) </p>
+<pre><code class="bash language-bash">pick 9fadd5a add A
+label onto
+
+pick b390979 add B
+pick 97fabfa add C
+label main
+
+reset onto
+pick 4ecb083 add D
+pick a9f32a0 add E
+label sub
+
+reset main
+merge sub # This is new merge commit
+</code></pre>
+<p>Here we are labeling commits A, C &amp; E as ‘onto’, ‘main’ and ‘sub’ respectively. Final result will be as below. You can find another great read <a href="https://stackoverflow.com/a/61103385/1520750">here</a></p>
+<p><img src="assets/images/04_06.jpeg" alt="image" />
+<em>Fig-06</em></p>
+<h2 id="gitbisect">Git Bisect</h2>
+<p>This is another git command with a bunch of sub commands. It helps to find the commit that introduced a bug/change by <strong>binary search</strong>. First you need to mark at least two commits as good and bad respectively, so that git can do the binary search.
+eg: </p>
+<pre><code class="bash language-bash">git bisect start
+git bisect bad 4ecb083
+git bisect good 97fabfa
+</code></pre>
+<p>Short hand for the above is <code>git bisect start [bad commit] [good commit]</code></p>
+<pre><code>git bisect start 4ecb083 97fabfa
+</code></pre>
+<p>Once done git will pick a commit in between good and bad and ask us whether it is either good or bad. We need to check and mark appropriately. To mark good run the command <code>git bisect good</code> otherwise <code>git bisect bad</code>. This process continues until git finds the first bad commit. To reset back to previous state run <code>git bisect reset</code>, if you want to switch to a specific commit run <code>git bisect reset commithash</code>. To go back to bad commit when bisect is completed, use the command <code>git bisect reset bisect/bad</code>. ‘bisect/bad’ is a single option and should be used together. I used it as <code>git bisect reset bad</code> the first time and got error. 😃</p>
+<p>But don’t you find this bit boring? Can we automate this? 🤔</p>
+<p>Of course yes! If you have an external test script you can run it as below. One catch is that your tests and test script should be in an external path or untracked in the current repository.</p>
+<pre><code class="bash language-bash">git bisect start $badCommit $goodCommit
+git bisect run $testScript
+git bisect reset # go back to previous state after bisect
+</code></pre>
+<p>An example power-shell script to run dotnet tests is given below.</p>
+<pre><code class="ps language-ps"> param (
+    [Parameter(Mandatory=$true)]
+    [string]$goodCommit = $( Read-Host "Good commit hash, please" ),
+    [Parameter(Mandatory=$true)]
+    [string]$badCommit = $( Read-Host "Bad commit hash, please" ),
+    [Parameter(Mandatory=$true)]
+    [string]$testProjectPath = $( Read-Host "Test project path, please" )
+ )
+ Write-Host $goodCommit $badCommit $testProjectPath 
+ try 
+ {
+   git bisect start $badCommit $goodCommit
+   git bisect run dotnet test $testProjectPath -v q
+   git bisect reset
+ }
+ catch {
+    write-host "Caught an exception:" -ForegroundColor Red
+    write-host "Exception Type: $($_.Exception.GetType().FullName)" -ForegroundColor Red
+    write-host "Exception Message: $($_.Exception.Message)" -ForegroundColor Red
+}
+</code></pre>
+<p>If you discover that you made a mistake in specifying the status of a revision, you can save the output of <code>git bisect log</code> to a file. Edit it to remove the incorrect entries, and then issue the following commands to return to a corrected state.</p>
+<pre><code class="bash language-bash">git bisect log &gt; log-file
+git bisect reset
+git bisect replay log-file
+</code></pre>
+<p>Woof, That's some long read.</p>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Generating Code Coverage Reports in Dotnet Core]]></title>
+        <id>/blog/generating-code-coverage-reports-in-dotnet-core</id>
+        <link href="https://krishnamohan.dev/blog/generating-code-coverage-reports-in-dotnet-core"/>
+        <updated>2019-07-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Unlike other application frameworks .NET Core do not provide code coverage reports out of the box. Here I’ll be using a different approach which actually suited my web application. Without further ado, let’s get started.]]></summary>
+        <content type="html"><![CDATA[<p>Unlike other application frameworks <strong>.NET Core</strong> do not provide code coverage reports out of the box, even the code coverage <a href="https://github.com/microsoft/vstest/issues/981">support </a>was provided only in dotnet core version 2.1. But the ‘<strong>Code Coverage Analysis</strong>’ is provided with Visual Studio Enterprise edition. You can find more information <a href="https://docs.microsoft.com/en-us/visualstudio/test/using-code-coverage-to-determine-how-much-code-is-being-tested?view=vs-2017">here</a>.</p>
+<p>That’s okay, we’ve other tools available to get the code coverage reports and here I’ll be briefly explaining about it. There is already a blog post about this <a href="https://gunnarpeipman.com/aspnet/code-coverage/">topic</a> by <a href="https://twitter.com/gpeipman">Gunnar Peipman</a>. You can refer that as well. Here I’ll be using a different approach which actually suited my web application. Without further ado, let’s get started.</p>
+<h2 id="contents">Contents</h2>
+<ul>
+<li>Prerequisites</li>
+<li>Creating dotnet application and adding test project</li>
+<li>Running tests with CLI</li>
+<li>Convert *.coverage file to *.coveragexml file</li>
+<li>Generate Reports using ReportGenerator</li>
+<li>Powershell script with all the steps</li>
+<li>Conclusion</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You need to install/Configure:</p>
+<ul>
+<li>Dotnet core version 2.1 or above.</li>
+<li>Visual Studio 2017 or above / Visual studio code.</li>
+<li><a href="https://github.com/danielpalme">Daniel Palme</a>’s <a href="https://danielpalme.github.io/ReportGenerator/usage.html">ReportGenerator</a></li>
+<li><a href="https://www.nuget.org/packages/Microsoft.CodeCoverage/">Microsoft.CodeCoverage</a></li>
+</ul>
+<h2 id="creatingdotnetapplicationandaddingtestproject">Creating dotnet application and adding test project</h2>
+<p>You can make use of <em>dotnet new</em> command or Visual Studio templates for creating a new project and test project. Here I’ll be covering MSTest, you can try with another unit testing framework as well.</p>
+<p>If you’ve a dotnet core application with version 1.x, you can do the following steps to get the code coverage.</p>
+<p>• Upgraded test related nuget refernces to latest version</p>
+<pre><code class="xml language-xml">&lt;PackageReference Include=”Microsoft.NET.Test.Sdk” Version=”15.9.0" /&gt;
+&lt;PackageReference Include=”MSTest.TestAdapter” Version=”1.3.2" /&gt;
+ &lt;PackageReference Include=”MSTest.TestFramework” Version=”1.3.2" /&gt;
+</code></pre>
+<p>• Add the following config in *.csproj files. More information is available <a href="https://github.com/Microsoft/vstest/issues/800">here.</a></p>
+<pre><code class="xml language-xml">&lt;DebugType&gt;Full&lt;/DebugType&gt;
+</code></pre>
+<h2 id="runningtestswithcli">Running tests with CLI</h2>
+<p>Once we’ve created our application and added sufficient unit tests. We need to run these tests and get the code coverage info. You do so by running the following command.</p>
+<pre><code class="bash language-bash">dotnet test &lt;Path to *.csproj file&gt; --results-directory:&lt;Test Result directory&gt; --collect:"Code Coverage"
+</code></pre>
+<p>But I had a problem, dotnet was analyzing my dependent libraries as well. I was using <a href="https://github.com/moq/moq">Moq </a>for mocking and <a href="https://github.com/MisterJames/GenFu">GenFu</a> to generate random test data. So I had to exclude these dlls during the code coverage analysis by creating a <a href="https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2019">runsettings</a> file and add the following configuration:</p>
+<pre><code class="xml language-xml">&lt;ModulePaths&gt;              
+  &lt;Exclude&gt;                
+    &lt;ModulePath&gt;.*Moq.dll&lt;/ModulePath&gt;
+    &lt;ModulePath&gt;.*GenFu.dll&lt;/ModulePath&gt;                
+  &lt;/Exclude&gt;
+&lt;/ModulePaths&gt;
+</code></pre>
+<p>Include and exclude nodes use regular expressions. More information is available <a href="https://docs.microsoft.com/en-us/visualstudio/test/customizing-code-coverage-analysis?view=vs-2019#regular-expressions">here</a>.</p>
+<p>Now we need to run *test *command using this .runsettings file.</p>
+<pre><code class="bash language-bash">dotnet test &lt;Path to .csproj file&gt; --settings:&lt;Path to .runsettings file&gt;
+</code></pre>
+<p>This will generate *.coverage file inside a folder whose name corresponds to a GUID. Right now dotnet core CLI <a href="https://github.com/microsoft/vstest/issues/1957#issue-420578504">do not support</a> custom name for *.coverage file.</p>
+<h2 id="convertcoveragefiletocoveragexmlfile">Convert *.coverage file to *.coveragexml file</h2>
+<p>*CodeCoverage.exe *is a tool that comes with the installation of Visual Studio. To generate a coverage report with ReportGenerator the file has to be converted to xml format.</p>
+<p>To get the xml file you can use the following command:</p>
+<pre><code class="xml language-xml"> &lt;UserProfile&gt;\.nuget\packages\microsoft.codecoverage\&lt;version&gt;\build\netstandard1.0\CodeCoverage\CodeCoverage.exe analyze  /output:&lt;xml file name with Path&gt;.coveragexml  &lt;path to coverage file&gt;
+
+# Eg: C:\Users\krishnamohan\.nuget\packages\microsoft.codecoverage\15.9.0\build\netstandard1.0\CodeCoverage\CodeCoverage.exe analyze  /output:d:\MyTestOutput.coveragexml  d:\SomeName.coverage
+</code></pre>
+<h2 id="generatereportsusingreportgenerator">Generate Reports using ReportGenerator</h2>
+<p>We need to run another command using the installed ReportGenerator.dll.</p>
+<pre><code class="shell language-shell">dotnet &lt;UserProfile&gt;\.nuget\packages\reportgenerator\&lt;version&gt;\tools\netcoreapp2.1\ReportGenerator.dll "-reports:&lt;Coveragexml file path&gt;" "-targetdir:&lt;path to coverage report&gt;"
+&lt;#
+Eg: dotnet C:\Users\krishnamohan\.nuget\packages\reportgenerator\4.1.10\tools\netcoreapp2.1\ReportGenerator.dll "-reports:d:\MyTestOutput.coveragexml" "-targetdir:d:\coveragereport"
+#&gt;
+</code></pre>
+<p>This will generate reports in *.htm format in the given output folder. If you open the index.htm file you can view the report.</p>
+<p><img src="assets/images/03_01.png" alt="Sample Report Image" /><em>Sample Report Image. Source: https://github.com/danielpalme/ReportGenerator</em></p>
+<h2 id="powershellscriptwithallthesteps">Powershell script with all the steps</h2>
+<pre><code class="powershell language-powershell"> param(
+    [Parameter(Mandatory=$true)]
+    [string]$testProjectPath,
+    [Parameter(Mandatory=$true)]
+    [string]$testSettingsPath,
+    [Parameter(Mandatory=$true)]
+    [string]$testResultsFolder
+)
+
+&lt;#
+echo "Test Project Path" $testProjectPath
+echo "Test Settings Path" $testSettingsPath
+echo "Test Results Folder" $testResultsFolder
+#&gt;
+
+try {
+
+    if (-not (Test-Path $testProjectPath)) 
+    {
+        throw [System.IO.FileNotFoundException] "$testProjectPath not found."
+    }
+    if (-not (Test-Path $testSettingsPath)) 
+    {
+        throw [System.IO.FileNotFoundException] "$testSettingsPath not found."
+    }
+    if (-not (Test-Path $testResultsFolder)) 
+    {
+        throw [System.IO.FileNotFoundException] "$testResultsFolder not found."
+    }
+
+    dotnet test $testProjectPath --settings:$testSettingsPath 
+    $recentCoverageFile = Get-ChildItem -File -Filter *.coverage -Path $testResultsFolder -Name -Recurse | Select-Object -First 1;
+    write-host 'Test Completed'  -ForegroundColor Green
+
+    C:\Users\krishnamohan\.nuget\packages\microsoft.codecoverage\15.9.0\build\netstandard1.0\CodeCoverage\CodeCoverage.exe analyze  /output:$testResultsFolder\MyTestOutput.coveragexml  $testResultsFolder'\'$recentCoverageFile
+    write-host 'CoverageXML Generated'  -ForegroundColor Green
+
+    dotnet C:\Users\krishnamohan\.nuget\packages\reportgenerator\4.1.10\tools\netcoreapp2.1\ReportGenerator.dll "-reports:$testResultsFolder\MyTestOutput.coveragexml" "-targetdir:$testResultsFolder\coveragereport"
+    write-host 'CoverageReport Published'  -ForegroundColor Green
+
+}
+catch {
+
+    write-host "Caught an exception:" -ForegroundColor Red
+    write-host "Exception Type: $($_.Exception.GetType().FullName)" -ForegroundColor Red
+    write-host "Exception Message: $($_.Exception.Message)" -ForegroundColor Red
+
+}
+</code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>It took some time for me to figure it out as lot of information regarding this was scattered all over the internet. Finally it was worth the effort and coverage reports really improve quality of unit tests and helps developer to write better unit tests. Hope this blog post will be helpful for dotnet developers treading the same path.</p>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Embedding Power BI in Angular — Part 2]]></title>
+        <id>/blog/embedding-powerbi-in-angular-part-2</id>
+        <link href="https://krishnamohan.dev/blog/embedding-powerbi-in-angular-part-2"/>
+        <updated>2018-10-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Power BI can be embedded for the users of your organization who have access to it. This requires the users to sign-in to their Power BI account to view their content, which are the reports they own or the ones that have been shared with them. This is the second part of the two-part article series.]]></summary>
+        <content type="html"><![CDATA[<p>Power BI can be embedded for the users of your organization who have access to it. This requires the users to sign-in to their Power BI account to view their content, which are the reports they own or the ones that have been shared with them.</p>
+<p>This is the second part of the two-part article series. You can find the first one <a href="https://krishnamohan.dev/blog/embedding-power-bi-in-angular-part-1">here</a>.</p>
+<h2 id="embeddingforyourorganization">Embedding for your organization</h2>
+<p>Creating dashboards/reports using Power BI are out of scope of this article, you can learn more about it <a href="https://docs.microsoft.com/en-us/power-bi/service-get-started">here</a>. I’ve skipped a lot a details which have better documentation elsewhere.</p>
+<h3 id="contents">Contents</h3>
+<ul>
+<li>Prerequisite</li>
+<li>Overview</li>
+<li>Set up your embedded analytics development environment</li>
+<li>Set up your Power BI environment</li>
+<li>Create Angular client</li>
+<li>Conclusion</li>
+</ul>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li><a href="https://powerbi.microsoft.com/en-us/pricing/">Power BI pro account</a></li>
+<li><a href="https://azure.microsoft.com/en-us/free/">Microsoft Azure Subscription</a></li>
+<li><a href="https://docs.microsoft.com/en-us/power-bi/developer/create-an-azure-active-directory-tenant">Azure Active Directory Tenant</a> Setup. If it is already done for your organization, you can find it <a href="https://www.whatismytenantid.com/">here</a>.</li>
+<li>Visual Studio Code</li>
+<li>npm, node, angular-cli</li>
+</ul>
+<h3 id="overview">Overview</h3>
+<p>A high level diagram showing how this works is shown below.</p>
+<p><img src="assets/images/02_01.png" alt="" /></p>
+<p>The workflow is as follows.</p>
+<ol>
+<li>When user browses UI, he/she is asked to login with his/her power bi credentials.</li>
+<li>User credentials are validated with Azure AD to generate access tokens.</li>
+<li>UI calls Power BI API to get the report specific data with the token.</li>
+<li>Power BI API returns report data, and UI displays it in the web page.</li>
+</ol>
+<h3 id="setupyourembeddedanalyticsdevelopmentenvironment">Set up your embedded analytics development environment</h3>
+<p>Refer [this](http://When user browses UI, he/she is asked to login with his/her power bi credentials. User credentials are validated with Azure AD to generate access tokens UI calls Power BI API to get the report specific data with the token. Power BI API returns report data, and UI displays it in the web page.) for more details.</p>
+<p>Here we need to do few more steps than what is mentioned in the documentation.</p>
+<ol>
+<li>Redirect URL should be the URL in the application that should be displayed post user authentication.</li>
+<li>Set the key ‘oauth2AllowImplicitFlow’ in Azure Active Directory app manifest to true as we are using browser based clients.</li>
+</ol>
+<h3 id="setupyourpowerbienvironment">Set up your Power BI environment</h3>
+<p>Read <a href="https://docs.microsoft.com/en-us/power-bi/developer/embed-sample-for-your-organization#set-up-your-power-bi-environment">this</a> for more details.</p>
+<h3 id="createangularclient">Create Angular client</h3>
+<p>Our application should authenticate user to Azure Active Directory (AD) and generate the access token. This access token is used as the <a href="https://oauth.net/2/bearer-tokens/">bearer </a>token for subsequent Power BI API requests.</p>
+<p>For authenticating with Azure AD, we’ll be using <a href="https://github.com/AzureAD/azure-activedirectory-library-for-js">this</a> library. You can add this to your angular project by running the following command.</p>
+<pre><code class="bash language-bash">npm install adal-angular
+</code></pre>
+<p>In the HTML page, create a ‘div’ with id ‘embedReport’. We’ll be showing report in this div. Embedding in div is done using Power BI JavaScript <a href="https://github.com/Microsoft/PowerBI-JavaScript">library</a>. You can add it to your angular application by running the following command.</p>
+<pre><code class="bash language-bash">npm install --save powerbi-client
+</code></pre>
+<p>Now we’ve added the additional libraries for your requirement and can we start coding the the authentication service as follows.</p>
+<p><img src="assets/images/02_02.png" alt="" />
+<em>Gist: https://gist.github.com/krishnaanaril/9a07c99efe7db86b8ede17d4177be303</em></p>
+<p>We can store ‘adal’ related configuration in the environment.ts file. I’ve attached the sample format below.</p>
+<p><img src="assets/images/02_03.png" alt="" />
+<em>Gist: https://gist.github.com/krishnaanaril/b1b8798373a6bbe42e7f288ceb9ca1a9</em></p>
+<p>Once the user is authenticated, to handle callback you need to add the following code in the redirect component’s ngOnInit method.</p>
+<p><img src="assets/images/02_04.png" alt="" /></p>
+<p>Here I’ve written the code to embed the first of the available reports to a user. You can update it to suit your needs. First we need to get the access token and get the first of the available reports. The code is as follows.</p>
+<p><img src="assets/images/02_05.png" alt="" />
+<em>Gist: https://gist.github.com/krishnaanaril/398f8e51136e649bf35e41baf8367efe</em></p>
+<p>The method ‘getReportsInGroup’ will be invoking the corresponding Power BI REST API.</p>
+<p><img src="assets/images/02_06.png" alt="" />
+<em>Gist: https://gist.github.com/krishnaanaril/427e4ef6b171fa109787617b3c0e6953</em></p>
+<p>Next, we need to embed the report in the HTML page. This is similar to ‘Embed for your customers’, except the token type which is ‘Aad’ and access token instead of embed token. Embedding report code is as follows.</p>
+<p><img src="assets/images/02_06.png" alt="Embedding report for your organization" />
+<em>Embedding report for your organization</em></p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Now you’re done with your Angular app, run it and verify the reports. Dashboards and Tiles can be embedded in a similar way. You can find those snippets here.</p>
+<ul>
+<li><a href="https://gist.github.com/krishnaanaril/1392403aa328684738e4ed6f0b8a664f">Dashboard</a></li>
+<li><a href="https://gist.github.com/krishnaanaril/211f5b390a5e7e038b7a67dfe387fb29">Tile</a></li>
+</ul>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Embedding Power BI in Angular — Part 1]]></title>
+        <id>/blog/embedding-power-bi-in-angular-part-1</id>
+        <link href="https://krishnamohan.dev/blog/embedding-power-bi-in-angular-part-1"/>
+        <updated>2018-10-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Power BI is a powerful tool which helps us to create quick and interactive insights from wide range of data sources. Here we’ll be discussing about Power BI service which is a SaaS, and how to embed Power BI Dashboards, Reports and Tiles in web applications.]]></summary>
+        <content type="html"><![CDATA[<p>Power BI is a powerful tool which helps us to create quick and interactive insights from wide range of data sources. Here we’ll be discussing about <strong>Power BI service</strong> which is a <strong>SaaS</strong>, and how to embed Power BI Dashboards, Reports and Tiles in web applications. If you are new to Power BI, you can start <a href="https://docs.microsoft.com/en-us/power-bi/power-bi-overview">here</a>.</p>
+<p>Power BI can be embedded in an application by two ways:</p>
+<ol>
+<li><p><strong>Embedding for customers</strong> — This is for embedding dashboards and reports to user who don’t have Power BI account. Power BI API’s are invoked based on the application’s master account and the reports/dashboards are made available to the users of the application.</p></li>
+<li><p><strong>Embedding for your organization</strong> — This is for embedding dashboards/reports for the users in your organization, who have Power BI accounts.</p></li>
+</ol>
+<blockquote>
+  <p><strong>Update on 30th January 2019:</strong> There is a new option that enables business users who do not have any coding skills to easily and securely embed reports in internal web portals. Users viewing the embedded report need either a Power BI Pro license or the content needs to be in a workspace that’s in a <a href="https://docs.microsoft.com/en-us/power-bi/service-admin-premium-purchase">Power BI Premium capacity (EM or P SKU)</a>. More information is available <a href="https://powerbi.microsoft.com/en-us/blog/easily-embed-secure-power-bi-reports-in-your-internal-portals-or-websites">here</a>.</p>
+</blockquote>
+<p>Microsoft provides sample .net applications for both ways. The source code is available <a href="https://github.com/Microsoft/PowerBI-Developer-Samples">here</a>, well and good. But how to embed reports/dashboards in popular JavaScript frameworks?</p>
+<p>There weren’t much tutorials available on-line, and I was bit confused with the distinction between the above two approaches. But I was not alone in this pursuit, <a href="https://medium.com/@ramandeep.singh.1983/power-bi-overview-and-angular-embedding-how-to-f73390f4a399">someone</a> have already figured out the “Embedding for customers” and it was really helpful. I wasn’t satisfied with that and after spending a couple of days in Power BI forums and GitHub repositories, I’ve finally figured out how to do it both.</p>
+<p>This is the first part of the two-part article series. You can find the second one <a href="https://krishnamohan.dev/blog/embedding-powerbi-in-angular-part-2">here</a>.</p>
+<h2 id="embeddingforcustomers">Embedding for Customers</h2>
+<p>Creating dashboards/reports using Power BI are out of scope of this article, you can learn more about it <a href="https://docs.microsoft.com/en-us/power-bi/service-get-started">here</a>. I’ve skipped a lot a details which have better documentation elsewhere.</p>
+<h3 id="contents">Contents</h3>
+<ul>
+<li>Prerequisite</li>
+<li>Overview</li>
+<li>Set up your embedded analytics development environment</li>
+<li>Set up your Power BI environment</li>
+<li>Create a Web API</li>
+<li>Create Angular client</li>
+<li>Conclusion</li>
+</ul>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li><a href="https://powerbi.microsoft.com/en-us/pricing/">Power BI pro account</a></li>
+<li><a href="https://azure.microsoft.com/en-us/free/">Microsoft Azure Subscription</a></li>
+<li><a href="https://docs.microsoft.com/en-us/power-bi/developer/create-an-azure-active-directory-tenant">Azure Active Directory Tenant</a> Setup. If it is already done for your organization, you can find it <a href="https://www.whatismytenantid.com/">here</a>.</li>
+<li>Visual Studio (2013 or later)</li>
+<li>Visual Studio Code</li>
+<li>npm, node, angular-cli</li>
+</ul>
+<h3 id="overview">Overview</h3>
+<p>A high level diagram showing how this works is shown below.</p>
+<p><img src="assets/images/01_01.png" alt="Embedding for customers" />
+<em>Embedding for customers</em></p>
+<p>The work flow is as follows.</p>
+<ol>
+<li>When user browse UI, it invokes API for embed token.</li>
+<li>API authenticates application using master account credentials and request for tokens.</li>
+<li>Azure AD returns token on successful validation, else reject the request.</li>
+<li>Embed token is returned to UI from API.</li>
+<li>UI calls Power BI API to get the report specific data with the token.</li>
+<li>Power BI API returns report data, and UI displays it in the web page.</li>
+<li>(Optional) User authorization via custom roles stored in the SQL server (or by any other means).</li>
+</ol>
+<h3 id="setupyourembeddedanalyticsdevelopmentenvironment">Set up your embedded analytics development environment</h3>
+<p>Refer <a href="https://docs.microsoft.com/en-us/power-bi/developer/embed-sample-for-customers#set-up-your-embedded-analytics-development-environment">this</a> for more details.</p>
+<blockquote>
+  <p>Since we are using Web API, redirect URL don’t have much significance.</p>
+</blockquote>
+<h3 id="setupyourpowerbienvironment">Set up your Power BI environment</h3>
+<p>Refer <a href="https://docs.microsoft.com/en-us/power-bi/developer/embed-sample-for-customers#set-up-your-power-bi-environment">this</a> for more details.</p>
+<h3 id="createawebapi">Create a Web API</h3>
+<p>If you are new to Web API’s, you can start <a href="https://docs.microsoft.com/en-us/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api">here</a>. In the Web.config file we need to add few key-value pairs. Here you need to provide your master account’s username and password.</p>
+<p><img src="assets/images/01_02.png" alt="" /><em>Gist: https://gist.github.com/krishnaanaril/fdec1fe979dd353cd04bb86474e387e3</em></p>
+<p>You’ll get ‘applicationId’, ‘workspaceId’ and ‘reportId’ during Power BI setup. Now we need to define the token objects to be returned from the methods.</p>
+<p><img src="assets/images/01_03.png" alt="" /><em>Token object for Dashboard/Reports. Gist: https://gist.github.com/krishnaanaril/5e56889f072a2606c1da0646766501dc</em></p>
+<p><img src="assets/images/01_04.png" alt="" /><em>Token object for Tiles. Gist: https://gist.github.com/krishnaanaril/8d4960b06aeefa218886c959308974f6</em></p>
+<p>We need to add Microsoft Power BI client <a href="https://www.nuget.org/packages/Microsoft.PowerBI.Api/">library</a> as we are invoking Power BI API’s from the server side code.</p>
+<p>As API methods, I’ve created three methods for Reports, Dashboards and Tiles respectively.</p>
+<ol>
+<li><p><strong>GetReportEmbedToken</strong>— This method accepts two optional parameters, username and roles, which is used for enabling row-level security (RLS). You can find more info about RLS <a href="https://docs.microsoft.com/en-us/power-bi/service-admin-rls">here</a>. In the method, we are returning the embed token for the first report available in the workspace.</p></li>
+<li><p><strong>GetDashboardEmbedToken</strong>— This method returns the embed token for the first dashboard in the workspace.</p></li>
+<li><p><strong>GetTileEmbedToken</strong>— This method returns the embed token for the first tile in the first dashboard which is available in the workspace.</p></li>
+</ol>
+<p><img src="assets/images/01_05.png" alt="" /><em>API method for getting embed token. Gist: https://gist.github.com/krishnaanaril/b093ab817d8fc29e4096346e034ccf3f</em></p>
+<p>You can extend this methods to return tokens for custom reports, dashboards and tiles.</p>
+<h3 id="createangularclient">Create Angular client</h3>
+<p>Here we need to create a service to call the API we created above. For that, let’s create a service and add the following method.</p>
+<p><img src="assets/images/01_06.png" alt="" /><em>Gist: https://gist.github.com/krishnaanaril/2387fa2a7fb2746cf1b0d93c149f03a9</em></p>
+<p>In the HTML page, create a ‘div’ with id ‘embedReport’. We’ll be showing report in this div. Embedding in div is done using Power BI JavaScript <a href="https://github.com/Microsoft/PowerBI-JavaScript">library</a>. You can add it to your angular application by running the following command.</p>
+<pre><code class="bash language-bash">npm install --save powerbi-client
+</code></pre>
+<p>Next, we need to create a method in component class to embed the reports as follows.</p>
+<p><img src="assets/images/01_07.png" alt="" /><em>Gist: https://gist.github.com/krishnaanaril/412001afccf2f74d1c840e1f7fb4b7fe</em></p>
+<p>For embedding reports for customers, type should be ‘reports’ and token type should be ‘Embed’. Here you can see the code for ‘tokenExpirationListener’. This is added as the generated tokens are valid only for an hour and it expires after that. So we need to generate another token by that time and update it. More info can be found <a href="https://github.com/Microsoft/PowerBI-JavaScript/wiki/Refresh-token-using-JavaScript-SDK-example">here</a>.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Now you’re done with your Angular app and its corresponding Web API, run it and verify the reports.</p>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+</feed>

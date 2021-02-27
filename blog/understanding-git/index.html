@@ -16,7 +16,7 @@
   <link rel="manifest" href="manifest.json">  
   <link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
   <meta name="theme-color" content="#1976d2">
-<link rel="stylesheet" href="styles.f8a685e697ee49b0ac9c.css"><style></style><script charset="utf-8" src="common-es2015.dfe19e75360a02499dac.js"></script><script charset="utf-8" src="6-es2015.363683855ffbef6fae07.js"></script><style>ol[_ngcontent-usp-c9]{list-style-type:decimal}ul[_ngcontent-usp-c9]{list-style-type:disc;padding-left:2.5rem}p[_ngcontent-usp-c9]{padding-top:1.25rem;padding-bottom:1.25rem}h2[_ngcontent-usp-c9]{font-size:1.875rem;line-height:2.25rem;margin-top:1.25rem;margin-bottom:1.25rem}h3[_ngcontent-usp-c9]{font-size:1.5rem;line-height:2rem;margin-top:.75rem;margin-bottom:.75rem}pre[_ngcontent-usp-c9]{font-size:1rem;line-height:1.5rem;padding:1.25rem}</style><meta name="title" content="Understanding Git - Merge, Rebase &amp; Bisect"><meta name="description" content="In any git workflow, branching and merging code is unavoidable. In this post we are having a not-so deeper look at the three important git commands viz. git-merge, git-rebase and git-bisect."><meta name="og:type" content="website"><meta name="og:url" content="/blog/understanding-git"><meta name="og:title" content="Understanding Git - Merge, Rebase &amp; Bisect"><meta name="og:description" content="In any git workflow, branching and merging code is unavoidable. In this post we are having a not-so deeper look at the three important git commands viz. git-merge, git-rebase and git-bisect."><meta name="og:image" content="https://krishnamohan.dev/assets/banners/05.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="/blog/understanding-git"><meta name="twitter:title" content="Understanding Git - Merge, Rebase &amp; Bisect"><meta name="twitter:description" content="In any git workflow, branching and merging code is unavoidable. In this post we are having a not-so deeper look at the three important git commands viz. git-merge, git-rebase and git-bisect."><meta name="twitter:image" content="https://krishnamohan.dev/assets/banners/05.png"><meta name="twitter:site" content="@krishnaanaril"><meta name="twitter:creator" content="@krishnaanaril"><meta name="keywords" content="git, rebase, tutorial"><style>
+<link rel="stylesheet" href="styles.086ae27eaec70ebf0ccb.css"><style></style><script charset="utf-8" src="common-es2015.6103354ef0d7e049e1cf.js"></script><script charset="utf-8" src="6-es2015.d58dfe71f12a5a9a2759.js"></script><style>ol[_ngcontent-tov-c9]{list-style-type:decimal}ul[_ngcontent-tov-c9]{list-style-type:disc;padding-left:2.5rem}p[_ngcontent-tov-c9]{padding-top:1.25rem;padding-bottom:1.25rem}h2[_ngcontent-tov-c9]{font-size:1.875rem;line-height:2.25rem;margin-top:1.25rem;margin-bottom:1.25rem}h3[_ngcontent-tov-c9]{font-size:1.5rem;line-height:2rem;margin-top:.75rem;margin-bottom:.75rem}pre[_ngcontent-tov-c9]{font-size:1rem;line-height:1.5rem;margin-bottom:1.25rem;padding:1.25rem}</style><meta name="title" content="Understanding Git - Merge, Rebase &amp; Bisect"><meta name="description" content="In any git workflow, branching and merging code is unavoidable. In this post we are having a not-so deeper look at the three important git commands viz. git-merge, git-rebase and git-bisect."><meta name="og:type" content="website"><meta name="og:url" content="/blog/understanding-git"><meta name="og:title" content="Understanding Git - Merge, Rebase &amp; Bisect"><meta name="og:description" content="In any git workflow, branching and merging code is unavoidable. In this post we are having a not-so deeper look at the three important git commands viz. git-merge, git-rebase and git-bisect."><meta name="og:image" content="https://krishnamohan.dev/assets/banners/05.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="/blog/understanding-git"><meta name="twitter:title" content="Understanding Git - Merge, Rebase &amp; Bisect"><meta name="twitter:description" content="In any git workflow, branching and merging code is unavoidable. In this post we are having a not-so deeper look at the three important git commands viz. git-merge, git-rebase and git-bisect."><meta name="twitter:image" content="https://krishnamohan.dev/assets/banners/05.png"><meta name="twitter:site" content="@krishnaanaril"><meta name="twitter:creator" content="@krishnaanaril"><meta name="keywords" content="git, rebase, tutorial"><style>
       :host {
         display: none;
       }
@@ -26,78 +26,78 @@
     </style><script>window['ScullyIO']='generated';</script></head>
 
 <body scully-version="1.1.0">
-  <app-root _nghost-usp-c7="" ng-version="11.2.2"><div _ngcontent-usp-c7="" class="bg-gray-200 text-gray-800 dark:bg-black dark:text-gray-50"><div _ngcontent-usp-c7="" class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><section _ngcontent-usp-c7="" class="hidden lg:flex flex-row justify-center"><nav _ngcontent-usp-c7=""><ul _ngcontent-usp-c7="" class="lg:text-xl lg:flex lg:flex-row"><li _ngcontent-usp-c7="" routerlink="/" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3" tabindex="0">Home</li><li _ngcontent-usp-c7="" class="p-3">Blog</li><li _ngcontent-usp-c7="" class="p-3">Projects</li><li _ngcontent-usp-c7="" class="p-3">About</li></ul></nav></section><div _ngcontent-usp-c7="" class="absolute lg:hidden mr-4 p-4 right-0"><button _ngcontent-usp-c7="" class="p-2"><svg _ngcontent-usp-c7="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px"><path _ngcontent-usp-c7="" d="M0 0h24v24H0z" fill="none"></path><path _ngcontent-usp-c7="" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button></div></div><!----><router-outlet _ngcontent-usp-c7=""></router-outlet><app-blog _nghost-usp-c9=""><div _ngcontent-usp-c9="" class="container mx-auto min-h-screen bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
-    <div _ngcontent-usp-c9="">
-        <div _ngcontent-usp-c9="" aria-label="Blog tags/keywords" class="pt-8 flex flex-row justify-center">
-            <div _ngcontent-usp-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">git</div><div _ngcontent-usp-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">rebase</div><div _ngcontent-usp-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">tutorial</div><!---->
+  <app-root _nghost-tov-c7="" ng-version="11.2.2"><div _ngcontent-tov-c7="" class="bg-gray-200 text-gray-800 dark:bg-black dark:text-gray-50"><div _ngcontent-tov-c7="" class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><section _ngcontent-tov-c7="" class="hidden lg:flex flex-row justify-center"><nav _ngcontent-tov-c7=""><ul _ngcontent-tov-c7="" class="lg:text-xl lg:flex lg:flex-row"><li _ngcontent-tov-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Home</li><li _ngcontent-tov-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Blog</li><li _ngcontent-tov-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Projects</li><li _ngcontent-tov-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">About</li><!----></ul></nav></section><div _ngcontent-tov-c7="" class="absolute lg:hidden mr-4 p-4 right-0"><button _ngcontent-tov-c7="" class="p-2"><svg _ngcontent-tov-c7="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" class="fill-current"><path _ngcontent-tov-c7="" d="M0 0h24v24H0z" fill="none"></path><path _ngcontent-tov-c7="" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button></div></div><!----><router-outlet _ngcontent-tov-c7=""></router-outlet><app-blog-post _nghost-tov-c9=""><div _ngcontent-tov-c9="" class="container mx-auto min-h-screen bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
+    <div _ngcontent-tov-c9="">
+        <div _ngcontent-tov-c9="" aria-label="Blog tags/keywords" class="pt-8 flex flex-row justify-center">
+            <div _ngcontent-tov-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">git</div><div _ngcontent-tov-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">rebase</div><div _ngcontent-tov-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">tutorial</div><!---->
         </div>
-        <div _ngcontent-usp-c9="" class="max-w-screen-lg mx-auto">
-            <h1 _ngcontent-usp-c9="" class="text-5xl pt-5 pb-5 text-center">Understanding Git - Merge, Rebase &amp; Bisect</h1>
+        <div _ngcontent-tov-c9="" class="max-w-screen-lg mx-auto">
+            <h1 _ngcontent-tov-c9="" class="text-5xl pt-5 pb-5 text-center">Understanding Git - Merge, Rebase &amp; Bisect</h1>
         </div>
-        <div _ngcontent-usp-c9="" class="flex flex-row justify-center m-5 max-w-screen-sm mx-auto">
-            <time _ngcontent-usp-c9="" class="text-center text-xl">May 8, 2020</time>
+        <div _ngcontent-tov-c9="" class="flex flex-row justify-center m-5 max-w-screen-sm mx-auto">
+            <time _ngcontent-tov-c9="" class="text-center text-xl"></time>
         </div>
     </div>
-    <hr _ngcontent-usp-c9="" class="mx-auto border-gray-800 w-1/4">
-    <div _ngcontent-usp-c9="" class="max-w-screen-md mx-auto p-6 md:p-12 leading-8">
-        <!--scullyContent-begin--><p _ngcontent-usp-c9="">In any git workflow, branching and merging code is unavoidable. Here we are having a not-so deeper look at the three important git commands viz. <a href="https://git-scm.com/docs/git-merge" _ngcontent-usp-c9="">git-merge</a>, <a href="https://git-scm.com/docs/git-rebase" _ngcontent-usp-c9="">git-rebase</a> and <a href="https://git-scm.com/docs/git-bisect" _ngcontent-usp-c9="">git-bisect</a>. At the end you’ll get an idea why certain options and sub-commands exist and its use cases. You can then adapt it to suit your needs. </p>
-<h2 id="git-merge" _ngcontent-usp-c9="">Git Merge</h2>
-<p _ngcontent-usp-c9="">As the name suggests this command will incorporate changes from named commits/branches to the current branch. <code _ngcontent-usp-c9="">git merge topic</code> command will merge topic branch to the current branch. Here topic branch’s <code _ngcontent-usp-c9="">HEAD</code> is considered for merge. One thing to note is that, before merge you should commit or stash your uncommitted local changes to avoid confusions during conflict resolution. Also if there are uncommitted changes, <code _ngcontent-usp-c9="">git merge --abort</code> in some cases find it difficult to construct the pre-merge state. </p>
-<p _ngcontent-usp-c9="">Git merges can be broadly classified into two: </p>
-<ol _ngcontent-usp-c9="">
-<li _ngcontent-usp-c9=""><strong _ngcontent-usp-c9="">Fast Forward Merge</strong>: If there are no changes in the target branch, then source branch is merged without an extra commit.</li>
+    <hr _ngcontent-tov-c9="" class="mx-auto border-gray-800 w-1/4">
+    <div _ngcontent-tov-c9="" class="max-w-screen-md mx-auto p-6 md:p-12 leading-8">
+        <!--scullyContent-begin--><p _ngcontent-tov-c9="">In any git workflow, branching and merging code is unavoidable. Here we are having a not-so deeper look at the three important git commands viz. <a href="https://git-scm.com/docs/git-merge" _ngcontent-tov-c9="">git-merge</a>, <a href="https://git-scm.com/docs/git-rebase" _ngcontent-tov-c9="">git-rebase</a> and <a href="https://git-scm.com/docs/git-bisect" _ngcontent-tov-c9="">git-bisect</a>. At the end you’ll get an idea why certain options and sub-commands exist and its use cases. You can then adapt it to suit your needs. </p>
+<h2 id="git-merge" _ngcontent-tov-c9="">Git Merge</h2>
+<p _ngcontent-tov-c9="">As the name suggests this command will incorporate changes from named commits/branches to the current branch. <code _ngcontent-tov-c9="">git merge topic</code> command will merge topic branch to the current branch. Here topic branch’s <code _ngcontent-tov-c9="">HEAD</code> is considered for merge. One thing to note is that, before merge you should commit or stash your uncommitted local changes to avoid confusions during conflict resolution. Also if there are uncommitted changes, <code _ngcontent-tov-c9="">git merge --abort</code> in some cases find it difficult to construct the pre-merge state. </p>
+<p _ngcontent-tov-c9="">Git merges can be broadly classified into two: </p>
+<ol _ngcontent-tov-c9="">
+<li _ngcontent-tov-c9=""><strong _ngcontent-tov-c9="">Fast Forward Merge</strong>: If there are no changes in the target branch, then source branch is merged without an extra commit.</li>
 </ol>
-<p _ngcontent-usp-c9=""><img src="assets/images/04_02.jpeg" alt="image" _ngcontent-usp-c9="">
-<em _ngcontent-usp-c9="">Fig-01</em></p>
-<ol start="2" _ngcontent-usp-c9="">
-<li _ngcontent-usp-c9=""><strong _ngcontent-usp-c9="">True Merge</strong>: If there are changes in source and target branch, then an extra commit is required with both of them as parents.</li>
+<p _ngcontent-tov-c9=""><img src="assets/images/04_02.jpeg" alt="image" _ngcontent-tov-c9="">
+<em _ngcontent-tov-c9="">Fig-01</em></p>
+<ol start="2" _ngcontent-tov-c9="">
+<li _ngcontent-tov-c9=""><strong _ngcontent-tov-c9="">True Merge</strong>: If there are changes in source and target branch, then an extra commit is required with both of them as parents.</li>
 </ol>
-<p _ngcontent-usp-c9=""><img src="assets/images/04_01.jpeg" alt="image" _ngcontent-usp-c9="">
-<em _ngcontent-usp-c9="">Fig-02</em></p>
-<p _ngcontent-usp-c9="">If there are conflicts in files during merge, we need to manually resolve it. Git will mark conflicts in the <a href="https://stackoverflow.com/questions/39128500/working-tree-vs-working-directory" _ngcontent-usp-c9="">working tree</a>. We should edit the files and stage them. Run <code _ngcontent-usp-c9="">git commit</code> or <code _ngcontent-usp-c9="">git merge —-continue</code> to complete the merge.</p>
-<p _ngcontent-usp-c9="">If you want to drop the merge, then run <code _ngcontent-usp-c9="">git merge —-abort</code> or <code _ngcontent-usp-c9="">git merge — -quit</code>. The difference between abort and quit is that, abort stops the current merge process and try to reconstruct the pre-merge state while quit leave the index and working-tree as is.</p>
-<p _ngcontent-usp-c9="">You can also merge multiple branches as <code _ngcontent-usp-c9="">git merge branch1 branch2</code>. The strategy used for this type of merging is <strong _ngcontent-usp-c9=""><a href="https://git-scm.com/docs/merge-strategies#Documentation/merge-strategies.txt-octopus" _ngcontent-usp-c9="">Octopus</a></strong> strategy and it refuses to do a complex merge that needs manual resolution. So you should make sure that branches in octopus merge touch different files. You can find the different merging strategies <a href="https://git-scm.com/docs/merge-strategies" _ngcontent-usp-c9="">here</a>.</p>
-<p _ngcontent-usp-c9="">Want merge changes without a commit? Then use <code _ngcontent-usp-c9="">git merge branch1 --squash</code>. This will merge the changes in ‘branch1’ to current branch without any merge information or commit. <code _ngcontent-usp-c9="">git log</code> output will look like as if nothing happened.<code _ngcontent-usp-c9="">--commit</code> flag is not allowed with this command and will fail.</p>
-<h2 id="git-rebase" _ngcontent-usp-c9="">Git Rebase</h2>
-<p _ngcontent-usp-c9="">Rebase too helps in merging branches, but in a different way. Consider <code _ngcontent-usp-c9="">git rebase master feature</code> command (short hand for <code _ngcontent-usp-c9="">git switch feature</code>, <code _ngcontent-usp-c9="">git rebase master</code>), here first all changes in the feature branch will be saved to a temporary area, then feature branch is reset to master branch and saved commits will be replayed one by one on top of it.</p>
-<p _ngcontent-usp-c9=""><img src="assets/images/04_03.jpeg" alt="image" _ngcontent-usp-c9="">
-<em _ngcontent-usp-c9="">Fig-03</em></p>
-<p _ngcontent-usp-c9="">In case of conflict, rebasing process will be paused and we need to manually fix the conflicts. Once done you can run <code _ngcontent-usp-c9="">git rebase --continue</code> to continue the process. To skip a commit, use <code _ngcontent-usp-c9="">git rebase --skip</code>. In normal rebasing if the target branch contains merged commits, it will be dropped. We need to pass the option <code _ngcontent-usp-c9="">--rebase-merges</code> to avoid this.</p>
-<p _ngcontent-usp-c9=""><img src="assets/images/04_04.jpeg" alt="image" _ngcontent-usp-c9="">
-<em _ngcontent-usp-c9="">Fig-04</em></p>
-<p _ngcontent-usp-c9="">One of the powerful option in <code _ngcontent-usp-c9="">git rebase</code> is interactive rebasing. It helps user to edit the commits, reorder or even remove them. There are 11 sub-commands that can be used with interactive rebasing, let’s see them one by one. For the purpose of explaining this consider the following branch with a linear history.</p>
-<p _ngcontent-usp-c9=""><img src="assets/images/04_05.jpeg" alt="image" _ngcontent-usp-c9="">
-<em _ngcontent-usp-c9="">Fig-05</em></p>
-<p _ngcontent-usp-c9="">When i run <code _ngcontent-usp-c9="">git rebase -i --root</code>, git will open text editor with commits and hints for using sub-commands. Each line will be in the following format: <code _ngcontent-usp-c9="">sub-command commit-hash commit-message</code></p>
-<ol _ngcontent-usp-c9="">
-<li _ngcontent-usp-c9=""><strong _ngcontent-usp-c9="">pick</strong> - this command tells git to use this commit without any modification. e.g: <code _ngcontent-usp-c9="">pick 9fadd5a add C</code></li>
-<li _ngcontent-usp-c9=""><strong _ngcontent-usp-c9="">drop</strong> - to drop the commit. All the changes associated with this commit will be dropped. e.g: <code _ngcontent-usp-c9="">drop 9fadd5a add C</code></li>
-<li _ngcontent-usp-c9=""><strong _ngcontent-usp-c9="">reword</strong> - this command helps us to change the commit message. During rebasing when this command comes git will open the text editor to enter the new message. Once we enter the new message and saves it rebasing resumes automatically. e.g: <code _ngcontent-usp-c9="">reword 9fadd5a add C</code></li>
-<li _ngcontent-usp-c9=""><strong _ngcontent-usp-c9="">squash</strong> - this command helps us to merge the current commit with the previous commit by preserving the commit message. The below command will result in a new commit with message <code _ngcontent-usp-c9="">add C add D.</code></li>
+<p _ngcontent-tov-c9=""><img src="assets/images/04_01.jpeg" alt="image" _ngcontent-tov-c9="">
+<em _ngcontent-tov-c9="">Fig-02</em></p>
+<p _ngcontent-tov-c9="">If there are conflicts in files during merge, we need to manually resolve it. Git will mark conflicts in the <a href="https://stackoverflow.com/questions/39128500/working-tree-vs-working-directory" _ngcontent-tov-c9="">working tree</a>. We should edit the files and stage them. Run <code _ngcontent-tov-c9="">git commit</code> or <code _ngcontent-tov-c9="">git merge —-continue</code> to complete the merge.</p>
+<p _ngcontent-tov-c9="">If you want to drop the merge, then run <code _ngcontent-tov-c9="">git merge —-abort</code> or <code _ngcontent-tov-c9="">git merge — -quit</code>. The difference between abort and quit is that, abort stops the current merge process and try to reconstruct the pre-merge state while quit leave the index and working-tree as is.</p>
+<p _ngcontent-tov-c9="">You can also merge multiple branches as <code _ngcontent-tov-c9="">git merge branch1 branch2</code>. The strategy used for this type of merging is <strong _ngcontent-tov-c9=""><a href="https://git-scm.com/docs/merge-strategies#Documentation/merge-strategies.txt-octopus" _ngcontent-tov-c9="">Octopus</a></strong> strategy and it refuses to do a complex merge that needs manual resolution. So you should make sure that branches in octopus merge touch different files. You can find the different merging strategies <a href="https://git-scm.com/docs/merge-strategies" _ngcontent-tov-c9="">here</a>.</p>
+<p _ngcontent-tov-c9="">Want merge changes without a commit? Then use <code _ngcontent-tov-c9="">git merge branch1 --squash</code>. This will merge the changes in ‘branch1’ to current branch without any merge information or commit. <code _ngcontent-tov-c9="">git log</code> output will look like as if nothing happened.<code _ngcontent-tov-c9="">--commit</code> flag is not allowed with this command and will fail.</p>
+<h2 id="git-rebase" _ngcontent-tov-c9="">Git Rebase</h2>
+<p _ngcontent-tov-c9="">Rebase too helps in merging branches, but in a different way. Consider <code _ngcontent-tov-c9="">git rebase master feature</code> command (short hand for <code _ngcontent-tov-c9="">git switch feature</code>, <code _ngcontent-tov-c9="">git rebase master</code>), here first all changes in the feature branch will be saved to a temporary area, then feature branch is reset to master branch and saved commits will be replayed one by one on top of it.</p>
+<p _ngcontent-tov-c9=""><img src="assets/images/04_03.jpeg" alt="image" _ngcontent-tov-c9="">
+<em _ngcontent-tov-c9="">Fig-03</em></p>
+<p _ngcontent-tov-c9="">In case of conflict, rebasing process will be paused and we need to manually fix the conflicts. Once done you can run <code _ngcontent-tov-c9="">git rebase --continue</code> to continue the process. To skip a commit, use <code _ngcontent-tov-c9="">git rebase --skip</code>. In normal rebasing if the target branch contains merged commits, it will be dropped. We need to pass the option <code _ngcontent-tov-c9="">--rebase-merges</code> to avoid this.</p>
+<p _ngcontent-tov-c9=""><img src="assets/images/04_04.jpeg" alt="image" _ngcontent-tov-c9="">
+<em _ngcontent-tov-c9="">Fig-04</em></p>
+<p _ngcontent-tov-c9="">One of the powerful option in <code _ngcontent-tov-c9="">git rebase</code> is interactive rebasing. It helps user to edit the commits, reorder or even remove them. There are 11 sub-commands that can be used with interactive rebasing, let’s see them one by one. For the purpose of explaining this consider the following branch with a linear history.</p>
+<p _ngcontent-tov-c9=""><img src="assets/images/04_05.jpeg" alt="image" _ngcontent-tov-c9="">
+<em _ngcontent-tov-c9="">Fig-05</em></p>
+<p _ngcontent-tov-c9="">When i run <code _ngcontent-tov-c9="">git rebase -i --root</code>, git will open text editor with commits and hints for using sub-commands. Each line will be in the following format: <code _ngcontent-tov-c9="">sub-command commit-hash commit-message</code></p>
+<ol _ngcontent-tov-c9="">
+<li _ngcontent-tov-c9=""><strong _ngcontent-tov-c9="">pick</strong> - this command tells git to use this commit without any modification. e.g: <code _ngcontent-tov-c9="">pick 9fadd5a add C</code></li>
+<li _ngcontent-tov-c9=""><strong _ngcontent-tov-c9="">drop</strong> - to drop the commit. All the changes associated with this commit will be dropped. e.g: <code _ngcontent-tov-c9="">drop 9fadd5a add C</code></li>
+<li _ngcontent-tov-c9=""><strong _ngcontent-tov-c9="">reword</strong> - this command helps us to change the commit message. During rebasing when this command comes git will open the text editor to enter the new message. Once we enter the new message and saves it rebasing resumes automatically. e.g: <code _ngcontent-tov-c9="">reword 9fadd5a add C</code></li>
+<li _ngcontent-tov-c9=""><strong _ngcontent-tov-c9="">squash</strong> - this command helps us to merge the current commit with the previous commit by preserving the commit message. The below command will result in a new commit with message <code _ngcontent-tov-c9="">add C add D.</code></li>
 </ol>
-<pre _ngcontent-usp-c9=""><code _ngcontent-usp-c9="">pick 9fadd5a add C
+<pre _ngcontent-tov-c9=""><code _ngcontent-tov-c9="">pick 9fadd5a add C
 squash b390979 add D
 </code></pre>
-<ol start="5" _ngcontent-usp-c9="">
-<li _ngcontent-usp-c9=""><strong _ngcontent-usp-c9="">fixup</strong> - this is similar to ‘squash’, but discard the commit message. The below command will result in a new commit with message <code _ngcontent-usp-c9="">add C</code>.</li>
+<ol start="5" _ngcontent-tov-c9="">
+<li _ngcontent-tov-c9=""><strong _ngcontent-tov-c9="">fixup</strong> - this is similar to ‘squash’, but discard the commit message. The below command will result in a new commit with message <code _ngcontent-tov-c9="">add C</code>.</li>
 </ol>
-<pre _ngcontent-usp-c9=""><code _ngcontent-usp-c9="">pick 9fadd5a add C
+<pre _ngcontent-tov-c9=""><code _ngcontent-tov-c9="">pick 9fadd5a add C
 fixup b390979 add D
 </code></pre>
-<ol start="6" _ngcontent-usp-c9="">
-<li _ngcontent-usp-c9=""><strong _ngcontent-usp-c9="">edit</strong> - Consider the scenario, you’ve missed a file during the commit. If it was the last commit we can use <code _ngcontent-usp-c9="">git commit --amend</code>, otherwise we’ll use interactive rebase with <code _ngcontent-usp-c9="">edit</code>. First we’ll stash the files to be committed, then do a rebase and mark the commit to be edited using edit. e.g: <code _ngcontent-usp-c9="">edit 9fadd5a add C</code>. Rebasing halts when it reaches edit command. Here we can pop the stashed changes and run <code _ngcontent-usp-c9="">git commit --amend</code> to add the missed files. Once done you can run <code _ngcontent-usp-c9="">git rebase --continue</code> to continue rebasing.</li>
-<li _ngcontent-usp-c9=""><strong _ngcontent-usp-c9="">exec</strong> - this command helps us to run a command or script. e.g: <code _ngcontent-usp-c9="">exec ‘pwd’</code> will print current working directory during rebasing. This is just dumb example, but the command is really helpful in complex use cases.
-eg: <strong _ngcontent-usp-c9="">exec 'pwd'</strong> will print current working directory during rebasing. This is just dumb example, but really helpful in complex use cases.</li>
-<li _ngcontent-usp-c9=""><strong _ngcontent-usp-c9="">break</strong> - this command helps us to halt rebasing. To continue from here use <code _ngcontent-usp-c9="">git rebase --continue</code>. e.g: <code _ngcontent-usp-c9="">break</code> (in a single line)</li>
+<ol start="6" _ngcontent-tov-c9="">
+<li _ngcontent-tov-c9=""><strong _ngcontent-tov-c9="">edit</strong> - Consider the scenario, you’ve missed a file during the commit. If it was the last commit we can use <code _ngcontent-tov-c9="">git commit --amend</code>, otherwise we’ll use interactive rebase with <code _ngcontent-tov-c9="">edit</code>. First we’ll stash the files to be committed, then do a rebase and mark the commit to be edited using edit. e.g: <code _ngcontent-tov-c9="">edit 9fadd5a add C</code>. Rebasing halts when it reaches edit command. Here we can pop the stashed changes and run <code _ngcontent-tov-c9="">git commit --amend</code> to add the missed files. Once done you can run <code _ngcontent-tov-c9="">git rebase --continue</code> to continue rebasing.</li>
+<li _ngcontent-tov-c9=""><strong _ngcontent-tov-c9="">exec</strong> - this command helps us to run a command or script. e.g: <code _ngcontent-tov-c9="">exec ‘pwd’</code> will print current working directory during rebasing. This is just dumb example, but the command is really helpful in complex use cases.
+eg: <strong _ngcontent-tov-c9="">exec 'pwd'</strong> will print current working directory during rebasing. This is just dumb example, but really helpful in complex use cases.</li>
+<li _ngcontent-tov-c9=""><strong _ngcontent-tov-c9="">break</strong> - this command helps us to halt rebasing. To continue from here use <code _ngcontent-tov-c9="">git rebase --continue</code>. e.g: <code _ngcontent-tov-c9="">break</code> (in a single line)</li>
 </ol>
-<p _ngcontent-usp-c9="">The remaining three commands are usually used together to replay merge commits. The commands are:</p>
-<ol start="9" _ngcontent-usp-c9="">
-<li _ngcontent-usp-c9=""><strong _ngcontent-usp-c9="">label</strong> - this command helps us to provide an alternate name to the current HEAD.</li>
-<li _ngcontent-usp-c9=""><strong _ngcontent-usp-c9="">reset</strong> - this command helps us to reset current HEAD to the given label.</li>
-<li _ngcontent-usp-c9=""><strong _ngcontent-usp-c9="">merge</strong> - this command helps us to create a merge commit, if an original merge commit is provided, its message will be used otherwise we can provide a new one after '#'</li>
+<p _ngcontent-tov-c9="">The remaining three commands are usually used together to replay merge commits. The commands are:</p>
+<ol start="9" _ngcontent-tov-c9="">
+<li _ngcontent-tov-c9=""><strong _ngcontent-tov-c9="">label</strong> - this command helps us to provide an alternate name to the current HEAD.</li>
+<li _ngcontent-tov-c9=""><strong _ngcontent-tov-c9="">reset</strong> - this command helps us to reset current HEAD to the given label.</li>
+<li _ngcontent-tov-c9=""><strong _ngcontent-tov-c9="">merge</strong> - this command helps us to create a merge commit, if an original merge commit is provided, its message will be used otherwise we can provide a new one after '#'</li>
 </ol>
-<p _ngcontent-usp-c9="">Here in this example, I’ll be using these commands to create a pseudo-merge commit from the linear git history (shown in the above figure) </p>
-<pre _ngcontent-usp-c9=""><code class="language-bash" _ngcontent-usp-c9="">pick 9fadd5a add A
+<p _ngcontent-tov-c9="">Here in this example, I’ll be using these commands to create a pseudo-merge commit from the linear git history (shown in the above figure) </p>
+<pre _ngcontent-tov-c9=""><code class="language-bash" _ngcontent-tov-c9="">pick 9fadd5a add A
 label onto
 
 pick b390979 add B
@@ -112,28 +112,28 @@ label sub
 reset main
 merge sub # This is new merge commit
 </code></pre>
-<p _ngcontent-usp-c9="">Here we are labeling commits A, C &amp; E as ‘onto’, ‘main’ and ‘sub’ respectively. Final result will be as below. You can find another great read <a href="https://stackoverflow.com/a/61103385/1520750" _ngcontent-usp-c9="">here</a></p>
-<p _ngcontent-usp-c9=""><img src="assets/images/04_06.jpeg" alt="image" _ngcontent-usp-c9="">
-<em _ngcontent-usp-c9="">Fig-06</em></p>
-<h2 id="git-bisect" _ngcontent-usp-c9="">Git Bisect</h2>
-<p _ngcontent-usp-c9="">This is another git command with a bunch of sub commands. It helps to find the commit that introduced a bug/change by <strong _ngcontent-usp-c9="">binary search</strong>. First you need to mark at least two commits as good and bad respectively, so that git can do the binary search.
+<p _ngcontent-tov-c9="">Here we are labeling commits A, C &amp; E as ‘onto’, ‘main’ and ‘sub’ respectively. Final result will be as below. You can find another great read <a href="https://stackoverflow.com/a/61103385/1520750" _ngcontent-tov-c9="">here</a></p>
+<p _ngcontent-tov-c9=""><img src="assets/images/04_06.jpeg" alt="image" _ngcontent-tov-c9="">
+<em _ngcontent-tov-c9="">Fig-06</em></p>
+<h2 id="git-bisect" _ngcontent-tov-c9="">Git Bisect</h2>
+<p _ngcontent-tov-c9="">This is another git command with a bunch of sub commands. It helps to find the commit that introduced a bug/change by <strong _ngcontent-tov-c9="">binary search</strong>. First you need to mark at least two commits as good and bad respectively, so that git can do the binary search.
 eg: </p>
-<pre _ngcontent-usp-c9=""><code class="language-bash" _ngcontent-usp-c9="">git bisect start
+<pre _ngcontent-tov-c9=""><code class="language-bash" _ngcontent-tov-c9="">git bisect start
 git bisect bad 4ecb083
 git bisect good 97fabfa
 </code></pre>
-<p _ngcontent-usp-c9="">Short hand for the above is <code _ngcontent-usp-c9="">git bisect start [bad commit] [good commit]</code></p>
-<pre _ngcontent-usp-c9=""><code _ngcontent-usp-c9="">git bisect start 4ecb083 97fabfa
+<p _ngcontent-tov-c9="">Short hand for the above is <code _ngcontent-tov-c9="">git bisect start [bad commit] [good commit]</code></p>
+<pre _ngcontent-tov-c9=""><code _ngcontent-tov-c9="">git bisect start 4ecb083 97fabfa
 </code></pre>
-<p _ngcontent-usp-c9="">Once done git will pick a commit in between good and bad and ask us whether it is either good or bad. We need to check and mark appropriately. To mark good run the command <code _ngcontent-usp-c9="">git bisect good</code> otherwise <code _ngcontent-usp-c9="">git bisect bad</code>. This process continues until git finds the first bad commit. To reset back to previous state run <code _ngcontent-usp-c9="">git bisect reset</code>, if you want to switch to a specific commit run <code _ngcontent-usp-c9="">git bisect reset commithash</code>. To go back to bad commit when bisect is completed, use the command <code _ngcontent-usp-c9="">git bisect reset bisect/bad</code>. ‘bisect/bad’ is a single option and should be used together. I used it as <code _ngcontent-usp-c9="">git bisect reset bad</code> the first time and got error. 😃</p>
-<p _ngcontent-usp-c9="">But don’t you find this bit boring? Can we automate this? 🤔</p>
-<p _ngcontent-usp-c9="">Of course yes! If you have an external test script you can run it as below. One catch is that your tests and test script should be in an external path or untracked in the current repository.</p>
-<pre _ngcontent-usp-c9=""><code class="language-bash" _ngcontent-usp-c9="">git bisect start $badCommit $goodCommit
+<p _ngcontent-tov-c9="">Once done git will pick a commit in between good and bad and ask us whether it is either good or bad. We need to check and mark appropriately. To mark good run the command <code _ngcontent-tov-c9="">git bisect good</code> otherwise <code _ngcontent-tov-c9="">git bisect bad</code>. This process continues until git finds the first bad commit. To reset back to previous state run <code _ngcontent-tov-c9="">git bisect reset</code>, if you want to switch to a specific commit run <code _ngcontent-tov-c9="">git bisect reset commithash</code>. To go back to bad commit when bisect is completed, use the command <code _ngcontent-tov-c9="">git bisect reset bisect/bad</code>. ‘bisect/bad’ is a single option and should be used together. I used it as <code _ngcontent-tov-c9="">git bisect reset bad</code> the first time and got error. 😃</p>
+<p _ngcontent-tov-c9="">But don’t you find this bit boring? Can we automate this? 🤔</p>
+<p _ngcontent-tov-c9="">Of course yes! If you have an external test script you can run it as below. One catch is that your tests and test script should be in an external path or untracked in the current repository.</p>
+<pre _ngcontent-tov-c9=""><code class="language-bash" _ngcontent-tov-c9="">git bisect start $badCommit $goodCommit
 git bisect run $testScript
 git bisect reset # go back to previous state after bisect
 </code></pre>
-<p _ngcontent-usp-c9="">An example power-shell script to run dotnet tests is given below.</p>
-<pre _ngcontent-usp-c9=""><code class="language-ps" _ngcontent-usp-c9=""> param (
+<p _ngcontent-tov-c9="">An example power-shell script to run dotnet tests is given below.</p>
+<pre _ngcontent-tov-c9=""><code class="language-ps" _ngcontent-tov-c9=""> param (
     [Parameter(Mandatory=$true)]
     [string]$goodCommit = $( Read-Host "Good commit hash, please" ),
     [Parameter(Mandatory=$true)]
@@ -154,18 +154,17 @@ git bisect reset # go back to previous state after bisect
     write-host "Exception Message: $($_.Exception.Message)" -ForegroundColor Red
 }
 </code></pre>
-<p _ngcontent-usp-c9="">If you discover that you made a mistake in specifying the status of a revision, you can save the output of <code _ngcontent-usp-c9="">git bisect log</code> to a file. Edit it to remove the incorrect entries, and then issue the following commands to return to a corrected state.</p>
-<pre _ngcontent-usp-c9=""><code class="language-bash" _ngcontent-usp-c9="">git bisect log &gt; log-file
+<p _ngcontent-tov-c9="">If you discover that you made a mistake in specifying the status of a revision, you can save the output of <code _ngcontent-tov-c9="">git bisect log</code> to a file. Edit it to remove the incorrect entries, and then issue the following commands to return to a corrected state.</p>
+<pre _ngcontent-tov-c9=""><code class="language-bash" _ngcontent-tov-c9="">git bisect log &gt; log-file
 git bisect reset
 git bisect replay log-file
 </code></pre>
-<p _ngcontent-usp-c9="">Woof, That's some long read. </p>
-<!--scullyContent-end--><scully-content _ngcontent-usp-c9=""></scully-content>
-    <script>try {window['scullyContent'] = {cssId:"_ngcontent-usp-c9",html:document.body.innerHTML.split('<!--scullyContent-begin-->')[1].split('<!--scullyContent-end-->')[0]};} catch(e) {console.error('scully could not parse content');}</script></div>
-    <hr _ngcontent-usp-c9="" class="border-gray-800">
-    
-</div><!----></app-blog><!----><footer _ngcontent-usp-c7="" class="container mx-auto flex flex-row bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><div _ngcontent-usp-c7="" class="mx-auto p-5 text-sm"><p _ngcontent-usp-c7="">© 2020-present <a _ngcontent-usp-c7="" href="https://krishnamohan.dev/" class="font-bold">Krishna Mohan A M</a>. All Rights Reserved.</p></div></footer></div></app-root>
+<p _ngcontent-tov-c9="">Woof, That's some long read. </p>
+<!--scullyContent-end--><scully-content _ngcontent-tov-c9=""></scully-content>
+    <script>try {window['scullyContent'] = {cssId:"_ngcontent-tov-c9",html:document.body.innerHTML.split('<!--scullyContent-begin-->')[1].split('<!--scullyContent-end-->')[0]};} catch(e) {console.error('scully could not parse content');}</script></div>
+    <hr _ngcontent-tov-c9="" class="border-gray-800">    
+</div><!----></app-blog-post><!----><footer _ngcontent-tov-c7="" class="container mx-auto flex flex-col bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><div _ngcontent-tov-c7="" class="mt-10"><ul _ngcontent-tov-c7="" class="flex flex-row justify-between max-w-sm mx-auto pl-4 pr-4"><li _ngcontent-tov-c7="" class="hover:text-gray-600 dark:hover:text-gray-100"><a _ngcontent-tov-c7="" href="https://twitter.com/KrishnaAnaril">Twitter</a></li><li _ngcontent-tov-c7=""><a _ngcontent-tov-c7="" href="https://krishnamohan.dev/sitemap-blog.xml">Sitemap</a></li><li _ngcontent-tov-c7=""><a _ngcontent-tov-c7="" href="https://krishnamohan.dev/feed.xml">RSS</a></li><li _ngcontent-tov-c7=""><a _ngcontent-tov-c7="" href="mailto:krishnamohan.a.m@gmail.com">Contact</a></li></ul></div><div _ngcontent-tov-c7="" class="mx-auto p-5 text-sm"><p _ngcontent-tov-c7="">© 2021-present <a _ngcontent-tov-c7="" href="https://krishnamohan.dev/" class="font-bold">Krishna Mohan A M</a>. All Rights Reserved.</p></div></footer></div></app-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
-<script id="ScullyIO-transfer-state"></script><script src="runtime-es2015.e14ea9e0ef63cef7c103.js" type="module"></script><script src="runtime-es5.e14ea9e0ef63cef7c103.js" nomodule="" defer=""></script><script src="polyfills-es5.29147128fc6f0f3fd286.js" nomodule="" defer=""></script><script src="polyfills-es2015.2045db6d95f407e1e8c7.js" type="module"></script><script src="main-es2015.f54347cba9b0f9f667f2.js" type="module"></script><script src="main-es5.f54347cba9b0f9f667f2.js" nomodule="" defer=""></script>
+<script id="ScullyIO-transfer-state"></script><script src="runtime-es2015.6c7d62e674e2daeb3579.js" type="module"></script><script src="runtime-es5.6c7d62e674e2daeb3579.js" nomodule="" defer=""></script><script src="polyfills-es5.29147128fc6f0f3fd286.js" nomodule="" defer=""></script><script src="polyfills-es2015.2045db6d95f407e1e8c7.js" type="module"></script><script src="main-es2015.fbbf9b9adb58a7712a31.js" type="module"></script><script src="main-es5.fbbf9b9adb58a7712a31.js" nomodule="" defer=""></script>
 
 </body></html>
