@@ -19,7 +19,7 @@ In this blog post we'll have a minimal implementation of file upload using [Angu
 3. [Creating Angular Frontend]()
 4. [What's next]()
 
-## Prerequisite
+## Prerequisites
 
 * Install [Angular CLI](https://angular.io/cli#installing-angular-cli)
 * Install [Dotnet Core](https://dotnet.microsoft.com/download/dotnet-core/3.1). For this post I'll be using dotnet core version 3.1.
@@ -36,7 +36,7 @@ For logging I'll be using [Serilog](https://serilog.net/) and a flat file sink. 
 * Serilog.Sinks.file
 
 Then update the `Program.cs` file.
-``` C#
+```csharp
     public class Program
     {
         public static void Main(string[] args)
@@ -72,7 +72,7 @@ Then update the `Program.cs` file.
 ```
 In `FileUploadController.cs` file add the parameter `ILogger<FileUploadController> logger` to the constructor.
 
-``` C#
+```csharp
     private readonly ILogger<FileUploadController> _logger;
 
     public FileUploadController(ILogger<FileUploadController> logger)
@@ -89,7 +89,7 @@ If you need to have file upload path configurable, you can add the path as key-v
 ```
 And update `FileUploadController.cs` constructor to add the configuration parameter.
 
-``` C#
+```csharp
     private readonly IConfiguration _configuration;
     private readonly ILogger<FileUploadController> _logger;
 
@@ -105,7 +105,7 @@ And update `FileUploadController.cs` constructor to add the configuration parame
 Let's add two methods to handle single file upload and multiple file upload. Argument for methods will be of type [IFormFile](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.iformfile?view=aspnetcore-3.1) which represent the file send with HttpRequest.
 
 * POST Method for Single File Upload
-``` C#
+```csharp
     [Route("single-file")]
     [HttpPost]
     public async Task<IActionResult> PostSingleFile(IFormFile formFile)
@@ -129,7 +129,7 @@ Let's add two methods to handle single file upload and multiple file upload. Arg
 ```
 
 * POST Method for Multiple File Upload
-``` C#
+```csharp
     [Route("multiple-files")]
     [HttpPost]
     public async Task<IActionResult> PostMultipleFiles(List<IFormFile> files)

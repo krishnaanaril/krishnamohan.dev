@@ -7,52 +7,75 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Router, ROUTES } from '@angular/router';
 import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, pipe, ReplaySubject } from 'rxjs';
 import { MetaService } from '../meta.service';
 import { MetaData } from '../meta-data.model';
+import { takeUntil } from 'rxjs/operators';
+import { CodeHighlightService } from '../code-highlight.service';
 
 declare var ng: any;
 
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.less'],
+  styleUrls: ['./blog.component.scss'],
   preserveWhitespaces: true,
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class BlogComponent implements OnInit, AfterViewChecked, OnDestroy {
-  private subscriptions = new Subscription();
+  private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
   current$: Observable<any> = this.scully.getCurrent();
   metaData: MetaData;
 
-  ngOnInit() {
-    this.subscriptions.add(
-      this.current$.subscribe((blog: ScullyRoute) => {        
-        this.metaData = {
-          title: blog.title,
-          description: blog.description,
-          date: blog.date,
-          category: blog.category ? blog.category : '',
-          imageUrl: blog.image ? blog.image : '',
-          keywords: blog.keywords
-            ? blog.keywords.split(',').map((elem) => elem.trim())
-            : [],
-          siteUrl: blog.route,
-          type: 'website',
-        };
-        this.metaService.setMetaForCurrentPage(this.metaData);
-      })
-    );
-  }
-
   constructor(
     private scully: ScullyRoutesService,
-    private metaService: MetaService
-  ) {}
+    private metaService: MetaService, 
+    private highlightService: CodeHighlightService
+  ) { }
 
-  ngAfterViewChecked() {}
+  ngOnInit() {
+    this.current$
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(
+        (blog: ScullyRoute) => this.setMetaDataInPage(blog)
+      );
+  }
+
+  ngAfterViewChecked() {
+    this.highlightService.highlightAll();
+  }
+
+  /**
+   * Set metadata tags in page's html
+   * @param blog - ScullyRoute object
+   */
+  setMetaDataInPage(blog: ScullyRoute): void {
+    this.metaData = this.getMetaDataFromBlogRoute(blog);
+    this.metaService.setMetaForCurrentPage(this.metaData);
+  }
+
+  /**
+   * Returns MetaData object mapping from ScullyRoute
+   * @param blog - ScullyRoute object
+   */
+  getMetaDataFromBlogRoute(blog: ScullyRoute): MetaData {
+    const metaData: MetaData = {
+      title: blog.title,
+      description: blog.description,
+      date: blog.date,
+      category: blog.category ? blog.category : '',
+      imageUrl: blog.image ? blog.image : '',
+      keywords: blog.keywords
+        ? blog.keywords.split(',').map((elem) => elem.trim())
+        : [],
+      siteUrl: blog.route,
+      type: 'website',
+    };
+    return metaData;
+  }
 
   ngOnDestroy() {
-    this.subscriptions.unsubscribe();
+    this.destroyed$.next(true);
+    this.destroyed$.complete();
   }
 }
