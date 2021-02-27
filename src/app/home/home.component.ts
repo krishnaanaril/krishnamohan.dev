@@ -31,9 +31,10 @@ export class HomeComponent implements OnInit {
     this.links$ = this.scully.available$.pipe(
       map(
         (links: ScullyRoute[]) => {
+          console.log(links);
           links.sort((a, b) => {
-            const aDate = new Date(a.date);
-            const bDate = new Date(b.date);
+            const aDate = new Date(a.publishedAt);
+            const bDate = new Date(b.publishedAt);
             if (aDate < bDate) return 1;
             if (aDate > bDate) return -1;
             return 0;

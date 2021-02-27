@@ -62,11 +62,11 @@ export class BlogComponent implements OnInit, AfterViewChecked, OnDestroy {
     const metaData: MetaData = {
       title: blog.title,
       description: blog.description,
-      date: blog.date,
+      date: blog.publishedAt,
       category: blog.category ? blog.category : '',
       imageUrl: blog.image ? blog.image : '',
       keywords: blog.keywords
-        ? blog.keywords.split(',').map((elem) => elem.trim())
+        ? blog.keywords.map((elem) => elem.trim())
         : [],
       siteUrl: blog.route,
       type: 'website',
