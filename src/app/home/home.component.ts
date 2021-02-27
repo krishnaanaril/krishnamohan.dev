@@ -3,6 +3,7 @@ import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MetaService } from '../meta.service';
+import { ScullyContentService } from '../scully-content.service';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   links$: Observable<any>;
 
   constructor(
-    private scully: ScullyRoutesService,
+    private scully: ScullyContentService,
     private metaService: MetaService
   ) { }
 
@@ -28,19 +29,6 @@ export class HomeComponent implements OnInit {
       siteUrl: 'https://krishnamohan.dev',
       type: 'website',
     });
-    this.links$ = this.scully.available$.pipe(
-      map(
-        (links: ScullyRoute[]) => {
-          links.sort((a, b) => {
-            const aDate = new Date(a.publishedAt);
-            const bDate = new Date(b.publishedAt);
-            if (aDate < bDate) return 1;
-            if (aDate > bDate) return -1;
-            return 0;
-          });          
-          return links.slice(0, 6);
-        }
-      )
-    );
+    this.links$ = this.scully.blogPosts();
   }
 }

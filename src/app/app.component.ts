@@ -8,8 +8,15 @@ import { MatIconRegistry } from '@angular/material/icon';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = "Krishna Mohan's portfolio";
+  title = "Krishna Mohan";
   displayMenu: boolean;
+
+  menu = [
+    {text: 'Home', link: '/'},
+    {text: 'Blog', link: '/blog'},
+    {text: 'Projects', link: '/projects'},
+    {text: 'About', link: '/about'},
+  ];
 
   constructor() {
     this.displayMenu = false;

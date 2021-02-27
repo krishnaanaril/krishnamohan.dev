@@ -12,6 +12,7 @@ import { MetaService } from '../meta.service';
 import { MetaData } from '../meta-data.model';
 import { takeUntil } from 'rxjs/operators';
 import { CodeHighlightService } from '../code-highlight.service';
+import { ScullyContentService } from '../scully-content.service';
 
 declare var ng: any;
 
@@ -22,9 +23,15 @@ declare var ng: any;
 })
 export class BlogComponent {
 
-  constructor() { }
+  links$: Observable<any>;
+
+  constructor(
+    private scully: ScullyContentService,
+    private metaService: MetaService
+  ) { }
 
   ngOnInit() {
+    this.links$ = this.scully.blogPosts();
   }
   
 }

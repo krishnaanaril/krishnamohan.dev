@@ -3,18 +3,14 @@
         <section class="hidden lg:flex flex-row justify-center">
             <nav>
                 <ul class="lg:text-xl lg:flex lg:flex-row">
-                    <li class="p-3 cursor-pointer" routerLink="/" routerLinkActive="border-b-2 border-gray-700 dark:border-gray-300"
-                        [routerLinkActiveOptions]="{ exact: true }">Home</li>
-                    <li class="p-3 cursor-pointer" routerLink="/blog" routerLinkActive="border-b-2 border-gray-700 dark:border-gray-300"
-                    [routerLinkActiveOptions]="{ exact: true }">Blog</li>
-                    <li class="p-3 cursor-pointer">Projects</li>
-                    <li class="p-3 cursor-pointer">About</li>
+                    <li *ngFor="let item of menu" class="p-3 cursor-pointer" [routerLink]="item.link" routerLinkActive="border-b-2 border-gray-700 dark:border-gray-300"
+                        [routerLinkActiveOptions]="{ exact: true }">{{item.text}}</li>
                 </ul>
             </nav>
         </section>
         <div class="absolute lg:hidden mr-4 p-4 right-0">
             <button class="p-2" (click)="openMenu()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px">
+                <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px">
                     <path d="M0 0h24v24H0z" fill="none" />
                     <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
                 </svg>
@@ -23,10 +19,10 @@
     </div>
     
     <div *ngIf="displayMenu" class="absolute bg-gray-100 bg-opacity-0 block h-screen lg:hidden p-2 w-screen z-1">
-        <div class="bg-gray-100 bg-opacity-100 m-5 p-5 rounded-lg shadow-xl">
+        <div class="bg-gray-100 bg-opacity-100 m-5 p-5 rounded-lg shadow-xl dark:bg-gray-600 dark:text-gray-50">
             <div class="flex flex-row justify-end">
-                <button (click)="closeMenu()">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                <button class="dark:text-gray-50" (click)="closeMenu()">
+                    <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
                         <path d="M0 0h24v24H0z" fill="none" />
                         <path
                             d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
@@ -34,12 +30,8 @@
                 </button>
             </div>
             <ul class="list-none">
-                <li routerLink="/" routerLinkActive="border-b-2 border-gray-700 dark:border-gray-300"
-                [routerLinkActiveOptions]="{ exact: true }" class="mt-3 mb-3">Home</li>
-                <li routerLink="/blog" routerLinkActive="border-b-2 border-gray-700 dark:border-gray-300"
-                [routerLinkActiveOptions]="{ exact: true }" class="mt-3 mb-3">Blog</li>
-                <li class="mt-3 mb-3">Projects</li>
-                <li class="mt-3 mb-3">About</li>
+                <li *ngFor="let item of menu" [routerLink]="item.link" routerLinkActive=""
+                [routerLinkActiveOptions]="{ exact: true }" class="mt-3 mb-3">{{item.text}}</li>
             </ul>
         </div>
     </div>
