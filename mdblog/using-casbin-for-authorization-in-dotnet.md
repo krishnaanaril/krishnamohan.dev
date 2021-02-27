@@ -11,6 +11,8 @@ keywords:
     - abac
     - auth
     - dotnet
+authors:
+  - Krishna Mohan A M
 ---
 
 Our organization, as part of common platform initiative, was trying to create an authorization mechanism for multiple applications in our ecosystem. Last week as a part of this initiative I was browsing internet to find a client library that makes use of Attribute based access control (ABAC). [Casbin](https://github.com/topics/abac) is one of the most starred libraries in the topic ABAC.

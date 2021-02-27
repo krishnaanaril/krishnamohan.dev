@@ -8,6 +8,8 @@ category: tech
 image: 'https://krishnamohan.dev/assets/banners/04.png'
 keywords: 
     - dotnet
+authors:
+  - Krishna Mohan A M
 ---
 
 Unlike other application frameworks **.NET Core** do not provide code coverage reports out of the box, even the code coverage [support ](https://github.com/microsoft/vstest/issues/981)was provided only in dotnet core version 2.1. But the ‘**Code Coverage Analysis**’ is provided with Visual Studio Enterprise edition. You can find more information [here](https://docs.microsoft.com/en-us/visualstudio/test/using-code-coverage-to-determine-how-much-code-is-being-tested?view=vs-2017).

@@ -10,6 +10,8 @@ keywords:
     - dark-patterns
     - Gandhi
     - Finance
+authors:
+  - Krishna Mohan A M
 ---
 
 1. [Projection Clock](https://en.wikipedia.org/wiki/Projection_clock): I wasn't aware of this product, but seems useful. Need to try it.

@@ -9,6 +9,8 @@ image: 'https://krishnamohan.dev/assets/banners/14.png'
 keywords: 
     - comics
     - dotnet
+authors:
+  - Krishna Mohan A M
 ---
 
 

@@ -10,6 +10,8 @@ keywords:
     - angular
     - dotnet
     - API
+authors:
+  - Krishna Mohan A M
 ---
 
 # File Upload - With Angular and Dotnet Core Web API

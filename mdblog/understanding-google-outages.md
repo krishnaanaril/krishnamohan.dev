@@ -9,6 +9,8 @@ image: 'https://krishnamohan.dev/assets/banners/06.png'
 keywords: 
     - google
     - outage
+authors:
+  - Krishna Mohan A M
 ---
 
 On that fateful day I was playing around with Youtube API to find a custom algorithm to avoid the default recommendations. All of sudden server errors started popping up for my API requests and for a moment I thought that I broke it. To verify this I logged in to Twitter and it was already trending there.

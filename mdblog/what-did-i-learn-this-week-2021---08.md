@@ -9,6 +9,8 @@ image: 'https://krishnamohan.dev/assets/banners/15.png'
 keywords: 
     - comics
     - dotnet
+authors:
+  - Krishna Mohan A M
 ---
 
 1. **Adam Curtis** - I came to know about this British documentary film maker recently, when his [new documentary](https://en.wikipedia.org/wiki/Can%27t_Get_You_Out_of_My_Head_(TV_series)) released. He has a unique style of making and his subjects are unconventional. His documentaries are available in his [youtube channel](https://www.youtube.com/c/AdamCurtisDocumentary). I didn't get time to watch it, but need to do that soon.

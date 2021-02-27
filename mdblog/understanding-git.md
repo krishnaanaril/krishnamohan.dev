@@ -10,6 +10,8 @@ keywords:
    - git
    - rebase
    - tutorial
+authors:
+  - Krishna Mohan A M
 ---
 
 In any git workflow, branching and merging code is unavoidable. Here we are having a not-so deeper look at the three important git commands viz. [git-merge](https://git-scm.com/docs/git-merge), [git-rebase](https://git-scm.com/docs/git-rebase) and [git-bisect](https://git-scm.com/docs/git-bisect). At the end you’ll get an idea why certain options and sub-commands exist and its use cases. You can then adapt it to suit your needs. 

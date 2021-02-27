@@ -10,6 +10,8 @@ keywords:
  - dotnet
  - mediatr
  - cqrs
+authors:
+  - Krishna Mohan A M
 ---
 
 I came to know about [MediatR](https://github.com/jbogard/MediatR) library while reading the book [.NET Microservices: Architecture for Containerized .NET Applications](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/). Frankly speaking, even though I was aware of [mediator pattern](https://github.com/krishnaanaril/try-outs/blob/master/design-patterns/behavioral/mediator.ts), I haven't used it any of the projects I've worked. May be this is due to the fact that, I've mostly worked in enterprise applications with hardly 100+ users. Any way I consider this as an opportunity to learn a new thing.

@@ -10,6 +10,8 @@ keywords:
     - powerbi
     - angular
     - dotnet
+authors:
+  - Krishna Mohan A M
 ---
 
 Power BI is a powerful tool which helps us to create quick and interactive insights from wide range of data sources. Here we’ll be discussing about **Power BI service** which is a **SaaS**, and how to embed Power BI Dashboards, Reports and Tiles in web applications. If you are new to Power BI, you can start [here](https://docs.microsoft.com/en-us/power-bi/power-bi-overview).

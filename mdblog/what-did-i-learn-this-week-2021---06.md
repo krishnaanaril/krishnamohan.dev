@@ -9,6 +9,8 @@ image: 'https://krishnamohan.dev/assets/banners/13.png'
 keywords: 
     - Politics
     - Farming
+authors:
+  - Krishna Mohan A M
 ---
 
 1. Myanmar's third and current constitution was published in 2008 and was drafted by the military named [Tatmadaw](https://en.wikipedia.org/wiki/Tatmadaw). 25% of seats in the Parliament of Myanmar are reserved for serving military officers. The ministries of home, border affairs and defense have to be headed by a serving military officer. The military also appoints one of the country's two vice presidents. Hence, the country's civilian leaders have little influence over the security establishment.

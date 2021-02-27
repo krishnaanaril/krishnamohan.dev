@@ -9,6 +9,8 @@ image: 'https://krishnamohan.dev/assets/banners/10.png'
 keywords: 
     - cloud
     - finance
+authors:
+  - Krishna Mohan A M
 ---
 
 1. The use of [Form 12BB](https://cleartax.in/s/guide-to-form-12bb#form). The Form 12BB is the form that you fill and give to your employer - not to the Income Tax Department - so that your employer can figure how much income tax is to be deducted from your monthly pay.

@@ -9,6 +9,8 @@ image: 'https://krishnamohan.dev/assets/banners/09.png'
 keywords: 
     - resume
     - f#    
+authors:
+  - Krishna Mohan A M
 ---
 
 1. Watched the Scott Wlashin talk - [The Functional Programming Toolkit](https://www.youtube.com/watch?v=Nrp_LZ-XGsY) and I got a high level understanding of Monad, Monoid, Functor and Effects.
