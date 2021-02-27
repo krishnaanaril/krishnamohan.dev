@@ -2,10 +2,13 @@
 title: What did I learn this week (2021) - 01
 description: Weekly summarization and review of things I've learned in the first week of January 2021 
 published: true
-date: 2021-01-03
+publishedAt: 2021-01-03T00:00:00.000Z
+updatedAt: 2021-01-03T00:00:00.000Z
 category: learnings
 image: 'https://krishnamohan.dev/assets/banners/08.png'
-keywords: space, css
+keywords: 
+    - space
+    - css
 ---
 
 

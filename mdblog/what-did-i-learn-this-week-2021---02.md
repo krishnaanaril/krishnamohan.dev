@@ -2,10 +2,13 @@
 title: 'What did I learn this week (2021) - 02'
 description: 'Weekly summarisation and review of things I''ve learned in the second week of January 2021'
 published: true
-date: 2021-01-10T00:00:00.000Z
+publishedAt: 2021-01-10T00:00:00.000Z
+updatedAt: 2021-01-10T00:00:00.000Z
 category: learnings
 image: 'https://krishnamohan.dev/assets/banners/09.png'
-keywords: 'resume, f#'    
+keywords: 
+    - resume
+    - f#    
 ---
 
 1. Watched the Scott Wlashin talk - [The Functional Programming Toolkit](https://www.youtube.com/watch?v=Nrp_LZ-XGsY) and I got a high level understanding of Monad, Monoid, Functor and Effects.

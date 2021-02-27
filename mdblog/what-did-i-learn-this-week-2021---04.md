@@ -2,10 +2,14 @@
 title: What did I learn this week (2021) - 04
 description: 'Weekly summarization and review of things I''ve learned in the fourth week of January 2021'
 published: true
-date: 2021-01-24T00:00:00.000Z
+publishedAt: 2021-01-24T00:00:00.000Z
+updatedAt: 2021-01-24T00:00:00.000Z
 category: learnings
 image: 'https://krishnamohan.dev/assets/banners/11.png'
-keywords: cloud, ddd, css
+keywords: 
+    - cloud
+    - ddd
+    - css
 ---
 
 1. How to add css class to an element in [browser devtools](https://developers.google.com/web/tools/chrome-devtools/css#classes) with auto completion. I was learning tailwindcss with angular with each change requiring a rebuild. I thought of creating an extension with tailwind intellisense in browser similar to the VS code extension, but then I found this in-built feature.

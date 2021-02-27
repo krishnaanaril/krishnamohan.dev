@@ -2,10 +2,13 @@
 title: What did I learn this week (2021) - 06
 description: Weekly summarization and review of things I've learned in the first week of February 2021 
 published: true
-date: 2021-02-07T00:00:00.000Z
+publishedAt: 2021-02-07T00:00:00.000Z
+updatedAt: 2021-02-07T00:00:00.000Z
 category: learnings
 image: 'https://krishnamohan.dev/assets/banners/13.png'
-keywords: Politics, Farming
+keywords: 
+    - Politics
+    - Farming
 ---
 
 1. Myanmar's third and current constitution was published in 2008 and was drafted by the military named [Tatmadaw](https://en.wikipedia.org/wiki/Tatmadaw). 25% of seats in the Parliament of Myanmar are reserved for serving military officers. The ministries of home, border affairs and defense have to be headed by a serving military officer. The military also appoints one of the country's two vice presidents. Hence, the country's civilian leaders have little influence over the security establishment.

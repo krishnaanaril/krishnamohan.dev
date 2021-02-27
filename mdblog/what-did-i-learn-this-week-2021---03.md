@@ -2,10 +2,13 @@
 title: What did I learn this week (2021) - 03
 description: 'Weekly summarization and review of things I''ve learned in the third week of January 2021'
 published: true
-date: 2021-01-17T00:00:00.000Z
+publishedAt: 2021-01-17T00:00:00.000Z
+updatedAt: 2021-01-17T00:00:00.000Z
 category: learnings
 image: 'https://krishnamohan.dev/assets/banners/10.png'
-keywords: 'cloud, finance'   
+keywords: 
+    - cloud
+    - finance
 ---
 
 1. The use of [Form 12BB](https://cleartax.in/s/guide-to-form-12bb#form). The Form 12BB is the form that you fill and give to your employer - not to the Income Tax Department - so that your employer can figure how much income tax is to be deducted from your monthly pay.

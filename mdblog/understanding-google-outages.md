@@ -2,10 +2,13 @@
 title: Understanding Google Outages on December 14, 2020
 description: An overview of two major outages happened on 14th December, 2020. This is not an authoritative analysis but can be considered as notes regarding the aforesaid incidents.
 published: true
-date: 2021-01-06
+publishedAt: 2021-01-06T00:00:00.000Z
+updatedAt: 2020-09-02T00:00:00.000Z
 category: tech
 image: 'https://krishnamohan.dev/assets/banners/06.png'
-keywords: google, outage
+keywords: 
+    - google
+    - outage
 ---
 
 On that fateful day I was playing around with Youtube API to find a custom algorithm to avoid the default recommendations. All of sudden server errors started popping up for my API requests and for a moment I thought that I broke it. To verify this I logged in to Twitter and it was already trending there.

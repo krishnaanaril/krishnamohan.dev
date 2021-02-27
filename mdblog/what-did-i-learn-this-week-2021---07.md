@@ -2,10 +2,13 @@
 title: What did I learn this week (2021) - 07
 description: Weekly summarization and review of things I've learned in the second week of February 2021 
 published: true
-date: 2021-02-14T00:00:00.000Z
+publishedAt: 2021-02-14T00:00:00.000Z
+updatedAt: 2021-02-14T00:00:00.000Z
 category: learnings
 image: 'https://krishnamohan.dev/assets/banners/14.png'
-keywords: comics, dotnet
+keywords: 
+    - comics
+    - dotnet
 ---
 
 

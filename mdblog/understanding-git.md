@@ -2,10 +2,14 @@
 title: 'Understanding Git - Merge, Rebase & Bisect'
 description: In any git workflow, branching and merging code is unavoidable. In this post we are having a not-so deeper look at the three important git commands viz. git-merge, git-rebase and git-bisect.
 published: true
-date: 2020-05-08
+publishedAt: 2020-05-08T00:00:00.000Z
+updatedAt: 2020-05-08T00:00:00.000Z
 category: tech
 image: 'https://krishnamohan.dev/assets/banners/05.png'
-keywords: git, rebase, tutorial
+keywords: 
+   - git
+   - rebase
+   - tutorial
 ---
 
 In any git workflow, branching and merging code is unavoidable. Here we are having a not-so deeper look at the three important git commands viz. [git-merge](https://git-scm.com/docs/git-merge), [git-rebase](https://git-scm.com/docs/git-rebase) and [git-bisect](https://git-scm.com/docs/git-bisect). At the end you’ll get an idea why certain options and sub-commands exist and its use cases. You can then adapt it to suit your needs. 

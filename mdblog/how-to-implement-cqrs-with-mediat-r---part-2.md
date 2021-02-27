@@ -2,10 +2,14 @@
 title: How to implement CQRS with MediatR - Part 2
 description: This post is about implementing mediator pattern in a dotnet WebAPI using MediatR library.
 published: true
-date: 2021-02-27
+publishedAt: 2021-02-27T00:00:00.000Z
+updatedAt: 2021-02-27T00:00:00.000Z
 category: tech
 image: 'https://krishnamohan.dev/assets/banners/17.png'
-keywords: dotnet, mediatr, CancellationToken
+keywords: 
+    - dotnet
+    - mediatr
+    - CancellationToken
 ---
 
 

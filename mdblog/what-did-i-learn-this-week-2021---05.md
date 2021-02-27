@@ -2,10 +2,14 @@
 title: What did I learn this week 2021 - 05
 description: 'Weekly summarization and review of things I''ve learned in the final week of January 2021'
 published: true
-date: 2021-01-31T00:00:00.000Z
+publishedAt: 2021-01-31T00:00:00.000Z
+updatedAt: 2021-01-10T00:00:00.000Z
 category: learnings
 image: 'https://krishnamohan.dev/assets/banners/12.png'
-keywords: dark-patterns, Gandhi, Finance
+keywords: 
+    - dark-patterns
+    - Gandhi
+    - Finance
 ---
 
 1. [Projection Clock](https://en.wikipedia.org/wiki/Projection_clock): I wasn't aware of this product, but seems useful. Need to try it.
