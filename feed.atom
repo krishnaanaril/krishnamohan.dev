@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-03-01T15:01:38.993Z</updated>
+    <updated>2021-03-10T05:19:52.689Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -14,6 +14,26 @@
     <category term="Blog"/>
     <category term="Angular"/>
     <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 10]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---10</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---10"/>
+        <updated>2021-03-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the first week of March 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li><a href="https://storybook.js.org/"><strong>Storybookjs</strong></a>: Learned about this new tool to develop components for angular in isolation. It uses <a href="https://compodoc.app/">compodoc</a> under the hood.</li>
+<li><strong>How to <a href="https://stackoverflow.com/a/56905918/1520750">mock public methods</a> of a class with Moq.</strong> Moq creates an implementation of the mocked type. If the type is an interface, it creates a class that implements the interface. If the type is a class, it creates an inherited class, and the members of that inherited class call the base class. But in order to do that it has to override the members. If a class has members that can't be overridden (they aren't virtual, abstract) then Moq can't override them to add its own behaviors.</li>
+<li>Came to know about the agriculture company named <a href="https://www.olamgroup.com/">Olam International</a>. Its cofounder and current CEO is a keralite named Sunny George Varghese.</li>
+<li><a href="https://www.youtube.com/watch?v=aTrl5ZVTXiA"><strong>Kumbukkal black pepper</strong></a> is a variety of black pepper patented to Idukki farmer KT Varghese.</li>
+<li><a href="https://qr.ae/pNLpEx"><strong>Gyroscopic Effect</strong></a> is ability (tendency) of the rotating body to maintain a steady direction of its axis of rotation. Examples include the movement of shuttlecock and <a href="https://www.youtube.com/watch?v=tkFzT9dDB20">bullet</a>.</li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[What did I learn this week (2021) - 09]]></title>
         <id>/blog/what-did-i-learn-this-week-2021---09</id>
