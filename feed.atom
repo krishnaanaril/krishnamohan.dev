@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-03-10T05:19:52.689Z</updated>
+    <updated>2021-03-15T01:42:05.123Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -14,6 +14,41 @@
     <category term="Blog"/>
     <category term="Angular"/>
     <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 11]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---11</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---11"/>
+        <updated>2021-03-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the second week of March 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li><a href="https://en.wikipedia.org/wiki/Survivorship_bias"><strong>Survivorship bias</strong></a>: It is the logical error of concentrating on the people or things that made it past some selection process and overlooking those that did not, typically because of their lack of visibility. This can lead to some false conclusions in several different ways. It is a form of selection bias.</li>
+<li><strong><a href="https://en.wikipedia.org/wiki/Postpartum_psychosis">Postpartum psychosis</a></strong>: It was recognized that severe mental illness sometimes started abruptly in the days after childbirth, later known as <strong>puerperal</strong> or <strong>postpartum psychosis</strong>. Came to know about this with a <a href="https://www.newindianexpress.com/states/kerala/2021/mar/10/kollam-woman-in-depression-strangles-baby-girl-to-death-2274520.html">recent news</a>.</li>
+<li>Read a bit about <a href="https://aws.amazon.com/emr/details/hadoop/what-is-hadoop/">Hadoop</a>, to have an overview. Hadoop consists of four main modules:<ul>
+<li>Hadoop Distributed File System (HDFS)</li>
+<li>Yet Another Resource Negotiator (YARN)</li>
+<li>MapReduce</li>
+<li>Hadoop Common</li></ul></li>
+<li><a href="https://stackoverflow.com/a/33569970/1520750">Git merge quirks</a> - If you're already in conflicted state, and you want to just accept all of theirs:</li>
+</ol>
+<pre><code class="bash language-bash">git checkout --theirs .
+git add .
+</code></pre>
+<ol start="5">
+<li><a href="http://reactivex.io/documentation/operators/backpressure.html">Backpressure</a> involves strategies to control the observables that produce items more rapidly than their observers can consume.</li>
+<li>The <strong>Pareto principle</strong> states that for many outcomes, roughly 80% of consequences come from 20% of the causes. Other names for this principle are the <strong>80/20 rule</strong>, the law of the vital few, or the principle of factor sparsity.</li>
+<li><strong>Big Wave Surfing</strong>: While randomly surfing youtube videos, I saw a video of surfing in Teahupoo, Tahiti, French Polynesia. This got my interest and started watching some more videos. Then I came to know about the <a href="https://www.surfertoday.com/surfing/the-best-big-wave-surf-spots-in-the-world">biggest waves</a> in the world. <a href="https://www.surfertoday.com/surfing/the-best-big-wave-surf-spots-in-the-world">Some of them</a> are in my bucket list and I'm planning to visit them soon.</li>
+<li>Watched <a href="https://www.youtube.com/watch?v=NNnIGh9g6fA">Introduction to Human Behavioral Biology</a> by <a href="https://en.wikipedia.org/wiki/Robert_Sapolsky">Robert Sapolsky</a><ul>
+<li>Frontal lobotomy: A lobotomy, or leucotomy, is a form of psychosurgery, a neurosurgical treatment of a mental disorder that involves severing connections in the brain's prefrontal cortex.</li>
+<li><a href="https://en.wikipedia.org/wiki/Konrad_Lorenz">Konrad Lorenz</a>: He is often regarded as one of the founders of modern ethology, the study of animal behavior.</li>
+<li>Book suggestion: <a href="https://www.google.com/search?client=firefox-b-d&q=james+gleick+chaos">Chaos by James Gleick</a></li></ul></li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[What did I learn this week (2021) - 10]]></title>
         <id>/blog/what-did-i-learn-this-week-2021---10</id>
@@ -41,14 +76,14 @@
         <updated>2021-02-28T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the final week of February 2021]]></summary>
         <content type="html"><![CDATA[<ol>
-<li><p>Refreshed my knowledge of Indian traffic signs from the site <a href="https://indianauto.com/tips/indian-traffic-signs-with-their-meanings-nid6445">indianauto.com</a>.</p></li>
-<li><p>21 smart <a href="https://moz.com/blog/21-seo-tips-2021">SEO tips</a> for 2021. I've implemented most of them in my personal site.</p></li>
-<li><p><a href="https://github.com/jbogard/MediatR">MediatR</a> is a library for the implementation of 'Mediator' pattern in dotnet. I've blogged about it a <a href="https://krishnamohan.dev/blog/how-to-implement-cqrs-with-mediat-r---part-1">two part series</a>.</p></li>
-<li><p>Difference between x64 and ARM 64 from a Quora <a href="https://qr.ae/pNQ9b7">Answer</a>.Though the differences are bit blurred nowadays, ARM64 is a 64 bit chipset for mobile and portable devices with less energy consumption and low performance. On the other hand x64 is a 64 bit chipset based on x86 architecture for high performance computing.</p></li>
-<li><p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/in-parameter-modifier#limitations-on-in-parameters"><code>in</code> parameter modifier</a>: This feature was introduced in <strong>C# 7.2</strong>. Decreasing the cost of passing larger structs is the motivating scenario for the feature. More details can be found in an <a href="https://stackoverflow.com/questions/52820372/why-would-one-ever-use-the-in-parameter-modifier-in-c">SO discussion</a> on the same topic.</p></li>
-<li><p>Use of <a href="https://andrewlock.net/using-cancellationtokens-in-asp-net-core-mvc-controllers/">CancellationToken</a>. This was a new feature for me and I did a poc on it. You can read about its implementation in by <a href="https://krishnamohan.dev/blog/how-to-implement-cqrs-with-mediat-r---part-2">blog post</a>.</p></li>
-<li><p><a href="https://notiz.dev/">notiz.dev</a> is a beautiful blog developed with Angular, Scully and Tailwind. This week I've removed material libraries from my personal site and switched to Tailwind. I've shamelessly copied a lot of good practices from the <a href="https://github.com/notiz-dev/notiz">source code</a> of <strong>notiz.dev</strong>.</p></li>
-<li><p><a href="https://utteranc.es/">utterances </a> is a lightweight comments widget built on GitHub issues. This is one of the innovative use cases of an existing, fool-proof system. Need to add it to my blog soon.</p></li>
+<li>Refreshed my knowledge of Indian traffic signs from the site <a href="https://indianauto.com/tips/indian-traffic-signs-with-their-meanings-nid6445">indianauto.com</a>.</li>
+<li>21 smart <a href="https://moz.com/blog/21-seo-tips-2021">SEO tips</a> for 2021. I've implemented most of them in my personal site.</li>
+<li><a href="https://github.com/jbogard/MediatR">MediatR</a> is a library for the implementation of 'Mediator' pattern in dotnet. I've blogged about it a <a href="https://krishnamohan.dev/blog/how-to-implement-cqrs-with-mediat-r---part-1">two part series</a>.</li>
+<li>Difference between x64 and ARM 64 from a Quora <a href="https://qr.ae/pNQ9b7">Answer</a>.Though the differences are bit blurred nowadays, ARM64 is a 64 bit chipset for mobile and portable devices with less energy consumption and low performance. On the other hand x64 is a 64 bit chipset based on x86 architecture for high performance computing.</li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/in-parameter-modifier#limitations-on-in-parameters"><code>in</code> parameter modifier</a>: This feature was introduced in <strong>C# 7.2</strong>. Decreasing the cost of passing larger structs is the motivating scenario for the feature. More details can be found in an <a href="https://stackoverflow.com/questions/52820372/why-would-one-ever-use-the-in-parameter-modifier-in-c">SO discussion</a> on the same topic.</li>
+<li>Use of <a href="https://andrewlock.net/using-cancellationtokens-in-asp-net-core-mvc-controllers/">CancellationToken</a>. This was a new feature for me and I did a poc on it. You can read about its implementation in by <a href="https://krishnamohan.dev/blog/how-to-implement-cqrs-with-mediat-r---part-2">blog post</a>.</li>
+<li><a href="https://notiz.dev/">notiz.dev</a> is a beautiful blog developed with Angular, Scully and Tailwind. This week I've removed material libraries from my personal site and switched to Tailwind. I've shamelessly copied a lot of good practices from the <a href="https://github.com/notiz-dev/notiz">source code</a> of <strong>notiz.dev</strong>.</li>
+<li><a href="https://utteranc.es/">utterances </a> is a lightweight comments widget built on GitHub issues. This is one of the innovative use cases of an existing, fool-proof system. Need to add it to my blog soon.</li>
 </ol>]]></content>
         <author>
             <name>Krishna Mohan A M</name>
