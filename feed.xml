@@ -4,7 +4,7 @@
         <title>krishnamohan.dev</title>
         <link>https://krishnamohan.dev</link>
         <description>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</description>
-        <lastBuildDate>Mon, 15 Mar 2021 01:42:05 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 22 Mar 2021 17:12:50 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
         <language>en</language>
@@ -18,6 +18,56 @@
         <category>Blog</category>
         <category>Angular</category>
         <category>Dotnet</category>
+        <item>
+            <title><![CDATA[What did I learn this week (2021) - 12]]></title>
+            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---12</link>
+            <guid>/blog/what-did-i-learn-this-week-2021---12</guid>
+            <pubDate>Sun, 21 Mar 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Weekly summarization and review of things I've learned in the third week of March 2021]]></description>
+            <content:encoded><![CDATA[<h1 id="whatdidilearnthisweek202112">What did I learn this week (2021) - 12</h1>
+<ol>
+<li><p>Learned how to create a dotnet <a href="https://devblogs.microsoft.com/dotnet/net-interactive-preview-3-vs-code-insiders-and-polyglot-notebooks/">notebook</a> in Visual Studio Code.</p></li>
+<li><p>Learned that VS Code insider is <a href="https://stackoverflow.com/questions/53944549/what-are-the-differences-between-visual-studio-code-and-visual-studio-code-insid">same</a> as VS Code Beta version.</p></li>
+<li><p><a href="https://zerodha.com/varsity/chapter/the-ipo-markets-part-2/">Draft Red herring prospectus</a> (DRHP) – If the company gets the initial SEBI nod, then the company needs to prepare the DRHP. A DRHP is a document that gets circulated to the public. Along with a lot of information, DRHP should contain the following details:</p>
+<ul>
+<li>The estimated size of the IPO</li>
+<li>The estimated number of shares being offered to the public</li>
+<li>Why the company wants to go public and how does the company plan to utilize the funds along with the timeline projection of fund utilization</li>
+<li>Business description including the revenue model, expenditure details</li>
+<li>Complete financial statements</li>
+<li>Management Discussion and Analysis – how the company perceives future business operations to emerge</li>
+<li>Risks involved in the business</li>
+<li>Management details and their background</li></ul></li>
+<li><p><strong>How to re-do a reverted merge</strong></p>
+<ul>
+<li>Checkout a new branch from the master.</li>
+<li>Revert the reverted merge. To revert a merge you need to pass the <a href="https://stackoverflow.com/a/7100005/1520750">parent number</a> along with the revert command.
+<code>bash
+git revert -m 2 8989ee0 
+</code></li>
+<li>Add your fixes</li>
+<li>Create a new pull request to the master.</li></ul></li>
+<li><p>Windows 8+ uses a <a href="https://superuser.com/a/954149/930941">hybrid boot system</a> and it do not shutdown the system completely when user shutdowns the computer. Due to this system uptime is calculated from the last time we restarted the machine which may not be equal to the current session time. One trick is to check the <a href="https://superuser.com/a/909172/930941">event logs</a>. I also <a href="https://community.idera.com/database-tools/powershell/powertips/b/tips/posts/get-sleep-and-hibernation-times">found a powershell script</a> to display the hibernate time from the event logs.</p>
+<pre><code class="powershell language-powershell">function Get-HibernationTime
+{    
+    # get hibernation events
+    Get-EventLog -LogName system -InstanceId 1 -Source Microsoft-Windows-Power-TroubleShooter |
+    ForEach-Object {    
+        # create new object for results
+        $result = 'dummy' | Select-Object -Property ComputerName, SleepTime, WakeTime, Duration<pre><code>    # store details in new object, convert datatype where appropriate
+    [DateTime]$result.Sleeptime = $_.ReplacementStrings[0]
+    [DateTime]$result.WakeTime = $_.ReplacementStrings[1]
+    $time = $result.WakeTime - $result.SleepTime
+    $result.Duration = ([int]($time.TotalHours * 100))/100
+    $result.ComputerName = $_.MachineName
+
+    # return result
+    $result
+}
+</code></pre>} 
+</code></pre></li>
+</ol>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[What did I learn this week (2021) - 11]]></title>
             <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---11</link>
@@ -40,7 +90,7 @@ git add .
 <ol start="5">
 <li><a href="http://reactivex.io/documentation/operators/backpressure.html">Backpressure</a> involves strategies to control the observables that produce items more rapidly than their observers can consume.</li>
 <li>The <strong>Pareto principle</strong> states that for many outcomes, roughly 80% of consequences come from 20% of the causes. Other names for this principle are the <strong>80/20 rule</strong>, the law of the vital few, or the principle of factor sparsity.</li>
-<li><strong>Big Wave Surfing</strong>: While randomly surfing youtube videos, I saw a video of surfing in Teahupoo, Tahiti, French Polynesia. This got my interest and started watching some more videos. Then I came to know about the <a href="https://www.surfertoday.com/surfing/the-best-big-wave-surf-spots-in-the-world">biggest waves</a> in the world. <a href="https://www.surfertoday.com/surfing/the-best-big-wave-surf-spots-in-the-world">Some of them</a> are in my bucket list and I'm planning to visit them soon.</li>
+<li><strong>Big Wave Surfing</strong>: While randomly surfing youtube videos, I saw a video of surfing in Teahupoo, Tahiti, French Polynesia. This got my interest and started watching some more videos. Then I came to know about the <a href="https://www.surfertoday.com/surfing/the-best-big-wave-surf-spots-in-the-world">biggest waves</a> in the world. <a href="https://www.theguardian.com/sport/2020/aug/02/nazare-in-portugal-is-the-home-to-the-worlds-biggest-waves-and-bravest-surfers">Some of them</a> are in my bucket list and I'm planning to visit them soon.</li>
 <li>Watched <a href="https://www.youtube.com/watch?v=NNnIGh9g6fA">Introduction to Human Behavioral Biology</a> by <a href="https://en.wikipedia.org/wiki/Robert_Sapolsky">Robert Sapolsky</a><ul>
 <li>Frontal lobotomy: A lobotomy, or leucotomy, is a form of psychosurgery, a neurosurgical treatment of a mental disorder that involves severing connections in the brain's prefrontal cortex.</li>
 <li><a href="https://en.wikipedia.org/wiki/Konrad_Lorenz">Konrad Lorenz</a>: He is often regarded as one of the founders of modern ethology, the study of animal behavior.</li>
