@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-03-22T17:12:50.721Z</updated>
+    <updated>2021-03-22T17:20:18.619Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -20,8 +20,7 @@
         <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---12"/>
         <updated>2021-03-21T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the third week of March 2021]]></summary>
-        <content type="html"><![CDATA[<h1 id="whatdidilearnthisweek202112">What did I learn this week (2021) - 12</h1>
-<ol>
+        <content type="html"><![CDATA[<ol>
 <li><p>Learned how to create a dotnet <a href="https://devblogs.microsoft.com/dotnet/net-interactive-preview-3-vs-code-insiders-and-polyglot-notebooks/">notebook</a> in Visual Studio Code.</p></li>
 <li><p>Learned that VS Code insider is <a href="https://stackoverflow.com/questions/53944549/what-are-the-differences-between-visual-studio-code-and-visual-studio-code-insid">same</a> as VS Code Beta version.</p></li>
 <li><p><a href="https://zerodha.com/varsity/chapter/the-ipo-markets-part-2/">Draft Red herring prospectus</a> (DRHP) – If the company gets the initial SEBI nod, then the company needs to prepare the DRHP. A DRHP is a document that gets circulated to the public. Along with a lot of information, DRHP should contain the following details:</p>

@@ -16,7 +16,7 @@
   <link rel="manifest" href="manifest.json">  
   <link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
   <meta name="theme-color" content="#1976d2">
-<link rel="stylesheet" href="styles.086ae27eaec70ebf0ccb.css"><style></style><script charset="utf-8" src="common-es2015.6103354ef0d7e049e1cf.js"></script><script charset="utf-8" src="6-es2015.b3dba92a57f6503a5743.js"></script><style>ol[_ngcontent-alk-c9]{list-style-type:decimal}ul[_ngcontent-alk-c9]{list-style-type:disc;padding-left:2.5rem}p[_ngcontent-alk-c9]{padding-top:1.25rem;padding-bottom:1.25rem}h2[_ngcontent-alk-c9]{font-size:1.875rem;line-height:2.25rem;margin-top:1.25rem;margin-bottom:1.25rem}h3[_ngcontent-alk-c9]{font-size:1.5rem;line-height:2rem;margin-top:.75rem;margin-bottom:.75rem}pre[_ngcontent-alk-c9]{font-size:1rem;line-height:1.5rem;margin-bottom:1.25rem;padding:1.25rem}a[_ngcontent-alk-c9]{border-bottom-width:2px}</style><meta name="title" content="Generating Code Coverage Reports in Dotnet Core"><meta name="description" content="Unlike other application frameworks .NET Core do not provide code coverage reports out of the box. Here I’ll be using a different approach which actually suited my web application. Without further ado, let’s get started."><meta name="og:type" content="website"><meta name="og:url" content="/blog/generating-code-coverage-reports-in-dotnet-core"><meta name="og:title" content="Generating Code Coverage Reports in Dotnet Core"><meta name="og:description" content="Unlike other application frameworks .NET Core do not provide code coverage reports out of the box. Here I’ll be using a different approach which actually suited my web application. Without further ado, let’s get started."><meta name="og:image" content="https://krishnamohan.dev/assets/banners/04.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="/blog/generating-code-coverage-reports-in-dotnet-core"><meta name="twitter:title" content="Generating Code Coverage Reports in Dotnet Core"><meta name="twitter:description" content="Unlike other application frameworks .NET Core do not provide code coverage reports out of the box. Here I’ll be using a different approach which actually suited my web application. Without further ado, let’s get started."><meta name="twitter:image" content="https://krishnamohan.dev/assets/banners/04.png"><meta name="twitter:site" content="@krishnaanaril"><meta name="twitter:creator" content="@krishnaanaril"><meta name="keywords" content="dotnet"><style>
+<link rel="stylesheet" href="styles.086ae27eaec70ebf0ccb.css"><style></style><script charset="utf-8" src="common-es2015.6103354ef0d7e049e1cf.js"></script><script charset="utf-8" src="6-es2015.b3dba92a57f6503a5743.js"></script><style>ol[_ngcontent-ukq-c9]{list-style-type:decimal}ul[_ngcontent-ukq-c9]{list-style-type:disc;padding-left:2.5rem}p[_ngcontent-ukq-c9]{padding-top:1.25rem;padding-bottom:1.25rem}h2[_ngcontent-ukq-c9]{font-size:1.875rem;line-height:2.25rem;margin-top:1.25rem;margin-bottom:1.25rem}h3[_ngcontent-ukq-c9]{font-size:1.5rem;line-height:2rem;margin-top:.75rem;margin-bottom:.75rem}pre[_ngcontent-ukq-c9]{font-size:1rem;line-height:1.5rem;margin-bottom:1.25rem;padding:1.25rem}a[_ngcontent-ukq-c9]{border-bottom-width:2px}</style><meta name="title" content="Generating Code Coverage Reports in Dotnet Core"><meta name="description" content="Unlike other application frameworks .NET Core do not provide code coverage reports out of the box. Here I’ll be using a different approach which actually suited my web application. Without further ado, let’s get started."><meta name="og:type" content="website"><meta name="og:url" content="/blog/generating-code-coverage-reports-in-dotnet-core"><meta name="og:title" content="Generating Code Coverage Reports in Dotnet Core"><meta name="og:description" content="Unlike other application frameworks .NET Core do not provide code coverage reports out of the box. Here I’ll be using a different approach which actually suited my web application. Without further ado, let’s get started."><meta name="og:image" content="https://krishnamohan.dev/assets/banners/04.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="/blog/generating-code-coverage-reports-in-dotnet-core"><meta name="twitter:title" content="Generating Code Coverage Reports in Dotnet Core"><meta name="twitter:description" content="Unlike other application frameworks .NET Core do not provide code coverage reports out of the box. Here I’ll be using a different approach which actually suited my web application. Without further ado, let’s get started."><meta name="twitter:image" content="https://krishnamohan.dev/assets/banners/04.png"><meta name="twitter:site" content="@krishnaanaril"><meta name="twitter:creator" content="@krishnaanaril"><meta name="keywords" content="dotnet"><style>
       :host {
         display: none;
       }
@@ -26,86 +26,86 @@
     </style><script>window['ScullyIO']='generated';</script></head>
 
 <body scully-version="1.1.0">
-  <app-root _nghost-alk-c7="" ng-version="11.2.2"><div _ngcontent-alk-c7="" class="bg-gray-200 text-gray-800 dark:bg-black dark:text-gray-50"><div _ngcontent-alk-c7="" class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><section _ngcontent-alk-c7="" class="hidden lg:flex flex-row justify-center"><nav _ngcontent-alk-c7=""><ul _ngcontent-alk-c7="" class="lg:text-xl lg:flex lg:flex-row"><li _ngcontent-alk-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Home</li><li _ngcontent-alk-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Blog</li><li _ngcontent-alk-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Projects</li><li _ngcontent-alk-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">About</li><!----></ul></nav></section><div _ngcontent-alk-c7="" class="absolute lg:hidden mr-4 p-4 right-0"><button _ngcontent-alk-c7="" class="p-2"><svg _ngcontent-alk-c7="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" class="fill-current"><path _ngcontent-alk-c7="" d="M0 0h24v24H0z" fill="none"></path><path _ngcontent-alk-c7="" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button></div></div><!----><router-outlet _ngcontent-alk-c7=""></router-outlet><app-blog-post _nghost-alk-c9=""><div _ngcontent-alk-c9="" class="container mx-auto min-h-screen bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
-    <div _ngcontent-alk-c9="">
-        <div _ngcontent-alk-c9="" aria-label="Blog tags/keywords" class="pt-8 flex flex-row justify-center">
-            <div _ngcontent-alk-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">dotnet</div><!---->
+  <app-root _nghost-ukq-c7="" ng-version="11.2.2"><div _ngcontent-ukq-c7="" class="bg-gray-200 text-gray-800 dark:bg-black dark:text-gray-50"><div _ngcontent-ukq-c7="" class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><section _ngcontent-ukq-c7="" class="hidden lg:flex flex-row justify-center"><nav _ngcontent-ukq-c7=""><ul _ngcontent-ukq-c7="" class="lg:text-xl lg:flex lg:flex-row"><li _ngcontent-ukq-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Home</li><li _ngcontent-ukq-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Blog</li><li _ngcontent-ukq-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Projects</li><li _ngcontent-ukq-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">About</li><!----></ul></nav></section><div _ngcontent-ukq-c7="" class="absolute lg:hidden mr-4 p-4 right-0"><button _ngcontent-ukq-c7="" class="p-2"><svg _ngcontent-ukq-c7="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" class="fill-current"><path _ngcontent-ukq-c7="" d="M0 0h24v24H0z" fill="none"></path><path _ngcontent-ukq-c7="" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button></div></div><!----><router-outlet _ngcontent-ukq-c7=""></router-outlet><app-blog-post _nghost-ukq-c9=""><div _ngcontent-ukq-c9="" class="container mx-auto min-h-screen bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
+    <div _ngcontent-ukq-c9="">
+        <div _ngcontent-ukq-c9="" aria-label="Blog tags/keywords" class="pt-8 flex flex-row justify-center">
+            <div _ngcontent-ukq-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">dotnet</div><!---->
         </div>
-        <div _ngcontent-alk-c9="" class="max-w-screen-lg mx-auto">
-            <h1 _ngcontent-alk-c9="" class="text-5xl pt-5 pb-5 text-center">Generating Code Coverage Reports in Dotnet Core</h1>
+        <div _ngcontent-ukq-c9="" class="max-w-screen-lg mx-auto">
+            <h1 _ngcontent-ukq-c9="" class="text-5xl pt-5 pb-5 text-center">Generating Code Coverage Reports in Dotnet Core</h1>
         </div>
-        <div _ngcontent-alk-c9="" class="flex flex-row justify-center m-5 max-w-screen-sm mx-auto">
-            <time _ngcontent-alk-c9="" class="text-center text-xl">Jul 5, 2019</time>
+        <div _ngcontent-ukq-c9="" class="flex flex-row justify-center m-5 max-w-screen-sm mx-auto">
+            <time _ngcontent-ukq-c9="" class="text-center text-xl">Jul 5, 2019</time>
         </div>
     </div>
-    <hr _ngcontent-alk-c9="" class="mx-auto border-gray-800 w-1/4">
-    <div _ngcontent-alk-c9="" class="max-w-screen-md mx-auto p-6 md:p-12 leading-8">
-        <!--scullyContent-begin--><p _ngcontent-alk-c9="">Unlike other application frameworks <strong _ngcontent-alk-c9="">.NET Core</strong> do not provide code coverage reports out of the box, even the code coverage <a href="https://github.com/microsoft/vstest/issues/981" _ngcontent-alk-c9="">support </a>was provided only in dotnet core version 2.1. But the ‘<strong _ngcontent-alk-c9="">Code Coverage Analysis</strong>’ is provided with Visual Studio Enterprise edition. You can find more information <a href="https://docs.microsoft.com/en-us/visualstudio/test/using-code-coverage-to-determine-how-much-code-is-being-tested?view=vs-2017" _ngcontent-alk-c9="">here</a>.</p>
-<p _ngcontent-alk-c9="">That’s okay, we’ve other tools available to get the code coverage reports and here I’ll be briefly explaining about it. There is already a blog post about this <a href="https://gunnarpeipman.com/aspnet/code-coverage/" _ngcontent-alk-c9="">topic</a> by <a href="https://twitter.com/gpeipman" _ngcontent-alk-c9="">Gunnar Peipman</a>. You can refer that as well. Here I’ll be using a different approach which actually suited my web application. Without further ado, let’s get started.</p>
-<h2 id="contents" _ngcontent-alk-c9="">Contents</h2>
-<ul _ngcontent-alk-c9="">
-<li _ngcontent-alk-c9="">Prerequisites</li>
-<li _ngcontent-alk-c9="">Creating dotnet application and adding test project</li>
-<li _ngcontent-alk-c9="">Running tests with CLI</li>
-<li _ngcontent-alk-c9="">Convert *.coverage file to *.coveragexml file</li>
-<li _ngcontent-alk-c9="">Generate Reports using ReportGenerator</li>
-<li _ngcontent-alk-c9="">Powershell script with all the steps</li>
-<li _ngcontent-alk-c9="">Conclusion</li>
+    <hr _ngcontent-ukq-c9="" class="mx-auto border-gray-800 w-1/4">
+    <div _ngcontent-ukq-c9="" class="max-w-screen-md mx-auto p-6 md:p-12 leading-8">
+        <!--scullyContent-begin--><p _ngcontent-ukq-c9="">Unlike other application frameworks <strong _ngcontent-ukq-c9="">.NET Core</strong> do not provide code coverage reports out of the box, even the code coverage <a href="https://github.com/microsoft/vstest/issues/981" _ngcontent-ukq-c9="">support </a>was provided only in dotnet core version 2.1. But the ‘<strong _ngcontent-ukq-c9="">Code Coverage Analysis</strong>’ is provided with Visual Studio Enterprise edition. You can find more information <a href="https://docs.microsoft.com/en-us/visualstudio/test/using-code-coverage-to-determine-how-much-code-is-being-tested?view=vs-2017" _ngcontent-ukq-c9="">here</a>.</p>
+<p _ngcontent-ukq-c9="">That’s okay, we’ve other tools available to get the code coverage reports and here I’ll be briefly explaining about it. There is already a blog post about this <a href="https://gunnarpeipman.com/aspnet/code-coverage/" _ngcontent-ukq-c9="">topic</a> by <a href="https://twitter.com/gpeipman" _ngcontent-ukq-c9="">Gunnar Peipman</a>. You can refer that as well. Here I’ll be using a different approach which actually suited my web application. Without further ado, let’s get started.</p>
+<h2 id="contents" _ngcontent-ukq-c9="">Contents</h2>
+<ul _ngcontent-ukq-c9="">
+<li _ngcontent-ukq-c9="">Prerequisites</li>
+<li _ngcontent-ukq-c9="">Creating dotnet application and adding test project</li>
+<li _ngcontent-ukq-c9="">Running tests with CLI</li>
+<li _ngcontent-ukq-c9="">Convert *.coverage file to *.coveragexml file</li>
+<li _ngcontent-ukq-c9="">Generate Reports using ReportGenerator</li>
+<li _ngcontent-ukq-c9="">Powershell script with all the steps</li>
+<li _ngcontent-ukq-c9="">Conclusion</li>
 </ul>
-<h2 id="prerequisites" _ngcontent-alk-c9="">Prerequisites</h2>
-<p _ngcontent-alk-c9="">You need to install/Configure:</p>
-<ul _ngcontent-alk-c9="">
-<li _ngcontent-alk-c9="">Dotnet core version 2.1 or above.</li>
-<li _ngcontent-alk-c9="">Visual Studio 2017 or above / Visual studio code.</li>
-<li _ngcontent-alk-c9=""><a href="https://github.com/danielpalme" _ngcontent-alk-c9="">Daniel Palme</a>’s <a href="https://danielpalme.github.io/ReportGenerator/usage.html" _ngcontent-alk-c9="">ReportGenerator</a></li>
-<li _ngcontent-alk-c9=""><a href="https://www.nuget.org/packages/Microsoft.CodeCoverage/" _ngcontent-alk-c9="">Microsoft.CodeCoverage</a></li>
+<h2 id="prerequisites" _ngcontent-ukq-c9="">Prerequisites</h2>
+<p _ngcontent-ukq-c9="">You need to install/Configure:</p>
+<ul _ngcontent-ukq-c9="">
+<li _ngcontent-ukq-c9="">Dotnet core version 2.1 or above.</li>
+<li _ngcontent-ukq-c9="">Visual Studio 2017 or above / Visual studio code.</li>
+<li _ngcontent-ukq-c9=""><a href="https://github.com/danielpalme" _ngcontent-ukq-c9="">Daniel Palme</a>’s <a href="https://danielpalme.github.io/ReportGenerator/usage.html" _ngcontent-ukq-c9="">ReportGenerator</a></li>
+<li _ngcontent-ukq-c9=""><a href="https://www.nuget.org/packages/Microsoft.CodeCoverage/" _ngcontent-ukq-c9="">Microsoft.CodeCoverage</a></li>
 </ul>
-<h2 id="creating-dotnet-application-and-adding-test-project" _ngcontent-alk-c9="">Creating dotnet application and adding test project</h2>
-<p _ngcontent-alk-c9="">You can make use of <em _ngcontent-alk-c9="">dotnet new</em> command or Visual Studio templates for creating a new project and test project. Here I’ll be covering MSTest, you can try with another unit testing framework as well.</p>
-<p _ngcontent-alk-c9="">If you’ve a dotnet core application with version 1.x, you can do the following steps to get the code coverage.</p>
-<p _ngcontent-alk-c9="">• Upgraded test related nuget refernces to latest version</p>
-<pre _ngcontent-alk-c9=""><code class="language-xml" _ngcontent-alk-c9="">&lt;PackageReference Include=”Microsoft.NET.Test.Sdk” Version=”15.9.0" /&gt;
+<h2 id="creating-dotnet-application-and-adding-test-project" _ngcontent-ukq-c9="">Creating dotnet application and adding test project</h2>
+<p _ngcontent-ukq-c9="">You can make use of <em _ngcontent-ukq-c9="">dotnet new</em> command or Visual Studio templates for creating a new project and test project. Here I’ll be covering MSTest, you can try with another unit testing framework as well.</p>
+<p _ngcontent-ukq-c9="">If you’ve a dotnet core application with version 1.x, you can do the following steps to get the code coverage.</p>
+<p _ngcontent-ukq-c9="">• Upgraded test related nuget refernces to latest version</p>
+<pre _ngcontent-ukq-c9=""><code class="language-xml" _ngcontent-ukq-c9="">&lt;PackageReference Include=”Microsoft.NET.Test.Sdk” Version=”15.9.0" /&gt;
 &lt;PackageReference Include=”MSTest.TestAdapter” Version=”1.3.2" /&gt;
  &lt;PackageReference Include=”MSTest.TestFramework” Version=”1.3.2" /&gt;
 </code></pre>
-<p _ngcontent-alk-c9="">• Add the following config in *.csproj files. More information is available <a href="https://github.com/Microsoft/vstest/issues/800" _ngcontent-alk-c9="">here.</a></p>
-<pre _ngcontent-alk-c9=""><code class="language-xml" _ngcontent-alk-c9="">&lt;DebugType&gt;Full&lt;/DebugType&gt;
+<p _ngcontent-ukq-c9="">• Add the following config in *.csproj files. More information is available <a href="https://github.com/Microsoft/vstest/issues/800" _ngcontent-ukq-c9="">here.</a></p>
+<pre _ngcontent-ukq-c9=""><code class="language-xml" _ngcontent-ukq-c9="">&lt;DebugType&gt;Full&lt;/DebugType&gt;
 </code></pre>
-<h2 id="running-tests-with-cli" _ngcontent-alk-c9="">Running tests with CLI</h2>
-<p _ngcontent-alk-c9="">Once we’ve created our application and added sufficient unit tests. We need to run these tests and get the code coverage info. You do so by running the following command.</p>
-<pre _ngcontent-alk-c9=""><code class="language-bash" _ngcontent-alk-c9="">dotnet test &lt;Path to *.csproj file&gt; --results-directory:&lt;Test Result directory&gt; --collect:"Code Coverage"
+<h2 id="running-tests-with-cli" _ngcontent-ukq-c9="">Running tests with CLI</h2>
+<p _ngcontent-ukq-c9="">Once we’ve created our application and added sufficient unit tests. We need to run these tests and get the code coverage info. You do so by running the following command.</p>
+<pre _ngcontent-ukq-c9=""><code class="language-bash" _ngcontent-ukq-c9="">dotnet test &lt;Path to *.csproj file&gt; --results-directory:&lt;Test Result directory&gt; --collect:"Code Coverage"
 </code></pre>
-<p _ngcontent-alk-c9="">But I had a problem, dotnet was analyzing my dependent libraries as well. I was using <a href="https://github.com/moq/moq" _ngcontent-alk-c9="">Moq </a>for mocking and <a href="https://github.com/MisterJames/GenFu" _ngcontent-alk-c9="">GenFu</a> to generate random test data. So I had to exclude these dlls during the code coverage analysis by creating a <a href="https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2019" _ngcontent-alk-c9="">runsettings</a> file and add the following configuration:</p>
-<pre _ngcontent-alk-c9=""><code class="language-xml" _ngcontent-alk-c9="">&lt;ModulePaths&gt;              
+<p _ngcontent-ukq-c9="">But I had a problem, dotnet was analyzing my dependent libraries as well. I was using <a href="https://github.com/moq/moq" _ngcontent-ukq-c9="">Moq </a>for mocking and <a href="https://github.com/MisterJames/GenFu" _ngcontent-ukq-c9="">GenFu</a> to generate random test data. So I had to exclude these dlls during the code coverage analysis by creating a <a href="https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2019" _ngcontent-ukq-c9="">runsettings</a> file and add the following configuration:</p>
+<pre _ngcontent-ukq-c9=""><code class="language-xml" _ngcontent-ukq-c9="">&lt;ModulePaths&gt;              
   &lt;Exclude&gt;                
     &lt;ModulePath&gt;.*Moq.dll&lt;/ModulePath&gt;
     &lt;ModulePath&gt;.*GenFu.dll&lt;/ModulePath&gt;                
   &lt;/Exclude&gt;
 &lt;/ModulePaths&gt;
 </code></pre>
-<p _ngcontent-alk-c9="">Include and exclude nodes use regular expressions. More information is available <a href="https://docs.microsoft.com/en-us/visualstudio/test/customizing-code-coverage-analysis?view=vs-2019#regular-expressions" _ngcontent-alk-c9="">here</a>.</p>
-<p _ngcontent-alk-c9="">Now we need to run *test *command using this .runsettings file.</p>
-<pre _ngcontent-alk-c9=""><code class="language-bash" _ngcontent-alk-c9="">dotnet test &lt;Path to .csproj file&gt; --settings:&lt;Path to .runsettings file&gt;
+<p _ngcontent-ukq-c9="">Include and exclude nodes use regular expressions. More information is available <a href="https://docs.microsoft.com/en-us/visualstudio/test/customizing-code-coverage-analysis?view=vs-2019#regular-expressions" _ngcontent-ukq-c9="">here</a>.</p>
+<p _ngcontent-ukq-c9="">Now we need to run *test *command using this .runsettings file.</p>
+<pre _ngcontent-ukq-c9=""><code class="language-bash" _ngcontent-ukq-c9="">dotnet test &lt;Path to .csproj file&gt; --settings:&lt;Path to .runsettings file&gt;
 </code></pre>
-<p _ngcontent-alk-c9="">This will generate *.coverage file inside a folder whose name corresponds to a GUID. Right now dotnet core CLI <a href="https://github.com/microsoft/vstest/issues/1957#issue-420578504" _ngcontent-alk-c9="">do not support</a> custom name for *.coverage file.</p>
-<h2 id="convert-coverage-file-to-coveragexml-file" _ngcontent-alk-c9="">Convert *.coverage file to *.coveragexml file</h2>
-<p _ngcontent-alk-c9="">*CodeCoverage.exe *is a tool that comes with the installation of Visual Studio. To generate a coverage report with ReportGenerator the file has to be converted to xml format.</p>
-<p _ngcontent-alk-c9="">To get the xml file you can use the following command:</p>
-<pre _ngcontent-alk-c9=""><code class="language-xml" _ngcontent-alk-c9="">&lt;UserProfile&gt;\.nuget\packages\microsoft.codecoverage\&lt;version&gt;\build\netstandard1.0\CodeCoverage\CodeCoverage.exe analyze  /output:&lt;xml file name with Path&gt;.coveragexml  &lt;path to coverage file&gt;
+<p _ngcontent-ukq-c9="">This will generate *.coverage file inside a folder whose name corresponds to a GUID. Right now dotnet core CLI <a href="https://github.com/microsoft/vstest/issues/1957#issue-420578504" _ngcontent-ukq-c9="">do not support</a> custom name for *.coverage file.</p>
+<h2 id="convert-coverage-file-to-coveragexml-file" _ngcontent-ukq-c9="">Convert *.coverage file to *.coveragexml file</h2>
+<p _ngcontent-ukq-c9="">*CodeCoverage.exe *is a tool that comes with the installation of Visual Studio. To generate a coverage report with ReportGenerator the file has to be converted to xml format.</p>
+<p _ngcontent-ukq-c9="">To get the xml file you can use the following command:</p>
+<pre _ngcontent-ukq-c9=""><code class="language-xml" _ngcontent-ukq-c9="">&lt;UserProfile&gt;\.nuget\packages\microsoft.codecoverage\&lt;version&gt;\build\netstandard1.0\CodeCoverage\CodeCoverage.exe analyze  /output:&lt;xml file name with Path&gt;.coveragexml  &lt;path to coverage file&gt;
 
 # Eg: C:\Users\krishnamohan\.nuget\packages\microsoft.codecoverage\15.9.0\build\netstandard1.0\CodeCoverage\CodeCoverage.exe analyze  /output:d:\MyTestOutput.coveragexml  d:\SomeName.coverage
 </code></pre>
-<h2 id="generate-reports-using-reportgenerator" _ngcontent-alk-c9="">Generate Reports using ReportGenerator</h2>
-<p _ngcontent-alk-c9="">We need to run another command using the installed ReportGenerator.dll.</p>
-<pre _ngcontent-alk-c9=""><code class="language-shell" _ngcontent-alk-c9="">dotnet &lt;UserProfile&gt;\.nuget\packages\reportgenerator\&lt;version&gt;\tools\netcoreapp2.1\ReportGenerator.dll "-reports:&lt;Coveragexml file path&gt;" "-targetdir:&lt;path to coverage report&gt;"
+<h2 id="generate-reports-using-reportgenerator" _ngcontent-ukq-c9="">Generate Reports using ReportGenerator</h2>
+<p _ngcontent-ukq-c9="">We need to run another command using the installed ReportGenerator.dll.</p>
+<pre _ngcontent-ukq-c9=""><code class="language-shell" _ngcontent-ukq-c9="">dotnet &lt;UserProfile&gt;\.nuget\packages\reportgenerator\&lt;version&gt;\tools\netcoreapp2.1\ReportGenerator.dll "-reports:&lt;Coveragexml file path&gt;" "-targetdir:&lt;path to coverage report&gt;"
 &lt;#
 Eg: dotnet C:\Users\krishnamohan\.nuget\packages\reportgenerator\4.1.10\tools\netcoreapp2.1\ReportGenerator.dll "-reports:d:\MyTestOutput.coveragexml" "-targetdir:d:\coveragereport"
 #&gt;
 </code></pre>
-<p _ngcontent-alk-c9="">This will generate reports in *.htm format in the given output folder. If you open the index.htm file you can view the report.</p>
-<p _ngcontent-alk-c9=""><img src="assets/images/03_01.png" alt="Sample Report Image" _ngcontent-alk-c9=""><em _ngcontent-alk-c9="">Sample Report Image. Source: <a href="https://github.com/danielpalme/ReportGenerator" _ngcontent-alk-c9="">https://github.com/danielpalme/ReportGenerator</a></em></p>
-<h2 id="powershell-script-with-all-the-steps" _ngcontent-alk-c9="">Powershell script with all the steps</h2>
-<pre _ngcontent-alk-c9=""><code class="language-powershell" _ngcontent-alk-c9="">param(
+<p _ngcontent-ukq-c9="">This will generate reports in *.htm format in the given output folder. If you open the index.htm file you can view the report.</p>
+<p _ngcontent-ukq-c9=""><img src="assets/images/03_01.png" alt="Sample Report Image" _ngcontent-ukq-c9=""><em _ngcontent-ukq-c9="">Sample Report Image. Source: <a href="https://github.com/danielpalme/ReportGenerator" _ngcontent-ukq-c9="">https://github.com/danielpalme/ReportGenerator</a></em></p>
+<h2 id="powershell-script-with-all-the-steps" _ngcontent-ukq-c9="">Powershell script with all the steps</h2>
+<pre _ngcontent-ukq-c9=""><code class="language-powershell" _ngcontent-ukq-c9="">param(
    [Parameter(Mandatory=$true)]
    [string]$testProjectPath,
    [Parameter(Mandatory=$true)]
@@ -154,12 +154,12 @@ catch {
 
 }
 </code></pre>
-<h2 id="conclusion" _ngcontent-alk-c9="">Conclusion</h2>
-<p _ngcontent-alk-c9="">It took some time for me to figure it out as lot of information regarding this was scattered all over the internet. Finally it was worth the effort and coverage reports really improve quality of unit tests and helps developer to write better unit tests. Hope this blog post will be helpful for dotnet developers treading the same path.</p>
-<!--scullyContent-end--><scully-content _ngcontent-alk-c9=""></scully-content>
-    <script>try {window['scullyContent'] = {cssId:"_ngcontent-alk-c9",html:document.body.innerHTML.split('<!--scullyContent-begin-->')[1].split('<!--scullyContent-end-->')[0]};} catch(e) {console.error('scully could not parse content');}</script></div>
-    <hr _ngcontent-alk-c9="" class="border-gray-800">    
-</div><!----></app-blog-post><!----><footer _ngcontent-alk-c7="" class="container mx-auto flex flex-col bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><div _ngcontent-alk-c7="" class="mt-10"><ul _ngcontent-alk-c7="" class="flex flex-row justify-between max-w-sm mx-auto pl-4 pr-4"><li _ngcontent-alk-c7="" class="hover:text-gray-600 dark:hover:text-gray-100"><a _ngcontent-alk-c7="" href="https://twitter.com/KrishnaAnaril">Twitter</a></li><li _ngcontent-alk-c7=""><a _ngcontent-alk-c7="" href="https://krishnamohan.dev/sitemap-blog.xml">Sitemap</a></li><li _ngcontent-alk-c7=""><a _ngcontent-alk-c7="" href="https://krishnamohan.dev/feed.xml">RSS</a></li><li _ngcontent-alk-c7=""><a _ngcontent-alk-c7="" href="mailto:krishnamohan.a.m@gmail.com">Contact</a></li></ul></div><div _ngcontent-alk-c7="" class="mx-auto p-5 text-sm"><p _ngcontent-alk-c7="">© 2021-present <a _ngcontent-alk-c7="" href="https://krishnamohan.dev/" class="font-bold">Krishna Mohan A M</a>. All Rights Reserved.</p></div></footer></div></app-root>
+<h2 id="conclusion" _ngcontent-ukq-c9="">Conclusion</h2>
+<p _ngcontent-ukq-c9="">It took some time for me to figure it out as lot of information regarding this was scattered all over the internet. Finally it was worth the effort and coverage reports really improve quality of unit tests and helps developer to write better unit tests. Hope this blog post will be helpful for dotnet developers treading the same path.</p>
+<!--scullyContent-end--><scully-content _ngcontent-ukq-c9=""></scully-content>
+    <script>try {window['scullyContent'] = {cssId:"_ngcontent-ukq-c9",html:document.body.innerHTML.split('<!--scullyContent-begin-->')[1].split('<!--scullyContent-end-->')[0]};} catch(e) {console.error('scully could not parse content');}</script></div>
+    <hr _ngcontent-ukq-c9="" class="border-gray-800">    
+</div><!----></app-blog-post><!----><footer _ngcontent-ukq-c7="" class="container mx-auto flex flex-col bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><div _ngcontent-ukq-c7="" class="mt-10"><ul _ngcontent-ukq-c7="" class="flex flex-row justify-between max-w-sm mx-auto pl-4 pr-4"><li _ngcontent-ukq-c7="" class="hover:text-gray-600 dark:hover:text-gray-100"><a _ngcontent-ukq-c7="" href="https://twitter.com/KrishnaAnaril">Twitter</a></li><li _ngcontent-ukq-c7=""><a _ngcontent-ukq-c7="" href="https://krishnamohan.dev/sitemap-blog.xml">Sitemap</a></li><li _ngcontent-ukq-c7=""><a _ngcontent-ukq-c7="" href="https://krishnamohan.dev/feed.xml">RSS</a></li><li _ngcontent-ukq-c7=""><a _ngcontent-ukq-c7="" href="mailto:krishnamohan.a.m@gmail.com">Contact</a></li></ul></div><div _ngcontent-ukq-c7="" class="mx-auto p-5 text-sm"><p _ngcontent-ukq-c7="">© 2021-present <a _ngcontent-ukq-c7="" href="https://krishnamohan.dev/" class="font-bold">Krishna Mohan A M</a>. All Rights Reserved.</p></div></footer></div></app-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
 <script id="ScullyIO-transfer-state"></script><script src="runtime-es2015.8ef31b743ef06c00837d.js" type="module"></script><script src="runtime-es5.8ef31b743ef06c00837d.js" nomodule="" defer=""></script><script src="polyfills-es5.29147128fc6f0f3fd286.js" nomodule="" defer=""></script><script src="polyfills-es2015.2045db6d95f407e1e8c7.js" type="module"></script><script src="main-es2015.fbbf9b9adb58a7712a31.js" type="module"></script><script src="main-es5.fbbf9b9adb58a7712a31.js" nomodule="" defer=""></script>
 

@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1616433153354,
+  "timestamp": 1616433602281,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -61,6 +61,7 @@
         "/assets/banners/18.png",
         "/assets/banners/19.png",
         "/assets/banners/20.png",
+        "/assets/banners/21.png",
         "/assets/icons/icon-128x128.png",
         "/assets/icons/icon-144x144.png",
         "/assets/icons/icon-152x152.png",
@@ -154,6 +155,7 @@
     "/assets/banners/18.png": "7d24687579b7302f74f4296bd1eb69f742f2dfe9",
     "/assets/banners/19.png": "12f9285d9f1be421d5a1bf0f3c846f03f355713d",
     "/assets/banners/20.png": "9235681707ecd3f6d7ef9bd9fd73138584976aa0",
+    "/assets/banners/21.png": "a243cb7f08a5490bd86223de9df0532429d33ce8",
     "/assets/icons/icon-128x128.png": "568d6f5a6e3a40aa977c53b2608e6b2793f2eef9",
     "/assets/icons/icon-144x144.png": "dd9404e54c0bf578c680b728377fd72ff6e2315d",
     "/assets/icons/icon-152x152.png": "93d990ec0e526acb6167bba5c00669c859838f5c",
