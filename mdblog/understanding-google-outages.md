@@ -25,7 +25,7 @@ Email delivery to other email addresses on Google-hosted domains were not affect
 
 ### Root Cause
 
-Our SMPT inbound service has a configuration system to update flags and service options while deployed in production and ‘@gmail.com’ domain name is specified as one of the configuration options. During an ongoing migration, a configuration change shifted formatting behavior and provided and invalid domain name instead of “@gmail.com”. Due to this service incorrectly transformed lookups of certain email addresses ending in “@gmail.com” into non-existent email addresses resulting in 550 error code.
+Google's SMPT inbound service has a configuration system to update flags and service options while deployed in production and ‘@gmail.com’ domain name is specified as one of the configuration options. During an ongoing migration, a configuration change shifted formatting behavior and provided and invalid domain name instead of “@gmail.com”. Due to this service incorrectly transformed lookups of certain email addresses ending in “@gmail.com” into non-existent email addresses resulting in 550 error code.
 
 ### Remediation & Prevention
 
