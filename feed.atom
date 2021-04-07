@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-03-28T16:03:40.414Z</updated>
+    <updated>2021-04-07T17:38:05.447Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -14,6 +14,44 @@
     <category term="Blog"/>
     <category term="Angular"/>
     <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 14]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---14</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---14"/>
+        <updated>2021-04-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the first week of April 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li><a href="https://en.wikipedia.org/wiki/Candling">Candling</a> is a method used in embryology to study the growth and development of an embryo inside an egg. A youtube shorts video helped me to learn this.</li>
+<li><a href="https://en.wikipedia.org/wiki/Jerusalem_syndrome">Jerusalem syndrome</a> is a group of mental phenomena involving the presence of religiously-themed obsessive ideas, delusions, or other psychosis-like experiences that are triggered by a visit to the city of Jerusalem. The religious focus of Jerusalem syndrome distinguishes it from other phenomena, such as <a href="https://en.wikipedia.org/wiki/Stendhal_syndrome">Stendhal syndrome</a> in Florence or <a href="https://en.wikipedia.org/wiki/Paris_syndrome">Paris syndrome</a> in Paris. </li>
+<li>While trying to learn system design, I found a very good technical blog by <a href="https://tianpan.co/">Tian Pan</a></li>
+<li>Learned about 39 cloud <a href="https://docs.microsoft.com/en-us/azure/architecture/patterns/">design patterns</a>.</li>
+<li>Bulkhead: <a href="https://docs.microsoft.com/en-us/azure/architecture/patterns/bulkhead">One</a> of the 39 cloud pattern is named after the <a href="https://en.wikipedia.org/wiki/Bulkhead_(partition)">bulkhead</a> of ships. A bulkhead is an upright wall within the hull of a ship or within the fuselage of an aeroplane.</li>
+<li>List of curated lists for (Thanks to <a href="https://twitter.com/shreyas">Shresya Doshi</a>):<ul>
+<li><a href="https://github.com/kuchin/awesome-cto">CTO & Engineering Management</a></li>
+<li><a href="https://staffeng.com/guides/learning-materials">Staff Engineers</a></li>
+<li><a href="https://sriramk.com/memos.html">Notable Memos in Tech</a></li>
+<li><a href="https://www.sachinrekhi.com/top-resources-for-product-managers">Product Managers</a></li></ul></li>
+<li><a href="https://github.com/swig/swig">SWIG</a> is a software development tool that connects programs written in C and C++ with a variety of high-level programming languages. </li>
+<li>There are <a href="https://travel.stackexchange.com/questions/163111/what-is-this-bridge-over-the-suez-canal">5 Pontoon bridges</a> over Suez Canal. A <a href="https://en.wikipedia.org/wiki/Pontoon_bridge">pontoon bridge</a> (or ponton bridge), also known as a floating bridge, uses floats or shallow-draft boats to support a continuous deck for pedestrian and vehicle travel. The buoyancy of the supports limits the maximum load they can carry. </li>
+<li><a href="https://www.sec.gov/Archives/edgar/data/41077/000119312505225697/dex998.htm">Market Based Management</a> (MBM) Guiding Principles<ul>
+<li>Integrity</li>
+<li>Compliance</li>
+<li>Value Creation</li>
+<li>Entrepreneurship</li>
+<li>Customer Focus</li>
+<li>Knowledge</li>
+<li>Change</li>
+<li>Humility</li>
+<li>Respect</li>
+<li>Fulfillmen</li></ul></li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Rejections]]></title>
         <id>/blog/rejections</id>
@@ -47,7 +85,7 @@
         <id>/blog/what-did-i-learn-this-week-2021---13</id>
         <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---13"/>
         <updated>2021-03-28T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the second week of March 2021]]></summary>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the final week of March 2021]]></summary>
         <content type="html"><![CDATA[<ol>
 <li>Microsoft acquired company <a href="https://en.wikipedia.org/wiki/Xamarin">Xamarin</a> was founded by the creators of Mono, Xamarin.Android etc.</li>
 <li>Learned how to create a basic <a href="https://github.com/TelegramBots/Telegram.Bot">Telegram bot in .NET</a>. It was very easy to get started and the their <a href="https://telegrambots.github.io/book/2/send-msg/text-msg.html">documentation site</a> was clear and well organized.</li>
@@ -933,7 +971,7 @@ else
 <p>For a period of 6 hours on that day, the service responsible for handling incoming SMTP connections incorrectly responded with an error (<a href="https://docs.microsoft.com/en-us/exchange/mail-flow-best-practices/non-delivery-reports-in-exchange-online/fix-error-code-550-5-1-1-through-5-1-20-in-exchange-online">hard bounce</a>) to emails being sent to “@gmail.com” users. The error message indicated that the email address did not exist and as a result, the impacted emails were never delivered.</p>
 <p>Email delivery to other email addresses on Google-hosted domains were not affected by this issue and continued to function correctly. SMTP clients conforming to email standards treat error code 550 as a permanent delivery error and do not attempt to resend the email. In response to a permanent delivery error, intermediate SMTP relays send a bounce email back to the original sender, informing them of the delivery error.</p>
 <h3 id="rootcause">Root Cause</h3>
-<p>Our SMPT inbound service has a configuration system to update flags and service options while deployed in production and ‘@gmail.com’ domain name is specified as one of the configuration options. During an ongoing migration, a configuration change shifted formatting behavior and provided and invalid domain name instead of “@gmail.com”. Due to this service incorrectly transformed lookups of certain email addresses ending in “@gmail.com” into non-existent email addresses resulting in 550 error code.</p>
+<p>Google's SMPT inbound service has a configuration system to update flags and service options while deployed in production and ‘@gmail.com’ domain name is specified as one of the configuration options. During an ongoing migration, a configuration change shifted formatting behavior and provided and invalid domain name instead of “@gmail.com”. Due to this service incorrectly transformed lookups of certain email addresses ending in “@gmail.com” into non-existent email addresses resulting in 550 error code.</p>
 <h3 id="remediationprevention">Remediation &amp; Prevention</h3>
 <p>Upon identifying the root cause, engineering team reverted the code change which resolved the immediate issue. But when they again deployed the same configuration system the next day a similar issue occurred. Formatting error related to “@gmail.com” was identified in the internal logs and they have to again revert it.</p>
 <p>As per the official statement they’ll be taking necessary actions to guard against the issue recurring and to reduce the impact of similar events.
