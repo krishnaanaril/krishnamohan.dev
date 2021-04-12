@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-04-07T17:38:05.447Z</updated>
+    <updated>2021-04-12T03:04:38.921Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -14,6 +14,30 @@
     <category term="Blog"/>
     <category term="Angular"/>
     <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 15]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---15</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---15"/>
+        <updated>2021-04-11T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the second week of April 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li>Unit Conversion is really a pain point in application development. So learned a little bit of <a href="https://0.30000000000000004.com/">floating point math</a>.</li>
+<li>My friend Noble introduced me to the new job portal named <a href="https://cutshort.io/">Cutshort</a>. It is an AI-based recruitment platform and SaaS software used by 8000+ companies, from startups to product giants like Google.</li>
+<li>Learned the different applications of <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag#examples">E-tags</a> and its implementation in <a href="https://docs.microsoft.com/en-us/aspnet/core/performance/caching/middleware?view=aspnetcore-5.0#configuration">dotnet</a>.</li>
+<li>Engineering manager <a href="https://jacobian.org/2018/may/2/engmanager-reading-list/">reading list</a> compiled by Jacob Kaplan-Moss(lead developer and co-founder of django).</li>
+<li>Learned the use of different background services in Chrome. It is sad that firefox is not supporting all these useful PWA features.<ul>
+<li><a href="https://developers.google.com/web/updates/2015/12/background-sync">Background Sync</a> - Background sync is a new web API that lets you defer actions until the user has stable connectivity. This is useful for ensuring that whatever the user wants to send, is actually sent.</li>
+<li><a href="https://developers.google.com/web/updates/2018/12/background-fetch">Background fetch</a> - Background Sync requires the service worker to be alive for the duration of the fetch. That isn't a problem for short bits of work like sending a message, but if the task takes too long the browser will kill the service worker, otherwise it's a risk to the user's privacy and battery. So, what if you need to download something that might take a long time, like a movie, podcasts, or levels of a game. That's what Background Fetch is for. Background Fetch is a web standard available by default since Chrome 74.</li>
+<li><a href="https://web.dev/periodic-background-sync/">Periodic Background Sync</a> - Periodic Background Sync enables web applications to periodically synchronize data in the background, bringing web apps closer to the behavior of a platform-specific app.</li></ul></li>
+<li>Relearned javascript tasks and microtasks from Jake Archibald's very famous <a href="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/">blog post</a>.</li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[What did I learn this week (2021) - 14]]></title>
         <id>/blog/what-did-i-learn-this-week-2021---14</id>
