@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-04-12T03:04:38.921Z</updated>
+    <updated>2021-04-19T09:38:29.775Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -14,6 +14,27 @@
     <category term="Blog"/>
     <category term="Angular"/>
     <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 16]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---16</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---16"/>
+        <updated>2021-04-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the third week of April 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li>Learned how to <a href="https://stackoverflow.com/a/12628579/1520750">cherry-pick merge commits</a> from one branch to another. </li>
+<li><a href="https://en.wikipedia.org/wiki/Gini_coefficient">Gini Coefficient/Gini Ratio/ Gini Index</a> - It is a measure of statistical dispersion intended to represent the income inequality or wealth inequality within a nation or any other group of people. It was developed by the Italian statistician and sociologist Corrado Gini.</li>
+<li><a href="https://mariadb.org/">MariaDB</a> is a community-developed, commercially supported fork of the MySQL relational database management system, intended to remain free and open-source software under the GNU General Public License. Development is led by some of the original developers of MySQL, who forked it due to concerns over its acquisition by Oracle Corporation in 2009.</li>
+<li>AWS <a href="https://github.com/opensearch-project/OpenSearch">OpenSearch</a> is a community-driven, open source fork of Elasticsearch and Kibana. Amazon's <a href="https://aws.amazon.com/blogs/opensource/introducing-opensearch/">blog post</a> and related <a href="https://news.ycombinator.com/item?id=26780848">HN discussion</a> on the same topic.</li>
+<li><a href="https://www.photopea.com/">Photopea</a> is a free online clone of Adobe Photoshop. It really helped me to generate some random icons for my side project.</li>
+<li>Learned about the <a href="https://www.chromium.org/developers/design-documents/site-engagement">Site Engagement</a> in Chromium projects. If you go to <code>chrome://site-engagement/</code> a table is shown about different sites you've browsed and your engagement score with each site.</li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[What did I learn this week (2021) - 15]]></title>
         <id>/blog/what-did-i-learn-this-week-2021---15</id>
@@ -80,7 +101,7 @@
         <title type="html"><![CDATA[Rejections]]></title>
         <id>/blog/rejections</id>
         <link href="https://krishnamohan.dev/blog/rejections"/>
-        <updated>2021-03-28T00:00:00.000Z</updated>
+        <updated>2021-04-18T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This is not a feel bad list, but just to remind myself that whatever happens life must go on.]]></summary>
         <content type="html"><![CDATA[<p>Recently I read a <a href="https://web.eecs.utk.edu/~azh/blog/allmyrejections.html">post by Austin Z. Henley</a> about the rejections he had in his career. This made me compile my own list and here it is: </p>
 <h2 id="industrypositions">Industry Positions</h2>
@@ -92,6 +113,8 @@
 <li>Tata Consultancy Services - Software Engineer (April 2019)</li>
 <li>ThoughtWorks - Software Engineer (April 2019)</li>
 <li>EY - Software Engineer (May 2019)</li>
+<li>Deloitte - Software Engineer (September 2019)</li>
+<li>Wells Fargo - Senior Software Engineer (March 2021)</li>
 </ol>
 <h2 id="competitiveexams">Competitive Exams</h2>
 <ol>
