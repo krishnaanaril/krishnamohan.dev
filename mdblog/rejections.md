@@ -3,7 +3,7 @@ title: Rejections
 description: This is not a feel bad list, but just to remind myself that whatever happens life must go on.
 published: true
 publishedAt: 2021-03-28T00:00:00.000Z
-updatedAt: 2021-03-28T00:00:00.000Z
+updatedAt: 2021-04-18T00:00:00.000Z
 category: learnings
 image: 'https://krishnamohan.dev/assets/banners/23.png'
 keywords:  
@@ -24,6 +24,8 @@ Recently I read a [post by Austin Z. Henley](https://web.eecs.utk.edu/~azh/blog/
 5. Tata Consultancy Services - Software Engineer (April 2019)
 6. ThoughtWorks - Software Engineer (April 2019)
 7. EY - Software Engineer (May 2019)
+8. Deloitte - Software Engineer (September 2019)
+9. Wells Fargo - Senior Software Engineer (March 2021)
 
 ## Competitive Exams
 
