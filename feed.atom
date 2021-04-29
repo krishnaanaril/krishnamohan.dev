@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-04-19T09:38:29.775Z</updated>
+    <updated>2021-04-29T17:00:51.141Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -14,6 +14,27 @@
     <category term="Blog"/>
     <category term="Angular"/>
     <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 17]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---17</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---17"/>
+        <updated>2021-04-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the final week of April 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li>Learned about the usage of <a href="https://www.npmjs.com/package/@storybook/addon-knobs">addon-knob</a> in <a href="https://storybook.js.org/">storybookjs</a>.</li>
+<li>Learned about networking improvements in <a href="https://devblogs.microsoft.com/dotnet/net-5-new-networking-improvements/">dotnet 5</a>.</li>
+<li><a href="https://en.wikipedia.org/wiki/Chekhov%27s_gun">Chekhov's gun</a> is a dramatic principle that states that every element in a story must be necessary, and irrelevant elements should be removed.</li>
+<li>Learned a bit about the new <a href="https://blog.cloudflare.com/http-3-from-root-to-tip/">Http/3</a> and QUIC protocol.</li>
+<li>To view the log of a git repository in reverse order, use the command <code>git log --reverse</code>.</li>
+<li><a href="https://en.wikipedia.org/wiki/GAVI">GAVI</a>, officially Gavi, the Vaccine Alliance (previously the GAVI Alliance, and before that the Global Alliance for Vaccines and Immunization) is a public–private global health partnership with the goal of increasing access to immunization in poor countries.</li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[What did I learn this week (2021) - 16]]></title>
         <id>/blog/what-did-i-learn-this-week-2021---16</id>

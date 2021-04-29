@@ -16,7 +16,7 @@
   <link rel="manifest" href="manifest.json">  
   <link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
   <meta name="theme-color" content="#1976d2">
-<link rel="stylesheet" href="styles.086ae27eaec70ebf0ccb.css"><style></style><script charset="utf-8" src="common-es2015.6103354ef0d7e049e1cf.js"></script><script charset="utf-8" src="6-es2015.b3dba92a57f6503a5743.js"></script><style>ol[_ngcontent-plu-c9]{list-style-type:decimal}ul[_ngcontent-plu-c9]{list-style-type:disc;padding-left:2.5rem}p[_ngcontent-plu-c9]{padding-top:1.25rem;padding-bottom:1.25rem}h2[_ngcontent-plu-c9]{font-size:1.875rem;line-height:2.25rem;margin-top:1.25rem;margin-bottom:1.25rem}h3[_ngcontent-plu-c9]{font-size:1.5rem;line-height:2rem;margin-top:.75rem;margin-bottom:.75rem}pre[_ngcontent-plu-c9]{font-size:1rem;line-height:1.5rem;margin-bottom:1.25rem;padding:1.25rem}a[_ngcontent-plu-c9]{border-bottom-width:2px}</style><meta name="title" content="File Upload - With Angular and Dotnet Core Web API"><meta name="description" content="Minimal implementation of file upload using Angular and dotnet core web API."><meta name="og:type" content="website"><meta name="og:url" content="/blog/file-upload---with-angular-and-dotnet-core-web-api"><meta name="og:title" content="File Upload - With Angular and Dotnet Core Web API"><meta name="og:description" content="Minimal implementation of file upload using Angular and dotnet core web API."><meta name="og:image" content="https://krishnamohan.dev/assets/banners/03.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="/blog/file-upload---with-angular-and-dotnet-core-web-api"><meta name="twitter:title" content="File Upload - With Angular and Dotnet Core Web API"><meta name="twitter:description" content="Minimal implementation of file upload using Angular and dotnet core web API."><meta name="twitter:image" content="https://krishnamohan.dev/assets/banners/03.png"><meta name="twitter:site" content="@krishnaanaril"><meta name="twitter:creator" content="@krishnaanaril"><meta name="keywords" content="angular, dotnet, API"><style>
+<link rel="stylesheet" href="styles.086ae27eaec70ebf0ccb.css"><style></style><script charset="utf-8" src="common-es2015.6103354ef0d7e049e1cf.js"></script><script charset="utf-8" src="6-es2015.b3dba92a57f6503a5743.js"></script><style>ol[_ngcontent-dno-c9]{list-style-type:decimal}ul[_ngcontent-dno-c9]{list-style-type:disc;padding-left:2.5rem}p[_ngcontent-dno-c9]{padding-top:1.25rem;padding-bottom:1.25rem}h2[_ngcontent-dno-c9]{font-size:1.875rem;line-height:2.25rem;margin-top:1.25rem;margin-bottom:1.25rem}h3[_ngcontent-dno-c9]{font-size:1.5rem;line-height:2rem;margin-top:.75rem;margin-bottom:.75rem}pre[_ngcontent-dno-c9]{font-size:1rem;line-height:1.5rem;margin-bottom:1.25rem;padding:1.25rem}a[_ngcontent-dno-c9]{border-bottom-width:2px}</style><meta name="title" content="File Upload - With Angular and Dotnet Core Web API"><meta name="description" content="Minimal implementation of file upload using Angular and dotnet core web API."><meta name="og:type" content="website"><meta name="og:url" content="/blog/file-upload---with-angular-and-dotnet-core-web-api"><meta name="og:title" content="File Upload - With Angular and Dotnet Core Web API"><meta name="og:description" content="Minimal implementation of file upload using Angular and dotnet core web API."><meta name="og:image" content="https://krishnamohan.dev/assets/banners/03.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="/blog/file-upload---with-angular-and-dotnet-core-web-api"><meta name="twitter:title" content="File Upload - With Angular and Dotnet Core Web API"><meta name="twitter:description" content="Minimal implementation of file upload using Angular and dotnet core web API."><meta name="twitter:image" content="https://krishnamohan.dev/assets/banners/03.png"><meta name="twitter:site" content="@krishnaanaril"><meta name="twitter:creator" content="@krishnaanaril"><meta name="keywords" content="angular, dotnet, API"><style>
       :host {
         display: none;
       }
@@ -26,45 +26,45 @@
     </style><script>window['ScullyIO']='generated';</script></head>
 
 <body scully-version="1.1.0">
-  <app-root _nghost-plu-c7="" ng-version="11.2.2"><div _ngcontent-plu-c7="" class="bg-gray-200 text-gray-800 dark:bg-black dark:text-gray-50"><div _ngcontent-plu-c7="" class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><section _ngcontent-plu-c7="" class="hidden lg:flex flex-row justify-center"><nav _ngcontent-plu-c7=""><ul _ngcontent-plu-c7="" class="lg:text-xl lg:flex lg:flex-row"><li _ngcontent-plu-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Home</li><li _ngcontent-plu-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Blog</li><li _ngcontent-plu-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Projects</li><li _ngcontent-plu-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">About</li><!----></ul></nav></section><div _ngcontent-plu-c7="" class="absolute lg:hidden mr-4 p-4 right-0"><button _ngcontent-plu-c7="" class="p-2"><svg _ngcontent-plu-c7="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" class="fill-current"><path _ngcontent-plu-c7="" d="M0 0h24v24H0z" fill="none"></path><path _ngcontent-plu-c7="" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button></div></div><!----><router-outlet _ngcontent-plu-c7=""></router-outlet><app-blog-post _nghost-plu-c9=""><div _ngcontent-plu-c9="" class="container mx-auto min-h-screen bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
-    <div _ngcontent-plu-c9="">
-        <div _ngcontent-plu-c9="" aria-label="Blog tags/keywords" class="pt-8 flex flex-row justify-center">
-            <div _ngcontent-plu-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">angular</div><div _ngcontent-plu-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">dotnet</div><div _ngcontent-plu-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">API</div><!---->
+  <app-root _nghost-dno-c7="" ng-version="11.2.2"><div _ngcontent-dno-c7="" class="bg-gray-200 text-gray-800 dark:bg-black dark:text-gray-50"><div _ngcontent-dno-c7="" class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><section _ngcontent-dno-c7="" class="hidden lg:flex flex-row justify-center"><nav _ngcontent-dno-c7=""><ul _ngcontent-dno-c7="" class="lg:text-xl lg:flex lg:flex-row"><li _ngcontent-dno-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Home</li><li _ngcontent-dno-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Blog</li><li _ngcontent-dno-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Projects</li><li _ngcontent-dno-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">About</li><!----></ul></nav></section><div _ngcontent-dno-c7="" class="absolute lg:hidden mr-4 p-4 right-0"><button _ngcontent-dno-c7="" class="p-2"><svg _ngcontent-dno-c7="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" class="fill-current"><path _ngcontent-dno-c7="" d="M0 0h24v24H0z" fill="none"></path><path _ngcontent-dno-c7="" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button></div></div><!----><router-outlet _ngcontent-dno-c7=""></router-outlet><app-blog-post _nghost-dno-c9=""><div _ngcontent-dno-c9="" class="container mx-auto min-h-screen bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
+    <div _ngcontent-dno-c9="">
+        <div _ngcontent-dno-c9="" aria-label="Blog tags/keywords" class="pt-8 flex flex-row justify-center">
+            <div _ngcontent-dno-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">angular</div><div _ngcontent-dno-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">dotnet</div><div _ngcontent-dno-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">API</div><!---->
         </div>
-        <div _ngcontent-plu-c9="" class="max-w-screen-lg mx-auto">
-            <h1 _ngcontent-plu-c9="" class="text-5xl pt-5 pb-5 text-center">File Upload - With Angular and Dotnet Core Web API</h1>
+        <div _ngcontent-dno-c9="" class="max-w-screen-lg mx-auto">
+            <h1 _ngcontent-dno-c9="" class="text-5xl pt-5 pb-5 text-center">File Upload - With Angular and Dotnet Core Web API</h1>
         </div>
-        <div _ngcontent-plu-c9="" class="flex flex-row justify-center m-5 max-w-screen-sm mx-auto">
-            <time _ngcontent-plu-c9="" class="text-center text-xl">Sep 2, 2020</time>
+        <div _ngcontent-dno-c9="" class="flex flex-row justify-center m-5 max-w-screen-sm mx-auto">
+            <time _ngcontent-dno-c9="" class="text-center text-xl">Sep 2, 2020</time>
         </div>
     </div>
-    <hr _ngcontent-plu-c9="" class="mx-auto border-gray-800 w-1/4">
-    <div _ngcontent-plu-c9="" class="max-w-screen-md mx-auto p-6 md:p-12 leading-8">
-        <!--scullyContent-begin--><h1 id="file-upload---with-angular-and-dotnet-core-web-api" _ngcontent-plu-c9="">File Upload - With Angular and Dotnet Core Web API</h1>
-<p _ngcontent-plu-c9="">In this blog post we'll have a minimal implementation of file upload using <a href="https://angular.io" _ngcontent-plu-c9="">Angular</a> and dotnet core web API. No other fancy stuffs. To completely understand the gist,some familiarity with Angular and dotnet core is required.</p>
-<h2 id="contents" _ngcontent-plu-c9="">Contents</h2>
-<ol _ngcontent-plu-c9="">
-<li _ngcontent-plu-c9=""><a href="" _ngcontent-plu-c9="">Prerequisite</a></li>
-<li _ngcontent-plu-c9=""><a href="" _ngcontent-plu-c9="">Creating Web API</a></li>
-<li _ngcontent-plu-c9=""><a href="" _ngcontent-plu-c9="">Creating Angular Frontend</a></li>
-<li _ngcontent-plu-c9=""><a href="" _ngcontent-plu-c9="">What's next</a></li>
+    <hr _ngcontent-dno-c9="" class="mx-auto border-gray-800 w-1/4">
+    <div _ngcontent-dno-c9="" class="max-w-screen-md mx-auto p-6 md:p-12 leading-8">
+        <!--scullyContent-begin--><h1 id="file-upload---with-angular-and-dotnet-core-web-api" _ngcontent-dno-c9="">File Upload - With Angular and Dotnet Core Web API</h1>
+<p _ngcontent-dno-c9="">In this blog post we'll have a minimal implementation of file upload using <a href="https://angular.io" _ngcontent-dno-c9="">Angular</a> and dotnet core web API. No other fancy stuffs. To completely understand the gist,some familiarity with Angular and dotnet core is required.</p>
+<h2 id="contents" _ngcontent-dno-c9="">Contents</h2>
+<ol _ngcontent-dno-c9="">
+<li _ngcontent-dno-c9=""><a href="" _ngcontent-dno-c9="">Prerequisite</a></li>
+<li _ngcontent-dno-c9=""><a href="" _ngcontent-dno-c9="">Creating Web API</a></li>
+<li _ngcontent-dno-c9=""><a href="" _ngcontent-dno-c9="">Creating Angular Frontend</a></li>
+<li _ngcontent-dno-c9=""><a href="" _ngcontent-dno-c9="">What's next</a></li>
 </ol>
-<h2 id="prerequisites" _ngcontent-plu-c9="">Prerequisites</h2>
-<ul _ngcontent-plu-c9="">
-<li _ngcontent-plu-c9="">Install <a href="https://angular.io/cli#installing-angular-cli" _ngcontent-plu-c9="">Angular CLI</a></li>
-<li _ngcontent-plu-c9="">Install <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" _ngcontent-plu-c9="">Dotnet Core</a>. For this post I'll be using dotnet core version 3.1.</li>
+<h2 id="prerequisites" _ngcontent-dno-c9="">Prerequisites</h2>
+<ul _ngcontent-dno-c9="">
+<li _ngcontent-dno-c9="">Install <a href="https://angular.io/cli#installing-angular-cli" _ngcontent-dno-c9="">Angular CLI</a></li>
+<li _ngcontent-dno-c9="">Install <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" _ngcontent-dno-c9="">Dotnet Core</a>. For this post I'll be using dotnet core version 3.1.</li>
 </ul>
-<h2 id="creating-web-api" _ngcontent-plu-c9="">Creating Web API</h2>
-<p _ngcontent-plu-c9="">First we need to create a <a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-3.1&amp;tabs=visual-studio-code#create-a-web-project" _ngcontent-plu-c9="">dotnet core web api project</a> and then add <code _ngcontent-plu-c9="">FileUploadController</code> <a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-3.1&amp;tabs=visual-studio-code#create-a-web-project" _ngcontent-plu-c9="">Controller class</a></p>
-<h3 id="add-serilog-for-logging-optional" _ngcontent-plu-c9="">Add Serilog for logging (Optional)</h3>
-<p _ngcontent-plu-c9="">For logging I'll be using <a href="https://serilog.net/" _ngcontent-plu-c9="">Serilog</a> and a flat file sink. To configure this we need to install the following dependencies via Nuget. </p>
-<ul _ngcontent-plu-c9="">
-<li _ngcontent-plu-c9="">Serilog</li>
-<li _ngcontent-plu-c9="">Serilog.AspNetCore</li>
-<li _ngcontent-plu-c9="">Serilog.Sinks.file</li>
+<h2 id="creating-web-api" _ngcontent-dno-c9="">Creating Web API</h2>
+<p _ngcontent-dno-c9="">First we need to create a <a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-3.1&amp;tabs=visual-studio-code#create-a-web-project" _ngcontent-dno-c9="">dotnet core web api project</a> and then add <code _ngcontent-dno-c9="">FileUploadController</code> <a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-3.1&amp;tabs=visual-studio-code#create-a-web-project" _ngcontent-dno-c9="">Controller class</a></p>
+<h3 id="add-serilog-for-logging-optional" _ngcontent-dno-c9="">Add Serilog for logging (Optional)</h3>
+<p _ngcontent-dno-c9="">For logging I'll be using <a href="https://serilog.net/" _ngcontent-dno-c9="">Serilog</a> and a flat file sink. To configure this we need to install the following dependencies via Nuget. </p>
+<ul _ngcontent-dno-c9="">
+<li _ngcontent-dno-c9="">Serilog</li>
+<li _ngcontent-dno-c9="">Serilog.AspNetCore</li>
+<li _ngcontent-dno-c9="">Serilog.Sinks.file</li>
 </ul>
-<p _ngcontent-plu-c9="">Then update the <code _ngcontent-plu-c9="">Program.cs</code> file.</p>
-<pre _ngcontent-plu-c9=""><code class="language-csharp" _ngcontent-plu-c9="">    public class Program
+<p _ngcontent-dno-c9="">Then update the <code _ngcontent-dno-c9="">Program.cs</code> file.</p>
+<pre _ngcontent-dno-c9=""><code class="language-csharp" _ngcontent-dno-c9="">    public class Program
     {
         public static void Main(string[] args)
         {
@@ -97,20 +97,20 @@
                 .UseSerilog();
     }
 </code></pre>
-<p _ngcontent-plu-c9="">In <code _ngcontent-plu-c9="">FileUploadController.cs</code> file add the parameter <code _ngcontent-plu-c9="">ILogger&lt;FileUploadController&gt; logger</code> to the constructor.</p>
-<pre _ngcontent-plu-c9=""><code class="language-csharp" _ngcontent-plu-c9="">    private readonly ILogger&lt;FileUploadController&gt; _logger;
+<p _ngcontent-dno-c9="">In <code _ngcontent-dno-c9="">FileUploadController.cs</code> file add the parameter <code _ngcontent-dno-c9="">ILogger&lt;FileUploadController&gt; logger</code> to the constructor.</p>
+<pre _ngcontent-dno-c9=""><code class="language-csharp" _ngcontent-dno-c9="">    private readonly ILogger&lt;FileUploadController&gt; _logger;
 
     public FileUploadController(ILogger&lt;FileUploadController&gt; logger)
     {
         _logger = logger;
     }
 </code></pre>
-<h3 id="get-upload-path-from-configuration-optional" _ngcontent-plu-c9="">Get upload path from configuration (Optional)</h3>
-<p _ngcontent-plu-c9="">If you need to have file upload path configurable, you can add the path as key-value pair in <code _ngcontent-plu-c9="">appsettings.json</code> file. e.g:</p>
-<pre _ngcontent-plu-c9=""><code class="language-json" _ngcontent-plu-c9="">    "FileUploadPath": "C:\\KrishnaMohan\\Builds\\uploads"
+<h3 id="get-upload-path-from-configuration-optional" _ngcontent-dno-c9="">Get upload path from configuration (Optional)</h3>
+<p _ngcontent-dno-c9="">If you need to have file upload path configurable, you can add the path as key-value pair in <code _ngcontent-dno-c9="">appsettings.json</code> file. e.g:</p>
+<pre _ngcontent-dno-c9=""><code class="language-json" _ngcontent-dno-c9="">    "FileUploadPath": "C:\\KrishnaMohan\\Builds\\uploads"
 </code></pre>
-<p _ngcontent-plu-c9="">And update <code _ngcontent-plu-c9="">FileUploadController.cs</code> constructor to add the configuration parameter.</p>
-<pre _ngcontent-plu-c9=""><code class="language-csharp" _ngcontent-plu-c9="">    private readonly IConfiguration _configuration;
+<p _ngcontent-dno-c9="">And update <code _ngcontent-dno-c9="">FileUploadController.cs</code> constructor to add the configuration parameter.</p>
+<pre _ngcontent-dno-c9=""><code class="language-csharp" _ngcontent-dno-c9="">    private readonly IConfiguration _configuration;
     private readonly ILogger&lt;FileUploadController&gt; _logger;
 
     public FileUploadController(IConfiguration configuration, ILogger&lt;FileUploadController&gt; logger)
@@ -119,11 +119,11 @@
         _logger = logger;
     }
 </code></pre>
-<h3 id="add-methods" _ngcontent-plu-c9="">Add methods</h3>
-<p _ngcontent-plu-c9="">Let's add two methods to handle single file upload and multiple file upload. Argument for methods will be of type <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.iformfile?view=aspnetcore-3.1" _ngcontent-plu-c9="">IFormFile</a> which represent the file send with HttpRequest.</p>
-<ul _ngcontent-plu-c9="">
-<li _ngcontent-plu-c9=""><p _ngcontent-plu-c9="">POST Method for Single File Upload</p>
-<pre _ngcontent-plu-c9=""><code class="language-csharp" _ngcontent-plu-c9="">  [Route("single-file")]
+<h3 id="add-methods" _ngcontent-dno-c9="">Add methods</h3>
+<p _ngcontent-dno-c9="">Let's add two methods to handle single file upload and multiple file upload. Argument for methods will be of type <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.iformfile?view=aspnetcore-3.1" _ngcontent-dno-c9="">IFormFile</a> which represent the file send with HttpRequest.</p>
+<ul _ngcontent-dno-c9="">
+<li _ngcontent-dno-c9=""><p _ngcontent-dno-c9="">POST Method for Single File Upload</p>
+<pre _ngcontent-dno-c9=""><code class="language-csharp" _ngcontent-dno-c9="">  [Route("single-file")]
   [HttpPost]
   public async Task&lt;IActionResult&gt; PostSingleFile(IFormFile formFile)
   {            
@@ -145,8 +145,8 @@
   }
 </code></pre>
 </li>
-<li _ngcontent-plu-c9=""><p _ngcontent-plu-c9="">POST Method for Multiple File Upload</p>
-<pre _ngcontent-plu-c9=""><code class="language-csharp" _ngcontent-plu-c9="">  [Route("multiple-files")]
+<li _ngcontent-dno-c9=""><p _ngcontent-dno-c9="">POST Method for Multiple File Upload</p>
+<pre _ngcontent-dno-c9=""><code class="language-csharp" _ngcontent-dno-c9="">  [Route("multiple-files")]
   [HttpPost]
   public async Task&lt;IActionResult&gt; PostMultipleFiles(List&lt;IFormFile&gt; files)
   {
@@ -171,12 +171,12 @@
 </code></pre>
 </li>
 </ul>
-<p _ngcontent-plu-c9="">And that's it. We are done with the API part.</p>
-<h2 id="creating-angular-frontend" _ngcontent-plu-c9="">Creating Angular Frontend</h2>
-<p _ngcontent-plu-c9="">Using Angular CLI create a <a href="https://angular.io/cli/new" _ngcontent-plu-c9="">new project</a> and add <code _ngcontent-plu-c9="">file-upload</code> <a href="https://angular.io/cli/generate#component" _ngcontent-plu-c9="">component</a> and <a href="https://angular.io/cli/generate#service" _ngcontent-plu-c9="">service</a>. The logic for getting the user selected files resides in the component and the logic for sending post request resides in the service.</p>
-<ul _ngcontent-plu-c9="">
-<li _ngcontent-plu-c9=""><p _ngcontent-plu-c9="">Update <code _ngcontent-plu-c9="">file-upload.service.ts</code> to add our methods to make the http request. Make sure that you import <a href="https://angular.io/api/common/http/HttpClientModule" _ngcontent-plu-c9="">HttpClientModule</a> in your module file. Here we'll be using <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData" _ngcontent-plu-c9="">FormData</a> to send the file along with the request.</p>
-<pre _ngcontent-plu-c9=""><code class="language-typescript" _ngcontent-plu-c9="">  constructor(private httpClient: HttpClient) { }
+<p _ngcontent-dno-c9="">And that's it. We are done with the API part.</p>
+<h2 id="creating-angular-frontend" _ngcontent-dno-c9="">Creating Angular Frontend</h2>
+<p _ngcontent-dno-c9="">Using Angular CLI create a <a href="https://angular.io/cli/new" _ngcontent-dno-c9="">new project</a> and add <code _ngcontent-dno-c9="">file-upload</code> <a href="https://angular.io/cli/generate#component" _ngcontent-dno-c9="">component</a> and <a href="https://angular.io/cli/generate#service" _ngcontent-dno-c9="">service</a>. The logic for getting the user selected files resides in the component and the logic for sending post request resides in the service.</p>
+<ul _ngcontent-dno-c9="">
+<li _ngcontent-dno-c9=""><p _ngcontent-dno-c9="">Update <code _ngcontent-dno-c9="">file-upload.service.ts</code> to add our methods to make the http request. Make sure that you import <a href="https://angular.io/api/common/http/HttpClientModule" _ngcontent-dno-c9="">HttpClientModule</a> in your module file. Here we'll be using <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData" _ngcontent-dno-c9="">FormData</a> to send the file along with the request.</p>
+<pre _ngcontent-dno-c9=""><code class="language-typescript" _ngcontent-dno-c9="">  constructor(private httpClient: HttpClient) { }
 
   postFile(filesToUpload: File): Observable&lt;boolean&gt; {
       const endpoint = 'https://localhost:44352/api/fileupload/single-file';
@@ -199,8 +199,8 @@
   }
 </code></pre>
 </li>
-<li _ngcontent-plu-c9=""><p _ngcontent-plu-c9="">Add the following methods in <code _ngcontent-plu-c9="">file-upload.component.ts</code> and update the constructor to add the service.</p>
-<pre _ngcontent-plu-c9=""><code class="language-typescript" _ngcontent-plu-c9="">  export class FileUploadComponent {
+<li _ngcontent-dno-c9=""><p _ngcontent-dno-c9="">Add the following methods in <code _ngcontent-dno-c9="">file-upload.component.ts</code> and update the constructor to add the service.</p>
+<pre _ngcontent-dno-c9=""><code class="language-typescript" _ngcontent-dno-c9="">  export class FileUploadComponent {
       filesToUpload: FileList;
       constructor(private fileUploadService: FileUploadService){}
 
@@ -220,26 +220,26 @@
   }
 </code></pre>
 </li>
-<li _ngcontent-plu-c9=""><p _ngcontent-plu-c9="">Update <code _ngcontent-plu-c9="">file-upload.component.html</code> to add the html inputs. Ideally we should use a form, but for simplicity I'm using button click event to trigger the upload. Also I've mentioned <code _ngcontent-plu-c9="">image/*</code> in the accept attribute to only allow image file types but this is optional.</p>
-<pre _ngcontent-plu-c9=""><code class="language-html" _ngcontent-plu-c9="">  &lt;label for="file"&gt;Choose File&lt;/label&gt;
+<li _ngcontent-dno-c9=""><p _ngcontent-dno-c9="">Update <code _ngcontent-dno-c9="">file-upload.component.html</code> to add the html inputs. Ideally we should use a form, but for simplicity I'm using button click event to trigger the upload. Also I've mentioned <code _ngcontent-dno-c9="">image/*</code> in the accept attribute to only allow image file types but this is optional.</p>
+<pre _ngcontent-dno-c9=""><code class="language-html" _ngcontent-dno-c9="">  &lt;label for="file"&gt;Choose File&lt;/label&gt;
   &lt;input type="file" accept="image/*" multiple (change)="filesChange($event)"&gt;
   &lt;button type="button" (click)="uploadFiles()"&gt;{{'Upload' | uppercase}}&lt;/button&gt;
 </code></pre>
 </li>
 </ul>
-<h2 id="testing" _ngcontent-plu-c9="">Testing</h2>
-<ul _ngcontent-plu-c9="">
-<li _ngcontent-plu-c9=""><a href="https://docs.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-aspnet-core-ef-step-02?view=vs-2019#run-the-application" _ngcontent-plu-c9="">Start the Web API</a> and Angular project (use <code _ngcontent-plu-c9="">npm start</code>). </li>
-<li _ngcontent-plu-c9="">Navigate to <code _ngcontent-plu-c9="">http:/localhost:4200</code></li>
-<li _ngcontent-plu-c9="">Select the files and click on <code _ngcontent-plu-c9="">Update</code>.</li>
-<li _ngcontent-plu-c9="">Verify the files are uploaded to the configured folder.</li>
+<h2 id="testing" _ngcontent-dno-c9="">Testing</h2>
+<ul _ngcontent-dno-c9="">
+<li _ngcontent-dno-c9=""><a href="https://docs.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-aspnet-core-ef-step-02?view=vs-2019#run-the-application" _ngcontent-dno-c9="">Start the Web API</a> and Angular project (use <code _ngcontent-dno-c9="">npm start</code>). </li>
+<li _ngcontent-dno-c9="">Navigate to <code _ngcontent-dno-c9="">http:/localhost:4200</code></li>
+<li _ngcontent-dno-c9="">Select the files and click on <code _ngcontent-dno-c9="">Update</code>.</li>
+<li _ngcontent-dno-c9="">Verify the files are uploaded to the configured folder.</li>
 </ul>
-<h2 id="whats-next" _ngcontent-plu-c9="">What's next</h2>
-<p _ngcontent-plu-c9="">This a bare minimum code snippet which is not ideal for production envrionment. We can extend this with reactive forms and update the file to AWS S3 buckets. Well that is up for you. </p>
-<!--scullyContent-end--><scully-content _ngcontent-plu-c9=""></scully-content>
-    <script>try {window['scullyContent'] = {cssId:"_ngcontent-plu-c9",html:document.body.innerHTML.split('<!--scullyContent-begin-->')[1].split('<!--scullyContent-end-->')[0]};} catch(e) {console.error('scully could not parse content');}</script></div>
-    <hr _ngcontent-plu-c9="" class="border-gray-800">    
-</div><!----></app-blog-post><!----><footer _ngcontent-plu-c7="" class="container mx-auto flex flex-col bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><div _ngcontent-plu-c7="" class="mt-10"><ul _ngcontent-plu-c7="" class="flex flex-row justify-between max-w-sm mx-auto pl-4 pr-4"><li _ngcontent-plu-c7="" class="hover:text-gray-600 dark:hover:text-gray-100"><a _ngcontent-plu-c7="" href="https://twitter.com/KrishnaAnaril">Twitter</a></li><li _ngcontent-plu-c7=""><a _ngcontent-plu-c7="" href="https://krishnamohan.dev/sitemap-blog.xml">Sitemap</a></li><li _ngcontent-plu-c7=""><a _ngcontent-plu-c7="" href="https://krishnamohan.dev/feed.xml">RSS</a></li><li _ngcontent-plu-c7=""><a _ngcontent-plu-c7="" href="mailto:krishnamohan.a.m@gmail.com">Contact</a></li></ul></div><div _ngcontent-plu-c7="" class="mx-auto p-5 text-sm"><p _ngcontent-plu-c7="">© 2021-present <a _ngcontent-plu-c7="" href="https://krishnamohan.dev/" class="font-bold">Krishna Mohan A M</a>. All Rights Reserved.</p></div></footer></div></app-root>
+<h2 id="whats-next" _ngcontent-dno-c9="">What's next</h2>
+<p _ngcontent-dno-c9="">This a bare minimum code snippet which is not ideal for production envrionment. We can extend this with reactive forms and update the file to AWS S3 buckets. Well that is up for you. </p>
+<!--scullyContent-end--><scully-content _ngcontent-dno-c9=""></scully-content>
+    <script>try {window['scullyContent'] = {cssId:"_ngcontent-dno-c9",html:document.body.innerHTML.split('<!--scullyContent-begin-->')[1].split('<!--scullyContent-end-->')[0]};} catch(e) {console.error('scully could not parse content');}</script></div>
+    <hr _ngcontent-dno-c9="" class="border-gray-800">    
+</div><!----></app-blog-post><!----><footer _ngcontent-dno-c7="" class="container mx-auto flex flex-col bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><div _ngcontent-dno-c7="" class="mt-10"><ul _ngcontent-dno-c7="" class="flex flex-row justify-between max-w-sm mx-auto pl-4 pr-4"><li _ngcontent-dno-c7="" class="hover:text-gray-600 dark:hover:text-gray-100"><a _ngcontent-dno-c7="" href="https://twitter.com/KrishnaAnaril">Twitter</a></li><li _ngcontent-dno-c7=""><a _ngcontent-dno-c7="" href="https://krishnamohan.dev/sitemap-blog.xml">Sitemap</a></li><li _ngcontent-dno-c7=""><a _ngcontent-dno-c7="" href="https://krishnamohan.dev/feed.xml">RSS</a></li><li _ngcontent-dno-c7=""><a _ngcontent-dno-c7="" href="mailto:krishnamohan.a.m@gmail.com">Contact</a></li></ul></div><div _ngcontent-dno-c7="" class="mx-auto p-5 text-sm"><p _ngcontent-dno-c7="">© 2021-present <a _ngcontent-dno-c7="" href="https://krishnamohan.dev/" class="font-bold">Krishna Mohan A M</a>. All Rights Reserved.</p></div></footer></div></app-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
 <script id="ScullyIO-transfer-state"></script><script src="runtime-es2015.8ef31b743ef06c00837d.js" type="module"></script><script src="runtime-es5.8ef31b743ef06c00837d.js" nomodule="" defer=""></script><script src="polyfills-es5.29147128fc6f0f3fd286.js" nomodule="" defer=""></script><script src="polyfills-es2015.2045db6d95f407e1e8c7.js" type="module"></script><script src="main-es2015.fbbf9b9adb58a7712a31.js" type="module"></script><script src="main-es5.fbbf9b9adb58a7712a31.js" nomodule="" defer=""></script>
 
