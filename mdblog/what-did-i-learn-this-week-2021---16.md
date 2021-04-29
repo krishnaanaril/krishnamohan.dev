@@ -7,7 +7,8 @@ updatedAt: 2021-04-18T00:00:00.000Z
 category: learnings
 image: 'https://krishnamohan.dev/assets/banners/26.png'
 keywords:  
-  -     
+  - Git
+  - Chrome   
 authors:
   - Krishna Mohan A M
 ---
