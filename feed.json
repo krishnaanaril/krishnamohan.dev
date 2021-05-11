@@ -7,6 +7,28 @@
     "icon": "https://krishnamohan.dev/assets/images/dp.jpeg",
     "items": [
         {
+            "id": "/blog/what-did-i-learn-this-week-2021---19",
+            "content_html": "<ol>\n<li>Read a research <a href=\"https://arxiv.org/ftp/arxiv/papers/2009/2009.02114.pdf\">paper</a> about <strong>'Authentication and Authorization in micro-services based systems: Survey of architecture patterns'</strong> while researching about xacml and <a href=\"https://www.openpolicyagent.org/\">OPA</a>. The third architecture mentioned in the paper is similar to <a href=\"https://www.youtube.com/watch?v=R6tUNpRpdnY\">Netflix's</a> architecture for authorization based on OPA/</li>\n<li>Learned some new <a href=\"https://markodenic.com/html-tips/\">html tips</a>. Some of the tips were already aware, but some were really new to me.</li>\n<li>Found the <a href=\"https://apisetu.gov.in/public/api/cowin#/\">API setu</a> for Cowin and created a <a href=\"https://cowin-helper.krishnamohan.dev/\">wrapper PWA</a> around it.</li>\n<li>Learned about Couchbase concepts and did some poc with its <a href=\"https://docs.couchbase.com/dotnet-sdk/current/hello-world/overview.html\">dotnet sdk</a>.</li>\n<li>Learned how to <a href=\"https://stackoverflow.com/a/33865555/1520750\">validate an indian pin</a> input.</li>\n<li>Watched a video by <a href=\"https://www.youtube.com/watch?v=4px19xzK7zI\">Kunal Shah, CEO of Cred</a>. I really liked his concept around <strong>'delta of efficency'</strong></li>\n</ol>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---19",
+            "title": "What did I learn this week (2021) - 19",
+            "summary": "Weekly summarization and review of things I've learned in the second week of May 2021",
+            "date_modified": "2021-05-09T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
+            "id": "/blog/what-did-i-learn-this-week-2021---18",
+            "content_html": "<ol>\n<li><a href=\"https://research.google/pubs/pub48190/\">Zanzibar</a>: Google’s Consistent, Global Authorization System. Zanzibar scales to trillions of access control lists (ACL) and millions of authN requests per second. Airbnb's <a href=\"https://medium.com/airbnb-engineering/himeji-a-scalable-centralized-system-for-authorization-at-airbnb-341664924574\">Himeji</a> and <a href=\"https://github.com/ory/keto/\">Ory/Keto</a> are based on this.</li>\n<li><a href=\"https://www.powerdns.com/\">PowerDNS</a> is a DNS server program, written in C++ and licensed under the GPL. It was founded by <a href=\"https://berthub.eu/\">Bert Hubert</a> in 1999</li>\n<li>Read one thought provoking <a href=\"https://berthub.eu/articles/posts/how-tech-loses-out/\">article</a> by <a href=\"https://berthub.eu/\">Bert Hubert</a>. Learned that Philips is a dutch company.</li>\n<li>Learned the use of spoiler by watching a <a href=\"https://www.youtube.com/watch?v=AXjiThF1LXU\">youtube video</a>. HN link about how <a href=\"https://ciechanow.ski/internal-combustion-engine/\">engines</a> work put me in to this.</li>\n<li>Math.round() in js round towards positive infinity. e.g.: -102.5 is -101 instead of -103.</li>\n<li>Learned about <a href=\"https://growth.design/psychology/\">Cognitive biases</a> and Principles.</li>\n<li>Learned about the <a href=\"https://stackoverflow.com/a/15184612/1520750\">history</a> of couchbase and couchdb. </li>\n</ol>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---18",
+            "title": "What did I learn this week (2021) - 18",
+            "summary": "Weekly summarization and review of things I've learned in the first week of May 2021",
+            "date_modified": "2021-05-02T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
             "id": "/blog/what-did-i-learn-this-week-2021---17",
             "content_html": "<ol>\n<li>Learned about the usage of <a href=\"https://www.npmjs.com/package/@storybook/addon-knobs\">addon-knob</a> in <a href=\"https://storybook.js.org/\">storybookjs</a>.</li>\n<li>Learned about networking improvements in <a href=\"https://devblogs.microsoft.com/dotnet/net-5-new-networking-improvements/\">dotnet 5</a>.</li>\n<li><a href=\"https://en.wikipedia.org/wiki/Chekhov%27s_gun\">Chekhov's gun</a> is a dramatic principle that states that every element in a story must be necessary, and irrelevant elements should be removed.</li>\n<li>Learned a bit about the new <a href=\"https://blog.cloudflare.com/http-3-from-root-to-tip/\">Http/3</a> and QUIC protocol.</li>\n<li>To view the log of a git repository in reverse order, use the command <code>git log --reverse</code>.</li>\n<li><a href=\"https://en.wikipedia.org/wiki/GAVI\">GAVI</a>, officially Gavi, the Vaccine Alliance (previously the GAVI Alliance, and before that the Global Alliance for Vaccines and Immunization) is a public–private global health partnership with the goal of increasing access to immunization in poor countries.</li>\n</ol>",
             "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---17",

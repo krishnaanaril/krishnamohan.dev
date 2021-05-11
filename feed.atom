@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-04-29T17:00:51.141Z</updated>
+    <updated>2021-05-11T17:10:20.895Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -14,6 +14,49 @@
     <category term="Blog"/>
     <category term="Angular"/>
     <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 19]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---19</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---19"/>
+        <updated>2021-05-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the second week of May 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li>Read a research <a href="https://arxiv.org/ftp/arxiv/papers/2009/2009.02114.pdf">paper</a> about <strong>'Authentication and Authorization in micro-services based systems: Survey of architecture patterns'</strong> while researching about xacml and <a href="https://www.openpolicyagent.org/">OPA</a>. The third architecture mentioned in the paper is similar to <a href="https://www.youtube.com/watch?v=R6tUNpRpdnY">Netflix's</a> architecture for authorization based on OPA/</li>
+<li>Learned some new <a href="https://markodenic.com/html-tips/">html tips</a>. Some of the tips were already aware, but some were really new to me.</li>
+<li>Found the <a href="https://apisetu.gov.in/public/api/cowin#/">API setu</a> for Cowin and created a <a href="https://cowin-helper.krishnamohan.dev/">wrapper PWA</a> around it.</li>
+<li>Learned about Couchbase concepts and did some poc with its <a href="https://docs.couchbase.com/dotnet-sdk/current/hello-world/overview.html">dotnet sdk</a>.</li>
+<li>Learned how to <a href="https://stackoverflow.com/a/33865555/1520750">validate an indian pin</a> input.</li>
+<li>Watched a video by <a href="https://www.youtube.com/watch?v=4px19xzK7zI">Kunal Shah, CEO of Cred</a>. I really liked his concept around <strong>'delta of efficency'</strong></li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 18]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---18</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---18"/>
+        <updated>2021-05-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the first week of May 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li><a href="https://research.google/pubs/pub48190/">Zanzibar</a>: Google’s Consistent, Global Authorization System. Zanzibar scales to trillions of access control lists (ACL) and millions of authN requests per second. Airbnb's <a href="https://medium.com/airbnb-engineering/himeji-a-scalable-centralized-system-for-authorization-at-airbnb-341664924574">Himeji</a> and <a href="https://github.com/ory/keto/">Ory/Keto</a> are based on this.</li>
+<li><a href="https://www.powerdns.com/">PowerDNS</a> is a DNS server program, written in C++ and licensed under the GPL. It was founded by <a href="https://berthub.eu/">Bert Hubert</a> in 1999</li>
+<li>Read one thought provoking <a href="https://berthub.eu/articles/posts/how-tech-loses-out/">article</a> by <a href="https://berthub.eu/">Bert Hubert</a>. Learned that Philips is a dutch company.</li>
+<li>Learned the use of spoiler by watching a <a href="https://www.youtube.com/watch?v=AXjiThF1LXU">youtube video</a>. HN link about how <a href="https://ciechanow.ski/internal-combustion-engine/">engines</a> work put me in to this.</li>
+<li>Math.round() in js round towards positive infinity. e.g.: -102.5 is -101 instead of -103.</li>
+<li>Learned about <a href="https://growth.design/psychology/">Cognitive biases</a> and Principles.</li>
+<li>Learned about the <a href="https://stackoverflow.com/a/15184612/1520750">history</a> of couchbase and couchdb. </li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[What did I learn this week (2021) - 17]]></title>
         <id>/blog/what-did-i-learn-this-week-2021---17</id>
