@@ -16,7 +16,7 @@
   <link rel="manifest" href="manifest.json">  
   <link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
   <meta name="theme-color" content="#1976d2">
-<link rel="stylesheet" href="styles.086ae27eaec70ebf0ccb.css"><style></style><script charset="utf-8" src="common-es2015.e42dcdd43780d81208f1.js"></script><script charset="utf-8" src="6-es2015.3df75c25f5b1cd763b93.js"></script><style>ol[_ngcontent-yap-c9]{list-style-type:decimal}ul[_ngcontent-yap-c9]{list-style-type:disc;padding-left:2.5rem}p[_ngcontent-yap-c9]{padding-top:1.25rem;padding-bottom:1.25rem}h2[_ngcontent-yap-c9]{font-size:1.875rem;line-height:2.25rem;margin-top:1.25rem;margin-bottom:1.25rem}h3[_ngcontent-yap-c9]{font-size:1.5rem;line-height:2rem;margin-top:.75rem;margin-bottom:.75rem}pre[_ngcontent-yap-c9]{font-size:1rem;line-height:1.5rem;margin-bottom:1.25rem;padding:1.25rem}a[_ngcontent-yap-c9]{border-bottom-width:2px}</style><meta name="title" content="How to implement CQRS with MediatR - Part 1"><meta name="description" content="This post is about implementing mediator pattern in a dotnet console application using MediatR library."><meta name="og:type" content="website"><meta name="og:url" content="/blog/how-to-implement-cqrs-with-mediat-r---part-1"><meta name="og:title" content="How to implement CQRS with MediatR - Part 1"><meta name="og:description" content="This post is about implementing mediator pattern in a dotnet console application using MediatR library."><meta name="og:image" content="https://krishnamohan.dev/assets/banners/16.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="/blog/how-to-implement-cqrs-with-mediat-r---part-1"><meta name="twitter:title" content="How to implement CQRS with MediatR - Part 1"><meta name="twitter:description" content="This post is about implementing mediator pattern in a dotnet console application using MediatR library."><meta name="twitter:image" content="https://krishnamohan.dev/assets/banners/16.png"><meta name="twitter:site" content="@krishnaanaril"><meta name="twitter:creator" content="@krishnaanaril"><meta name="keywords" content="dotnet, mediatr, cqrs"><meta name="og:article:published_time" content="2021-02-26T00:00:00.000Z"><meta name="og:article:modified_time" content="2021-02-26T00:00:00.000Z"><meta name="og:article:author" content="Krishna Mohan A M"><meta name="og:article:section" content="Tech"><meta name="og:article:tag" content="dotnet, mediatr, cqrs"><style>
+<link rel="stylesheet" href="styles.086ae27eaec70ebf0ccb.css"><style></style><script charset="utf-8" src="common-es2015.e42dcdd43780d81208f1.js"></script><script charset="utf-8" src="6-es2015.3df75c25f5b1cd763b93.js"></script><style>ol[_ngcontent-sfh-c9]{list-style-type:decimal}ul[_ngcontent-sfh-c9]{list-style-type:disc;padding-left:2.5rem}p[_ngcontent-sfh-c9]{padding-top:1.25rem;padding-bottom:1.25rem}h2[_ngcontent-sfh-c9]{font-size:1.875rem;line-height:2.25rem;margin-top:1.25rem;margin-bottom:1.25rem}h3[_ngcontent-sfh-c9]{font-size:1.5rem;line-height:2rem;margin-top:.75rem;margin-bottom:.75rem}pre[_ngcontent-sfh-c9]{font-size:1rem;line-height:1.5rem;margin-bottom:1.25rem;padding:1.25rem}a[_ngcontent-sfh-c9]{border-bottom-width:2px}</style><meta name="title" content="How to implement CQRS with MediatR - Part 1"><meta name="description" content="This post is about implementing mediator pattern in a dotnet console application using MediatR library."><meta name="og:type" content="website"><meta name="og:url" content="/blog/how-to-implement-cqrs-with-mediat-r---part-1"><meta name="og:title" content="How to implement CQRS with MediatR - Part 1"><meta name="og:description" content="This post is about implementing mediator pattern in a dotnet console application using MediatR library."><meta name="og:image" content="https://krishnamohan.dev/assets/banners/16.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="/blog/how-to-implement-cqrs-with-mediat-r---part-1"><meta name="twitter:title" content="How to implement CQRS with MediatR - Part 1"><meta name="twitter:description" content="This post is about implementing mediator pattern in a dotnet console application using MediatR library."><meta name="twitter:image" content="https://krishnamohan.dev/assets/banners/16.png"><meta name="twitter:site" content="@krishnaanaril"><meta name="twitter:creator" content="@krishnaanaril"><meta name="keywords" content="dotnet, mediatr, cqrs"><meta name="og:article:published_time" content="2021-02-26T00:00:00.000Z"><meta name="og:article:modified_time" content="2021-02-26T00:00:00.000Z"><meta name="og:article:author" content="Krishna Mohan A M"><meta name="og:article:section" content="Tech"><meta name="og:article:tag" content="dotnet, mediatr, cqrs"><style>
       :host {
         display: none;
       }
@@ -26,40 +26,40 @@
     </style><script>window['ScullyIO']='generated';</script></head>
 
 <body scully-version="1.1.0">
-  <app-root _nghost-yap-c7="" ng-version="11.2.2"><div _ngcontent-yap-c7="" class="bg-gray-200 text-gray-800 dark:bg-black dark:text-gray-50"><div _ngcontent-yap-c7="" class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><section _ngcontent-yap-c7="" class="hidden lg:flex flex-row justify-center"><nav _ngcontent-yap-c7=""><ul _ngcontent-yap-c7="" class="lg:text-xl lg:flex lg:flex-row"><li _ngcontent-yap-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Home</li><li _ngcontent-yap-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Blog</li><li _ngcontent-yap-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Projects</li><li _ngcontent-yap-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">About</li><!----></ul></nav></section><div _ngcontent-yap-c7="" class="absolute lg:hidden mr-4 p-4 right-0"><button _ngcontent-yap-c7="" class="p-2"><svg _ngcontent-yap-c7="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" class="fill-current"><path _ngcontent-yap-c7="" d="M0 0h24v24H0z" fill="none"></path><path _ngcontent-yap-c7="" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button></div></div><!----><router-outlet _ngcontent-yap-c7=""></router-outlet><app-blog-post _nghost-yap-c9=""><div _ngcontent-yap-c9="" class="container mx-auto min-h-screen bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
-    <div _ngcontent-yap-c9="">
-        <div _ngcontent-yap-c9="" aria-label="Blog tags/keywords" class="pt-8 flex flex-row justify-center">
-            <div _ngcontent-yap-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">dotnet</div><div _ngcontent-yap-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">mediatr</div><div _ngcontent-yap-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">cqrs</div><!---->
+  <app-root _nghost-sfh-c7="" ng-version="11.2.2"><div _ngcontent-sfh-c7="" class="bg-gray-200 text-gray-800 dark:bg-black dark:text-gray-50"><div _ngcontent-sfh-c7="" class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><section _ngcontent-sfh-c7="" class="hidden lg:flex flex-row justify-center"><nav _ngcontent-sfh-c7=""><ul _ngcontent-sfh-c7="" class="lg:text-xl lg:flex lg:flex-row"><li _ngcontent-sfh-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Home</li><li _ngcontent-sfh-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Blog</li><li _ngcontent-sfh-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Projects</li><li _ngcontent-sfh-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">About</li><!----></ul></nav></section><div _ngcontent-sfh-c7="" class="absolute lg:hidden mr-4 p-4 right-0"><button _ngcontent-sfh-c7="" class="p-2"><svg _ngcontent-sfh-c7="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" class="fill-current"><path _ngcontent-sfh-c7="" d="M0 0h24v24H0z" fill="none"></path><path _ngcontent-sfh-c7="" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button></div></div><!----><router-outlet _ngcontent-sfh-c7=""></router-outlet><app-blog-post _nghost-sfh-c9=""><div _ngcontent-sfh-c9="" class="container mx-auto min-h-screen bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
+    <div _ngcontent-sfh-c9="">
+        <div _ngcontent-sfh-c9="" aria-label="Blog tags/keywords" class="pt-8 flex flex-row justify-center">
+            <div _ngcontent-sfh-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">dotnet</div><div _ngcontent-sfh-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">mediatr</div><div _ngcontent-sfh-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">cqrs</div><!---->
         </div>
-        <div _ngcontent-yap-c9="" class="max-w-screen-lg mx-auto">
-            <h1 _ngcontent-yap-c9="" class="text-5xl pt-5 pb-5 text-center">How to implement CQRS with MediatR - Part 1</h1>
+        <div _ngcontent-sfh-c9="" class="max-w-screen-lg mx-auto">
+            <h1 _ngcontent-sfh-c9="" class="text-5xl pt-5 pb-5 text-center">How to implement CQRS with MediatR - Part 1</h1>
         </div>
-        <div _ngcontent-yap-c9="" class="flex flex-row justify-center m-5 max-w-screen-sm mx-auto">
-            <time _ngcontent-yap-c9="" class="text-center text-xl">Feb 26, 2021</time>
+        <div _ngcontent-sfh-c9="" class="flex flex-row justify-center m-5 max-w-screen-sm mx-auto">
+            <time _ngcontent-sfh-c9="" class="text-center text-xl">Feb 26, 2021</time>
         </div>
     </div>
-    <hr _ngcontent-yap-c9="" class="mx-auto border-gray-800 w-1/4">
-    <div _ngcontent-yap-c9="" class="max-w-screen-md mx-auto p-6 md:p-12 leading-8">
-        <!--scullyContent-begin--><p _ngcontent-yap-c9="">I came to know about <a href="https://github.com/jbogard/MediatR" _ngcontent-yap-c9="">MediatR</a> library while reading the book <a href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/" _ngcontent-yap-c9="">.NET Microservices: Architecture for Containerized .NET Applications</a>. Frankly speaking, even though I was aware of <a href="https://github.com/krishnaanaril/try-outs/blob/master/design-patterns/behavioral/mediator.ts" _ngcontent-yap-c9="">mediator pattern</a>, I haven't used it any of the projects I've worked. May be this is due to the fact that, I've mostly worked in enterprise applications with hardly 100+ users. Any way I consider this as an opportunity to learn a new thing.</p>
-<p _ngcontent-yap-c9="">In this post we'll be using MediatR with a dotnet console application. If you want to read about its implementation in a WebAPI, check out my other blog <a href="https://krishnamohan.dev/blog/how-to-implement-cqrs-with-mediat-r---part-2" _ngcontent-yap-c9="">post</a>.</p>
-<h2 id="prerequisites" _ngcontent-yap-c9="">Prerequisites</h2>
-<ul _ngcontent-yap-c9="">
-<li _ngcontent-yap-c9="">Install <a href="https://dotnet.microsoft.com/download" _ngcontent-yap-c9="">dotnet core</a></li>
-<li _ngcontent-yap-c9="">Install Visual Studio Code/Visual Studio IDE </li>
+    <hr _ngcontent-sfh-c9="" class="mx-auto border-gray-800 w-1/4">
+    <div _ngcontent-sfh-c9="" class="max-w-screen-md mx-auto p-6 md:p-12 leading-8">
+        <!--scullyContent-begin--><p _ngcontent-sfh-c9="">I came to know about <a href="https://github.com/jbogard/MediatR" _ngcontent-sfh-c9="">MediatR</a> library while reading the book <a href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/" _ngcontent-sfh-c9="">.NET Microservices: Architecture for Containerized .NET Applications</a>. Frankly speaking, even though I was aware of <a href="https://github.com/krishnaanaril/try-outs/blob/master/design-patterns/behavioral/mediator.ts" _ngcontent-sfh-c9="">mediator pattern</a>, I haven't used it any of the projects I've worked. May be this is due to the fact that, I've mostly worked in enterprise applications with hardly 100+ users. Any way I consider this as an opportunity to learn a new thing.</p>
+<p _ngcontent-sfh-c9="">In this post we'll be using MediatR with a dotnet console application. If you want to read about its implementation in a WebAPI, check out my other blog <a href="https://krishnamohan.dev/blog/how-to-implement-cqrs-with-mediat-r---part-2" _ngcontent-sfh-c9="">post</a>.</p>
+<h2 id="prerequisites" _ngcontent-sfh-c9="">Prerequisites</h2>
+<ul _ngcontent-sfh-c9="">
+<li _ngcontent-sfh-c9="">Install <a href="https://dotnet.microsoft.com/download" _ngcontent-sfh-c9="">dotnet core</a></li>
+<li _ngcontent-sfh-c9="">Install Visual Studio Code/Visual Studio IDE </li>
 </ul>
-<h2 id="creating-a-dotnet-console-application" _ngcontent-yap-c9="">Creating a dotnet console application</h2>
-<p _ngcontent-yap-c9="">Okay, As the first step we need a console application. We can do so by running our dotnet <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new" _ngcontent-yap-c9="">cli command</a>.</p>
-<pre _ngcontent-yap-c9=""><code class="language-bash" _ngcontent-yap-c9="">dotnet new console MediatRSample
+<h2 id="creating-a-dotnet-console-application" _ngcontent-sfh-c9="">Creating a dotnet console application</h2>
+<p _ngcontent-sfh-c9="">Okay, As the first step we need a console application. We can do so by running our dotnet <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new" _ngcontent-sfh-c9="">cli command</a>.</p>
+<pre _ngcontent-sfh-c9=""><code class="language-bash" _ngcontent-sfh-c9="">dotnet new console MediatRSample
 </code></pre>
-<h2 id="configure-serilog-for-logging-optional" _ngcontent-yap-c9="">Configure Serilog for logging (Optional)</h2>
-<p _ngcontent-yap-c9="">I'll be using <a href="https://serilog.net/" _ngcontent-yap-c9="">Serilog</a> and a flat file sink for logging. To configure this we need to install the following dependencies via Nuget. </p>
-<ul _ngcontent-yap-c9="">
-<li _ngcontent-yap-c9="">Microsoft.Extensions.Logging</li>
-<li _ngcontent-yap-c9="">Serilog</li>
-<li _ngcontent-yap-c9="">Serilog.Sinks.File</li>
+<h2 id="configure-serilog-for-logging-optional" _ngcontent-sfh-c9="">Configure Serilog for logging (Optional)</h2>
+<p _ngcontent-sfh-c9="">I'll be using <a href="https://serilog.net/" _ngcontent-sfh-c9="">Serilog</a> and a flat file sink for logging. To configure this we need to install the following dependencies via Nuget. </p>
+<ul _ngcontent-sfh-c9="">
+<li _ngcontent-sfh-c9="">Microsoft.Extensions.Logging</li>
+<li _ngcontent-sfh-c9="">Serilog</li>
+<li _ngcontent-sfh-c9="">Serilog.Sinks.File</li>
 </ul>
-<p _ngcontent-yap-c9="">Then update the <code _ngcontent-yap-c9="">Program.cs</code> file.</p>
-<pre _ngcontent-yap-c9=""><code class="language-csharp" _ngcontent-yap-c9="">static void Main(string[] args)
+<p _ngcontent-sfh-c9="">Then update the <code _ngcontent-sfh-c9="">Program.cs</code> file.</p>
+<pre _ngcontent-sfh-c9=""><code class="language-csharp" _ngcontent-sfh-c9="">static void Main(string[] args)
 {
     var services = ConfigureServices();
     var serviceProvider = services.BuildServiceProvider();        
@@ -81,22 +81,22 @@ private static IServiceCollection ConfigureServices()
     return services;
 }
 </code></pre>
-<h2 id="install-and-configure-mediatr" _ngcontent-yap-c9="">Install and Configure MediatR</h2>
-<p _ngcontent-yap-c9="">Next we need to install MediatR (version 9.0.0 at the time of writing) via Nuget. To configure MediatR, add the following snippet to the <code _ngcontent-yap-c9="">ConfigureServices()</code> method.</p>
-<pre _ngcontent-yap-c9=""><code class="language-csharp" _ngcontent-yap-c9="">services.AddMediatR(Assembly.GetExecutingAssembly());
+<h2 id="install-and-configure-mediatr" _ngcontent-sfh-c9="">Install and Configure MediatR</h2>
+<p _ngcontent-sfh-c9="">Next we need to install MediatR (version 9.0.0 at the time of writing) via Nuget. To configure MediatR, add the following snippet to the <code _ngcontent-sfh-c9="">ConfigureServices()</code> method.</p>
+<pre _ngcontent-sfh-c9=""><code class="language-csharp" _ngcontent-sfh-c9="">services.AddMediatR(Assembly.GetExecutingAssembly());
 </code></pre>
-<h2 id="create-a-notification-message-and-its-handler" _ngcontent-yap-c9="">Create a Notification message and its handler</h2>
-<p _ngcontent-yap-c9="">Among the two message types provided by MediatR, here we are configuring notification messages.</p>
-<h3 id="create-a-bare-minimum-dto-data-transfer-object" _ngcontent-yap-c9="">Create a bare minimum DTO (Data Transfer Object)</h3>
-<p _ngcontent-yap-c9="">This class implements <code _ngcontent-yap-c9="">INotification</code>, a marker interface to represent a notification.</p>
-<pre _ngcontent-yap-c9=""><code class="language-csharp" _ngcontent-yap-c9="">public class NotificationMessage: INotification
+<h2 id="create-a-notification-message-and-its-handler" _ngcontent-sfh-c9="">Create a Notification message and its handler</h2>
+<p _ngcontent-sfh-c9="">Among the two message types provided by MediatR, here we are configuring notification messages.</p>
+<h3 id="create-a-bare-minimum-dto-data-transfer-object" _ngcontent-sfh-c9="">Create a bare minimum DTO (Data Transfer Object)</h3>
+<p _ngcontent-sfh-c9="">This class implements <code _ngcontent-sfh-c9="">INotification</code>, a marker interface to represent a notification.</p>
+<pre _ngcontent-sfh-c9=""><code class="language-csharp" _ngcontent-sfh-c9="">public class NotificationMessage: INotification
 {
     public string Message { get; set; }
 }
 </code></pre>
-<h3 id="create-multiple-handlers" _ngcontent-yap-c9="">Create multiple handlers</h3>
-<p _ngcontent-yap-c9="">As notification messages can be handled by multiple handlers, we'll be creating two handlers.</p>
-<pre _ngcontent-yap-c9=""><code class="language-csharp" _ngcontent-yap-c9="">public class Notifier01 : INotificationHandler&lt;NotificationMessage&gt;
+<h3 id="create-multiple-handlers" _ngcontent-sfh-c9="">Create multiple handlers</h3>
+<p _ngcontent-sfh-c9="">As notification messages can be handled by multiple handlers, we'll be creating two handlers.</p>
+<pre _ngcontent-sfh-c9=""><code class="language-csharp" _ngcontent-sfh-c9="">public class Notifier01 : INotificationHandler&lt;NotificationMessage&gt;
 {
     public Task Handle(NotificationMessage notification, CancellationToken cancellationToken)
     {
@@ -114,18 +114,18 @@ public class Notifier02 : INotificationHandler&lt;NotificationMessage&gt;
     }
 }
 </code></pre>
-<h2 id="create-a-requestresponse-message-and-its-handler" _ngcontent-yap-c9="">Create a Request/Response message and its handler</h2>
-<p _ngcontent-yap-c9="">This message type supports both one way and two way communication, but can only be received by a single handler. If you have defined multiple handlers only the first one will receive the message.</p>
-<h3 id="create-a-request-message-dto" _ngcontent-yap-c9="">Create a request message DTO</h3>
-<p _ngcontent-yap-c9="">Response message class implement <code _ngcontent-yap-c9="">IRequest</code>, a marker interface to represent a request.</p>
-<pre _ngcontent-yap-c9=""><code class="language-csharp" _ngcontent-yap-c9="">// We need to mention response type in two way
+<h2 id="create-a-requestresponse-message-and-its-handler" _ngcontent-sfh-c9="">Create a Request/Response message and its handler</h2>
+<p _ngcontent-sfh-c9="">This message type supports both one way and two way communication, but can only be received by a single handler. If you have defined multiple handlers only the first one will receive the message.</p>
+<h3 id="create-a-request-message-dto" _ngcontent-sfh-c9="">Create a request message DTO</h3>
+<p _ngcontent-sfh-c9="">Response message class implement <code _ngcontent-sfh-c9="">IRequest</code>, a marker interface to represent a request.</p>
+<pre _ngcontent-sfh-c9=""><code class="language-csharp" _ngcontent-sfh-c9="">// We need to mention response type in two way
 public class Ping : IRequest&lt;string&gt; { } 
 
 public class OneWaySync : IRequest { }
 </code></pre>
-<h3 id="create-handlers" _ngcontent-yap-c9="">Create handlers</h3>
-<p _ngcontent-yap-c9="">For a two way handler we define a class that implements <code _ngcontent-yap-c9="">IRequestHandler</code>, otherwise for async request use <code _ngcontent-yap-c9="">AsyncRequestHandler</code> and for sync request <code _ngcontent-yap-c9="">RequestHandler</code> base classes.</p>
-<pre _ngcontent-yap-c9=""><code class="language-csharp" _ngcontent-yap-c9="">public class PingHandler : IRequestHandler&lt;Ping, string&gt;
+<h3 id="create-handlers" _ngcontent-sfh-c9="">Create handlers</h3>
+<p _ngcontent-sfh-c9="">For a two way handler we define a class that implements <code _ngcontent-sfh-c9="">IRequestHandler</code>, otherwise for async request use <code _ngcontent-sfh-c9="">AsyncRequestHandler</code> and for sync request <code _ngcontent-sfh-c9="">RequestHandler</code> base classes.</p>
+<pre _ngcontent-sfh-c9=""><code class="language-csharp" _ngcontent-sfh-c9="">public class PingHandler : IRequestHandler&lt;Ping, string&gt;
 {
     public Task&lt;string&gt; Handle(Ping request, CancellationToken cancellationToken)
     {
@@ -150,18 +150,18 @@ public class OneWaySyncHandler : RequestHandler&lt;OneWaySync&gt;
     }
 }
 </code></pre>
-<h2 id="create-a-mediator-service" _ngcontent-yap-c9="">Create a mediator service</h2>
-<p _ngcontent-yap-c9="">Mediator service publishes messages to the handlers. This class contains the <code _ngcontent-yap-c9="">IMediator</code> object that is inject via DI and contains the knowledge of all the message types and its corresponding handlers.</p>
-<h3 id="create-imediatorservice-interface" _ngcontent-yap-c9="">Create <code _ngcontent-yap-c9="">IMediatorService</code> interface</h3>
-<pre _ngcontent-yap-c9=""><code class="language-csharp" _ngcontent-yap-c9="">public interface IMediatorService
+<h2 id="create-a-mediator-service" _ngcontent-sfh-c9="">Create a mediator service</h2>
+<p _ngcontent-sfh-c9="">Mediator service publishes messages to the handlers. This class contains the <code _ngcontent-sfh-c9="">IMediator</code> object that is inject via DI and contains the knowledge of all the message types and its corresponding handlers.</p>
+<h3 id="create-imediatorservice-interface" _ngcontent-sfh-c9="">Create <code _ngcontent-sfh-c9="">IMediatorService</code> interface</h3>
+<pre _ngcontent-sfh-c9=""><code class="language-csharp" _ngcontent-sfh-c9="">public interface IMediatorService
 {
     void Notify(string notifyText);
     string RequestResponse();
     void OneWay();
 }
 </code></pre>
-<h3 id="create-mediatorservice-class" _ngcontent-yap-c9="">Create MediatorService Class</h3>
-<pre _ngcontent-yap-c9=""><code class="language-csharp" _ngcontent-yap-c9="">public class MediatorService : IMediatorService
+<h3 id="create-mediatorservice-class" _ngcontent-sfh-c9="">Create MediatorService Class</h3>
+<pre _ngcontent-sfh-c9=""><code class="language-csharp" _ngcontent-sfh-c9="">public class MediatorService : IMediatorService
 {
     private readonly IMediator _mediator;
     public MediatorService(IMediator mediator)
@@ -188,13 +188,13 @@ public class OneWaySyncHandler : RequestHandler&lt;OneWaySync&gt;
     }        
 }
 </code></pre>
-<h3 id="add-mediatorservice-to-di-configuration" _ngcontent-yap-c9="">Add MediatorService to DI configuration</h3>
-<p _ngcontent-yap-c9="">Add the following statement in <code _ngcontent-yap-c9="">ConfigureServices()</code> method of <code _ngcontent-yap-c9="">Program.cs</code></p>
-<pre _ngcontent-yap-c9=""><code class="language-csharp" _ngcontent-yap-c9="">services.AddTransient&lt;IMediatorService, MediatorService&gt;();
+<h3 id="add-mediatorservice-to-di-configuration" _ngcontent-sfh-c9="">Add MediatorService to DI configuration</h3>
+<p _ngcontent-sfh-c9="">Add the following statement in <code _ngcontent-sfh-c9="">ConfigureServices()</code> method of <code _ngcontent-sfh-c9="">Program.cs</code></p>
+<pre _ngcontent-sfh-c9=""><code class="language-csharp" _ngcontent-sfh-c9="">services.AddTransient&lt;IMediatorService, MediatorService&gt;();
 </code></pre>
-<h2 id="run-the-application" _ngcontent-yap-c9="">Run the application</h2>
-<p _ngcontent-yap-c9="">Finally we need to issue commands/requests to these created handlers. For that we can create the following methods in the source class.</p>
-<pre _ngcontent-yap-c9=""><code class="language-csharp" _ngcontent-yap-c9="">private readonly IMediatorService _notifierMediatorService;
+<h2 id="run-the-application" _ngcontent-sfh-c9="">Run the application</h2>
+<p _ngcontent-sfh-c9="">Finally we need to issue commands/requests to these created handlers. For that we can create the following methods in the source class.</p>
+<pre _ngcontent-sfh-c9=""><code class="language-csharp" _ngcontent-sfh-c9="">private readonly IMediatorService _notifierMediatorService;
 
 // ...
 
@@ -214,23 +214,23 @@ private void OneWay()
     _notifierMediatorService.OneWay();
 }
 </code></pre>
-<p _ngcontent-yap-c9="">To run the project via dotnet cli, run the following command.</p>
-<pre _ngcontent-yap-c9=""><code class="language-bash" _ngcontent-yap-c9="">dotnet run --project &lt;Path to *.csproj file&gt;
+<p _ngcontent-sfh-c9="">To run the project via dotnet cli, run the following command.</p>
+<pre _ngcontent-sfh-c9=""><code class="language-bash" _ngcontent-sfh-c9="">dotnet run --project &lt;Path to *.csproj file&gt;
 </code></pre>
-<p _ngcontent-yap-c9="">You'll get a similar output as below:</p>
-<pre _ngcontent-yap-c9=""><code class="language-bash" _ngcontent-yap-c9="">Notifier 01 -&gt; Message: Test Message
+<p _ngcontent-sfh-c9="">You'll get a similar output as below:</p>
+<pre _ngcontent-sfh-c9=""><code class="language-bash" _ngcontent-sfh-c9="">Notifier 01 -&gt; Message: Test Message
 Notifier 02 -&gt; Message: Test Message
 In App: Pong
 In Sync One Way Handler
 In Async One Way Handler
 </code></pre>
-<h2 id="final-thoughts" _ngcontent-yap-c9="">Final Thoughts</h2>
-<p _ngcontent-yap-c9="">Among other things, one of the problem MediatR is trying to solve is <a href="https://stackoverflow.com/questions/2420193/how-to-avoid-dependency-injection-constructor-madness" _ngcontent-yap-c9="">DI Constructor Explosion</a> which is a highly debated topic. Also by using MediatR everything is done in-process, request initiator and handler runs in the same process which may be cumbersome in some scenarios. If you want event/notification to be completely independent, try <a href="https://www.goparamore.io/" _ngcontent-yap-c9="">MassTransit</a> or <a href="https://www.goparamore.io/" _ngcontent-yap-c9="">Brighter</a>.</p>
-<p _ngcontent-yap-c9="">If you're interested to view the full solution, it is available in <a href="https://github.com/krishnaanaril/try-outs/tree/master/MediatRSample/MediatRSample" _ngcontent-yap-c9="">GitHub</a>.</p>
-<!--scullyContent-end--><scully-content _ngcontent-yap-c9=""></scully-content>
-    <script>try {window['scullyContent'] = {cssId:"_ngcontent-yap-c9",html:document.body.innerHTML.split('<!--scullyContent-begin-->')[1].split('<!--scullyContent-end-->')[0]};} catch(e) {console.error('scully could not parse content');}</script></div>
-    <hr _ngcontent-yap-c9="" class="border-gray-800">    
-</div><!----></app-blog-post><!----><footer _ngcontent-yap-c7="" class="container mx-auto flex flex-col bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><div _ngcontent-yap-c7="" class="mt-10"><ul _ngcontent-yap-c7="" class="flex flex-row justify-between max-w-sm mx-auto pl-4 pr-4"><li _ngcontent-yap-c7="" class="hover:text-gray-600 dark:hover:text-gray-100"><a _ngcontent-yap-c7="" href="https://twitter.com/KrishnaAnaril">Twitter</a></li><li _ngcontent-yap-c7=""><a _ngcontent-yap-c7="" href="https://krishnamohan.dev/sitemap-blog.xml">Sitemap</a></li><li _ngcontent-yap-c7=""><a _ngcontent-yap-c7="" href="https://krishnamohan.dev/feed.xml">RSS</a></li><li _ngcontent-yap-c7=""><a _ngcontent-yap-c7="" href="mailto:krishnamohan.a.m@gmail.com">Contact</a></li></ul></div><div _ngcontent-yap-c7="" class="mx-auto p-5 text-sm"><p _ngcontent-yap-c7="">© 2021-present <a _ngcontent-yap-c7="" href="https://krishnamohan.dev/" class="font-bold">Krishna Mohan A M</a>. All Rights Reserved.</p></div></footer></div></app-root>
+<h2 id="final-thoughts" _ngcontent-sfh-c9="">Final Thoughts</h2>
+<p _ngcontent-sfh-c9="">Among other things, one of the problem MediatR is trying to solve is <a href="https://stackoverflow.com/questions/2420193/how-to-avoid-dependency-injection-constructor-madness" _ngcontent-sfh-c9="">DI Constructor Explosion</a> which is a highly debated topic. Also by using MediatR everything is done in-process, request initiator and handler runs in the same process which may be cumbersome in some scenarios. If you want event/notification to be completely independent, try <a href="https://www.goparamore.io/" _ngcontent-sfh-c9="">MassTransit</a> or <a href="https://www.goparamore.io/" _ngcontent-sfh-c9="">Brighter</a>.</p>
+<p _ngcontent-sfh-c9="">If you're interested to view the full solution, it is available in <a href="https://github.com/krishnaanaril/try-outs/tree/master/MediatRSample/MediatRSample" _ngcontent-sfh-c9="">GitHub</a>.</p>
+<!--scullyContent-end--><scully-content _ngcontent-sfh-c9=""></scully-content>
+    <script>try {window['scullyContent'] = {cssId:"_ngcontent-sfh-c9",html:document.body.innerHTML.split('<!--scullyContent-begin-->')[1].split('<!--scullyContent-end-->')[0]};} catch(e) {console.error('scully could not parse content');}</script></div>
+    <hr _ngcontent-sfh-c9="" class="border-gray-800">    
+</div><!----></app-blog-post><!----><footer _ngcontent-sfh-c7="" class="container mx-auto flex flex-col bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><div _ngcontent-sfh-c7="" class="mt-10"><ul _ngcontent-sfh-c7="" class="flex flex-row justify-between max-w-sm mx-auto pl-4 pr-4"><li _ngcontent-sfh-c7="" class="hover:text-gray-600 dark:hover:text-gray-100"><a _ngcontent-sfh-c7="" href="https://twitter.com/KrishnaAnaril">Twitter</a></li><li _ngcontent-sfh-c7=""><a _ngcontent-sfh-c7="" href="https://krishnamohan.dev/sitemap-blog.xml">Sitemap</a></li><li _ngcontent-sfh-c7=""><a _ngcontent-sfh-c7="" href="https://krishnamohan.dev/feed.xml">RSS</a></li><li _ngcontent-sfh-c7=""><a _ngcontent-sfh-c7="" href="mailto:krishnamohan.a.m@gmail.com">Contact</a></li></ul></div><div _ngcontent-sfh-c7="" class="mx-auto p-5 text-sm"><p _ngcontent-sfh-c7="">© 2021-present <a _ngcontent-sfh-c7="" href="https://krishnamohan.dev/" class="font-bold">Krishna Mohan A M</a>. All Rights Reserved.</p></div></footer></div></app-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
 <script id="ScullyIO-transfer-state"></script><script src="runtime-es2015.ed7ab82952a22e8aa5ef.js" type="module"></script><script src="runtime-es5.ed7ab82952a22e8aa5ef.js" nomodule="" defer=""></script><script src="polyfills-es5.29147128fc6f0f3fd286.js" nomodule="" defer=""></script><script src="polyfills-es2015.2045db6d95f407e1e8c7.js" type="module"></script><script src="main-es2015.fbbf9b9adb58a7712a31.js" type="module"></script><script src="main-es5.fbbf9b9adb58a7712a31.js" nomodule="" defer=""></script>
 
