@@ -16,7 +16,7 @@
   <link rel="manifest" href="manifest.json">  
   <link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
   <meta name="theme-color" content="#1976d2">
-<link rel="stylesheet" href="styles.086ae27eaec70ebf0ccb.css"><style></style><script charset="utf-8" src="common-es2015.6103354ef0d7e049e1cf.js"></script><script charset="utf-8" src="6-es2015.b3dba92a57f6503a5743.js"></script><style>ol[_ngcontent-nnp-c9]{list-style-type:decimal}ul[_ngcontent-nnp-c9]{list-style-type:disc;padding-left:2.5rem}p[_ngcontent-nnp-c9]{padding-top:1.25rem;padding-bottom:1.25rem}h2[_ngcontent-nnp-c9]{font-size:1.875rem;line-height:2.25rem;margin-top:1.25rem;margin-bottom:1.25rem}h3[_ngcontent-nnp-c9]{font-size:1.5rem;line-height:2rem;margin-top:.75rem;margin-bottom:.75rem}pre[_ngcontent-nnp-c9]{font-size:1rem;line-height:1.5rem;margin-bottom:1.25rem;padding:1.25rem}a[_ngcontent-nnp-c9]{border-bottom-width:2px}</style><meta name="title" content="Using Casbin for authorization in dotnet"><meta name="description" content="Casbin is a powerful and efficient open-source access control library. It provides support for enforcing authorization based on various access control models. Here I'll be sharing my thoughts on Casbin.NET, an authorization library for dotnet."><meta name="og:type" content="website"><meta name="og:url" content="/blog/using-casbin-for-authorization-in-dotnet"><meta name="og:title" content="Using Casbin for authorization in dotnet"><meta name="og:description" content="Casbin is a powerful and efficient open-source access control library. It provides support for enforcing authorization based on various access control models. Here I'll be sharing my thoughts on Casbin.NET, an authorization library for dotnet."><meta name="og:image" content="https://krishnamohan.dev/assets/banners/07.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="/blog/using-casbin-for-authorization-in-dotnet"><meta name="twitter:title" content="Using Casbin for authorization in dotnet"><meta name="twitter:description" content="Casbin is a powerful and efficient open-source access control library. It provides support for enforcing authorization based on various access control models. Here I'll be sharing my thoughts on Casbin.NET, an authorization library for dotnet."><meta name="twitter:image" content="https://krishnamohan.dev/assets/banners/07.png"><meta name="twitter:site" content="@krishnaanaril"><meta name="twitter:creator" content="@krishnaanaril"><meta name="keywords" content="casbin, abac, auth, dotnet"><style>
+<link rel="stylesheet" href="styles.086ae27eaec70ebf0ccb.css"><style></style><script charset="utf-8" src="common-es2015.6103354ef0d7e049e1cf.js"></script><script charset="utf-8" src="6-es2015.b3dba92a57f6503a5743.js"></script><style>ol[_ngcontent-vjd-c9]{list-style-type:decimal}ul[_ngcontent-vjd-c9]{list-style-type:disc;padding-left:2.5rem}p[_ngcontent-vjd-c9]{padding-top:1.25rem;padding-bottom:1.25rem}h2[_ngcontent-vjd-c9]{font-size:1.875rem;line-height:2.25rem;margin-top:1.25rem;margin-bottom:1.25rem}h3[_ngcontent-vjd-c9]{font-size:1.5rem;line-height:2rem;margin-top:.75rem;margin-bottom:.75rem}pre[_ngcontent-vjd-c9]{font-size:1rem;line-height:1.5rem;margin-bottom:1.25rem;padding:1.25rem}a[_ngcontent-vjd-c9]{border-bottom-width:2px}</style><meta name="title" content="Using Casbin for authorization in dotnet"><meta name="description" content="Casbin is a powerful and efficient open-source access control library. It provides support for enforcing authorization based on various access control models. Here I'll be sharing my thoughts on Casbin.NET, an authorization library for dotnet."><meta name="og:type" content="website"><meta name="og:url" content="/blog/using-casbin-for-authorization-in-dotnet"><meta name="og:title" content="Using Casbin for authorization in dotnet"><meta name="og:description" content="Casbin is a powerful and efficient open-source access control library. It provides support for enforcing authorization based on various access control models. Here I'll be sharing my thoughts on Casbin.NET, an authorization library for dotnet."><meta name="og:image" content="https://krishnamohan.dev/assets/banners/07.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="/blog/using-casbin-for-authorization-in-dotnet"><meta name="twitter:title" content="Using Casbin for authorization in dotnet"><meta name="twitter:description" content="Casbin is a powerful and efficient open-source access control library. It provides support for enforcing authorization based on various access control models. Here I'll be sharing my thoughts on Casbin.NET, an authorization library for dotnet."><meta name="twitter:image" content="https://krishnamohan.dev/assets/banners/07.png"><meta name="twitter:site" content="@krishnaanaril"><meta name="twitter:creator" content="@krishnaanaril"><meta name="keywords" content="casbin, abac, auth, dotnet"><style>
       :host {
         display: none;
       }
@@ -26,56 +26,56 @@
     </style><script>window['ScullyIO']='generated';</script></head>
 
 <body scully-version="1.1.0">
-  <app-root _nghost-nnp-c7="" ng-version="11.2.2"><div _ngcontent-nnp-c7="" class="bg-gray-200 text-gray-800 dark:bg-black dark:text-gray-50"><div _ngcontent-nnp-c7="" class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><section _ngcontent-nnp-c7="" class="hidden lg:flex flex-row justify-center"><nav _ngcontent-nnp-c7=""><ul _ngcontent-nnp-c7="" class="lg:text-xl lg:flex lg:flex-row"><li _ngcontent-nnp-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Home</li><li _ngcontent-nnp-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Blog</li><li _ngcontent-nnp-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Projects</li><li _ngcontent-nnp-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">About</li><!----></ul></nav></section><div _ngcontent-nnp-c7="" class="absolute lg:hidden mr-4 p-4 right-0"><button _ngcontent-nnp-c7="" class="p-2"><svg _ngcontent-nnp-c7="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" class="fill-current"><path _ngcontent-nnp-c7="" d="M0 0h24v24H0z" fill="none"></path><path _ngcontent-nnp-c7="" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button></div></div><!----><router-outlet _ngcontent-nnp-c7=""></router-outlet><app-blog-post _nghost-nnp-c9=""><div _ngcontent-nnp-c9="" class="container mx-auto min-h-screen bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
-    <div _ngcontent-nnp-c9="">
-        <div _ngcontent-nnp-c9="" aria-label="Blog tags/keywords" class="pt-8 flex flex-row justify-center">
-            <div _ngcontent-nnp-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">casbin</div><div _ngcontent-nnp-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">abac</div><div _ngcontent-nnp-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">auth</div><div _ngcontent-nnp-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">dotnet</div><!---->
+  <app-root _nghost-vjd-c7="" ng-version="11.2.2"><div _ngcontent-vjd-c7="" class="bg-gray-200 text-gray-800 dark:bg-black dark:text-gray-50"><div _ngcontent-vjd-c7="" class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><section _ngcontent-vjd-c7="" class="hidden lg:flex flex-row justify-center"><nav _ngcontent-vjd-c7=""><ul _ngcontent-vjd-c7="" class="lg:text-xl lg:flex lg:flex-row"><li _ngcontent-vjd-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Home</li><li _ngcontent-vjd-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Blog</li><li _ngcontent-vjd-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Projects</li><li _ngcontent-vjd-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">About</li><!----></ul></nav></section><div _ngcontent-vjd-c7="" class="absolute lg:hidden mr-4 p-4 right-0"><button _ngcontent-vjd-c7="" class="p-2"><svg _ngcontent-vjd-c7="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" class="fill-current"><path _ngcontent-vjd-c7="" d="M0 0h24v24H0z" fill="none"></path><path _ngcontent-vjd-c7="" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button></div></div><!----><router-outlet _ngcontent-vjd-c7=""></router-outlet><app-blog-post _nghost-vjd-c9=""><div _ngcontent-vjd-c9="" class="container mx-auto min-h-screen bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
+    <div _ngcontent-vjd-c9="">
+        <div _ngcontent-vjd-c9="" aria-label="Blog tags/keywords" class="pt-8 flex flex-row justify-center">
+            <div _ngcontent-vjd-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">casbin</div><div _ngcontent-vjd-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">abac</div><div _ngcontent-vjd-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">auth</div><div _ngcontent-vjd-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">dotnet</div><!---->
         </div>
-        <div _ngcontent-nnp-c9="" class="max-w-screen-lg mx-auto">
-            <h1 _ngcontent-nnp-c9="" class="text-5xl pt-5 pb-5 text-center">Using Casbin for authorization in dotnet</h1>
+        <div _ngcontent-vjd-c9="" class="max-w-screen-lg mx-auto">
+            <h1 _ngcontent-vjd-c9="" class="text-5xl pt-5 pb-5 text-center">Using Casbin for authorization in dotnet</h1>
         </div>
-        <div _ngcontent-nnp-c9="" class="flex flex-row justify-center m-5 max-w-screen-sm mx-auto">
-            <time _ngcontent-nnp-c9="" class="text-center text-xl">Feb 14, 2021</time>
+        <div _ngcontent-vjd-c9="" class="flex flex-row justify-center m-5 max-w-screen-sm mx-auto">
+            <time _ngcontent-vjd-c9="" class="text-center text-xl">Feb 14, 2021</time>
         </div>
     </div>
-    <hr _ngcontent-nnp-c9="" class="mx-auto border-gray-800 w-1/4">
-    <div _ngcontent-nnp-c9="" class="max-w-screen-md mx-auto p-6 md:p-12 leading-8">
-        <!--scullyContent-begin--><p _ngcontent-nnp-c9="">Our organization, as part of common platform initiative, was trying to create an authorization mechanism for multiple applications in our ecosystem. Last week as a part of this initiative I was browsing internet to find a client library that makes use of Attribute based access control (ABAC). <a href="https://github.com/topics/abac" _ngcontent-nnp-c9="">Casbin</a> is one of the most starred libraries in the topic ABAC.
+    <hr _ngcontent-vjd-c9="" class="mx-auto border-gray-800 w-1/4">
+    <div _ngcontent-vjd-c9="" class="max-w-screen-md mx-auto p-6 md:p-12 leading-8">
+        <!--scullyContent-begin--><p _ngcontent-vjd-c9="">Our organization, as part of common platform initiative, was trying to create an authorization mechanism for multiple applications in our ecosystem. Last week as a part of this initiative I was browsing internet to find a client library that makes use of Attribute based access control (ABAC). <a href="https://github.com/topics/abac" _ngcontent-vjd-c9="">Casbin</a> is one of the most starred libraries in the topic ABAC.
 So I thought of giving it a try.</p>
-<p _ngcontent-nnp-c9="">The primary language for Casbin was Go, since it was developed in Go itself. But that wasn't a problem as they've already created similar libraries in java, dotnet and nodejs. I picked <a href="https://github.com/casbin/Casbin.NET" _ngcontent-nnp-c9="">Casbin.Net</a> due to my proficiency in C#. For the sake of simplicity I'm only evaluating Casbin's ABAC feature here. For full feature list please see the <a href="https://casbin.org/docs/en/supported-models" _ngcontent-nnp-c9="">official documentation</a>.</p>
-<h2 id="perm-modeling-language" _ngcontent-nnp-c9="">PERM Modeling Language</h2>
-<p _ngcontent-nnp-c9="">Casbin introduces a new policy language named PERM (Policy, Effect, Request and Matcher) modeling language. If interested you can learn more about it in the author's <a href="https://arxiv.org/abs/1903.09756" _ngcontent-nnp-c9="">research paper</a>.</p>
-<p _ngcontent-nnp-c9=""><img src="assets/images/PERM_MetaModel.svg" alt="PERM Meta Model" _ngcontent-nnp-c9="">
-<em _ngcontent-nnp-c9="">PERM Meta Model</em></p>
-<h3 id="request" _ngcontent-nnp-c9="">Request</h3>
-<p _ngcontent-nnp-c9="">Request is defined as key-value pair. The key is always r, while the value is a list of attributes. An access request is usually represented by the classic triple: accessing entity (sub), accessed resource (obj) and the access method (act). In this condition, we have: <code _ngcontent-nnp-c9="">attributes = sub; obj; act</code>, or in PML's grammar: <code _ngcontent-nnp-c9="">r = sub, obj, act</code>.</p>
-<h3 id="policy" _ngcontent-nnp-c9="">Policy</h3>
-<p _ngcontent-nnp-c9="">Policy is defined as key-value pair. The key is always p, which represents an abstract policy rule entity. The value attributes denotes the attribute names that p has. E.g.: <code _ngcontent-nnp-c9="">p = sub, obj, act</code>.</p>
-<h3 id="policy-rule" _ngcontent-nnp-c9="">Policy Rule</h3>
-<p _ngcontent-nnp-c9="">Policy rule is an instance of the above policy. The number of elements in the tuple will be identical with the attribute names in policy. For example, the above policy rule: <code _ngcontent-nnp-c9="">alice, data1, read</code> generates a binding to the attributes like: <code _ngcontent-nnp-c9="">p.sub = alice, p.obj = data1, p.act = read</code>.</p>
-<h3 id="matcher" _ngcontent-nnp-c9="">Matcher</h3>
-<p _ngcontent-nnp-c9="">Matcher determines how the policy rules are evaluated against the request. The simplest matcher is: <code _ngcontent-nnp-c9="">m = r.sub == p.sub &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act</code> (m represents the matcher). It means the matcher returns true only if subject, object and action in the access request exactly match the respective fields in a policy rule.</p>
-<h3 id="effect" _ngcontent-nnp-c9="">Effect</h3>
-<p _ngcontent-nnp-c9="">The effect primitive determines whether the request should be approved if
-multiple policy rules match the request. In a effect term, the <strong _ngcontent-nnp-c9="">quantifier</strong> aggregates the multiple decisions from the valid set for condition into a single boolean value. It can be 'some', 'max' or 'min'. condition functions in a similar way as matcher, but it is used for filtering valid decisions instead of matching the policy rules with the request. E.g: <code _ngcontent-nnp-c9="">e = some(where (p.eft == allow))</code></p>
-<h2 id="examples" _ngcontent-nnp-c9="">Examples</h2>
-<p _ngcontent-nnp-c9="">First we need to create a Casbin enforcer object which accepts two parameters in its constructor. First parameter is <a href="https://casbin.org/docs/en/supported-models" _ngcontent-nnp-c9="">Model</a> and the second one is <a href="https://casbin.org/docs/en/adapters" _ngcontent-nnp-c9="">Adapter</a>.</p>
-<ul _ngcontent-nnp-c9="">
-<li _ngcontent-nnp-c9=""><p _ngcontent-nnp-c9="">Model</p>
-<p _ngcontent-nnp-c9="">  Model is defined in a file with .conf extension. A model <code _ngcontent-nnp-c9="">CONF</code> should have at least four sections: <code _ngcontent-nnp-c9="">[request_definition], [policy_definition], [policy_effect], [matchers]</code>. If a model uses RBAC, it should also add the <code _ngcontent-nnp-c9="">[role_definition]</code> section. A model <code _ngcontent-nnp-c9="">CONF</code> can contain comments. The comments start with <code _ngcontent-nnp-c9="">#</code>, and <code _ngcontent-nnp-c9="">#</code> will comment the rest of the line.
+<p _ngcontent-vjd-c9="">The primary language for Casbin was Go, since it was developed in Go itself. But that wasn't a problem as they've already created similar libraries in java, dotnet and nodejs. I picked <a href="https://github.com/casbin/Casbin.NET" _ngcontent-vjd-c9="">Casbin.Net</a> due to my proficiency in C#. For the sake of simplicity I'm only evaluating Casbin's ABAC feature here. For full feature list please see the <a href="https://casbin.org/docs/en/supported-models" _ngcontent-vjd-c9="">official documentation</a>.</p>
+<h2 id="perm-modeling-language" _ngcontent-vjd-c9="">PERM Modeling Language</h2>
+<p _ngcontent-vjd-c9="">Casbin introduces a new policy language named PERM (Policy, Effect, Request and Matcher) modeling language. If interested you can learn more about it in the author's <a href="https://arxiv.org/abs/1903.09756" _ngcontent-vjd-c9="">research paper</a>.</p>
+<p _ngcontent-vjd-c9=""><img src="assets/images/PERM_MetaModel.svg" alt="PERM Meta Model" _ngcontent-vjd-c9="">
+<em _ngcontent-vjd-c9="">PERM Meta Model</em></p>
+<h3 id="request" _ngcontent-vjd-c9="">Request</h3>
+<p _ngcontent-vjd-c9="">Request is defined as key-value pair. The key is always r, while the value is a list of attributes. An access request is usually represented by the classic triple: accessing entity (sub), accessed resource (obj) and the access method (act). In this condition, we have: <code _ngcontent-vjd-c9="">attributes = sub; obj; act</code>, or in PML's grammar: <code _ngcontent-vjd-c9="">r = sub, obj, act</code>.</p>
+<h3 id="policy" _ngcontent-vjd-c9="">Policy</h3>
+<p _ngcontent-vjd-c9="">Policy is defined as key-value pair. The key is always p, which represents an abstract policy rule entity. The value attributes denotes the attribute names that p has. E.g.: <code _ngcontent-vjd-c9="">p = sub, obj, act</code>.</p>
+<h3 id="policy-rule" _ngcontent-vjd-c9="">Policy Rule</h3>
+<p _ngcontent-vjd-c9="">Policy rule is an instance of the above policy. The number of elements in the tuple will be identical with the attribute names in policy. For example, the above policy rule: <code _ngcontent-vjd-c9="">alice, data1, read</code> generates a binding to the attributes like: <code _ngcontent-vjd-c9="">p.sub = alice, p.obj = data1, p.act = read</code>.</p>
+<h3 id="matcher" _ngcontent-vjd-c9="">Matcher</h3>
+<p _ngcontent-vjd-c9="">Matcher determines how the policy rules are evaluated against the request. The simplest matcher is: <code _ngcontent-vjd-c9="">m = r.sub == p.sub &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act</code> (m represents the matcher). It means the matcher returns true only if subject, object and action in the access request exactly match the respective fields in a policy rule.</p>
+<h3 id="effect" _ngcontent-vjd-c9="">Effect</h3>
+<p _ngcontent-vjd-c9="">The effect primitive determines whether the request should be approved if
+multiple policy rules match the request. In a effect term, the <strong _ngcontent-vjd-c9="">quantifier</strong> aggregates the multiple decisions from the valid set for condition into a single boolean value. It can be 'some', 'max' or 'min'. condition functions in a similar way as matcher, but it is used for filtering valid decisions instead of matching the policy rules with the request. E.g: <code _ngcontent-vjd-c9="">e = some(where (p.eft == allow))</code></p>
+<h2 id="examples" _ngcontent-vjd-c9="">Examples</h2>
+<p _ngcontent-vjd-c9="">First we need to create a Casbin enforcer object which accepts two parameters in its constructor. First parameter is <a href="https://casbin.org/docs/en/supported-models" _ngcontent-vjd-c9="">Model</a> and the second one is <a href="https://casbin.org/docs/en/adapters" _ngcontent-vjd-c9="">Adapter</a>.</p>
+<ul _ngcontent-vjd-c9="">
+<li _ngcontent-vjd-c9=""><p _ngcontent-vjd-c9="">Model</p>
+<p _ngcontent-vjd-c9="">  Model is defined in a file with .conf extension. A model <code _ngcontent-vjd-c9="">CONF</code> should have at least four sections: <code _ngcontent-vjd-c9="">[request_definition], [policy_definition], [policy_effect], [matchers]</code>. If a model uses RBAC, it should also add the <code _ngcontent-vjd-c9="">[role_definition]</code> section. A model <code _ngcontent-vjd-c9="">CONF</code> can contain comments. The comments start with <code _ngcontent-vjd-c9="">#</code>, and <code _ngcontent-vjd-c9="">#</code> will comment the rest of the line.
   The matcher evaluation in Casbin is implemented by expression evaluators in each language.</p>
 </li>
-<li _ngcontent-nnp-c9=""><p _ngcontent-nnp-c9="">Adapter</p>
-<p _ngcontent-nnp-c9="">  In Casbin, the policy storage is implemented as an adapter (aka middleware for Casbin). For full set of supported adapters refer the <a href="https://casbin.org/docs/en/adapters#supported-adapters" _ngcontent-nnp-c9="">documentation</a>. For the examples below I'm using the default file adapter, such that policy rules are defined in csv format.</p>
+<li _ngcontent-vjd-c9=""><p _ngcontent-vjd-c9="">Adapter</p>
+<p _ngcontent-vjd-c9="">  In Casbin, the policy storage is implemented as an adapter (aka middleware for Casbin). For full set of supported adapters refer the <a href="https://casbin.org/docs/en/adapters#supported-adapters" _ngcontent-vjd-c9="">documentation</a>. For the examples below I'm using the default file adapter, such that policy rules are defined in csv format.</p>
 </li>
 </ul>
-<p _ngcontent-nnp-c9="">You can find the full source code in my <a href="https://github.com/krishnaanaril/try-outs/tree/master/casbin-poc" _ngcontent-nnp-c9="">github repository</a>.</p>
-<h3 id="basic" _ngcontent-nnp-c9="">Basic</h3>
-<p _ngcontent-nnp-c9="">For the basic example we are just checking whether the subject, object and action attributes of both policy and request match.</p>
-<ul _ngcontent-nnp-c9="">
-<li _ngcontent-nnp-c9="">basic_model.conf</li>
+<p _ngcontent-vjd-c9="">You can find the full source code in my <a href="https://github.com/krishnaanaril/try-outs/tree/master/casbin-poc" _ngcontent-vjd-c9="">github repository</a>.</p>
+<h3 id="basic" _ngcontent-vjd-c9="">Basic</h3>
+<p _ngcontent-vjd-c9="">For the basic example we are just checking whether the subject, object and action attributes of both policy and request match.</p>
+<ul _ngcontent-vjd-c9="">
+<li _ngcontent-vjd-c9="">basic_model.conf</li>
 </ul>
-<pre _ngcontent-nnp-c9=""><code _ngcontent-nnp-c9="">[request_definition]
+<pre _ngcontent-vjd-c9=""><code _ngcontent-vjd-c9="">[request_definition]
 r = sub, obj, act
 
 [policy_definition]
@@ -87,15 +87,15 @@ e = some(where (p.eft == allow))
 [matchers]
 m = r.sub == p.sub &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act
 </code></pre>
-<ul _ngcontent-nnp-c9="">
-<li _ngcontent-nnp-c9="">basic_policy.csv</li>
+<ul _ngcontent-vjd-c9="">
+<li _ngcontent-vjd-c9="">basic_policy.csv</li>
 </ul>
-<pre _ngcontent-nnp-c9=""><code _ngcontent-nnp-c9="">p, alice@example.com, BasicTest, Get
+<pre _ngcontent-vjd-c9=""><code _ngcontent-vjd-c9="">p, alice@example.com, BasicTest, Get
 </code></pre>
-<ul _ngcontent-nnp-c9="">
-<li _ngcontent-nnp-c9="">Verification Code</li>
+<ul _ngcontent-vjd-c9="">
+<li _ngcontent-vjd-c9="">Verification Code</li>
 </ul>
-<pre _ngcontent-nnp-c9=""><code class="language-csharp" _ngcontent-nnp-c9="">var e = new Enforcer("./casbin-config/basic_model.conf", "./casbin-config/basic_policy.csv");
+<pre _ngcontent-vjd-c9=""><code class="language-csharp" _ngcontent-vjd-c9="">var e = new Enforcer("./casbin-config/basic_model.conf", "./casbin-config/basic_policy.csv");
 if (e.Enforce(sub, obj, act)) 
 {
     // permit alice to read data1
@@ -107,12 +107,12 @@ else
     Console.WriteLine("Access Denied");
 }    
 </code></pre>
-<h3 id="basic-with-environment-attribute" _ngcontent-nnp-c9="">Basic with environment attribute</h3>
-<p _ngcontent-nnp-c9="">Here we are passing an extra attribute to add policies on environment. User have access to only dev environment and all other requests will fail.</p>
-<ul _ngcontent-nnp-c9="">
-<li _ngcontent-nnp-c9="">env_model.conf</li>
+<h3 id="basic-with-environment-attribute" _ngcontent-vjd-c9="">Basic with environment attribute</h3>
+<p _ngcontent-vjd-c9="">Here we are passing an extra attribute to add policies on environment. User have access to only dev environment and all other requests will fail.</p>
+<ul _ngcontent-vjd-c9="">
+<li _ngcontent-vjd-c9="">env_model.conf</li>
 </ul>
-<pre _ngcontent-nnp-c9=""><code _ngcontent-nnp-c9="">[request_definition]
+<pre _ngcontent-vjd-c9=""><code _ngcontent-vjd-c9="">[request_definition]
 r = sub, obj, act, env
 
 [policy_definition]
@@ -124,15 +124,15 @@ e = some(where (p.eft == allow))
 [matchers]
 m = r.sub == p.sub &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act &amp;&amp; r.env == p.env
 </code></pre>
-<ul _ngcontent-nnp-c9="">
-<li _ngcontent-nnp-c9="">env_policy.csv</li>
+<ul _ngcontent-vjd-c9="">
+<li _ngcontent-vjd-c9="">env_policy.csv</li>
 </ul>
-<pre _ngcontent-nnp-c9=""><code _ngcontent-nnp-c9="">p, alice@example.com, BasicTest, Get, dev
+<pre _ngcontent-vjd-c9=""><code _ngcontent-vjd-c9="">p, alice@example.com, BasicTest, Get, dev
 </code></pre>
-<ul _ngcontent-nnp-c9="">
-<li _ngcontent-nnp-c9="">Verification Code</li>
+<ul _ngcontent-vjd-c9="">
+<li _ngcontent-vjd-c9="">Verification Code</li>
 </ul>
-<pre _ngcontent-nnp-c9=""><code class="language-csharp" _ngcontent-nnp-c9="">var e = new Enforcer("./casbin-config/env_model.conf", "./casbin-config/env_policy.csv");
+<pre _ngcontent-vjd-c9=""><code class="language-csharp" _ngcontent-vjd-c9="">var e = new Enforcer("./casbin-config/env_model.conf", "./casbin-config/env_policy.csv");
 if (e.Enforce(sub, obj, act, env)) 
 {
     // permit alice to read data1
@@ -144,12 +144,12 @@ else
     Console.WriteLine("Access Denied");
 }   
 </code></pre>
-<h3 id="advanced-usage" _ngcontent-nnp-c9="">Advanced usage</h3>
-<p _ngcontent-nnp-c9="">Here please note the matcher statement of the model. A function is invoked from the environment object. Unlike previous examples here the request attribute <code _ngcontent-nnp-c9="">env</code> is an object with method <code _ngcontent-nnp-c9="">IsAPAC()</code> which returns true only if the given location is in the list of APAC countries.</p>
-<ul _ngcontent-nnp-c9="">
-<li _ngcontent-nnp-c9="">advanced_model.csv</li>
+<h3 id="advanced-usage" _ngcontent-vjd-c9="">Advanced usage</h3>
+<p _ngcontent-vjd-c9="">Here please note the matcher statement of the model. A function is invoked from the environment object. Unlike previous examples here the request attribute <code _ngcontent-vjd-c9="">env</code> is an object with method <code _ngcontent-vjd-c9="">IsAPAC()</code> which returns true only if the given location is in the list of APAC countries.</p>
+<ul _ngcontent-vjd-c9="">
+<li _ngcontent-vjd-c9="">advanced_model.csv</li>
 </ul>
-<pre _ngcontent-nnp-c9=""><code _ngcontent-nnp-c9="">[request_definition]
+<pre _ngcontent-vjd-c9=""><code _ngcontent-vjd-c9="">[request_definition]
 r = sub, obj, act, env
 
 [policy_definition]
@@ -161,15 +161,15 @@ e = some(where (p.eft == allow))
 [matchers]
 m = r.sub == p.sub &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act &amp;&amp; r.env.IsAPAC()
 </code></pre>
-<ul _ngcontent-nnp-c9="">
-<li _ngcontent-nnp-c9="">advanced_policy.csv</li>
+<ul _ngcontent-vjd-c9="">
+<li _ngcontent-vjd-c9="">advanced_policy.csv</li>
 </ul>
-<pre _ngcontent-nnp-c9=""><code _ngcontent-nnp-c9="">p, alice@example.com, BasicTest, Get
+<pre _ngcontent-vjd-c9=""><code _ngcontent-vjd-c9="">p, alice@example.com, BasicTest, Get
 </code></pre>
-<ul _ngcontent-nnp-c9="">
-<li _ngcontent-nnp-c9="">Verification Code</li>
+<ul _ngcontent-vjd-c9="">
+<li _ngcontent-vjd-c9="">Verification Code</li>
 </ul>
-<pre _ngcontent-nnp-c9=""><code class="language-csharp" _ngcontent-nnp-c9="">public class Environment {
+<pre _ngcontent-vjd-c9=""><code class="language-csharp" _ngcontent-vjd-c9="">public class Environment {
     private string _location;
     private string[] APAC_COUNTRIES = {"India", "UAE", "Srilanka"};
     public Environment(string location)
@@ -198,12 +198,12 @@ else
     Console.WriteLine("Access Denied");
 }  
 </code></pre>
-<h2 id="final-thoughts" _ngcontent-nnp-c9="">Final Thoughts</h2>
-<p _ngcontent-nnp-c9="">I'm impressed with the documentation and ease of use of Casbin library. But I'm bit skeptical about its performance in real production environments. To gather some opinions I asked this question in <a href="https://news.ycombinator.com/item?id=26112460" _ngcontent-nnp-c9="">Hacker News</a>, but unfortunately I got reply only from the library's author himself. I had a discussion with our senior architect, who recommended to use the standard <code _ngcontent-nnp-c9="">XACML</code> for which only some java libraries are available. As a next step, I need to check some libraries based on XACML.</p>
-<!--scullyContent-end--><scully-content _ngcontent-nnp-c9=""></scully-content>
-    <script>try {window['scullyContent'] = {cssId:"_ngcontent-nnp-c9",html:document.body.innerHTML.split('<!--scullyContent-begin-->')[1].split('<!--scullyContent-end-->')[0]};} catch(e) {console.error('scully could not parse content');}</script></div>
-    <hr _ngcontent-nnp-c9="" class="border-gray-800">    
-</div><!----></app-blog-post><!----><footer _ngcontent-nnp-c7="" class="container mx-auto flex flex-col bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><div _ngcontent-nnp-c7="" class="mt-10"><ul _ngcontent-nnp-c7="" class="flex flex-row justify-between max-w-sm mx-auto pl-4 pr-4"><li _ngcontent-nnp-c7="" class="hover:text-gray-600 dark:hover:text-gray-100"><a _ngcontent-nnp-c7="" href="https://twitter.com/KrishnaAnaril">Twitter</a></li><li _ngcontent-nnp-c7=""><a _ngcontent-nnp-c7="" href="https://krishnamohan.dev/sitemap-blog.xml">Sitemap</a></li><li _ngcontent-nnp-c7=""><a _ngcontent-nnp-c7="" href="https://krishnamohan.dev/feed.xml">RSS</a></li><li _ngcontent-nnp-c7=""><a _ngcontent-nnp-c7="" href="mailto:krishnamohan.a.m@gmail.com">Contact</a></li></ul></div><div _ngcontent-nnp-c7="" class="mx-auto p-5 text-sm"><p _ngcontent-nnp-c7="">© 2021-present <a _ngcontent-nnp-c7="" href="https://krishnamohan.dev/" class="font-bold">Krishna Mohan A M</a>. All Rights Reserved.</p></div></footer></div></app-root>
+<h2 id="final-thoughts" _ngcontent-vjd-c9="">Final Thoughts</h2>
+<p _ngcontent-vjd-c9="">I'm impressed with the documentation and ease of use of Casbin library. But I'm bit skeptical about its performance in real production environments. To gather some opinions I asked this question in <a href="https://news.ycombinator.com/item?id=26112460" _ngcontent-vjd-c9="">Hacker News</a>, but unfortunately I got reply only from the library's author himself. I had a discussion with our senior architect, who recommended to use the standard <code _ngcontent-vjd-c9="">XACML</code> for which only some java libraries are available. As a next step, I need to check some libraries based on XACML.</p>
+<!--scullyContent-end--><scully-content _ngcontent-vjd-c9=""></scully-content>
+    <script>try {window['scullyContent'] = {cssId:"_ngcontent-vjd-c9",html:document.body.innerHTML.split('<!--scullyContent-begin-->')[1].split('<!--scullyContent-end-->')[0]};} catch(e) {console.error('scully could not parse content');}</script></div>
+    <hr _ngcontent-vjd-c9="" class="border-gray-800">    
+</div><!----></app-blog-post><!----><footer _ngcontent-vjd-c7="" class="container mx-auto flex flex-col bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><div _ngcontent-vjd-c7="" class="mt-10"><ul _ngcontent-vjd-c7="" class="flex flex-row justify-between max-w-sm mx-auto pl-4 pr-4"><li _ngcontent-vjd-c7="" class="hover:text-gray-600 dark:hover:text-gray-100"><a _ngcontent-vjd-c7="" href="https://twitter.com/KrishnaAnaril">Twitter</a></li><li _ngcontent-vjd-c7=""><a _ngcontent-vjd-c7="" href="https://krishnamohan.dev/sitemap-blog.xml">Sitemap</a></li><li _ngcontent-vjd-c7=""><a _ngcontent-vjd-c7="" href="https://krishnamohan.dev/feed.xml">RSS</a></li><li _ngcontent-vjd-c7=""><a _ngcontent-vjd-c7="" href="mailto:krishnamohan.a.m@gmail.com">Contact</a></li></ul></div><div _ngcontent-vjd-c7="" class="mx-auto p-5 text-sm"><p _ngcontent-vjd-c7="">© 2021-present <a _ngcontent-vjd-c7="" href="https://krishnamohan.dev/" class="font-bold">Krishna Mohan A M</a>. All Rights Reserved.</p></div></footer></div></app-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
 <script id="ScullyIO-transfer-state"></script><script src="runtime-es2015.8ef31b743ef06c00837d.js" type="module"></script><script src="runtime-es5.8ef31b743ef06c00837d.js" nomodule="" defer=""></script><script src="polyfills-es5.29147128fc6f0f3fd286.js" nomodule="" defer=""></script><script src="polyfills-es2015.2045db6d95f407e1e8c7.js" type="module"></script><script src="main-es2015.fbbf9b9adb58a7712a31.js" type="module"></script><script src="main-es5.fbbf9b9adb58a7712a31.js" nomodule="" defer=""></script>
 

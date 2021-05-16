@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-05-11T17:10:20.895Z</updated>
+    <updated>2021-05-16T15:54:45.126Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -14,6 +14,32 @@
     <category term="Blog"/>
     <category term="Angular"/>
     <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 20]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---20</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---20"/>
+        <updated>2021-05-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the third week of May 2021]]></summary>
+        <content type="html"><![CDATA[<h1 id="whatdidilearnthisweek202120">What did I learn this week (2021) - 20</h1>
+<ol>
+<li>Learned how to <a href="https://stackoverflow.com/questions/54138763/open-pwa-when-clicking-on-push-notification-handled-by-service-worker-ng7-andr">redirect to PWA</a> when the user clicks the notification. Recently I've been struggling with some of the PWA features of my <a href="https://cowin-helper.krishnamohan.dev/">'Cowin Helper'</a> app and learned a ton of about it. If possible I'll write everything in a separate blog.</li>
+<li>Learned about the <a href="https://web.dev/bfcache/">Back/Forward Cache</a> concept to improve the browsing experience. Some tips for optimizing your webpage for bfcache:<ul>
+<li>Never use the <code>unload</code> event</li>
+<li>Only add <code>beforeunload</code> listeners conditionally.</li>
+<li>Avoid window.opener references</li>
+<li>Always close open connections before the user navigates away</li>
+<li>Test to ensure that the pages are cacheable</li></ul></li>
+<li>Learned how to customize PWA app <a href="https://web.dev/customize-install/">installation</a>.</li>
+<li>Learned about Couchbase database and did a poc using its dotnet sdk. Understood how it stores <a href="https://docs.couchbase.com/server/current/learn/buckets-memory-and-storage/memory-and-storage.html#saving-new-items">data under the hood</a> and process of replication.</li>
+<li>Started using <a href="https://github.com/jakearchibald/idb-keyval">idb-keyval</a> as a wrapper over browser indexedb. It was easy to get started and small in sized. One catch is that it can create only one default store, if you want to create more than one stores used [idb](https://github.com/jakearchibald/idb</li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[What did I learn this week (2021) - 19]]></title>
         <id>/blog/what-did-i-learn-this-week-2021---19</id>
