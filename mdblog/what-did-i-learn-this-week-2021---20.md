@@ -7,11 +7,11 @@ updatedAt: 2021-05-16T00:00:00.000Z
 category: learnings
 image: 'https://krishnamohan.dev/assets/banners/30.png'
 keywords:
+  - PWA
+  - Couchbase
 authors:
   - Krishna Mohan A M
 ---
-
-# What did I learn this week (2021) - 20
 
 1. Learned how to [redirect to PWA](https://stackoverflow.com/questions/54138763/open-pwa-when-clicking-on-push-notification-handled-by-service-worker-ng7-andr) when the user clicks the notification. Recently I've been struggling with some of the PWA features of my ['Cowin Helper'](https://cowin-helper.krishnamohan.dev/) app and learned a ton of about it. If possible I'll write everything in a separate blog.
 2. Learned about the [Back/Forward Cache](https://web.dev/bfcache/) concept to improve the browsing experience. Some tips for optimizing your webpage for bfcache:

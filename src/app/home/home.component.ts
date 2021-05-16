@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
         "I'm a Full Stack Developer, who works mainly in Microsoft stack. Angular, Dotnet Core and Sql Server are my primary weapons.",
       imageUrl: '/assets/dp.jpg',
       date: '',
-      keywords: ['Blog, Portfolio, Developer, Engineer'],
+      keywords: ['Blog, Portfolio, Developer, Engineer, krishnaanaril'],
       siteUrl: 'https://krishnamohan.dev',
       type: 'website',
     });
