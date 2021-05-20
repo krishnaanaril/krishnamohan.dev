@@ -3,7 +3,7 @@ title: Using Casbin for authorization in dotnet
 description: Casbin is a powerful and efficient open-source access control library. It provides support for enforcing authorization based on various access control models. Here I'll be sharing my thoughts on Casbin.NET, an authorization library for dotnet.
 published: true
 publishedAt: 2021-02-14T00:00:00.000Z
-updatedAt: 2020-09-02T00:00:00.000Z
+updatedAt:  2021-05-14T00:00:00.000Z
 category: tech
 image: 'https://krishnamohan.dev/assets/banners/07.png'
 keywords: 
