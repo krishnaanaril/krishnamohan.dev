@@ -60,7 +60,7 @@ export class BlogPostComponent implements OnInit, AfterViewChecked, OnDestroy {
         ? blog.keywords.map((elem) => elem.trim())
         : [],
       siteUrl: blog.route,
-      type: 'website', 
+      type: 'article', 
       blogDetails: {
         published_time: blog.publishedAt,
         modified_time: blog.updatedAt,
