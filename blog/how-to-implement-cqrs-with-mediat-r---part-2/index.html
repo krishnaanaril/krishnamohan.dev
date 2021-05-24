@@ -16,7 +16,7 @@
   <link rel="manifest" href="manifest.json">  
   <link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
   <meta name="theme-color" content="#1976d2">
-<link rel="stylesheet" href="styles.086ae27eaec70ebf0ccb.css"><style></style><script charset="utf-8" src="common-es2015.e42dcdd43780d81208f1.js"></script><script charset="utf-8" src="6-es2015.3df75c25f5b1cd763b93.js"></script><style>ol[_ngcontent-efs-c9]{list-style-type:decimal}ul[_ngcontent-efs-c9]{list-style-type:disc;padding-left:2.5rem}p[_ngcontent-efs-c9]{padding-top:1.25rem;padding-bottom:1.25rem}h2[_ngcontent-efs-c9]{font-size:1.875rem;line-height:2.25rem;margin-top:1.25rem;margin-bottom:1.25rem}h3[_ngcontent-efs-c9]{font-size:1.5rem;line-height:2rem;margin-top:.75rem;margin-bottom:.75rem}pre[_ngcontent-efs-c9]{font-size:1rem;line-height:1.5rem;margin-bottom:1.25rem;padding:1.25rem}a[_ngcontent-efs-c9]{border-bottom-width:2px}</style><meta name="title" content="How to implement CQRS with MediatR - Part 2"><meta name="description" content="This post is about implementing mediator pattern in a dotnet WebAPI using MediatR library."><meta name="og:type" content="website"><meta name="og:url" content="/blog/how-to-implement-cqrs-with-mediat-r---part-2"><meta name="og:title" content="How to implement CQRS with MediatR - Part 2"><meta name="og:description" content="This post is about implementing mediator pattern in a dotnet WebAPI using MediatR library."><meta name="og:image" content="https://krishnamohan.dev/assets/banners/17.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="/blog/how-to-implement-cqrs-with-mediat-r---part-2"><meta name="twitter:title" content="How to implement CQRS with MediatR - Part 2"><meta name="twitter:description" content="This post is about implementing mediator pattern in a dotnet WebAPI using MediatR library."><meta name="twitter:image" content="https://krishnamohan.dev/assets/banners/17.png"><meta name="twitter:site" content="@krishnaanaril"><meta name="twitter:creator" content="@krishnaanaril"><meta name="keywords" content="dotnet, mediatr, CancellationToken"><meta name="og:article:published_time" content="2021-02-27T00:00:00.000Z"><meta name="og:article:modified_time" content="2021-02-27T00:00:00.000Z"><meta name="og:article:author" content="Krishna Mohan A M"><meta name="og:article:section" content="Tech"><meta name="og:article:tag" content="dotnet, mediatr, CancellationToken"><style>
+<link rel="stylesheet" href="styles.086ae27eaec70ebf0ccb.css"><style></style><script charset="utf-8" src="common-es2015.e42dcdd43780d81208f1.js"></script><script charset="utf-8" src="6-es2015.9b55665cd51958fe2084.js"></script><style>ol[_ngcontent-rbl-c9]{list-style-type:decimal}ul[_ngcontent-rbl-c9]{list-style-type:disc;padding-left:2.5rem}p[_ngcontent-rbl-c9]{padding-top:1.25rem;padding-bottom:1.25rem}h2[_ngcontent-rbl-c9]{font-size:1.875rem;line-height:2.25rem;margin-top:1.25rem;margin-bottom:1.25rem}h3[_ngcontent-rbl-c9]{font-size:1.5rem;line-height:2rem;margin-top:.75rem;margin-bottom:.75rem}pre[_ngcontent-rbl-c9]{font-size:1rem;line-height:1.5rem;margin-bottom:1.25rem;padding:1.25rem}a[_ngcontent-rbl-c9]{border-bottom-width:2px}</style><meta name="title" content="How to implement CQRS with MediatR - Part 2"><meta name="description" content="This post is about implementing mediator pattern in a dotnet WebAPI using MediatR library."><meta name="og:type" content="article"><meta name="og:url" content="/blog/how-to-implement-cqrs-with-mediat-r---part-2"><meta name="og:title" content="How to implement CQRS with MediatR - Part 2"><meta name="og:description" content="This post is about implementing mediator pattern in a dotnet WebAPI using MediatR library."><meta name="og:image" content="https://krishnamohan.dev/assets/banners/17.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="/blog/how-to-implement-cqrs-with-mediat-r---part-2"><meta name="twitter:title" content="How to implement CQRS with MediatR - Part 2"><meta name="twitter:description" content="This post is about implementing mediator pattern in a dotnet WebAPI using MediatR library."><meta name="twitter:image" content="https://krishnamohan.dev/assets/banners/17.png"><meta name="twitter:site" content="@krishnaanaril"><meta name="twitter:creator" content="@krishnaanaril"><meta name="keywords" content="dotnet, mediatr, CancellationToken"><meta name="og:article:published_time" content="2021-02-27T00:00:00.000Z"><meta name="og:article:modified_time" content="2021-02-27T00:00:00.000Z"><meta name="og:article:author" content="Krishna Mohan A M"><meta name="og:article:section" content="Tech"><meta name="og:article:tag" content="dotnet, mediatr, CancellationToken"><style>
       :host {
         display: none;
       }
@@ -26,42 +26,42 @@
     </style><script>window['ScullyIO']='generated';</script></head>
 
 <body scully-version="1.1.0">
-  <app-root _nghost-efs-c7="" ng-version="11.2.2"><div _ngcontent-efs-c7="" class="bg-gray-200 text-gray-800 dark:bg-black dark:text-gray-50"><div _ngcontent-efs-c7="" class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><section _ngcontent-efs-c7="" class="hidden lg:flex flex-row justify-center"><nav _ngcontent-efs-c7=""><ul _ngcontent-efs-c7="" class="lg:text-xl lg:flex lg:flex-row"><li _ngcontent-efs-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Home</li><li _ngcontent-efs-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Blog</li><li _ngcontent-efs-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Projects</li><li _ngcontent-efs-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">About</li><!----></ul></nav></section><div _ngcontent-efs-c7="" class="absolute lg:hidden mr-4 p-4 right-0"><button _ngcontent-efs-c7="" class="p-2"><svg _ngcontent-efs-c7="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" class="fill-current"><path _ngcontent-efs-c7="" d="M0 0h24v24H0z" fill="none"></path><path _ngcontent-efs-c7="" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button></div></div><!----><router-outlet _ngcontent-efs-c7=""></router-outlet><app-blog-post _nghost-efs-c9=""><div _ngcontent-efs-c9="" class="container mx-auto min-h-screen bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
-    <div _ngcontent-efs-c9="">
-        <div _ngcontent-efs-c9="" aria-label="Blog tags/keywords" class="pt-8 flex flex-row justify-center">
-            <div _ngcontent-efs-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">dotnet</div><div _ngcontent-efs-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">mediatr</div><div _ngcontent-efs-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">CancellationToken</div><!---->
+  <app-root _nghost-rbl-c7="" ng-version="11.2.2"><div _ngcontent-rbl-c7="" class="bg-gray-200 text-gray-800 dark:bg-black dark:text-gray-50"><div _ngcontent-rbl-c7="" class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><section _ngcontent-rbl-c7="" class="hidden lg:flex flex-row justify-center"><nav _ngcontent-rbl-c7=""><ul _ngcontent-rbl-c7="" class="lg:text-xl lg:flex lg:flex-row"><li _ngcontent-rbl-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Home</li><li _ngcontent-rbl-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Blog</li><li _ngcontent-rbl-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Projects</li><li _ngcontent-rbl-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">About</li><!----></ul></nav></section><div _ngcontent-rbl-c7="" class="absolute lg:hidden mr-4 p-4 right-0"><button _ngcontent-rbl-c7="" class="p-2"><svg _ngcontent-rbl-c7="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" class="fill-current"><path _ngcontent-rbl-c7="" d="M0 0h24v24H0z" fill="none"></path><path _ngcontent-rbl-c7="" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button></div></div><!----><router-outlet _ngcontent-rbl-c7=""></router-outlet><app-blog-post _nghost-rbl-c9=""><div _ngcontent-rbl-c9="" class="container mx-auto min-h-screen bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
+    <div _ngcontent-rbl-c9="">
+        <div _ngcontent-rbl-c9="" aria-label="Blog tags/keywords" class="pt-8 flex flex-row justify-center">
+            <div _ngcontent-rbl-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">dotnet</div><div _ngcontent-rbl-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">mediatr</div><div _ngcontent-rbl-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">CancellationToken</div><!---->
         </div>
-        <div _ngcontent-efs-c9="" class="max-w-screen-lg mx-auto">
-            <h1 _ngcontent-efs-c9="" class="text-5xl pt-5 pb-5 text-center">How to implement CQRS with MediatR - Part 2</h1>
+        <div _ngcontent-rbl-c9="" class="max-w-screen-lg mx-auto">
+            <h1 _ngcontent-rbl-c9="" class="text-5xl pt-5 pb-5 text-center">How to implement CQRS with MediatR - Part 2</h1>
         </div>
-        <div _ngcontent-efs-c9="" class="flex flex-row justify-center m-5 max-w-screen-sm mx-auto">
-            <time _ngcontent-efs-c9="" class="text-center text-xl">Feb 27, 2021</time>
+        <div _ngcontent-rbl-c9="" class="flex flex-row justify-center m-5 max-w-screen-sm mx-auto">
+            <time _ngcontent-rbl-c9="" class="text-center text-xl">Feb 27, 2021</time>
         </div>
     </div>
-    <hr _ngcontent-efs-c9="" class="mx-auto border-gray-800 w-1/4">
-    <div _ngcontent-efs-c9="" class="max-w-screen-md mx-auto p-6 md:p-12 leading-8">
-        <!--scullyContent-begin--><p _ngcontent-efs-c9="">In this post we'll be using MediatR with a dotnet WebAPI. If you want to read about its implementation in a console application, check out my other blog <a href="https://krishnamohan.dev/blog/how-to-implement-cqrs-with-mediat-r---part-1" _ngcontent-efs-c9="">post</a>.</p>
-<p _ngcontent-efs-c9="">For basic cases you can implement the message types and handlers mentioned in the Part 1. Here we are trying a different use case. The use of <code _ngcontent-efs-c9="">CancellationToken</code> in <code _ngcontent-efs-c9="">MediatR</code> to drop the ongoing request processing. This is very helpful if the request processing is blocked and we want to implement a timeout or if the request is dropped by the initiator.</p>
-<p _ngcontent-efs-c9="">For the sample case we will create a web api that try to do a task within 5 seconds. The API method will accept time in milliseconds and if the given time is greater than 5 seconds the task will run for 5 seconds and then get cancelled, otherwise task will be executed for the given time.</p>
-<h2 id="prerequisites" _ngcontent-efs-c9="">Prerequisites</h2>
-<ul _ngcontent-efs-c9="">
-<li _ngcontent-efs-c9="">Install <a href="https://dotnet.microsoft.com/download" _ngcontent-efs-c9="">dotnet core</a></li>
-<li _ngcontent-efs-c9="">Install Visual Studio Code/Visual Studio IDE </li>
+    <hr _ngcontent-rbl-c9="" class="mx-auto border-gray-800 w-1/4">
+    <div _ngcontent-rbl-c9="" class="max-w-screen-md mx-auto p-6 md:p-12 leading-8">
+        <!--scullyContent-begin--><p _ngcontent-rbl-c9="">In this post we'll be using MediatR with a dotnet WebAPI. If you want to read about its implementation in a console application, check out my other blog <a href="https://krishnamohan.dev/blog/how-to-implement-cqrs-with-mediat-r---part-1" _ngcontent-rbl-c9="">post</a>.</p>
+<p _ngcontent-rbl-c9="">For basic cases you can implement the message types and handlers mentioned in the Part 1. Here we are trying a different use case. The use of <code _ngcontent-rbl-c9="">CancellationToken</code> in <code _ngcontent-rbl-c9="">MediatR</code> to drop the ongoing request processing. This is very helpful if the request processing is blocked and we want to implement a timeout or if the request is dropped by the initiator.</p>
+<p _ngcontent-rbl-c9="">For the sample case we will create a web api that try to do a task within 5 seconds. The API method will accept time in milliseconds and if the given time is greater than 5 seconds the task will run for 5 seconds and then get cancelled, otherwise task will be executed for the given time.</p>
+<h2 id="prerequisites" _ngcontent-rbl-c9="">Prerequisites</h2>
+<ul _ngcontent-rbl-c9="">
+<li _ngcontent-rbl-c9="">Install <a href="https://dotnet.microsoft.com/download" _ngcontent-rbl-c9="">dotnet core</a></li>
+<li _ngcontent-rbl-c9="">Install Visual Studio Code/Visual Studio IDE </li>
 </ul>
-<h2 id="creating-a-dotnet-webapi-application" _ngcontent-efs-c9="">Creating a dotnet WebAPI application</h2>
-<p _ngcontent-efs-c9="">Run the following CLI command to create a WebAPI project.</p>
-<pre _ngcontent-efs-c9=""><code class="language-bash" _ngcontent-efs-c9="">dotnet new webapi MediatRSampleAPI
+<h2 id="creating-a-dotnet-webapi-application" _ngcontent-rbl-c9="">Creating a dotnet WebAPI application</h2>
+<p _ngcontent-rbl-c9="">Run the following CLI command to create a WebAPI project.</p>
+<pre _ngcontent-rbl-c9=""><code class="language-bash" _ngcontent-rbl-c9="">dotnet new webapi MediatRSampleAPI
 </code></pre>
-<h2 id="configure-serilog-for-logging-optional" _ngcontent-efs-c9="">Configure Serilog for logging (Optional)</h2>
-<p _ngcontent-efs-c9="">I'll be using <a href="https://serilog.net/" _ngcontent-efs-c9="">Serilog</a> and a flat file sink for logging. To configure this we need to install the following dependencies via Nuget. </p>
-<ul _ngcontent-efs-c9="">
-<li _ngcontent-efs-c9="">Microsoft.Extensions.Logging</li>
-<li _ngcontent-efs-c9="">Serilog</li>
-<li _ngcontent-efs-c9="">Serilog.AspNetCore</li>
-<li _ngcontent-efs-c9="">Serilog.Sinks.File</li>
+<h2 id="configure-serilog-for-logging-optional" _ngcontent-rbl-c9="">Configure Serilog for logging (Optional)</h2>
+<p _ngcontent-rbl-c9="">I'll be using <a href="https://serilog.net/" _ngcontent-rbl-c9="">Serilog</a> and a flat file sink for logging. To configure this we need to install the following dependencies via Nuget. </p>
+<ul _ngcontent-rbl-c9="">
+<li _ngcontent-rbl-c9="">Microsoft.Extensions.Logging</li>
+<li _ngcontent-rbl-c9="">Serilog</li>
+<li _ngcontent-rbl-c9="">Serilog.AspNetCore</li>
+<li _ngcontent-rbl-c9="">Serilog.Sinks.File</li>
 </ul>
-<p _ngcontent-efs-c9="">Then update the <code _ngcontent-efs-c9="">Program.cs</code> file.</p>
-<pre _ngcontent-efs-c9=""><code class="language-csharp" _ngcontent-efs-c9="">public static void Main(string[] args)
+<p _ngcontent-rbl-c9="">Then update the <code _ngcontent-rbl-c9="">Program.cs</code> file.</p>
+<pre _ngcontent-rbl-c9=""><code class="language-csharp" _ngcontent-rbl-c9="">public static void Main(string[] args)
 {
     Log.Logger = new LoggerConfiguration()
                     .Enrich.FromLogContext()
@@ -90,14 +90,14 @@ public static IHostBuilder CreateHostBuilder(string[] args) =&gt;
             webBuilder.UseStartup&lt;Startup&gt;();
         });
 </code></pre>
-<h2 id="install-and-configure-mediatr" _ngcontent-efs-c9="">Install and Configure MediatR</h2>
-<p _ngcontent-efs-c9="">Next we need to install MediatR (version 9.0.0 at the time of writing) via Nuget. To configure MediatR, add the following snippet to the <code _ngcontent-efs-c9="">ConfigureServices()</code> method in <code _ngcontent-efs-c9="">Startup.cs</code> file.</p>
-<pre _ngcontent-efs-c9=""><code class="language-csharp" _ngcontent-efs-c9="">services.AddMediatR(typeof(Startup));
+<h2 id="install-and-configure-mediatr" _ngcontent-rbl-c9="">Install and Configure MediatR</h2>
+<p _ngcontent-rbl-c9="">Next we need to install MediatR (version 9.0.0 at the time of writing) via Nuget. To configure MediatR, add the following snippet to the <code _ngcontent-rbl-c9="">ConfigureServices()</code> method in <code _ngcontent-rbl-c9="">Startup.cs</code> file.</p>
+<pre _ngcontent-rbl-c9=""><code class="language-csharp" _ngcontent-rbl-c9="">services.AddMediatR(typeof(Startup));
 </code></pre>
-<h2 id="create-a-notification-message-and-its-handler" _ngcontent-efs-c9="">Create a Notification message and its handler</h2>
-<p _ngcontent-efs-c9="">Our notification message carries time in milliseconds. Handler just accepts the time given by the user and waits for that much time. In the meantime if the request is cancelled, waiting will be stopped and exit.</p>
-<p _ngcontent-efs-c9="">I've added <code _ngcontent-efs-c9="">Stopwatch</code> code to make sure that handler will wait for maximum 5 seconds. When cancellation is triggered and <code _ngcontent-efs-c9="">OperationCanceledException</code> is thrown we need to catch it explicitly.</p>
-<pre _ngcontent-efs-c9=""><code class="language-csharp" _ngcontent-efs-c9="">public class DelayNotificationMessage: INotification
+<h2 id="create-a-notification-message-and-its-handler" _ngcontent-rbl-c9="">Create a Notification message and its handler</h2>
+<p _ngcontent-rbl-c9="">Our notification message carries time in milliseconds. Handler just accepts the time given by the user and waits for that much time. In the meantime if the request is cancelled, waiting will be stopped and exit.</p>
+<p _ngcontent-rbl-c9="">I've added <code _ngcontent-rbl-c9="">Stopwatch</code> code to make sure that handler will wait for maximum 5 seconds. When cancellation is triggered and <code _ngcontent-rbl-c9="">OperationCanceledException</code> is thrown we need to catch it explicitly.</p>
+<pre _ngcontent-rbl-c9=""><code class="language-csharp" _ngcontent-rbl-c9="">public class DelayNotificationMessage: INotification
 {
     public int TimeInMilliSeconds { get; set; }
 }
@@ -130,16 +130,16 @@ public class Notifier03 : INotificationHandler&lt;DelayNotificationMessage&gt;
     }
 }
 </code></pre>
-<h2 id="create-a-mediator-service" _ngcontent-efs-c9="">Create a mediator service</h2>
-<p _ngcontent-efs-c9="">Mediator Service is a class that is used by the initiator to publish messages to the handlers. Here we'll the add the following code in the service class where <code _ngcontent-efs-c9="">CancellationToken</code> is an optional parameter.</p>
-<pre _ngcontent-efs-c9=""><code class="language-csharp" _ngcontent-efs-c9="">public void DelayedNotify(int timeInMilliSeconds, CancellationToken cancellationToken = default)
+<h2 id="create-a-mediator-service" _ngcontent-rbl-c9="">Create a mediator service</h2>
+<p _ngcontent-rbl-c9="">Mediator Service is a class that is used by the initiator to publish messages to the handlers. Here we'll the add the following code in the service class where <code _ngcontent-rbl-c9="">CancellationToken</code> is an optional parameter.</p>
+<pre _ngcontent-rbl-c9=""><code class="language-csharp" _ngcontent-rbl-c9="">public void DelayedNotify(int timeInMilliSeconds, CancellationToken cancellationToken = default)
 {
     _mediator.Publish(new DelayNotificationMessage { TimeInMilliSeconds = timeInMilliSeconds }, cancellationToken);
         
 </code></pre>
-<h2 id="add-new-method-in-api-controller" _ngcontent-efs-c9="">Add new method in API Controller</h2>
-<p _ngcontent-efs-c9="">Now let's add a controller method that creates a cancellation token. CancellationToken is set to cancel after 5 seconds using the <code _ngcontent-efs-c9="">CancelAfter</code> <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtokensource?view=net-5.0#methods" _ngcontent-efs-c9="">method</a> of <code _ngcontent-efs-c9="">CancellationTokenSource</code></p>
-<pre _ngcontent-efs-c9=""><code class="language-csharp" _ngcontent-efs-c9="">[HttpGet("/dowithin5seconds")]
+<h2 id="add-new-method-in-api-controller" _ngcontent-rbl-c9="">Add new method in API Controller</h2>
+<p _ngcontent-rbl-c9="">Now let's add a controller method that creates a cancellation token. CancellationToken is set to cancel after 5 seconds using the <code _ngcontent-rbl-c9="">CancelAfter</code> <a href="https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtokensource?view=net-5.0#methods" _ngcontent-rbl-c9="">method</a> of <code _ngcontent-rbl-c9="">CancellationTokenSource</code></p>
+<pre _ngcontent-rbl-c9=""><code class="language-csharp" _ngcontent-rbl-c9="">[HttpGet("/dowithin5seconds")]
 public async Task&lt;string&gt; DoWithin5Seconds(int timeInMilliSeconds)
 {
     CancellationTokenSource source = new CancellationTokenSource();
@@ -153,13 +153,13 @@ public async Task&lt;string&gt; DoWithin5Seconds(int timeInMilliSeconds)
     return message;
 }
 </code></pre>
-<h2 id="run-the-application" _ngcontent-efs-c9="">Run the application</h2>
-<p _ngcontent-efs-c9="">To run the project via dotnet cli, run the following command.</p>
-<pre _ngcontent-efs-c9=""><code class="language-bash" _ngcontent-efs-c9="">dotnet run --project &lt;Path to *.csproj file&gt;
+<h2 id="run-the-application" _ngcontent-rbl-c9="">Run the application</h2>
+<p _ngcontent-rbl-c9="">To run the project via dotnet cli, run the following command.</p>
+<pre _ngcontent-rbl-c9=""><code class="language-bash" _ngcontent-rbl-c9="">dotnet run --project &lt;Path to *.csproj file&gt;
 </code></pre>
-<p _ngcontent-efs-c9="">Once the port is open, invoke the <code _ngcontent-efs-c9="">DoWithin5Seconds</code> method by entering '<a href="http://localhost:62705/dowithin5seconds?timeInMilliSeconds=15000'" _ngcontent-efs-c9="">http://localhost:62705/dowithin5seconds?timeInMilliSeconds=15000'</a> in the browser (Your port number may vary. Also for the demo purpose it is better to disable https redirection).</p>
-<p _ngcontent-efs-c9="">You'll get the response immediately, but the process will run for a maximum of 5 seconds. If you check the log file, you can see that the execution stopped at 5 seconds.</p>
-<pre _ngcontent-efs-c9=""><code class="language-bash" _ngcontent-efs-c9="">2021-02-27 12:46:57.384 +05:30 [INF] Executing endpoint 'MediatRSampleAPI.Controllers.SlowTestController.DoWithin5Seconds (MediatRSampleAPI)'
+<p _ngcontent-rbl-c9="">Once the port is open, invoke the <code _ngcontent-rbl-c9="">DoWithin5Seconds</code> method by entering '<a href="http://localhost:62705/dowithin5seconds?timeInMilliSeconds=15000'" _ngcontent-rbl-c9="">http://localhost:62705/dowithin5seconds?timeInMilliSeconds=15000'</a> in the browser (Your port number may vary. Also for the demo purpose it is better to disable https redirection).</p>
+<p _ngcontent-rbl-c9="">You'll get the response immediately, but the process will run for a maximum of 5 seconds. If you check the log file, you can see that the execution stopped at 5 seconds.</p>
+<pre _ngcontent-rbl-c9=""><code class="language-bash" _ngcontent-rbl-c9="">2021-02-27 12:46:57.384 +05:30 [INF] Executing endpoint 'MediatRSampleAPI.Controllers.SlowTestController.DoWithin5Seconds (MediatRSampleAPI)'
 2021-02-27 12:46:57.425 +05:30 [INF] Route matched with {action = "DoWithin5Seconds", controller = "SlowTest"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] DoWithin5Seconds(Int32) on controller MediatRSampleAPI.Controllers.SlowTestController (MediatRSampleAPI).
 2021-02-27 12:46:57.517 +05:30 [INF] Executing action method MediatRSampleAPI.Controllers.SlowTestController.DoWithin5Seconds (MediatRSampleAPI) - Validation state: "Valid"
 2021-02-27 12:46:57.524 +05:30 [INF] Notifier 03 -&gt; Time In MIlli Seconds: 15000
@@ -167,15 +167,15 @@ public async Task&lt;string&gt; DoWithin5Seconds(int timeInMilliSeconds)
 2021-02-27 12:47:02.576 +05:30 [ERR] 5 seconds passed and the task is cancelled
 2021-02-27 12:47:02.577 +05:30 [INF] Elapsed Time: 5052
 </code></pre>
-<p _ngcontent-efs-c9="">Full source code is available in <a href="https://github.com/krishnaanaril/try-outs/tree/master/MediatRSample/MediatRSampleAPI" _ngcontent-efs-c9="">GitHub</a>.</p>
-<h2 id="final-thoughts" _ngcontent-efs-c9="">Final Thoughts</h2>
-<p _ngcontent-efs-c9="">If you are more interested in the use of <code _ngcontent-efs-c9="">CancellationToken</code>, please checkout the <a href="https://andrewlock.net/using-cancellationtokens-in-asp-net-core-mvc-controllers/" _ngcontent-efs-c9="">post</a> by Andrew Lock.</p>
-<p _ngcontent-efs-c9="">One thing I haven't explored so far is exception handling with MediatR. It requires a blog post of its own and I'll be posting it soon.</p>
-<!--scullyContent-end--><scully-content _ngcontent-efs-c9=""></scully-content>
-    <script>try {window['scullyContent'] = {cssId:"_ngcontent-efs-c9",html:document.body.innerHTML.split('<!--scullyContent-begin-->')[1].split('<!--scullyContent-end-->')[0]};} catch(e) {console.error('scully could not parse content');}</script></div>
-    <hr _ngcontent-efs-c9="" class="border-gray-800">    
-</div><!----></app-blog-post><!----><footer _ngcontent-efs-c7="" class="container mx-auto flex flex-col bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><div _ngcontent-efs-c7="" class="mt-10"><ul _ngcontent-efs-c7="" class="flex flex-row justify-between max-w-sm mx-auto pl-4 pr-4"><li _ngcontent-efs-c7="" class="hover:text-gray-600 dark:hover:text-gray-100"><a _ngcontent-efs-c7="" href="https://twitter.com/KrishnaAnaril">Twitter</a></li><li _ngcontent-efs-c7=""><a _ngcontent-efs-c7="" href="https://krishnamohan.dev/sitemap-blog.xml">Sitemap</a></li><li _ngcontent-efs-c7=""><a _ngcontent-efs-c7="" href="https://krishnamohan.dev/feed.xml">RSS</a></li><li _ngcontent-efs-c7=""><a _ngcontent-efs-c7="" href="mailto:krishnamohan.a.m@gmail.com">Contact</a></li></ul></div><div _ngcontent-efs-c7="" class="mx-auto p-5 text-sm"><p _ngcontent-efs-c7="">© 2021-present <a _ngcontent-efs-c7="" href="https://krishnamohan.dev/" class="font-bold">Krishna Mohan A M</a>. All Rights Reserved.</p></div></footer></div></app-root>
+<p _ngcontent-rbl-c9="">Full source code is available in <a href="https://github.com/krishnaanaril/try-outs/tree/master/MediatRSample/MediatRSampleAPI" _ngcontent-rbl-c9="">GitHub</a>.</p>
+<h2 id="final-thoughts" _ngcontent-rbl-c9="">Final Thoughts</h2>
+<p _ngcontent-rbl-c9="">If you are more interested in the use of <code _ngcontent-rbl-c9="">CancellationToken</code>, please checkout the <a href="https://andrewlock.net/using-cancellationtokens-in-asp-net-core-mvc-controllers/" _ngcontent-rbl-c9="">post</a> by Andrew Lock.</p>
+<p _ngcontent-rbl-c9="">One thing I haven't explored so far is exception handling with MediatR. It requires a blog post of its own and I'll be posting it soon.</p>
+<!--scullyContent-end--><scully-content _ngcontent-rbl-c9=""></scully-content>
+    <script>try {window['scullyContent'] = {cssId:"_ngcontent-rbl-c9",html:document.body.innerHTML.split('<!--scullyContent-begin-->')[1].split('<!--scullyContent-end-->')[0]};} catch(e) {console.error('scully could not parse content');}</script></div>
+    <hr _ngcontent-rbl-c9="" class="border-gray-800">    
+</div><!----></app-blog-post><!----><footer _ngcontent-rbl-c7="" class="container mx-auto flex flex-col bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><div _ngcontent-rbl-c7="" class="mt-10"><ul _ngcontent-rbl-c7="" class="flex flex-row justify-between max-w-sm mx-auto pl-4 pr-4"><li _ngcontent-rbl-c7="" class="hover:text-gray-600 dark:hover:text-gray-100"><a _ngcontent-rbl-c7="" href="https://twitter.com/KrishnaAnaril">Twitter</a></li><li _ngcontent-rbl-c7=""><a _ngcontent-rbl-c7="" href="https://krishnamohan.dev/sitemap-blog.xml">Sitemap</a></li><li _ngcontent-rbl-c7=""><a _ngcontent-rbl-c7="" href="https://krishnamohan.dev/feed.xml">RSS</a></li><li _ngcontent-rbl-c7=""><a _ngcontent-rbl-c7="" href="mailto:krishnamohan.a.m@gmail.com">Contact</a></li></ul></div><div _ngcontent-rbl-c7="" class="mx-auto p-5 text-sm"><p _ngcontent-rbl-c7="">© 2021-present <a _ngcontent-rbl-c7="" href="https://krishnamohan.dev/" class="font-bold">Krishna Mohan A M</a>. All Rights Reserved.</p></div></footer></div></app-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
-<script id="ScullyIO-transfer-state"></script><script src="runtime-es2015.ed7ab82952a22e8aa5ef.js" type="module"></script><script src="runtime-es5.ed7ab82952a22e8aa5ef.js" nomodule="" defer=""></script><script src="polyfills-es5.29147128fc6f0f3fd286.js" nomodule="" defer=""></script><script src="polyfills-es2015.2045db6d95f407e1e8c7.js" type="module"></script><script src="main-es2015.fbbf9b9adb58a7712a31.js" type="module"></script><script src="main-es5.fbbf9b9adb58a7712a31.js" nomodule="" defer=""></script>
+<script id="ScullyIO-transfer-state"></script><script src="runtime-es2015.960bba07529b29940ead.js" type="module"></script><script src="runtime-es5.960bba07529b29940ead.js" nomodule="" defer=""></script><script src="polyfills-es5.29147128fc6f0f3fd286.js" nomodule="" defer=""></script><script src="polyfills-es2015.2045db6d95f407e1e8c7.js" type="module"></script><script src="main-es2015.fbbf9b9adb58a7712a31.js" type="module"></script><script src="main-es5.fbbf9b9adb58a7712a31.js" nomodule="" defer=""></script>
 
 </body></html>

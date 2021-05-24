@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-05-16T17:57:18.571Z</updated>
+    <updated>2021-05-24T08:42:23.422Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -14,6 +14,26 @@
     <category term="Blog"/>
     <category term="Angular"/>
     <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 21]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---21</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---21"/>
+        <updated>2021-05-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the fourth week of May 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li>Read a <a href="https://fifty.user-interface.io/50_ui_tips.pdf">nice book</a> about UX design tips written by <a href="https://twitter.com/vponamariov">Victor</a>. It is a collection of tweets than a book but very helpful.</li>
+<li>Learned about <a href="https://en.wikipedia.org/wiki/Cognitive_load">Cognitive Load</a>.</li>
+<li>Found a <a href="https://github.com/psenough/teach_yourself_demoscene_in_14_days">Teach Yourself Demoscene</a> repository. I haven't heard about this before. The <a href="https://en.wikipedia.org/wiki/Demoscene">demoscene</a> is an international computer art subculture focused on producing demos: self-contained, sometimes extremely small, computer programs that produce audiovisual presentations.</li>
+<li>China uses a different geographic coordinate system than the rest of the world. <a href="https://en.wikipedia.org/wiki/World_Geodetic_System">WGS-84</a> is the most common coordinate system, but China uses <a href="https://en.wikipedia.org/wiki/Restrictions_on_geographic_data_in_China#GCJ-02">GCJ-02</a>, sometimes called Mars Coordinates. Part of GCJ-02 is an algorithm that obfuscates the results. So applying any GCJ-02 coordinate to a globe using WGS-84 coordinates gets distorted like a funhouse mirror. Found this info in <a href="https://news.ycombinator.com/item?id=27187915">HN</a>.</li>
+<li><a href="https://blog.google/technology/research/project-starline/">Project Starline</a> is an experimental video communication method currently in development by Google that allows the user to see a 3D model of the person they are communicating with. My first thought was that it looks like how people communicate with inmates in us prisons</li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[What did I learn this week (2021) - 20]]></title>
         <id>/blog/what-did-i-learn-this-week-2021---20</id>
@@ -741,7 +761,7 @@ In Async One Way Handler
         <title type="html"><![CDATA[Using Casbin for authorization in dotnet]]></title>
         <id>/blog/using-casbin-for-authorization-in-dotnet</id>
         <link href="https://krishnamohan.dev/blog/using-casbin-for-authorization-in-dotnet"/>
-        <updated>2020-09-02T00:00:00.000Z</updated>
+        <updated>2021-05-14T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Casbin is a powerful and efficient open-source access control library. It provides support for enforcing authorization based on various access control models. Here I'll be sharing my thoughts on Casbin.NET, an authorization library for dotnet.]]></summary>
         <content type="html"><![CDATA[<p>Our organization, as part of common platform initiative, was trying to create an authorization mechanism for multiple applications in our ecosystem. Last week as a part of this initiative I was browsing internet to find a client library that makes use of Attribute based access control (ABAC). <a href="https://github.com/topics/abac">Casbin</a> is one of the most starred libraries in the topic ABAC.
 So I thought of giving it a try.</p>

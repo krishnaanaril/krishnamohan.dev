@@ -7,6 +7,17 @@
     "icon": "https://krishnamohan.dev/assets/images/dp.jpeg",
     "items": [
         {
+            "id": "/blog/what-did-i-learn-this-week-2021---21",
+            "content_html": "<ol>\n<li>Read a <a href=\"https://fifty.user-interface.io/50_ui_tips.pdf\">nice book</a> about UX design tips written by <a href=\"https://twitter.com/vponamariov\">Victor</a>. It is a collection of tweets than a book but very helpful.</li>\n<li>Learned about <a href=\"https://en.wikipedia.org/wiki/Cognitive_load\">Cognitive Load</a>.</li>\n<li>Found a <a href=\"https://github.com/psenough/teach_yourself_demoscene_in_14_days\">Teach Yourself Demoscene</a> repository. I haven't heard about this before. The <a href=\"https://en.wikipedia.org/wiki/Demoscene\">demoscene</a> is an international computer art subculture focused on producing demos: self-contained, sometimes extremely small, computer programs that produce audiovisual presentations.</li>\n<li>China uses a different geographic coordinate system than the rest of the world. <a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS-84</a> is the most common coordinate system, but China uses <a href=\"https://en.wikipedia.org/wiki/Restrictions_on_geographic_data_in_China#GCJ-02\">GCJ-02</a>, sometimes called Mars Coordinates. Part of GCJ-02 is an algorithm that obfuscates the results. So applying any GCJ-02 coordinate to a globe using WGS-84 coordinates gets distorted like a funhouse mirror. Found this info in <a href=\"https://news.ycombinator.com/item?id=27187915\">HN</a>.</li>\n<li><a href=\"https://blog.google/technology/research/project-starline/\">Project Starline</a> is an experimental video communication method currently in development by Google that allows the user to see a 3D model of the person they are communicating with. My first thought was that it looks like how people communicate with inmates in us prisons</li>\n</ol>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---21",
+            "title": "What did I learn this week (2021) - 21",
+            "summary": "Weekly summarization and review of things I've learned in the fourth week of May 2021",
+            "date_modified": "2021-05-23T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
             "id": "/blog/what-did-i-learn-this-week-2021---20",
             "content_html": "<ol>\n<li>Learned how to <a href=\"https://stackoverflow.com/questions/54138763/open-pwa-when-clicking-on-push-notification-handled-by-service-worker-ng7-andr\">redirect to PWA</a> when the user clicks the notification. Recently I've been struggling with some of the PWA features of my <a href=\"https://cowin-helper.krishnamohan.dev/\">'Cowin Helper'</a> app and learned a ton of about it. If possible I'll write everything in a separate blog.</li>\n<li>Learned about the <a href=\"https://web.dev/bfcache/\">Back/Forward Cache</a> concept to improve the browsing experience. Some tips for optimizing your webpage for bfcache:<ul>\n<li>Never use the <code>unload</code> event</li>\n<li>Only add <code>beforeunload</code> listeners conditionally.</li>\n<li>Avoid window.opener references</li>\n<li>Always close open connections before the user navigates away</li>\n<li>Test to ensure that the pages are cacheable</li></ul></li>\n<li>Learned how to customize PWA app <a href=\"https://web.dev/customize-install/\">installation</a>.</li>\n<li>Learned about Couchbase database and did a poc using its dotnet sdk. Understood how it stores <a href=\"https://docs.couchbase.com/server/current/learn/buckets-memory-and-storage/memory-and-storage.html#saving-new-items\">data under the hood</a> and process of replication.</li>\n<li>Started using <a href=\"https://github.com/jakearchibald/idb-keyval\">idb-keyval</a> as a wrapper over browser indexedb. It was easy to get started and small in sized. One catch is that it can create only one default store, if you want to create more than one stores used [idb](https://github.com/jakearchibald/idb</li>\n</ol>",
             "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---20",
@@ -188,7 +199,7 @@
             "url": "https://krishnamohan.dev/blog/using-casbin-for-authorization-in-dotnet",
             "title": "Using Casbin for authorization in dotnet",
             "summary": "Casbin is a powerful and efficient open-source access control library. It provides support for enforcing authorization based on various access control models. Here I'll be sharing my thoughts on Casbin.NET, an authorization library for dotnet.",
-            "date_modified": "2020-09-02T00:00:00.000Z",
+            "date_modified": "2021-05-14T00:00:00.000Z",
             "author": {
                 "name": "Krishna Mohan A M"
             }
