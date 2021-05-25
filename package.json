@@ -19,6 +19,7 @@
     "serve-local": "npm run build-prod && npm run build-static && npm run serve-static",
     "scully": "scully",
     "scully:serve": "scully serve",
+    "scully:new-post": "ng generate @scullyio/init:post",
     "prettier": "prettier",
     "format:test": "prettier --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
     "format:write": "prettier --write \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
