@@ -5,7 +5,7 @@ published: true
 publishedAt: 2021-05-02T00:00:00.000Z
 updatedAt: 2021-05-02T00:00:00.000Z
 category: learnings
-image: 'https://krishnamohan.dev/assets/banners/28.png'
+image: 'assets/banners/28'
 keywords:   
   - Zanzibar
   - ABAC

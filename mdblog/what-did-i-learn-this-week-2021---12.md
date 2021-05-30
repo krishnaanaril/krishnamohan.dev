@@ -5,7 +5,7 @@ published: true
 publishedAt: 2021-03-21T00:00:00.000Z
 updatedAt: 2021-03-21T00:00:00.000Z
 category: learnings
-image: 'https://krishnamohan.dev/assets/banners/21.png'
+image: 'assets/banners/21'
 keywords:
     - dotnet
     - finance

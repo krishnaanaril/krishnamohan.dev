@@ -5,7 +5,7 @@ published: true
 publishedAt: 2021-01-17T00:00:00.000Z
 updatedAt: 2021-01-17T00:00:00.000Z
 category: learnings
-image: 'https://krishnamohan.dev/assets/banners/10.png'
+image: 'assets/banners/10'
 keywords: 
     - cloud
     - finance

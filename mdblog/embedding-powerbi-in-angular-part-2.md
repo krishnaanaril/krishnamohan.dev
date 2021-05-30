@@ -5,7 +5,7 @@ published: true
 publishedAt: 2018-10-16T00:00:00.000Z
 updatedAt: 2018-10-16T00:00:00.000Z
 category: tech
-image: 'https://krishnamohan.dev/assets/banners/02.png'
+image: 'assets/banners/02'
 keywords: 
     - powerbi
     - angular

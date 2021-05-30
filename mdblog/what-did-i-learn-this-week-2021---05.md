@@ -5,7 +5,7 @@ published: true
 publishedAt: 2021-01-31T00:00:00.000Z
 updatedAt: 2021-01-10T00:00:00.000Z
 category: learnings
-image: 'https://krishnamohan.dev/assets/banners/12.png'
+image: 'assets/banners/12'
 keywords: 
     - dark-patterns
     - Gandhi
@@ -26,7 +26,7 @@ authors:
     * Sneaking
 
         1. **Sneak into basket**: Adding additional products to user's cart without their consent.
-        2. **Hiddent costs**: Revealing previously undisclosed charges to users right before they make a purchase.
+        2. **Hidden costs**: Revealing previously undisclosed charges to users right before they make a purchase.
         3. **Hidden Subscription**: Charging users a recurring fee under the pretense of a one-time fee or a free trial.
     * Urgency
     

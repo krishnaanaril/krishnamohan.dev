@@ -5,7 +5,7 @@ published: true
 publishedAt: 2021-05-16T00:00:00.000Z
 updatedAt: 2021-05-16T00:00:00.000Z
 category: learnings
-image: 'https://krishnamohan.dev/assets/banners/30.png'
+image: 'assets/banners/30'
 keywords:
   - PWA
   - Couchbase

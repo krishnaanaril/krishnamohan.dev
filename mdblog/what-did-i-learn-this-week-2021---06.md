@@ -5,7 +5,7 @@ published: true
 publishedAt: 2021-02-07T00:00:00.000Z
 updatedAt: 2021-02-07T00:00:00.000Z
 category: learnings
-image: 'https://krishnamohan.dev/assets/banners/13.png'
+image: 'assets/banners/13'
 keywords: 
     - Politics
     - Farming

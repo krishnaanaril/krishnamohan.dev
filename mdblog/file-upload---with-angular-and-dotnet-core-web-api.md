@@ -5,7 +5,7 @@ published: true
 publishedAt: 2020-09-02T00:00:00.000Z
 updatedAt: 2020-09-02T00:00:00.000Z
 category: tech
-image: 'https://krishnamohan.dev/assets/banners/03.png'
+image: 'assets/banners/03'
 keywords: 
     - angular
     - dotnet

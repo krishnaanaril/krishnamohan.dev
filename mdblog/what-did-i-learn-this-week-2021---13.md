@@ -5,7 +5,7 @@ published: true
 publishedAt: 2021-03-28T00:00:00.000Z
 updatedAt: 2021-03-28T00:00:00.000Z
 category: learnings
-image: 'https://krishnamohan.dev/assets/banners/22.png'
+image: 'assets/banners/22'
 keywords:
     - Dotnet
     - Crystal-lang
