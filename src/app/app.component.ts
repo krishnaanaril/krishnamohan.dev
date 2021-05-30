@@ -12,7 +12,7 @@ export class AppComponent {
   displayMenu: boolean;
 
   menu = [
-    {text: 'Home', link: '/'},
+    {text: 'Home', link: '/home'},
     {text: 'Blog', link: '/blog'},
     {text: 'Projects', link: '/projects'},
     {text: 'About', link: '/about'},

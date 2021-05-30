@@ -15,9 +15,14 @@ const routes: Routes = [
     loadChildren: () => import('./about/about.module').then((m) => m.AboutModule),
   },
   {
-    path: '',
+    path: 'home',
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
+  {
+    path: '', 
+    redirectTo: 'home',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
