@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-05-30T16:53:13.425Z</updated>
+    <updated>2021-06-01T18:22:04.733Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -14,6 +14,88 @@
     <category term="Blog"/>
     <category term="Angular"/>
     <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 22]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---22</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---22"/>
+        <updated>2021-05-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the final week of May 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li>Firefox will be implementing <a href="https://developer.chrome.com/docs/extensions/mv3/intro/">Manifest V3</a> support for extensions to provide compatibility with Chrome extensions. In the <a href="https://blog.mozilla.org/addons/2021/05/27/manifest-v3-update/">blog post</a> they've mentioned they'll be diverging from Chrome's implementation in certain areas but that is not clear as of now.</li>
+<li><a href="https://www.serenityos.org/">SerenityOS</a> is a unix like operating system created by <a href="https://twitter.com/awesomekling">Andreas Kling</a> former Apple engineer. He recently <a href="https://awesomekling.github.io/I-quit-my-job-to-focus-on-SerenityOS-full-time/">quit</a> his full time job to concentrate on this OS. He also maintains a very informative <a href="https://www.youtube.com/c/AndreasKling/videos">youtube channel</a>.</li>
+<li>QUIC is now <a href="https://www.rfc-editor.org/info/rfc9000">RFC 9000</a>. QUIC is a new latency-reducing, reliable, and secure internet transport protocol that is slated to replace TCP, the most commonly used transport today.</li>
+<li>Back in 1930-50's, if you want to watch a Paramount movie, you must go to a Paramount theater. This similar to the modern situation of Netflix movies can only be watched in Netflix VOD (All hail Telegram and torrents 😂). This was one of the popular <a href="https://news.ycombinator.com/item?id=27290233">comment</a> to the HN discussion on 'Amazon buying MGM'.</li>
+<li>Found a <a href="https://github.com/AnthonyCalandra/modern-cpp-features">cheatsheet</a> for modern C++ language and library features.</li>
+<li><a href="https://en.wikipedia.org/wiki/Five_whys">Five whys</a> (or 5 whys) is an iterative interrogative technique used to explore the cause-and-effect relationships underlying a particular problem. The primary goal of the technique is to determine the root cause of a defect or problem by repeating the question "Why?". Each answer forms the basis of the next question. The "five" in the name derives from an anecdotal observation on the number of iterations needed to resolve the problem. </li>
+<li>Read a <a href="https://www.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/">drunk post</a> regarding things learned as Sr. Software Engineer in Reddit and it is really informative and thought provoking</li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Messaging between Service Worker and Angular component]]></title>
+        <id>/blog/messaging-between-sw-and-angular-component</id>
+        <link href="https://krishnamohan.dev/blog/messaging-between-sw-and-angular-component"/>
+        <updated>2021-05-31T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Most of the time service worker logic and application logic work in isolation, but there will be cases where we need to do pass messages between them. In this post we’ll see how we can do this in an angular application.]]></summary>
+        <content type="html"><![CDATA[<p>Most of the time service worker logic and application logic work in isolation, but there will be cases where we need to pass messages between them. For example we are using background sync and to let the application know that it is complete, we can send a message from service worker and receive it in the application. In this post we’ll see how we can do this in an angular application.</p>
+<h2 id="prerequisite">Prerequisite</h2>
+<ol>
+<li>Basic understanding of Angular <a href="https://angular.io/guide/what-is-angular">application architecture</a>.</li>
+<li>Basic understanding of <a href="https://angular.io/guide/service-worker-intro">PWA</a> and service workers.</li>
+<li><a href="https://code.visualstudio.com/download">VS Code</a> and <a href="https://angular.io/cli#installing-angular-cli">@angular/cli</a> installation.</li>
+</ol>
+<h2 id="basicworkflow">Basic Workflow</h2>
+<ul>
+<li>On button click we'll create a message with property <code>type</code> and value <code>FROM_APP</code> and send it to the service worker.</li>
+<li>In service worker we'll create a event handler to listen to messages and filter messages with type <code>FROM_APP</code>.</li>
+<li>From service worker send acknowledgement message back to client with property <code>type</code> and value <code>FROM_SW</code>.</li>
+<li>In the angular component receive the acknowledgement and print it to the console.</li>
+</ul>
+<h2 id="sendmessagefromangular">Send Message from Angular</h2>
+<p>To send message from angular we will be using <code>postMessage</code> method of <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/message_event">ServiceWorker</a>. <code>postMessage</code> signature is similar to that of <a href="https://developer.mozilla.org/en-US/docs/Web/API/Client/postMessage">Client.postMessage</a>.</p>
+<pre><code class="typescript language-typescript">navigator.serviceWorker.controller.postMessage({
+    type: 'FROM_APP'
+});
+</code></pre>
+<h2 id="createeventhandlertoacceptmessagefromserviceworker">Create event handler to accept message from service worker.</h2>
+<p>Here we'll be adding the handler to <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/message_event">ServicWorkerContainer</a> <code>message</code> event.</p>
+<pre><code class="typescript language-typescript">navigator.serviceWorker.onmessage = (event)=&gt;{
+    if(event.data &amp;&amp; event.data.type === 'FROM_SW') {
+        console.log('Message received from SW');
+    }
+}
+</code></pre>
+<h2 id="receivemessageinserviceworker">Receive message in service worker</h2>
+<p>In service worker we can create an event handler to the message event that will filter messages with type <code>FROM_APP</code>.</p>
+<pre><code class="typescript language-typescript">self.addEventListener('message', (event) =&gt; {
+    if (event.data &amp;&amp; event.data.type === 'FROM_APP') {
+        console.log('message received from app');                   
+    }
+});
+</code></pre>
+<h2 id="sendacknowledgetotheparentpage">Send acknowledge to the parent page</h2>
+<p>To send acknowledge message we need to identify the last focused tab. We can use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Clients/matchAll">matchAll</a> method for that. This method (Chrome 46/Firefox 54 and later) returns clients in most recently focused order.</p>
+<pre><code class="typescript language-typescript">self.clients.matchAll().then((clients) =&gt; {
+    if (clients &amp;&amp; clients.length) {
+        //Respond to last focused tab
+        clients[0].postMessage({ type: 'FROM_SW' });
+    }
+});
+</code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>Even though service worker communication and its implementation are easy, it is very difficult to get relevant documentation regarding events and available methods. Referring Mozilla documentation is a good start, but it is not complete.  You can also refer '<a href="https://felixgerschau.com/how-to-communicate-with-service-workers/">How to communicate with Service Workers</a>' article written by <a href="https://twitter.com/4xfelix">Felix Gerschau</a> for more information</p>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[What did I learn this week (2021) - 21]]></title>
         <id>/blog/what-did-i-learn-this-week-2021---21</id>
