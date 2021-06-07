@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-06-01T18:22:04.733Z</updated>
+    <updated>2021-06-07T08:29:59.762Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -14,6 +14,26 @@
     <category term="Blog"/>
     <category term="Angular"/>
     <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 23]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---23</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---23"/>
+        <updated>2021-06-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the first week of June 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li>Came to know about <a href="https://threejs.org/">threejs</a>, a javascript 3D library. Also found its angular wrapper - <a href="https://github.com/nartc/angular-three">angular-three</a>. Saw <a href="https://www.oculus.com/medal-of-honor/">one of the site</a> developed using threejs and it was freaking awesome. I need to try it, but right now I don't have time for it.</li>
+<li><a href="https://www.wsj.com/articles/software-developer-community-stack-overflow-sold-to-tech-giant-prosus-for-1-8-billion-11622648400">Stack Overflow Sold to Tech Giant Prosus for $1.8 Billion</a>. Not sure it is a good thing or bad thing. When Microsoft bought GitHub I was bit skeptical, but it turn out to be okay. Hoping that this change won't bring any breaking changes to the StackOverflow usage.</li>
+<li><a href="https://en.wikipedia.org/wiki/Mandala">Mandala Art</a>: A mandala is a geometric configuration of symbols. In various spiritual traditions, mandalas may be employed for focusing attention of practitioners and adepts, as a spiritual guidance tool, for establishing a sacred space and as an aid to meditation and trance induction. In the Eastern religions of Hinduism, Buddhism, Jainism and Shintoism it is used as a map representing deities, or specially in the case of Shintoism, paradises, kami or actual shrines.</li>
+<li><a href="https://mastershot.app/">Mastershot App</a> is an online video editor, that helps us to edit videos in the browser and it is free.</li>
+<li>Learned some <a href="https://codeforces.com/blog/entry/15643">C++ tricks</a> that may help me in the Codeforces contests.</li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[What did I learn this week (2021) - 22]]></title>
         <id>/blog/what-did-i-learn-this-week-2021---22</id>
@@ -57,7 +77,7 @@
 <li>In the angular component receive the acknowledgement and print it to the console.</li>
 </ul>
 <h2 id="sendmessagefromangular">Send Message from Angular</h2>
-<p>To send message from angular we will be using <code>postMessage</code> method of <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/message_event">ServiceWorker</a>. <code>postMessage</code> signature is similar to that of <a href="https://developer.mozilla.org/en-US/docs/Web/API/Client/postMessage">Client.postMessage</a>.</p>
+<p>To send message from angular we will be using <code>postMessage</code> method of <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/message_event">ServiceWorker</a>. <code>postMessage</code> signature is similar to that of <a href="https://developer.mozilla.org/en-US/docs/Web/API/Client/postMessage">Client.postMessage</a>. Unfortunately I couldn't find its documentation in the MDN site.</p>
 <pre><code class="typescript language-typescript">navigator.serviceWorker.controller.postMessage({
     type: 'FROM_APP'
 });
