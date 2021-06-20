@@ -4,7 +4,7 @@
         <title>krishnamohan.dev</title>
         <link>https://krishnamohan.dev</link>
         <description>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</description>
-        <lastBuildDate>Mon, 07 Jun 2021 08:35:37 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 20 Jun 2021 18:24:12 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
         <language>en</language>
@@ -18,6 +18,34 @@
         <category>Blog</category>
         <category>Angular</category>
         <category>Dotnet</category>
+        <item>
+            <title><![CDATA[What did I learn this week (2021) - 25]]></title>
+            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---25</link>
+            <guid>/blog/what-did-i-learn-this-week-2021---25</guid>
+            <pubDate>Sun, 20 Jun 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Weekly summarization and review of things I've learned in the third week of June 2021]]></description>
+            <content:encoded><![CDATA[<ol>
+<li>Document <a href="https://www.justingarrison.com/blog/2021-06-04-making-123dev-website/">culture</a> of amazon. </li>
+<li><a href="https://stride3d.net">Stride Game Engine</a>: Stride (formerly Xenko and Paradox) is a free and open-source 2D and 3D cross-platform game engine originally developed by Silicon Studio. It can be used to create video games for PC, mobile devices and virtual reality. Stride is a C# suite of tools to create games.</li>
+<li>Found a BBC <a href="https://genome.ch.bbc.co.uk/">Programme Index</a> </li>
+<li>Started learning digital art. Krita and Autodesk sketchbook are my goto softwares.</li>
+<li>Started learning little bit Calligraphy as well. <a href="https://www.instagram.com/seblester/">Sebastian Lester</a> is my favourite calligraphy artist.</li>
+</ol>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[What did I learn this week (2021) - 24]]></title>
+            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---24</link>
+            <guid>/blog/what-did-i-learn-this-week-2021---24</guid>
+            <pubDate>Sun, 13 Jun 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Weekly summarization and review of things I've learned in the second week of June 2021]]></description>
+            <content:encoded><![CDATA[<ol>
+<li><a href="https://www.tokyoweekender.com/2021/06/chiune-sugihara-japanese-schindler/">Chiune Sugihara</a>, a Japanese diplomat who defied government orders and saved the lives of thousands of Jews. </li>
+<li><a href="https://www.quora.com/How-does-a-fighter-jet-lock-onto-and-keep-track-of-an-enemy-aircraft-Can-an-aircraft-detect-that-it-has-been-locked-onto-or-is-it-just-a-convenient-plot-device-in-movies">How Fighter Jets Lock On</a>: The primary technology that a military aircraft uses to lock and track an enemy aircraft is its onboard radar. Aircraft radars typically have two modes: search and track. </li>
+<li>The Doppler effect or Doppler shift (or simply Doppler, when in context) is the change in frequency of a wave in relation to an observer who is moving relative to the wave source. It is named after the Austrian physicist Christian Doppler, who described the phenomenon in 1842. </li>
+<li>Saw a nice video editing method that bends time and space in <a href="https://petapixel.com/2021/06/07/this-guy-bends-time-and-space-in-slow-motion/">slow motion</a>.</li>
+<li>Learned bit about <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images">responsive images</a>.</li>
+</ol>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[What did I learn this week (2021) - 23]]></title>
             <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---23</link>
