@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-06-20T18:24:12.447Z</updated>
+    <updated>2021-07-01T10:24:51.158Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -14,6 +14,26 @@
     <category term="Blog"/>
     <category term="Angular"/>
     <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 26]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---26</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---26"/>
+        <updated>2021-06-27T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the third week of June 2021]]></summary>
+        <content type="html"><![CDATA[<h1 id="whatdidilearnthisweek202126">What did I learn this week (2021) - 26</h1>
+<ul>
+<li><a href="https://mqtt.org/">MQTT</a> - The Message Queuing Telemetry Transport (MQTT) is a lightweight, publish-subscribe network protocol that transports messages between devices. The protocol usually runs over TCP/IP; however, any network protocol that provides ordered, lossless, bi-directional connections can support MQTT. It is designed for connections with remote locations where a "small code footprint" is required or the network bandwidth is limited. The protocol is an open OASIS standard and an ISO recommendation (ISO/IEC 20922). The Message Queuing Telemetry Transport (MQTT) is a lightweight, publish-subscribe network protocol that transports messages between devices. The protocol usually runs over TCP/IP; however, any network protocol that provides ordered, lossless, bi-directional connections can support MQTT. It is designed for connections with remote locations where a "small code footprint" is required or the network bandwidth is limited. The protocol is an open OASIS standard and an ISO recommendation (ISO/IEC 20922). </li>
+<li>QUIC (initially Quick UDP Internet Connection, now not an acronym) is <a href="https://eng.snap.com/quic-at-snap">used</a> in SnapChat.</li>
+<li>Researchers working in Israel have identified a previously <a href="https://www.bbc.com/news/science-environment-57586315">unknown type of ancient human</a> that lived alongside our species more than 100,000 years ago. The finds consist of a partial skull and jaw from an individual who lived between 140,000 and 120,000 years ago. The scientists have named the newly discovered lineage the <strong>"Nesher Ramla Homo type"</strong>.</li>
+<li>Found a <a href="https://alexkrupp.typepad.com/sensemaking/2021/06/django-for-startup-founders-a-better-software-architecture-for-saas-startups-and-consumer-apps.html">very informative guide</a> on software architecture</li>
+</ul>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[What did I learn this week (2021) - 25]]></title>
         <id>/blog/what-did-i-learn-this-week-2021---25</id>
