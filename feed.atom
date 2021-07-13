@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-07-01T10:24:51.158Z</updated>
+    <updated>2021-07-13T15:18:06.225Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -15,13 +15,53 @@
     <category term="Angular"/>
     <category term="Dotnet"/>
     <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 27]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---27</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---27"/>
+        <updated>2021-07-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the first week of July 2021]]></summary>
+        <content type="html"><![CDATA[<ul>
+<li><a href="https://copilot.github.com/">Github Copilot</a> - GitHub Copilot is an artificial intelligence tool developed by GitHub and OpenAI to assist users of Visual Studio Code by autocompleting code. GitHub Copilot is powered by Codex, the new AI system created by OpenAI. There was an incident reported in which <a href="https://twitter.com/mitsuhiko/status/1410886329924194309">Copilot</a> taking sweary comments from Quake code.</li>
+<li><a href="https://aviation.stackexchange.com/questions/15269/why-do-some-fighter-jets-have-two-pilots-while-others-have-only-one">Learned</a> why some fighter jets have two pilots while other have only one.</li>
+<li>Brave browser launched its own privacy focused <a href="https://search.brave.com">search engine</a>. With first usage i find it better than duck, it is still in beta though.</li>
+<li>Read a very informative article on the <a href="https://www.blender.org/user-stories/blender-and-the-rabbids/">workflow and usage</a> of Blender for the 'Rabbid Invasion' animated series.</li>
+<li>Rome's Colosseum opens its underground for the <a href="https://edition.cnn.com/travel/article/colosseum-rome-underground-hypogea/index.html">first time</a> in its histor</li>
+</ul>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 28]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---28</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---28"/>
+        <updated>2021-07-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the second week of July 2021]]></summary>
+        <content type="html"><![CDATA[<ol>
+<li>Matheau Flamini, formal footballer and arsenal player is a co-founder of GF Biochemicals, the first company in the world able to mass-produce levulinic acid. He is also one of the richest foolball players.</li>
+<li><a href="https://en.wikipedia.org/wiki/Emily_Nagoski">Emily Nagoski</a> is a sex educator and researcher, and author of the book Come as You Are. Watched some of her TED speaks and it was really informative. </li>
+<li>Found a list of must read <a href="https://durmonski.com/reading-lists/must-read-psychology-books/">psycological books</a>. Among it I have read <code>Thinking fast &amp; Slow</code>, I need to read <code>Behave</code> next. I'm big fan of Sapalosky after his popular youtube lecture.</li>
+<li>Found <a href="https://goomics.net/">Google Internal Comics</a>. It was created by <a href="https://markets.businessinsider.com/news/stocks/google-cartoonist-manu-cornet-quits-company-after-14-years-2021-7">Manu Cornet</a> who quit Google recently after 14 years working there.</li>
+<li><a href="https://en.wikipedia.org/wiki/Angampora">Angampora</a> is a Sri Lankan martial art that combines combat techniques, self-defense, sport, exercise, and meditation. This martial art is very much similar to our <a href="https://en.wikipedia.org/wiki/Kalaripayattu">Kalarippayattu</a>.</li>
+<li>Came to know about the graphic novel <a href="https://nihodomedia.com/portfolio-item/odayan/">Odayan</a>, which is based on vadakkan pattukal and kalarippayattu</li>
+</ol>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[What did I learn this week (2021) - 26]]></title>
         <id>/blog/what-did-i-learn-this-week-2021---26</id>
         <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---26"/>
         <updated>2021-06-27T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the third week of June 2021]]></summary>
-        <content type="html"><![CDATA[<h1 id="whatdidilearnthisweek202126">What did I learn this week (2021) - 26</h1>
-<ul>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the final week of June 2021]]></summary>
+        <content type="html"><![CDATA[<ul>
 <li><a href="https://mqtt.org/">MQTT</a> - The Message Queuing Telemetry Transport (MQTT) is a lightweight, publish-subscribe network protocol that transports messages between devices. The protocol usually runs over TCP/IP; however, any network protocol that provides ordered, lossless, bi-directional connections can support MQTT. It is designed for connections with remote locations where a "small code footprint" is required or the network bandwidth is limited. The protocol is an open OASIS standard and an ISO recommendation (ISO/IEC 20922). The Message Queuing Telemetry Transport (MQTT) is a lightweight, publish-subscribe network protocol that transports messages between devices. The protocol usually runs over TCP/IP; however, any network protocol that provides ordered, lossless, bi-directional connections can support MQTT. It is designed for connections with remote locations where a "small code footprint" is required or the network bandwidth is limited. The protocol is an open OASIS standard and an ISO recommendation (ISO/IEC 20922). </li>
 <li>QUIC (initially Quick UDP Internet Connection, now not an acronym) is <a href="https://eng.snap.com/quic-at-snap">used</a> in SnapChat.</li>
 <li>Researchers working in Israel have identified a previously <a href="https://www.bbc.com/news/science-environment-57586315">unknown type of ancient human</a> that lived alongside our species more than 100,000 years ago. The finds consist of a partial skull and jaw from an individual who lived between 140,000 and 120,000 years ago. The scientists have named the newly discovered lineage the <strong>"Nesher Ramla Homo type"</strong>.</li>
