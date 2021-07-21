@@ -4,7 +4,7 @@
         <title>krishnamohan.dev</title>
         <link>https://krishnamohan.dev</link>
         <description>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</description>
-        <lastBuildDate>Tue, 13 Jul 2021 15:18:05 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 21 Jul 2021 15:15:35 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
         <language>en</language>
@@ -19,6 +19,34 @@
         <category>Angular</category>
         <category>Dotnet</category>
         <item>
+            <title><![CDATA[What did I learn this week (2021) - 29]]></title>
+            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---29</link>
+            <guid>/blog/what-did-i-learn-this-week-2021---29</guid>
+            <pubDate>Sun, 18 Jul 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Weekly summarization and review of things I've learned in the third week of July 2021]]></description>
+            <content:encoded><![CDATA[<ul>
+<li>Attended an online workshop about Gothic Calligraphy organised by <a href="https://www.instagram.com/prajwalxavier/">Prajwal Xavier</a> and it was worth the effort. He provided lot of workesheets and a set of basic tools for doing calligraphy. It was a two hour workshop over the weekend and it really helped to understand the basics.</li>
+<li><a href="https://workspaceupdates.googleblog.com/2021/05/Google-Docs-Canvas-Based-Rendering-Update.html">Google docs</a> are using canvas based rendering.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Houdini">Houdini</a> is a set of low-level APIs that exposes parts of the CSS engine, giving developers the power to extend CSS by hooking into the styling and layout process of a browser’s rendering engine. The <a href="https://developers.google.com/web/updates/2016/05/houdini">Houdini task force</a> consists of engineers from Mozilla, Apple, Opera, Microsoft, HP, Intel and Google working together to expose certain parts of the CSS engine to web developers. </li>
+<li>China lands its <a href="https://www.bbc.com/news/science-environment-57122914">Zhurong rover</a> on Mars.</li>
+</ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[What did I learn this week (2021) - 28]]></title>
+            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---28</link>
+            <guid>/blog/what-did-i-learn-this-week-2021---28</guid>
+            <pubDate>Sun, 18 Jul 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Weekly summarization and review of things I've learned in the second week of July 2021]]></description>
+            <content:encoded><![CDATA[<ul>
+<li>Matheau Flamini, formal footballer and arsenal player is a co-founder of GF Biochemicals, the first company in the world able to mass-produce levulinic acid. He is also one of the richest foolball players.</li>
+<li><a href="https://en.wikipedia.org/wiki/Emily_Nagoski">Emily Nagoski</a> is a sex educator and researcher, and author of the book Come as You Are. Watched some of her TED speaks and it was really informative. </li>
+<li>Found a list of must read <a href="https://durmonski.com/reading-lists/must-read-psychology-books/">psycological books</a>. Among it I have read <code>Thinking fast &amp; Slow</code>, I need to read <code>Behave</code> next. I'm big fan of Sapalosky after his popular youtube lecture.</li>
+<li>Found <a href="https://goomics.net/">Google Internal Comics</a>. It was created by <a href="https://markets.businessinsider.com/news/stocks/google-cartoonist-manu-cornet-quits-company-after-14-years-2021-7">Manu Cornet</a> who quit Google recently after 14 years working there.</li>
+<li><a href="https://en.wikipedia.org/wiki/Angampora">Angampora</a> is a Sri Lankan martial art that combines combat techniques, self-defense, sport, exercise, and meditation. This martial art is very much similar to our <a href="https://en.wikipedia.org/wiki/Kalaripayattu">Kalarippayattu</a>.</li>
+<li>Came to know about the graphic novel <a href="https://nihodomedia.com/portfolio-item/odayan/">Odayan</a>, which is based on vadakkan pattukal and kalarippayattu</li>
+</ul>]]></content:encoded>
+        </item>
+        <item>
             <title><![CDATA[What did I learn this week (2021) - 27]]></title>
             <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---27</link>
             <guid>/blog/what-did-i-learn-this-week-2021---27</guid>
@@ -31,21 +59,6 @@
 <li>Read a very informative article on the <a href="https://www.blender.org/user-stories/blender-and-the-rabbids/">workflow and usage</a> of Blender for the 'Rabbid Invasion' animated series.</li>
 <li>Rome's Colosseum opens its underground for the <a href="https://edition.cnn.com/travel/article/colosseum-rome-underground-hypogea/index.html">first time</a> in its histor</li>
 </ul>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[What did I learn this week (2021) - 28]]></title>
-            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---28</link>
-            <guid>/blog/what-did-i-learn-this-week-2021---28</guid>
-            <pubDate>Sun, 04 Jul 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[Weekly summarization and review of things I've learned in the second week of July 2021]]></description>
-            <content:encoded><![CDATA[<ol>
-<li>Matheau Flamini, formal footballer and arsenal player is a co-founder of GF Biochemicals, the first company in the world able to mass-produce levulinic acid. He is also one of the richest foolball players.</li>
-<li><a href="https://en.wikipedia.org/wiki/Emily_Nagoski">Emily Nagoski</a> is a sex educator and researcher, and author of the book Come as You Are. Watched some of her TED speaks and it was really informative. </li>
-<li>Found a list of must read <a href="https://durmonski.com/reading-lists/must-read-psychology-books/">psycological books</a>. Among it I have read <code>Thinking fast &amp; Slow</code>, I need to read <code>Behave</code> next. I'm big fan of Sapalosky after his popular youtube lecture.</li>
-<li>Found <a href="https://goomics.net/">Google Internal Comics</a>. It was created by <a href="https://markets.businessinsider.com/news/stocks/google-cartoonist-manu-cornet-quits-company-after-14-years-2021-7">Manu Cornet</a> who quit Google recently after 14 years working there.</li>
-<li><a href="https://en.wikipedia.org/wiki/Angampora">Angampora</a> is a Sri Lankan martial art that combines combat techniques, self-defense, sport, exercise, and meditation. This martial art is very much similar to our <a href="https://en.wikipedia.org/wiki/Kalaripayattu">Kalarippayattu</a>.</li>
-<li>Came to know about the graphic novel <a href="https://nihodomedia.com/portfolio-item/odayan/">Odayan</a>, which is based on vadakkan pattukal and kalarippayattu</li>
-</ol>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[What did I learn this week (2021) - 26]]></title>
