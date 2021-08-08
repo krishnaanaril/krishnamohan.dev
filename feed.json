@@ -7,6 +7,39 @@
     "icon": "https://krishnamohan.dev/assets/images/dp.jpeg",
     "items": [
         {
+            "id": "/blog/what-did-i-learn-this-week-2021---32",
+            "content_html": "<ul>\n<li><a href=\"https://calyxos.org/\">CalyxOx</a> is a de-googled android alternative.</li>\n<li>Started learning reactjs.</li>\n<li>Started learning threejs from the very informative <a href=\"https://threejsfundamentals.org/\">'threejs fundamentals'</a> site.</li>\n<li>Came to know about <a href=\"http://alvyray.com/Pixar/PixarHistoryRevisited.htm\">Alvy Ray Smith</a> and about the real history of Pixar.</li>\n</ul>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---32",
+            "title": "What did I learn this week (2021) - 32",
+            "summary": "Weekly summarization and review of things I've learned in the first week of August 2021",
+            "date_modified": "2021-08-08T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
+            "id": "/blog/what-did-i-learn-this-week-2021---31",
+            "content_html": "<ul>\n<li>Found a great blog on <a href=\"https://ciechanow.ski/naval-architecture/\">Naval Architecture</a> by <a href=\"https://twitter.com/bciechanowski\">Bartosz Ciechanowski</a>. His blogs are always well written and detailed with informative images. </li>\n<li><a href=\"http://yosefk.com/blog/evil-tip-avoid-easy-things.html\">Evil tip: avoid \"easy\" things.</a></li>\n<li><a href=\"https://josephg.com/blog/crdts-go-brrr/\">5000x faster CRDTs: An Adventure in Optimization.</a></li>\n<li>Trophallaxis - Trophallaxis is the transfer of food or other fluids among members of a community through mouth-to-mouth or anus-to-mouth feeding. Weired thing I learned from an instagram page.</li>\n</ul>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---31",
+            "title": "What did I learn this week (2021) - 31",
+            "summary": "Weekly summarization and review of things I've learned in the final week of July 2021",
+            "date_modified": "2021-08-01T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
+            "id": "/blog/what-did-i-learn-this-week-2021---30",
+            "content_html": "<ul>\n<li>Found a good article explaining <a href=\"https://rastergrid.com/blog/gpu-tech/2021/07/gpu-architecture-types-explained/\">GPU architecures</a>.</li>\n<li>Found a great article for planning and estimating <a href=\"https://tomrussell.co.uk/writing/2021/07/19/estimating-large-scale-software-projects.html\">large scale software projects</a>.</li>\n<li>Found an article on mastering the basics of <a href=\"https://blog.thenounproject.com/mastering-the-basics-of-icon-design-with-adrien-coquet-9c3802093e30\">icon design</a>.</li>\n<li><a href=\"https://frame.work/\">Framework laptop</a>: A thin, lightweight, high-performance 13.5” notebook that can be upgraded, customized, and repaired in ways that no other notebook can.</li>\n<li>Found a cool artist - <a href=\"https://romaintrystram.myportfolio.com/\">Roman Trystram</a>. Really impressed by his style.</li>\n<li><a href=\"https://x.company/projects/intrinsic/\">Intrinsic</a> is a new Alphabet comapany.</li>\n<li>China unveiled a sweeping overhaul of its $100 billion education tech sector, <a href=\"https://www.bloombergquint.com/markets/china-bans-school-curriculum-tutoring-firms-from-going-public\">banning</a> companies that teach the school curriculum from making profits, raising capital or going public</li>\n</ul>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---30",
+            "title": "What did I learn this week (2021) - 30",
+            "summary": "Weekly summarization and review of things I've learned in the fourth week of July 2021",
+            "date_modified": "2021-07-25T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
             "id": "/blog/what-did-i-learn-this-week-2021---29",
             "content_html": "<ul>\n<li>Attended an online workshop about Gothic Calligraphy organised by <a href=\"https://www.instagram.com/prajwalxavier/\">Prajwal Xavier</a> and it was worth the effort. He provided lot of workesheets and a set of basic tools for doing calligraphy. It was a two hour workshop over the weekend and it really helped to understand the basics.</li>\n<li><a href=\"https://workspaceupdates.googleblog.com/2021/05/Google-Docs-Canvas-Based-Rendering-Update.html\">Google docs</a> are using canvas based rendering.</li>\n<li><a href=\"https://developer.mozilla.org/en-US/docs/Web/Houdini\">Houdini</a> is a set of low-level APIs that exposes parts of the CSS engine, giving developers the power to extend CSS by hooking into the styling and layout process of a browser’s rendering engine. The <a href=\"https://developers.google.com/web/updates/2016/05/houdini\">Houdini task force</a> consists of engineers from Mozilla, Apple, Opera, Microsoft, HP, Intel and Google working together to expose certain parts of the CSS engine to web developers. </li>\n<li>China lands its <a href=\"https://www.bbc.com/news/science-environment-57122914\">Zhurong rover</a> on Mars.</li>\n</ul>",
             "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---29",
