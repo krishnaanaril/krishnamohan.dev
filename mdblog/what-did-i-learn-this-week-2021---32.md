@@ -13,7 +13,7 @@ authors:
   - Krishna Mohan A M
 ---
 
-- [CalyxOx](https://calyxos.org/) is a de-googled android alternative.
+- [CalyxOs](https://calyxos.org/) is a de-googled android alternative.
 - Started learning reactjs.
 - Started learning threejs from the very informative ['threejs fundamentals'](https://threejsfundamentals.org/) site.
 - Came to know about [Alvy Ray Smith](http://alvyray.com/Pixar/PixarHistoryRevisited.htm) and about the real history of Pixar.
