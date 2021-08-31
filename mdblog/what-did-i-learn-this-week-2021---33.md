@@ -20,6 +20,6 @@ authors:
     - [WebGL mechanical clock simulation](https://clock.leshenko.net/)
 - OpenstreeMap project started on [August 9th, 2004](https://www.tomtom.com/blog/maps/tomtom-openstreetmaps-mapmetrics-map-editing/).
 - [Klarna Bank AB](https://www.klarna.com), commonly referred to as Klarna, is a Swedish fintech company that provides online financial services such as payments for online storefronts and direct payments along with post-purchase payments.
-- [Slip](https://www.slip.so/) is the easiest way to create and sell interactive programming courses directly to your audience.
+- [Slip](https://www.slip.so/) is the easiest way(that's their tagline :)) to create and sell interactive programming courses directly to your audience.
 - Found a nodejs [security cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Nodejs_Security_Cheat_Sheet.html).
 - [July was Earth’s hottest month on record.](https://www.noaa.gov/news/its-official-july-2021-was-earths-hottest-month-on-record)
