@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-08-23T08:19:49.233Z</updated>
+    <updated>2021-08-31T15:10:33.755Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -14,6 +14,30 @@
     <category term="Blog"/>
     <category term="Angular"/>
     <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 35]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---35</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---35"/>
+        <updated>2021-08-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the final week of August 2021]]></summary>
+        <content type="html"><![CDATA[<ul>
+<li><a href="https://how-i-experience-web-today.com/">How I Experience Web Today</a> is a satirical site that expresses the concerns a commoner have when accessing popular websites today.</li>
+<li>Found a <a href="https://techinterviewhandbook.org">Tech Interview Handbook</a>. It leads me to another curated list of helpful leetcode <a href="https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-75-LeetCode-Questions-to-Save-Your-Time-OaM1orEU">problems</a>.</li>
+<li>Found a good <a href="https://blog.discord.com/how-discord-stores-billions-of-messages-7fa6ec7ee4c7">system design blog</a> from discord.</li>
+<li>More Than 80 Cultures <a href="https://www.smithsonianmag.com/science-nature/studying-whistled-languages-180978484/">Still Speak in Whistles</a>.</li>
+<li>How does Google Authenticator <a href="https://prezu.ca/post/2021-07-30-totp-1/">work</a>?</li>
+<li><a href="https://www.futureme.org/">Futureme.org</a> helps us to write a letter to our future self.</li>
+<li>Read Julia Evans's <a href="https://jvns.ca/blog/confusing-explanations/">"Pattern in confusing explanations"</a>.</li>
+<li><a href="https://en.wikipedia.org/wiki/Otto_von_Bismarck">Otto, Prince of Bismarck</a>, Count of Bismarck-Schönhausen, Duke of Lauenburg, born Junker Otto Eduard Leopold von Bismarck, was a conservative German statesman, diplomat, and writer. Bismarck masterminded the unification of Germany in 1871 and served as its first chancellor until 1890, in which capacity he dominated European affairs for two decades.</li>
+<li><a href="https://en.wikipedia.org/wiki/Carl_von_Clausewitz">Carl Philipp Gottfried von Clausewitz</a> was a Prussian general and military theorist who stressed the "moral" and political aspects of war. </li>
+</ul>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[What did I learn this week (2021) - 34]]></title>
         <id>/blog/what-did-i-learn-this-week-2021---34</id>
@@ -47,7 +71,7 @@
 <li><a href="https://clock.leshenko.net/">WebGL mechanical clock simulation</a></li></ul></li>
 <li>OpenstreeMap project started on <a href="https://www.tomtom.com/blog/maps/tomtom-openstreetmaps-mapmetrics-map-editing/">August 9th, 2004</a>.</li>
 <li><a href="https://www.klarna.com">Klarna Bank AB</a>, commonly referred to as Klarna, is a Swedish fintech company that provides online financial services such as payments for online storefronts and direct payments along with post-purchase payments.</li>
-<li><a href="https://www.slip.so/">Slip</a> is the easiest way to create and sell interactive programming courses directly to your audience.</li>
+<li><a href="https://www.slip.so/">Slip</a> is the easiest way(that's their tagline :)) to create and sell interactive programming courses directly to your audience.</li>
 <li>Found a nodejs <a href="https://cheatsheetseries.owasp.org/cheatsheets/Nodejs_Security_Cheat_Sheet.html">security cheatsheet</a>.</li>
 <li>[July was Earth’s hottest month on record.](https://www.noaa.gov/news/its-official-july-2021-was-earths-hottest-month-on-record</li>
 </ul>]]></content>
