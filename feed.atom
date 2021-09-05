@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-08-31T15:10:33.755Z</updated>
+    <updated>2021-09-05T15:32:52.366Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -14,6 +14,26 @@
     <category term="Blog"/>
     <category term="Angular"/>
     <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[ What did I learn this week (2021) - 36]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---36</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---36"/>
+        <updated>2021-09-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the first week of September 2021]]></summary>
+        <content type="html"><![CDATA[<ul>
+<li><a href="https://simple.wikipedia.org/wiki/Hanlon%27s_razor">Hanlon's Razor</a>: Some bad things happen not because of people having bad intentions, but because they did not think it through properly. </li>
+<li><a href="https://podman.io/">Podman</a> is a kinda docker alternative. Podman is a daemonless container engine for developing, managing, and running <a href="https://opencontainers.org/">OCI</a> (Open Container Initiative) Containers on your Linux System. Containers can either be run as root or in rootless mode. </li>
+<li><a href="https://github.com/helio-fm/helio-workstation">Helio Workstation</a> is free and open-source music sequencer, designed to be used on all major platforms.</li>
+<li><a href="https://mg.lol/blog/omg-cable/">O.MG Cable</a> is actually a malicious cable that can record everything I type, including passwords, and wirelessly send that data to a hacker who could be more than a mile away. It is packed with a web server, 802.11 radio, and way more memory and processing power. This is the new version of a series of penetration testing tools made by the security researcher known as <a href="https://twitter.com/_MG_">MG</a>.</li>
+<li>Found <a href="https://www.susanrigetti.com/philosophy">Susan Rigetti's guide</a> to learn philosophy</li>
+</ul>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[What did I learn this week (2021) - 35]]></title>
         <id>/blog/what-did-i-learn-this-week-2021---35</id>
