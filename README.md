@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+background: rgb(77,180,58);
+            background: linear-gradient(329deg, rgba(77,180,58,1) 0%, rgba(4,25,128,1) 50%, rgba(203,9,140,1) 100%); 
+            display: flex;

@@ -7,8 +7,8 @@ updatedAt: 2021-08-29T00:00:00.000Z
 category: learnings
 image: 'assets/banners/46'
 keywords: 
-  - React
-  - Dotnet
+  - System Design
+  - History
 authors:
   - Krishna Mohan A M
 ---
