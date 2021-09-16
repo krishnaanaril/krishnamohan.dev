@@ -1,14 +1,14 @@
 ---
-title: ' What did I learn this week (2021) - 36'
+title: 'What did I learn this week (2021) - 36'
 description: Weekly summarization and review of things I've learned in the first week of September 2021 
 published: true
 publishedAt: 2021-09-05T00:00:00.000Z
-updatedAt: 2021-09-05T00:00:00.000Z
+updatedAt: 2021-09-12T00:00:00.000Z
 category: learnings
 image: 'assets/banners/47'
 keywords: 
-  - React
-  - Dotnet
+  - Philosophy
+  - Hacking
 authors:
   - Krishna Mohan A M
 ---
