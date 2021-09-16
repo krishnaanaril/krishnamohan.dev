@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-09-05T15:32:52.366Z</updated>
+    <updated>2021-09-16T17:36:33.495Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -15,10 +15,29 @@
     <category term="Angular"/>
     <category term="Dotnet"/>
     <entry>
-        <title type="html"><![CDATA[ What did I learn this week (2021) - 36]]></title>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 37]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---37</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---37"/>
+        <updated>2021-09-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the second week of September 2021]]></summary>
+        <content type="html"><![CDATA[<ul>
+<li>Comet <a href="https://en.wikipedia.org/wiki/C/2014_UN271_(Bernardinelli-Bernstein)">Bernardinelli-Bernstein</a>, as it's now known, was the largest such icy body identified to date, perhaps more than 100 miles (160 kilometers) across. </li>
+<li>Real-time face swap for PC streaming or video calls  is now possible with <a href="https://github.com/iperov/DeepFaceLive">DeepFaceLive</a>, but a high configuration system is required.</li>
+<li>Completed the book '48 laws of power' by Robert Greene.</li>
+<li>Learned new features in C# 8 and C# 9.</li>
+</ul>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 36]]></title>
         <id>/blog/what-did-i-learn-this-week-2021---36</id>
         <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---36"/>
-        <updated>2021-09-05T00:00:00.000Z</updated>
+        <updated>2021-09-12T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the first week of September 2021]]></summary>
         <content type="html"><![CDATA[<ul>
 <li><a href="https://simple.wikipedia.org/wiki/Hanlon%27s_razor">Hanlon's Razor</a>: Some bad things happen not because of people having bad intentions, but because they did not think it through properly. </li>

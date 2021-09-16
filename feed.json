@@ -7,12 +7,23 @@
     "icon": "https://krishnamohan.dev/assets/images/dp.jpeg",
     "items": [
         {
+            "id": "/blog/what-did-i-learn-this-week-2021---37",
+            "content_html": "<ul>\n<li>Comet <a href=\"https://en.wikipedia.org/wiki/C/2014_UN271_(Bernardinelli-Bernstein)\">Bernardinelli-Bernstein</a>, as it's now known, was the largest such icy body identified to date, perhaps more than 100 miles (160 kilometers) across. </li>\n<li>Real-time face swap for PC streaming or video calls  is now possible with <a href=\"https://github.com/iperov/DeepFaceLive\">DeepFaceLive</a>, but a high configuration system is required.</li>\n<li>Completed the book '48 laws of power' by Robert Greene.</li>\n<li>Learned new features in C# 8 and C# 9.</li>\n</ul>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---37",
+            "title": "What did I learn this week (2021) - 37",
+            "summary": "Weekly summarization and review of things I've learned in the second week of September 2021",
+            "date_modified": "2021-09-12T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
             "id": "/blog/what-did-i-learn-this-week-2021---36",
             "content_html": "<ul>\n<li><a href=\"https://simple.wikipedia.org/wiki/Hanlon%27s_razor\">Hanlon's Razor</a>: Some bad things happen not because of people having bad intentions, but because they did not think it through properly. </li>\n<li><a href=\"https://podman.io/\">Podman</a> is a kinda docker alternative. Podman is a daemonless container engine for developing, managing, and running <a href=\"https://opencontainers.org/\">OCI</a> (Open Container Initiative) Containers on your Linux System. Containers can either be run as root or in rootless mode. </li>\n<li><a href=\"https://github.com/helio-fm/helio-workstation\">Helio Workstation</a> is free and open-source music sequencer, designed to be used on all major platforms.</li>\n<li><a href=\"https://mg.lol/blog/omg-cable/\">O.MG Cable</a> is actually a malicious cable that can record everything I type, including passwords, and wirelessly send that data to a hacker who could be more than a mile away. It is packed with a web server, 802.11 radio, and way more memory and processing power. This is the new version of a series of penetration testing tools made by the security researcher known as <a href=\"https://twitter.com/_MG_\">MG</a>.</li>\n<li>Found <a href=\"https://www.susanrigetti.com/philosophy\">Susan Rigetti's guide</a> to learn philosophy</li>\n</ul>",
             "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---36",
-            "title": " What did I learn this week (2021) - 36",
+            "title": "What did I learn this week (2021) - 36",
             "summary": "Weekly summarization and review of things I've learned in the first week of September 2021",
-            "date_modified": "2021-09-05T00:00:00.000Z",
+            "date_modified": "2021-09-12T00:00:00.000Z",
             "author": {
                 "name": "Krishna Mohan A M"
             }

@@ -4,7 +4,7 @@
         <title>krishnamohan.dev</title>
         <link>https://krishnamohan.dev</link>
         <description>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</description>
-        <lastBuildDate>Sun, 05 Sep 2021 15:32:52 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 16 Sep 2021 17:36:33 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
         <language>en</language>
@@ -19,10 +19,23 @@
         <category>Angular</category>
         <category>Dotnet</category>
         <item>
-            <title><![CDATA[ What did I learn this week (2021) - 36]]></title>
+            <title><![CDATA[What did I learn this week (2021) - 37]]></title>
+            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---37</link>
+            <guid>/blog/what-did-i-learn-this-week-2021---37</guid>
+            <pubDate>Sun, 12 Sep 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Weekly summarization and review of things I've learned in the second week of September 2021]]></description>
+            <content:encoded><![CDATA[<ul>
+<li>Comet <a href="https://en.wikipedia.org/wiki/C/2014_UN271_(Bernardinelli-Bernstein)">Bernardinelli-Bernstein</a>, as it's now known, was the largest such icy body identified to date, perhaps more than 100 miles (160 kilometers) across. </li>
+<li>Real-time face swap for PC streaming or video calls  is now possible with <a href="https://github.com/iperov/DeepFaceLive">DeepFaceLive</a>, but a high configuration system is required.</li>
+<li>Completed the book '48 laws of power' by Robert Greene.</li>
+<li>Learned new features in C# 8 and C# 9.</li>
+</ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[What did I learn this week (2021) - 36]]></title>
             <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---36</link>
             <guid>/blog/what-did-i-learn-this-week-2021---36</guid>
-            <pubDate>Sun, 05 Sep 2021 00:00:00 GMT</pubDate>
+            <pubDate>Sun, 12 Sep 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Weekly summarization and review of things I've learned in the first week of September 2021]]></description>
             <content:encoded><![CDATA[<ul>
 <li><a href="https://simple.wikipedia.org/wiki/Hanlon%27s_razor">Hanlon's Razor</a>: Some bad things happen not because of people having bad intentions, but because they did not think it through properly. </li>
