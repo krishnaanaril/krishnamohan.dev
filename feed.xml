@@ -4,7 +4,7 @@
         <title>krishnamohan.dev</title>
         <link>https://krishnamohan.dev</link>
         <description>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</description>
-        <lastBuildDate>Thu, 16 Sep 2021 17:36:33 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 21 Sep 2021 03:55:45 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
         <language>en</language>
@@ -18,6 +18,20 @@
         <category>Blog</category>
         <category>Angular</category>
         <category>Dotnet</category>
+        <item>
+            <title><![CDATA[What did I learn this week (2021) - 38]]></title>
+            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---38</link>
+            <guid>/blog/what-did-i-learn-this-week-2021---38</guid>
+            <pubDate>Sun, 19 Sep 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Weekly summarization and review of things I've learned in the third week of September 2021]]></description>
+            <content:encoded><![CDATA[<ul>
+<li><a href="https://www.science.org/content/article/barnyard-breakthrough-researchers-successfully-potty-train-cows">Researchers successfully potty train cows</a>. So it is doable :smiley:.</li>
+<li>Found a very informative article on <a href="https://tomblomfield.com/post/662033487432466432/how-to-raise-investment">how to raise investement</a>.</li>
+<li>Apple co-founder Steve Wozniak is starting a private space company called Privateer. Privateer will apparently monitor and clean up objects in space, but little else is known about the company yet. Literally, a privateer is a private person or ship that engages in maritime warfare under a commission of war. </li>
+<li>Found an informative article regarding <a href="https://www.joshwcomeau.com/css/designing-shadows/">'Designing beautiful shadows in CSS'</a>.</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Fertile_Crescent">Fertile Crescent</a> is a crescent-shaped region in the Middle East, spanning modern-day Iraq, Syria, Lebanon, Palestine, Israel, Jordan, and Egypt, together with the southeastern region of Turkey and the western portion of Iran. The region is one of the cradles of civilization because it is one location where settled farming first emerged as people started the process of clearance and modification of natural vegetation to grow newly domesticated plants as crops.</li>
+</ul>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[What did I learn this week (2021) - 37]]></title>
             <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---37</link>

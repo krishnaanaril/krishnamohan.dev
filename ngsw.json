@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1631813730128,
+  "timestamp": 1632196482750,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -137,6 +137,8 @@
         "/assets/banners/47.webp",
         "/assets/banners/48.png",
         "/assets/banners/48.webp",
+        "/assets/banners/49.png",
+        "/assets/banners/49.webp",
         "/assets/icons/icon-128x128.png",
         "/assets/icons/icon-144x144.png",
         "/assets/icons/icon-152x152.png",
@@ -194,7 +196,8 @@
         "/assets/images/dp_old.webp",
         "/assets/images/icons/baseline-home-24px.svg",
         "/assets/images/icons/close-24px.svg",
-        "/assets/images/icons/menu-black-24dp.svg"
+        "/assets/images/icons/menu-black-24dp.svg",
+        "/assets/scully-routes.json"
       ],
       "patterns": []
     }
@@ -305,6 +308,8 @@
     "/assets/banners/47.webp": "244bc6fd5f120290171b0ca250e9f8c81de7c75b",
     "/assets/banners/48.png": "42a9df9085b00cc46ba53ff722a2105e5eaa9c78",
     "/assets/banners/48.webp": "92a6d3706d3598c08c4e236f2ac82d4963b10356",
+    "/assets/banners/49.png": "3192d95c99f8d286fe28922dd0ee5cae796bcbfe",
+    "/assets/banners/49.webp": "a6160ce0326f656a21fffdc1252a4ff48cefb770",
     "/assets/icons/icon-128x128.png": "568d6f5a6e3a40aa977c53b2608e6b2793f2eef9",
     "/assets/icons/icon-144x144.png": "dd9404e54c0bf578c680b728377fd72ff6e2315d",
     "/assets/icons/icon-152x152.png": "93d990ec0e526acb6167bba5c00669c859838f5c",
@@ -363,6 +368,7 @@
     "/assets/images/icons/baseline-home-24px.svg": "0acc9e888ee145ae78aadbfddbb47884b000864d",
     "/assets/images/icons/close-24px.svg": "8b776764f395386d649c583fa38c20db46b78191",
     "/assets/images/icons/menu-black-24dp.svg": "b83b1b0f15b50524f4c7f532b3553bf103bdc14c",
+    "/assets/scully-routes.json": "ab84a41c910bade01883502477c1afe191b846f3",
     "/common-es2015.3135f207d78e5ed7d6fb.js": "8800964bcee755b7278f5c6754920dd601c934d0",
     "/common-es5.3135f207d78e5ed7d6fb.js": "5964d5fd1df84cfdd7d7777499522fd05a2760e8",
     "/favicon.ico": "a2c72cee8720f6a168ed605c5285c277a3f3bf92",

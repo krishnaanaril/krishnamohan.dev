@@ -7,6 +7,17 @@
     "icon": "https://krishnamohan.dev/assets/images/dp.jpeg",
     "items": [
         {
+            "id": "/blog/what-did-i-learn-this-week-2021---38",
+            "content_html": "<ul>\n<li><a href=\"https://www.science.org/content/article/barnyard-breakthrough-researchers-successfully-potty-train-cows\">Researchers successfully potty train cows</a>. So it is doable :smiley:.</li>\n<li>Found a very informative article on <a href=\"https://tomblomfield.com/post/662033487432466432/how-to-raise-investment\">how to raise investement</a>.</li>\n<li>Apple co-founder Steve Wozniak is starting a private space company called Privateer. Privateer will apparently monitor and clean up objects in space, but little else is known about the company yet. Literally, a privateer is a private person or ship that engages in maritime warfare under a commission of war. </li>\n<li>Found an informative article regarding <a href=\"https://www.joshwcomeau.com/css/designing-shadows/\">'Designing beautiful shadows in CSS'</a>.</li>\n<li>The <a href=\"https://en.wikipedia.org/wiki/Fertile_Crescent\">Fertile Crescent</a> is a crescent-shaped region in the Middle East, spanning modern-day Iraq, Syria, Lebanon, Palestine, Israel, Jordan, and Egypt, together with the southeastern region of Turkey and the western portion of Iran. The region is one of the cradles of civilization because it is one location where settled farming first emerged as people started the process of clearance and modification of natural vegetation to grow newly domesticated plants as crops.</li>\n</ul>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---38",
+            "title": "What did I learn this week (2021) - 38",
+            "summary": "Weekly summarization and review of things I've learned in the third week of September 2021",
+            "date_modified": "2021-09-19T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
             "id": "/blog/what-did-i-learn-this-week-2021---37",
             "content_html": "<ul>\n<li>Comet <a href=\"https://en.wikipedia.org/wiki/C/2014_UN271_(Bernardinelli-Bernstein)\">Bernardinelli-Bernstein</a>, as it's now known, was the largest such icy body identified to date, perhaps more than 100 miles (160 kilometers) across. </li>\n<li>Real-time face swap for PC streaming or video calls  is now possible with <a href=\"https://github.com/iperov/DeepFaceLive\">DeepFaceLive</a>, but a high configuration system is required.</li>\n<li>Completed the book '48 laws of power' by Robert Greene.</li>\n<li>Learned new features in C# 8 and C# 9.</li>\n</ul>",
             "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---37",
