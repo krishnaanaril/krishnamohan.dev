@@ -4,7 +4,7 @@
         <title>krishnamohan.dev</title>
         <link>https://krishnamohan.dev</link>
         <description>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</description>
-        <lastBuildDate>Tue, 21 Sep 2021 03:55:45 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 28 Sep 2021 16:12:05 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
         <language>en</language>
@@ -18,6 +18,20 @@
         <category>Blog</category>
         <category>Angular</category>
         <category>Dotnet</category>
+        <item>
+            <title><![CDATA[What did I learn this week (2021) - 39]]></title>
+            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---39</link>
+            <guid>/blog/what-did-i-learn-this-week-2021---39</guid>
+            <pubDate>Sun, 26 Sep 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Weekly summarization and review of things I've learned in the final week of September 2021]]></description>
+            <content:encoded><![CDATA[<ul>
+<li>There is a <a href="https://hacker-recommended-books.vercel.app">site</a> that helps to find the hacker news recommended books. It uses <a href="https://news.ycombinator.com/item?id=28596207">deep learning</a>.</li>
+<li>Found a british military training video on <a href="https://www.youtube.com/watch?v=Q7OPLWQJYKg">'How to ride a motorcycle'</a>.</li>
+<li><a href="https://nginx-playground.wizardzines.com/">nginx playground</a> is a website where you can just paste in an nginx config and test it out. It was created by Julia Evans.</li>
+<li>Learned about <a href="https://www.getrevue.co/profile/shift-happens/issues/moire-no-more-688319">moire</a>.</li>
+<li>Found an <a href="https://withcompound.com/manual-company-equity/understanding-startup-offers">informative article</a> to understand startup offers.</li>
+</ul>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[What did I learn this week (2021) - 38]]></title>
             <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---38</link>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-09-21T03:55:45.436Z</updated>
+    <updated>2021-09-28T16:12:06.008Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -14,6 +14,26 @@
     <category term="Blog"/>
     <category term="Angular"/>
     <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 39]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---39</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---39"/>
+        <updated>2021-09-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the final week of September 2021]]></summary>
+        <content type="html"><![CDATA[<ul>
+<li>There is a <a href="https://hacker-recommended-books.vercel.app">site</a> that helps to find the hacker news recommended books. It uses <a href="https://news.ycombinator.com/item?id=28596207">deep learning</a>.</li>
+<li>Found a british military training video on <a href="https://www.youtube.com/watch?v=Q7OPLWQJYKg">'How to ride a motorcycle'</a>.</li>
+<li><a href="https://nginx-playground.wizardzines.com/">nginx playground</a> is a website where you can just paste in an nginx config and test it out. It was created by Julia Evans.</li>
+<li>Learned about <a href="https://www.getrevue.co/profile/shift-happens/issues/moire-no-more-688319">moire</a>.</li>
+<li>Found an <a href="https://withcompound.com/manual-company-equity/understanding-startup-offers">informative article</a> to understand startup offers.</li>
+</ul>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[What did I learn this week (2021) - 38]]></title>
         <id>/blog/what-did-i-learn-this-week-2021---38</id>

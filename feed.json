@@ -7,6 +7,17 @@
     "icon": "https://krishnamohan.dev/assets/images/dp.jpeg",
     "items": [
         {
+            "id": "/blog/what-did-i-learn-this-week-2021---39",
+            "content_html": "<ul>\n<li>There is a <a href=\"https://hacker-recommended-books.vercel.app\">site</a> that helps to find the hacker news recommended books. It uses <a href=\"https://news.ycombinator.com/item?id=28596207\">deep learning</a>.</li>\n<li>Found a british military training video on <a href=\"https://www.youtube.com/watch?v=Q7OPLWQJYKg\">'How to ride a motorcycle'</a>.</li>\n<li><a href=\"https://nginx-playground.wizardzines.com/\">nginx playground</a> is a website where you can just paste in an nginx config and test it out. It was created by Julia Evans.</li>\n<li>Learned about <a href=\"https://www.getrevue.co/profile/shift-happens/issues/moire-no-more-688319\">moire</a>.</li>\n<li>Found an <a href=\"https://withcompound.com/manual-company-equity/understanding-startup-offers\">informative article</a> to understand startup offers.</li>\n</ul>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---39",
+            "title": "What did I learn this week (2021) - 39",
+            "summary": "Weekly summarization and review of things I've learned in the final week of September 2021",
+            "date_modified": "2021-09-26T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
             "id": "/blog/what-did-i-learn-this-week-2021---38",
             "content_html": "<ul>\n<li><a href=\"https://www.science.org/content/article/barnyard-breakthrough-researchers-successfully-potty-train-cows\">Researchers successfully potty train cows</a>. So it is doable :smiley:.</li>\n<li>Found a very informative article on <a href=\"https://tomblomfield.com/post/662033487432466432/how-to-raise-investment\">how to raise investement</a>.</li>\n<li>Apple co-founder Steve Wozniak is starting a private space company called Privateer. Privateer will apparently monitor and clean up objects in space, but little else is known about the company yet. Literally, a privateer is a private person or ship that engages in maritime warfare under a commission of war. </li>\n<li>Found an informative article regarding <a href=\"https://www.joshwcomeau.com/css/designing-shadows/\">'Designing beautiful shadows in CSS'</a>.</li>\n<li>The <a href=\"https://en.wikipedia.org/wiki/Fertile_Crescent\">Fertile Crescent</a> is a crescent-shaped region in the Middle East, spanning modern-day Iraq, Syria, Lebanon, Palestine, Israel, Jordan, and Egypt, together with the southeastern region of Turkey and the western portion of Iran. The region is one of the cradles of civilization because it is one location where settled farming first emerged as people started the process of clearance and modification of natural vegetation to grow newly domesticated plants as crops.</li>\n</ul>",
             "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---38",
