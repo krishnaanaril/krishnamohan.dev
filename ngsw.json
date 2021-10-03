@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1632845445705,
+  "timestamp": 1633274054790,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -141,6 +141,8 @@
         "/assets/banners/49.webp",
         "/assets/banners/50.png",
         "/assets/banners/50.webp",
+        "/assets/banners/51.png",
+        "/assets/banners/51.webp",
         "/assets/icons/icon-128x128.png",
         "/assets/icons/icon-144x144.png",
         "/assets/icons/icon-152x152.png",
@@ -314,6 +316,8 @@
     "/assets/banners/49.webp": "a6160ce0326f656a21fffdc1252a4ff48cefb770",
     "/assets/banners/50.png": "c1915905095bf74fdbc6eb93670cf1ac42813237",
     "/assets/banners/50.webp": "57accf3bd45c792b09b9e7dbb8f905fe867928b7",
+    "/assets/banners/51.png": "35711233cbbe069f5daca862e63c89ea49a09e98",
+    "/assets/banners/51.webp": "15dbec4d874e9029a8e9f28d751baacbbdf7cf7b",
     "/assets/icons/icon-128x128.png": "568d6f5a6e3a40aa977c53b2608e6b2793f2eef9",
     "/assets/icons/icon-144x144.png": "dd9404e54c0bf578c680b728377fd72ff6e2315d",
     "/assets/icons/icon-152x152.png": "93d990ec0e526acb6167bba5c00669c859838f5c",
