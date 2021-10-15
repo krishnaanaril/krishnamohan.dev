@@ -9,7 +9,6 @@ image: 'assets/banners/51'
 keywords: 
   - mangling
   - mom-test
-  - 
 authors:
   - Krishna Mohan A M
 ---
