@@ -4,7 +4,7 @@
         <title>krishnamohan.dev</title>
         <link>https://krishnamohan.dev</link>
         <description>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</description>
-        <lastBuildDate>Fri, 15 Oct 2021 07:33:01 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 20 Oct 2021 05:42:07 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
         <language>en</language>
@@ -18,6 +18,19 @@
         <category>Blog</category>
         <category>Angular</category>
         <category>Dotnet</category>
+        <item>
+            <title><![CDATA[What did I learn this week (2021) - 42]]></title>
+            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---42</link>
+            <guid>/blog/what-did-i-learn-this-week-2021---42</guid>
+            <pubDate>Sun, 17 Oct 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Weekly summarization and review of things I've learned in the third week of October 2021]]></description>
+            <content:encoded><![CDATA[<ul>
+<li>Airbus has completed test flights for its <a href="https://eandt.theiet.org/content/articles/2021/10/solar-powered-aircraft-flown-for-nearly-three-weeks-without-landing/">solar-powered Zephyr</a> aircraft which is designed to stay airborne for weeks at a time in order to provide internet to users on the ground.</li>
+<li>In 1958 two guys flew a Cessna 172 nonstop for <a href="https://jalopnik.com/how-a-slot-machine-mechanic-flew-150-000-miles-over-64-5971433">64 days without landing</a>. They refueled mid-air via a truck that drove under them during a low pass.</li>
+<li>Found a <a href="https://whitehoodhacker.net/posts/2021-10-04-the-big-rick">blog</a> that depicts the details of hacking IoT systems (for educational purposes). Learned about the term <a href="https://en.wikipedia.org/wiki/Rickrolling">RickRolling</a> too.</li>
+<li>Found a <a href="https://mdk.fr/blog/how-apt-does-its-fancy-progress-bar.html">blog</a> on the alternate implemenation of putting progressbar at the bottom of command line similar to apt installation. <a href="https://github.com/tqdm/tqdm/"><code>tqdem</code></a> is a Fast, Extensible Progress Bar for Python and CLI.</li>
+</ul>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[What did I learn this week (2021) - 41]]></title>
             <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---41</link>

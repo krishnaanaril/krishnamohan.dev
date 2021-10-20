@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1634283109543,
+  "timestamp": 1634708469134,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -145,6 +145,8 @@
         "/assets/banners/51.webp",
         "/assets/banners/52.png",
         "/assets/banners/52.webp",
+        "/assets/banners/53.png",
+        "/assets/banners/53.webp",
         "/assets/icons/icon-128x128.png",
         "/assets/icons/icon-144x144.png",
         "/assets/icons/icon-152x152.png",
@@ -322,6 +324,8 @@
     "/assets/banners/51.webp": "15dbec4d874e9029a8e9f28d751baacbbdf7cf7b",
     "/assets/banners/52.png": "d8b7fa87da511945be9d80d48211749374f71ea5",
     "/assets/banners/52.webp": "ea8586b53d02144d30d8a6d660a536a6c11be1fc",
+    "/assets/banners/53.png": "1c2c33ee7776fdfa0173a1f61c17d0f6693e74d6",
+    "/assets/banners/53.webp": "3afb1e53e052913973aef6d8148912684acca1c7",
     "/assets/icons/icon-128x128.png": "568d6f5a6e3a40aa977c53b2608e6b2793f2eef9",
     "/assets/icons/icon-144x144.png": "dd9404e54c0bf578c680b728377fd72ff6e2315d",
     "/assets/icons/icon-152x152.png": "93d990ec0e526acb6167bba5c00669c859838f5c",
@@ -380,7 +384,7 @@
     "/assets/images/icons/baseline-home-24px.svg": "0acc9e888ee145ae78aadbfddbb47884b000864d",
     "/assets/images/icons/close-24px.svg": "8b776764f395386d649c583fa38c20db46b78191",
     "/assets/images/icons/menu-black-24dp.svg": "b83b1b0f15b50524f4c7f532b3553bf103bdc14c",
-    "/assets/scully-routes.json": "4ed6031025738ffc6e756f4c13fa5928d87dfc2f",
+    "/assets/scully-routes.json": "7ae22d32ad059aeac9bef114c3fe0b3f80111463",
     "/common-es2015.3135f207d78e5ed7d6fb.js": "8800964bcee755b7278f5c6754920dd601c934d0",
     "/common-es5.3135f207d78e5ed7d6fb.js": "5964d5fd1df84cfdd7d7777499522fd05a2760e8",
     "/favicon.ico": "a2c72cee8720f6a168ed605c5285c277a3f3bf92",

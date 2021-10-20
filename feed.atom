@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2021-10-15T07:33:01.348Z</updated>
+    <updated>2021-10-20T05:42:07.154Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -14,6 +14,25 @@
     <category term="Blog"/>
     <category term="Angular"/>
     <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2021) - 42]]></title>
+        <id>/blog/what-did-i-learn-this-week-2021---42</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---42"/>
+        <updated>2021-10-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the third week of October 2021]]></summary>
+        <content type="html"><![CDATA[<ul>
+<li>Airbus has completed test flights for its <a href="https://eandt.theiet.org/content/articles/2021/10/solar-powered-aircraft-flown-for-nearly-three-weeks-without-landing/">solar-powered Zephyr</a> aircraft which is designed to stay airborne for weeks at a time in order to provide internet to users on the ground.</li>
+<li>In 1958 two guys flew a Cessna 172 nonstop for <a href="https://jalopnik.com/how-a-slot-machine-mechanic-flew-150-000-miles-over-64-5971433">64 days without landing</a>. They refueled mid-air via a truck that drove under them during a low pass.</li>
+<li>Found a <a href="https://whitehoodhacker.net/posts/2021-10-04-the-big-rick">blog</a> that depicts the details of hacking IoT systems (for educational purposes). Learned about the term <a href="https://en.wikipedia.org/wiki/Rickrolling">RickRolling</a> too.</li>
+<li>Found a <a href="https://mdk.fr/blog/how-apt-does-its-fancy-progress-bar.html">blog</a> on the alternate implemenation of putting progressbar at the bottom of command line similar to apt installation. <a href="https://github.com/tqdm/tqdm/"><code>tqdem</code></a> is a Fast, Extensible Progress Bar for Python and CLI.</li>
+</ul>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[What did I learn this week (2021) - 41]]></title>
         <id>/blog/what-did-i-learn-this-week-2021---41</id>
