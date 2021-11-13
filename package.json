@@ -90,7 +90,7 @@
     "tailwindcss": "^2.0.3",
     "ts-node": "~5.0.1",
     "tslint": "~6.1.0",
-    "typescript": "^4.4.0",
+    "typescript": "^4.3.5",
     "xmlbuilder": "^15.1.1"
   }
 }
