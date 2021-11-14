@@ -4,7 +4,7 @@
         <title>krishnamohan.dev</title>
         <link>https://krishnamohan.dev</link>
         <description>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</description>
-        <lastBuildDate>Wed, 20 Oct 2021 05:42:07 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 14 Nov 2021 16:47:40 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
         <language>en</language>
@@ -18,6 +18,62 @@
         <category>Blog</category>
         <category>Angular</category>
         <category>Dotnet</category>
+        <item>
+            <title><![CDATA[What did I learn this week (2021) - 46]]></title>
+            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---46</link>
+            <guid>/blog/what-did-i-learn-this-week-2021---46</guid>
+            <pubDate>Sun, 14 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Weekly summarization and review of things I've learned in the second week of November 2021]]></description>
+            <content:encoded><![CDATA[<ul>
+<li>Found an ML library to <a href="https://github.com/microsoft/Bringing-Old-Photos-Back-to-Life">bring old photos back to life</a>.</li>
+<li>Found an <a href="https://skerritt.blog/make-popular-open-source-projects/">informative blog</a> with tips for making a popular open source project.</li>
+<li><a href="https://www.apple.com/business/essentials/">Apple Business Essentials</a> is a subscription service from Apple to provide device management, round-the-clock support, and iCloud storage for small enterprises with up to 500 employees.</li>
+<li><a href="https://www.pritzkerprize.com/">Pritzker Prize</a> is the highest prize in architecture.</li>
+<li>As of iOS 15, access to the <a href="https://www.mysk.blog/2021/10/24/accelerometer-ios/">accelerometer is open to all apps</a>. Accelerometer data encompasses private information about you that any app can easily expose by applying the right algorithm.</li>
+</ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[What did I learn this week (2021) - 45]]></title>
+            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---45</link>
+            <guid>/blog/what-did-i-learn-this-week-2021---45</guid>
+            <pubDate>Sun, 07 Nov 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Weekly summarization and review of things I've learned in the first week of November 2021]]></description>
+            <content:encoded><![CDATA[<ul>
+<li>How to learn stuff <a href="https://www.joshwcomeau.com/blog/how-to-learn-stuff-quickly/#%2F%2F%2F%2F%2F%2F/">quickly</a>?</li>
+<li>Found a beautiful article on <a href="https://www.haroldserrano.com/blog/how-do-i-build-a-game-engine">how game engines work</a>.
+-<a href="https://www.helionenergy.com/"> Helion Energy, Inc</a>. is an American fusion research company, located in Everett, Washington.[1] They are developing a magneto-inertial fusion technology to produce Helium-3 gas and fusion power via aneutronic fusio</li>
+</ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[What did I learn this week (2021) - 44]]></title>
+            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---44</link>
+            <guid>/blog/what-did-i-learn-this-week-2021---44</guid>
+            <pubDate>Sun, 31 Oct 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Weekly summarization and review of things I've learned in the fifth week of October 2021]]></description>
+            <content:encoded><![CDATA[<ul>
+<li>Found a good offline first database <a href="https://github.com/pubkey/client-side-databases">comparison</a>.</li>
+<li><a href="https://en.wikipedia.org/wiki/Special:Random">Wikipedia - Blind Date</a> helps to pull up a random page when you are bored.</li>
+<li>Facebook renamed to <a href="https://about.facebook.com/meta/">Meta</a>.</li>
+<li><a href="https://blog.pwabuilder.com/posts/publish-your-pwa-to-the-ios-app-store/">PwaBuilder.com</a> is a new tool that helps to build iOs apps from PWAs</li>
+<li><a href="https://duckdb.org/">DuckDB</a> is an in-process SQL OLAP database management system.  DuckDB is a regular RDBMS that has persistent ACID storage, but is tuned towards analytical workloads, i.e. read-heavy workloads with aggregates that require full scans of the data. Any data you write to tables is stored persistently on disk, and not all your data needs to fit in memory either.</li>
+<li><a href="https://openworm.org/">OpenWorm</a> is an open source project dedicated to creating the first virtual organism in a computer</li>
+</ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[What did I learn this week (2021) - 43]]></title>
+            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---43</link>
+            <guid>/blog/what-did-i-learn-this-week-2021---43</guid>
+            <pubDate>Sun, 24 Oct 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Weekly summarization and review of things I've learned in the fourth week of October 2021]]></description>
+            <content:encoded><![CDATA[<ul>
+<li><a href="https://www.backblaze.com/">Backblaze, Inc.</a> is a cloud storage and data backup company, founded in 2007. Its two main products are their B2 Cloud Storage and Computer Backup services, targeted at both business and personal markets. They were in news recently because of IPO announcement.</li>
+<li><a href="https://github.com/restic/restic">Restic</a> &amp; <a href="https://github.com/kopia/kopia">Kopia</a> are two open source cross platform backup tools.</li>
+<li>The <a href="https://en.wikipedia.org/wiki/IP_Code">IP Code</a>, or Ingress Protection Code is defined in IEC standard 60529 which classifies and rates the degree of protection provided by mechanical casings and electrical enclosures against intrusion, dust, accidental contact, and water. It is published by the International Electrotechnical Commission (IEC). The equivalent European standard is EN 60529. Devices backed by an international standard rating of <strong>IP68</strong> are deemed fit enough to withstand dust, dirt and sand, and are resistant to submersion up to a maximum depth of 1.5m underwater for up to thirty minutes.</li>
+<li><a href="https://browser.engineering/">Web Browser Engineering</a> is an upcoming book about how browser work. One of the author is Chris Harrelson, rendering lead for Chrome.</li>
+<li>Found a detailed guid to <a href="https://knowingless.com/2021/10/19/becoming-a-whorelord-the-overly-analytical-guide-to-escorting/">escorting</a>.</li>
+<li>VS Code is now available in <a href="https://vscode.dev/">browser</a></li>
+</ul>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[What did I learn this week (2021) - 42]]></title>
             <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---42</link>

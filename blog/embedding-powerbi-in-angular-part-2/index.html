@@ -16,7 +16,7 @@
   <link rel="manifest" href="manifest.json">  
   <link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
   <meta name="theme-color" content="#1976d2">
-<link rel="stylesheet" href="styles.c85254d7f2681ed00865.css"><style></style><script charset="utf-8" src="common-es2015.3135f207d78e5ed7d6fb.js"></script><script charset="utf-8" src="6-es2015.27fa8c2d2015b2825e5d.js"></script><style>ol[_ngcontent-rtq-c9]{list-style-type:decimal}ul[_ngcontent-rtq-c9]{list-style-type:disc;padding-left:2.5rem}p[_ngcontent-rtq-c9]{padding-top:1.25rem;padding-bottom:1.25rem}h2[_ngcontent-rtq-c9]{font-size:1.875rem;line-height:2.25rem;margin-top:1.25rem;margin-bottom:1.25rem}h3[_ngcontent-rtq-c9]{font-size:1.5rem;line-height:2rem;margin-top:.75rem;margin-bottom:.75rem}pre[_ngcontent-rtq-c9]{font-size:1rem;line-height:1.5rem;margin-bottom:1.25rem;padding:1.25rem}a[_ngcontent-rtq-c9]{--tw-border-opacity:1;border-color:rgba(37,99,235,var(--tw-border-opacity));border-bottom-width:2px}</style><meta name="title" content="Embedding Power BI in Angular — Part 2"><meta name="description" content="Power BI can be embedded for the users of your organization who have access to it. This requires the users to sign-in to their Power BI account to view their content, which are the reports they own or the ones that have been shared with them. This is the second part of the two-part article series."><meta name="og:type" content="article"><meta name="og:url" content="/blog/embedding-powerbi-in-angular-part-2"><meta name="og:title" content="Embedding Power BI in Angular — Part 2"><meta name="og:description" content="Power BI can be embedded for the users of your organization who have access to it. This requires the users to sign-in to their Power BI account to view their content, which are the reports they own or the ones that have been shared with them. This is the second part of the two-part article series."><meta name="og:image" content="assets/banners/02"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="/blog/embedding-powerbi-in-angular-part-2"><meta name="twitter:title" content="Embedding Power BI in Angular — Part 2"><meta name="twitter:description" content="Power BI can be embedded for the users of your organization who have access to it. This requires the users to sign-in to their Power BI account to view their content, which are the reports they own or the ones that have been shared with them. This is the second part of the two-part article series."><meta name="twitter:image" content="assets/banners/02"><meta name="twitter:site" content="@krishnaanaril"><meta name="twitter:creator" content="@krishnaanaril"><meta name="keywords" content="powerbi, angular"><meta name="og:article:published_time" content="2018-10-16T00:00:00.000Z"><meta name="og:article:modified_time" content="2018-10-16T00:00:00.000Z"><meta name="og:article:author" content="Krishna Mohan A M"><meta name="og:article:section" content="Tech"><meta name="og:article:tag" content="powerbi, angular"><style>
+<style>:root{-moz-tab-size:4;-o-tab-size:4;tab-size:4}html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji}html{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}body{font-family:inherit;line-height:inherit}*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}*{--tw-shadow:0 0 #0000}*{--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000}</style><link rel="stylesheet" href="styles.7d78dcdc3b6a629982d4.css" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.7d78dcdc3b6a629982d4.css"></noscript><style></style><style>ol[_ngcontent-cmf-c9]{list-style-type:decimal}ul[_ngcontent-cmf-c9]{list-style-type:disc;padding-left:2.5rem}p[_ngcontent-cmf-c9]{padding-top:1.25rem;padding-bottom:1.25rem}h2[_ngcontent-cmf-c9]{font-size:1.875rem;line-height:2.25rem;margin-top:1.25rem;margin-bottom:1.25rem}h3[_ngcontent-cmf-c9]{font-size:1.5rem;line-height:2rem;margin-top:.75rem;margin-bottom:.75rem}pre[_ngcontent-cmf-c9]{font-size:1rem;line-height:1.5rem;margin-bottom:1.25rem;padding:1.25rem}a[_ngcontent-cmf-c9]{--tw-border-opacity: 1;border-color:rgba(37,99,235,var(--tw-border-opacity));border-bottom-width:2px}</style><meta name="title" content="Embedding Power BI in Angular — Part 2"><meta name="description" content="Power BI can be embedded for the users of your organization who have access to it. This requires the users to sign-in to their Power BI account to view their content, which are the reports they own or the ones that have been shared with them. This is the second part of the two-part article series."><meta name="og:type" content="article"><meta name="og:url" content="/blog/embedding-powerbi-in-angular-part-2"><meta name="og:title" content="Embedding Power BI in Angular — Part 2"><meta name="og:description" content="Power BI can be embedded for the users of your organization who have access to it. This requires the users to sign-in to their Power BI account to view their content, which are the reports they own or the ones that have been shared with them. This is the second part of the two-part article series."><meta name="og:image" content="assets/banners/02"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="/blog/embedding-powerbi-in-angular-part-2"><meta name="twitter:title" content="Embedding Power BI in Angular — Part 2"><meta name="twitter:description" content="Power BI can be embedded for the users of your organization who have access to it. This requires the users to sign-in to their Power BI account to view their content, which are the reports they own or the ones that have been shared with them. This is the second part of the two-part article series."><meta name="twitter:image" content="assets/banners/02"><meta name="twitter:site" content="@krishnaanaril"><meta name="twitter:creator" content="@krishnaanaril"><meta name="keywords" content="powerbi, angular"><meta name="og:article:published_time" content="2018-10-16T00:00:00.000Z"><meta name="og:article:modified_time" content="2018-10-16T00:00:00.000Z"><meta name="og:article:author" content="Krishna Mohan A M"><meta name="og:article:section" content="Tech"><meta name="og:article:tag" content="powerbi, angular"><style>
       :host {
         display: none;
       }
@@ -26,96 +26,96 @@
     </style><script>window['ScullyIO']='generated';</script></head>
 
 <body scully-version="1.1.0">
-  <app-root _nghost-rtq-c7="" ng-version="11.2.2"><div _ngcontent-rtq-c7="" class="bg-gray-200 text-gray-800 dark:bg-black dark:text-gray-50"><div _ngcontent-rtq-c7="" class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><section _ngcontent-rtq-c7="" class="hidden lg:flex flex-row justify-center"><nav _ngcontent-rtq-c7=""><ul _ngcontent-rtq-c7="" class="lg:text-xl lg:flex lg:flex-row"><li _ngcontent-rtq-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Home</li><li _ngcontent-rtq-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer border-b-2 border-gray-700 dark:border-gray-300" tabindex="0">Blog</li><li _ngcontent-rtq-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Projects</li><li _ngcontent-rtq-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">About</li><!----></ul></nav></section><div _ngcontent-rtq-c7="" class="absolute lg:hidden mr-4 p-4 right-0"><button _ngcontent-rtq-c7="" aria-label="view menu items" class="p-2"><svg _ngcontent-rtq-c7="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" class="fill-current"><path _ngcontent-rtq-c7="" d="M0 0h24v24H0z" fill="none"></path><path _ngcontent-rtq-c7="" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button></div></div><!----><router-outlet _ngcontent-rtq-c7=""></router-outlet><app-blog-post _nghost-rtq-c9=""><div _ngcontent-rtq-c9="" class="container mx-auto min-h-screen bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
-    <div _ngcontent-rtq-c9="">
-        <div _ngcontent-rtq-c9="" aria-label="Blog tags/keywords" class="pt-8 flex flex-row justify-center">
-            <div _ngcontent-rtq-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">powerbi</div><div _ngcontent-rtq-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">angular</div><!---->
+  <app-root _nghost-cmf-c7="" ng-version="12.2.13"><div _ngcontent-cmf-c7="" class="bg-gray-200 text-gray-800 dark:bg-black dark:text-gray-50"><div _ngcontent-cmf-c7="" class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><section _ngcontent-cmf-c7="" class="hidden lg:flex flex-row justify-center"><nav _ngcontent-cmf-c7=""><ul _ngcontent-cmf-c7="" class="lg:text-xl lg:flex lg:flex-row"><li _ngcontent-cmf-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Home</li><li _ngcontent-cmf-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer border-b-2 border-gray-700 dark:border-gray-300" tabindex="0">Blog</li><li _ngcontent-cmf-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Projects</li><li _ngcontent-cmf-c7="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">About</li><!----></ul></nav></section><div _ngcontent-cmf-c7="" class="absolute lg:hidden mr-4 p-4 right-0"><button _ngcontent-cmf-c7="" aria-label="view menu items" class="p-2"><svg _ngcontent-cmf-c7="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" class="fill-current"><path _ngcontent-cmf-c7="" d="M0 0h24v24H0z" fill="none"></path><path _ngcontent-cmf-c7="" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button></div></div><!----><router-outlet _ngcontent-cmf-c7=""></router-outlet><app-blog-post _nghost-cmf-c9=""><div _ngcontent-cmf-c9="" class="container mx-auto min-h-screen bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
+    <div _ngcontent-cmf-c9="">
+        <div _ngcontent-cmf-c9="" aria-label="Blog tags/keywords" class="pt-8 flex flex-row justify-center">
+            <div _ngcontent-cmf-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">powerbi</div><div _ngcontent-cmf-c9="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">angular</div><!---->
         </div>
-        <div _ngcontent-rtq-c9="" class="max-w-screen-lg mx-auto">
-            <h1 _ngcontent-rtq-c9="" class="text-5xl pt-5 pb-5 text-center">Embedding Power BI in Angular — Part 2</h1>
+        <div _ngcontent-cmf-c9="" class="max-w-screen-lg mx-auto">
+            <h1 _ngcontent-cmf-c9="" class="text-5xl pt-5 pb-5 text-center">Embedding Power BI in Angular — Part 2</h1>
         </div>
-        <div _ngcontent-rtq-c9="" class="flex flex-row justify-center m-5 max-w-screen-sm mx-auto">
-            <time _ngcontent-rtq-c9="" class="text-center text-xl">Oct 16, 2018</time>
+        <div _ngcontent-cmf-c9="" class="flex flex-row justify-center m-5 max-w-screen-sm mx-auto">
+            <time _ngcontent-cmf-c9="" class="text-center text-xl">Oct 16, 2018</time>
         </div>
     </div>
-    <hr _ngcontent-rtq-c9="" class="mx-auto border-gray-800 w-1/4">
-    <div _ngcontent-rtq-c9="" class="max-w-screen-md mx-auto p-6 md:p-12 leading-8">
-        <!--scullyContent-begin--><p _ngcontent-rtq-c9="">Power BI can be embedded for the users of your organization who have access to it. This requires the users to sign-in to their Power BI account to view their content, which are the reports they own or the ones that have been shared with them.</p>
-<p _ngcontent-rtq-c9="">This is the second part of the two-part article series. You can find the first one <a href="https://krishnamohan.dev/blog/embedding-power-bi-in-angular-part-1" _ngcontent-rtq-c9="">here</a>.</p>
-<h2 id="embedding-for-your-organization" _ngcontent-rtq-c9="">Embedding for your organization</h2>
-<p _ngcontent-rtq-c9="">Creating dashboards/reports using Power BI are out of scope of this article, you can learn more about it <a href="https://docs.microsoft.com/en-us/power-bi/service-get-started" _ngcontent-rtq-c9="">here</a>. I’ve skipped a lot a details which have better documentation elsewhere.</p>
-<h3 id="contents" _ngcontent-rtq-c9="">Contents</h3>
-<ul _ngcontent-rtq-c9="">
-<li _ngcontent-rtq-c9="">Prerequisite</li>
-<li _ngcontent-rtq-c9="">Overview</li>
-<li _ngcontent-rtq-c9="">Set up your embedded analytics development environment</li>
-<li _ngcontent-rtq-c9="">Set up your Power BI environment</li>
-<li _ngcontent-rtq-c9="">Create Angular client</li>
-<li _ngcontent-rtq-c9="">Conclusion</li>
+    <hr _ngcontent-cmf-c9="" class="mx-auto border-gray-800 w-1/4">
+    <div _ngcontent-cmf-c9="" class="max-w-screen-md mx-auto p-6 md:p-12 leading-8">
+        <!--scullyContent-begin--><p _ngcontent-cmf-c9="">Power BI can be embedded for the users of your organization who have access to it. This requires the users to sign-in to their Power BI account to view their content, which are the reports they own or the ones that have been shared with them.</p>
+<p _ngcontent-cmf-c9="">This is the second part of the two-part article series. You can find the first one <a href="https://krishnamohan.dev/blog/embedding-power-bi-in-angular-part-1" _ngcontent-cmf-c9="">here</a>.</p>
+<h2 id="embedding-for-your-organization" _ngcontent-cmf-c9="">Embedding for your organization</h2>
+<p _ngcontent-cmf-c9="">Creating dashboards/reports using Power BI are out of scope of this article, you can learn more about it <a href="https://docs.microsoft.com/en-us/power-bi/service-get-started" _ngcontent-cmf-c9="">here</a>. I’ve skipped a lot a details which have better documentation elsewhere.</p>
+<h3 id="contents" _ngcontent-cmf-c9="">Contents</h3>
+<ul _ngcontent-cmf-c9="">
+<li _ngcontent-cmf-c9="">Prerequisite</li>
+<li _ngcontent-cmf-c9="">Overview</li>
+<li _ngcontent-cmf-c9="">Set up your embedded analytics development environment</li>
+<li _ngcontent-cmf-c9="">Set up your Power BI environment</li>
+<li _ngcontent-cmf-c9="">Create Angular client</li>
+<li _ngcontent-cmf-c9="">Conclusion</li>
 </ul>
-<h3 id="prerequisites" _ngcontent-rtq-c9="">Prerequisites</h3>
-<ul _ngcontent-rtq-c9="">
-<li _ngcontent-rtq-c9=""><a href="https://powerbi.microsoft.com/en-us/pricing/" _ngcontent-rtq-c9="">Power BI pro account</a></li>
-<li _ngcontent-rtq-c9=""><a href="https://azure.microsoft.com/en-us/free/" _ngcontent-rtq-c9="">Microsoft Azure Subscription</a></li>
-<li _ngcontent-rtq-c9=""><a href="https://docs.microsoft.com/en-us/power-bi/developer/create-an-azure-active-directory-tenant" _ngcontent-rtq-c9="">Azure Active Directory Tenant</a> Setup. If it is already done for your organization, you can find it <a href="https://www.whatismytenantid.com/" _ngcontent-rtq-c9="">here</a>.</li>
-<li _ngcontent-rtq-c9="">Visual Studio Code</li>
-<li _ngcontent-rtq-c9="">npm, node, angular-cli</li>
+<h3 id="prerequisites" _ngcontent-cmf-c9="">Prerequisites</h3>
+<ul _ngcontent-cmf-c9="">
+<li _ngcontent-cmf-c9=""><a href="https://powerbi.microsoft.com/en-us/pricing/" _ngcontent-cmf-c9="">Power BI pro account</a></li>
+<li _ngcontent-cmf-c9=""><a href="https://azure.microsoft.com/en-us/free/" _ngcontent-cmf-c9="">Microsoft Azure Subscription</a></li>
+<li _ngcontent-cmf-c9=""><a href="https://docs.microsoft.com/en-us/power-bi/developer/create-an-azure-active-directory-tenant" _ngcontent-cmf-c9="">Azure Active Directory Tenant</a> Setup. If it is already done for your organization, you can find it <a href="https://www.whatismytenantid.com/" _ngcontent-cmf-c9="">here</a>.</li>
+<li _ngcontent-cmf-c9="">Visual Studio Code</li>
+<li _ngcontent-cmf-c9="">npm, node, angular-cli</li>
 </ul>
-<h3 id="overview" _ngcontent-rtq-c9="">Overview</h3>
-<p _ngcontent-rtq-c9="">A high level diagram showing how this works is shown below.</p>
-<p _ngcontent-rtq-c9=""><img src="assets/images/02_01.png" alt="" _ngcontent-rtq-c9=""></p>
-<p _ngcontent-rtq-c9="">The workflow is as follows.</p>
-<ol _ngcontent-rtq-c9="">
-<li _ngcontent-rtq-c9="">When user browses UI, he/she is asked to login with his/her power bi credentials.</li>
-<li _ngcontent-rtq-c9="">User credentials are validated with Azure AD to generate access tokens.</li>
-<li _ngcontent-rtq-c9="">UI calls Power BI API to get the report specific data with the token.</li>
-<li _ngcontent-rtq-c9="">Power BI API returns report data, and UI displays it in the web page.</li>
+<h3 id="overview" _ngcontent-cmf-c9="">Overview</h3>
+<p _ngcontent-cmf-c9="">A high level diagram showing how this works is shown below.</p>
+<p _ngcontent-cmf-c9=""><img src="assets/images/02_01.png" alt="" _ngcontent-cmf-c9=""></p>
+<p _ngcontent-cmf-c9="">The workflow is as follows.</p>
+<ol _ngcontent-cmf-c9="">
+<li _ngcontent-cmf-c9="">When user browses UI, he/she is asked to login with his/her power bi credentials.</li>
+<li _ngcontent-cmf-c9="">User credentials are validated with Azure AD to generate access tokens.</li>
+<li _ngcontent-cmf-c9="">UI calls Power BI API to get the report specific data with the token.</li>
+<li _ngcontent-cmf-c9="">Power BI API returns report data, and UI displays it in the web page.</li>
 </ol>
-<h3 id="set-up-your-embedded-analytics-development-environment" _ngcontent-rtq-c9="">Set up your embedded analytics development environment</h3>
-<p _ngcontent-rtq-c9="">Refer [this](<a href="http://When" _ngcontent-rtq-c9="">http://When</a> user browses UI, he/she is asked to login with his/her power bi credentials. User credentials are validated with Azure AD to generate access tokens UI calls Power BI API to get the report specific data with the token. Power BI API returns report data, and UI displays it in the web page.) for more details.</p>
-<p _ngcontent-rtq-c9="">Here we need to do few more steps than what is mentioned in the documentation.</p>
-<ol _ngcontent-rtq-c9="">
-<li _ngcontent-rtq-c9="">Redirect URL should be the URL in the application that should be displayed post user authentication.</li>
-<li _ngcontent-rtq-c9="">Set the key ‘oauth2AllowImplicitFlow’ in Azure Active Directory app manifest to true as we are using browser based clients.</li>
+<h3 id="set-up-your-embedded-analytics-development-environment" _ngcontent-cmf-c9="">Set up your embedded analytics development environment</h3>
+<p _ngcontent-cmf-c9="">Refer [this](<a href="http://When" _ngcontent-cmf-c9="">http://When</a> user browses UI, he/she is asked to login with his/her power bi credentials. User credentials are validated with Azure AD to generate access tokens UI calls Power BI API to get the report specific data with the token. Power BI API returns report data, and UI displays it in the web page.) for more details.</p>
+<p _ngcontent-cmf-c9="">Here we need to do few more steps than what is mentioned in the documentation.</p>
+<ol _ngcontent-cmf-c9="">
+<li _ngcontent-cmf-c9="">Redirect URL should be the URL in the application that should be displayed post user authentication.</li>
+<li _ngcontent-cmf-c9="">Set the key ‘oauth2AllowImplicitFlow’ in Azure Active Directory app manifest to true as we are using browser based clients.</li>
 </ol>
-<h3 id="set-up-your-power-bi-environment" _ngcontent-rtq-c9="">Set up your Power BI environment</h3>
-<p _ngcontent-rtq-c9="">Read <a href="https://docs.microsoft.com/en-us/power-bi/developer/embed-sample-for-your-organization#set-up-your-power-bi-environment" _ngcontent-rtq-c9="">this</a> for more details.</p>
-<h3 id="create-angular-client" _ngcontent-rtq-c9="">Create Angular client</h3>
-<p _ngcontent-rtq-c9="">Our application should authenticate user to Azure Active Directory (AD) and generate the access token. This access token is used as the <a href="https://oauth.net/2/bearer-tokens/" _ngcontent-rtq-c9="">bearer </a>token for subsequent Power BI API requests.</p>
-<p _ngcontent-rtq-c9="">For authenticating with Azure AD, we’ll be using <a href="https://github.com/AzureAD/azure-activedirectory-library-for-js" _ngcontent-rtq-c9="">this</a> library. You can add this to your angular project by running the following command.</p>
-<pre _ngcontent-rtq-c9=""><code class="language-bash" _ngcontent-rtq-c9="">npm install adal-angular
+<h3 id="set-up-your-power-bi-environment" _ngcontent-cmf-c9="">Set up your Power BI environment</h3>
+<p _ngcontent-cmf-c9="">Read <a href="https://docs.microsoft.com/en-us/power-bi/developer/embed-sample-for-your-organization#set-up-your-power-bi-environment" _ngcontent-cmf-c9="">this</a> for more details.</p>
+<h3 id="create-angular-client" _ngcontent-cmf-c9="">Create Angular client</h3>
+<p _ngcontent-cmf-c9="">Our application should authenticate user to Azure Active Directory (AD) and generate the access token. This access token is used as the <a href="https://oauth.net/2/bearer-tokens/" _ngcontent-cmf-c9="">bearer </a>token for subsequent Power BI API requests.</p>
+<p _ngcontent-cmf-c9="">For authenticating with Azure AD, we’ll be using <a href="https://github.com/AzureAD/azure-activedirectory-library-for-js" _ngcontent-cmf-c9="">this</a> library. You can add this to your angular project by running the following command.</p>
+<pre _ngcontent-cmf-c9=""><code class="language-bash" _ngcontent-cmf-c9="">npm install adal-angular
 </code></pre>
-<p _ngcontent-rtq-c9="">In the HTML page, create a ‘div’ with id ‘embedReport’. We’ll be showing report in this div. Embedding in div is done using Power BI JavaScript <a href="https://github.com/Microsoft/PowerBI-JavaScript" _ngcontent-rtq-c9="">library</a>. You can add it to your angular application by running the following command.</p>
-<pre _ngcontent-rtq-c9=""><code class="language-bash" _ngcontent-rtq-c9="">npm install --save powerbi-client
+<p _ngcontent-cmf-c9="">In the HTML page, create a ‘div’ with id ‘embedReport’. We’ll be showing report in this div. Embedding in div is done using Power BI JavaScript <a href="https://github.com/Microsoft/PowerBI-JavaScript" _ngcontent-cmf-c9="">library</a>. You can add it to your angular application by running the following command.</p>
+<pre _ngcontent-cmf-c9=""><code class="language-bash" _ngcontent-cmf-c9="">npm install --save powerbi-client
 </code></pre>
-<p _ngcontent-rtq-c9="">Now we’ve added the additional libraries for your requirement and can we start coding the the authentication service as follows.</p>
-<p _ngcontent-rtq-c9=""><img src="assets/images/02_02.png" alt="" _ngcontent-rtq-c9="">
-<em _ngcontent-rtq-c9="">Gist: <a href="https://gist.github.com/krishnaanaril/9a07c99efe7db86b8ede17d4177be303" _ngcontent-rtq-c9="">https://gist.github.com/krishnaanaril/9a07c99efe7db86b8ede17d4177be303</a></em></p>
-<p _ngcontent-rtq-c9="">We can store ‘adal’ related configuration in the environment.ts file. I’ve attached the sample format below.</p>
-<p _ngcontent-rtq-c9=""><img src="assets/images/02_03.png" alt="" _ngcontent-rtq-c9="">
-<em _ngcontent-rtq-c9="">Gist: <a href="https://gist.github.com/krishnaanaril/b1b8798373a6bbe42e7f288ceb9ca1a9" _ngcontent-rtq-c9="">https://gist.github.com/krishnaanaril/b1b8798373a6bbe42e7f288ceb9ca1a9</a></em></p>
-<p _ngcontent-rtq-c9="">Once the user is authenticated, to handle callback you need to add the following code in the redirect component’s ngOnInit method.</p>
-<p _ngcontent-rtq-c9=""><img src="assets/images/02_04.png" alt="" _ngcontent-rtq-c9=""></p>
-<p _ngcontent-rtq-c9="">Here I’ve written the code to embed the first of the available reports to a user. You can update it to suit your needs. First we need to get the access token and get the first of the available reports. The code is as follows.</p>
-<p _ngcontent-rtq-c9=""><img src="assets/images/02_05.png" alt="" _ngcontent-rtq-c9="">
-<em _ngcontent-rtq-c9="">Gist: <a href="https://gist.github.com/krishnaanaril/398f8e51136e649bf35e41baf8367efe" _ngcontent-rtq-c9="">https://gist.github.com/krishnaanaril/398f8e51136e649bf35e41baf8367efe</a></em></p>
-<p _ngcontent-rtq-c9="">The method ‘getReportsInGroup’ will be invoking the corresponding Power BI REST API.</p>
-<p _ngcontent-rtq-c9=""><img src="assets/images/02_06.png" alt="" _ngcontent-rtq-c9="">
-<em _ngcontent-rtq-c9="">Gist: <a href="https://gist.github.com/krishnaanaril/427e4ef6b171fa109787617b3c0e6953" _ngcontent-rtq-c9="">https://gist.github.com/krishnaanaril/427e4ef6b171fa109787617b3c0e6953</a></em></p>
-<p _ngcontent-rtq-c9="">Next, we need to embed the report in the HTML page. This is similar to ‘Embed for your customers’, except the token type which is ‘Aad’ and access token instead of embed token. Embedding report code is as follows.</p>
-<p _ngcontent-rtq-c9=""><img src="assets/images/02_06.png" alt="Embedding report for your organization" _ngcontent-rtq-c9="">
-<em _ngcontent-rtq-c9="">Embedding report for your organization</em></p>
-<h3 id="conclusion" _ngcontent-rtq-c9="">Conclusion</h3>
-<p _ngcontent-rtq-c9="">Now you’re done with your Angular app, run it and verify the reports. Dashboards and Tiles can be embedded in a similar way. You can find those snippets here.</p>
-<ul _ngcontent-rtq-c9="">
-<li _ngcontent-rtq-c9=""><a href="https://gist.github.com/krishnaanaril/1392403aa328684738e4ed6f0b8a664f" _ngcontent-rtq-c9="">Dashboard</a></li>
-<li _ngcontent-rtq-c9=""><a href="https://gist.github.com/krishnaanaril/211f5b390a5e7e038b7a67dfe387fb29" _ngcontent-rtq-c9="">Tile</a></li>
+<p _ngcontent-cmf-c9="">Now we’ve added the additional libraries for your requirement and can we start coding the the authentication service as follows.</p>
+<p _ngcontent-cmf-c9=""><img src="assets/images/02_02.png" alt="" _ngcontent-cmf-c9="">
+<em _ngcontent-cmf-c9="">Gist: <a href="https://gist.github.com/krishnaanaril/9a07c99efe7db86b8ede17d4177be303" _ngcontent-cmf-c9="">https://gist.github.com/krishnaanaril/9a07c99efe7db86b8ede17d4177be303</a></em></p>
+<p _ngcontent-cmf-c9="">We can store ‘adal’ related configuration in the environment.ts file. I’ve attached the sample format below.</p>
+<p _ngcontent-cmf-c9=""><img src="assets/images/02_03.png" alt="" _ngcontent-cmf-c9="">
+<em _ngcontent-cmf-c9="">Gist: <a href="https://gist.github.com/krishnaanaril/b1b8798373a6bbe42e7f288ceb9ca1a9" _ngcontent-cmf-c9="">https://gist.github.com/krishnaanaril/b1b8798373a6bbe42e7f288ceb9ca1a9</a></em></p>
+<p _ngcontent-cmf-c9="">Once the user is authenticated, to handle callback you need to add the following code in the redirect component’s ngOnInit method.</p>
+<p _ngcontent-cmf-c9=""><img src="assets/images/02_04.png" alt="" _ngcontent-cmf-c9=""></p>
+<p _ngcontent-cmf-c9="">Here I’ve written the code to embed the first of the available reports to a user. You can update it to suit your needs. First we need to get the access token and get the first of the available reports. The code is as follows.</p>
+<p _ngcontent-cmf-c9=""><img src="assets/images/02_05.png" alt="" _ngcontent-cmf-c9="">
+<em _ngcontent-cmf-c9="">Gist: <a href="https://gist.github.com/krishnaanaril/398f8e51136e649bf35e41baf8367efe" _ngcontent-cmf-c9="">https://gist.github.com/krishnaanaril/398f8e51136e649bf35e41baf8367efe</a></em></p>
+<p _ngcontent-cmf-c9="">The method ‘getReportsInGroup’ will be invoking the corresponding Power BI REST API.</p>
+<p _ngcontent-cmf-c9=""><img src="assets/images/02_06.png" alt="" _ngcontent-cmf-c9="">
+<em _ngcontent-cmf-c9="">Gist: <a href="https://gist.github.com/krishnaanaril/427e4ef6b171fa109787617b3c0e6953" _ngcontent-cmf-c9="">https://gist.github.com/krishnaanaril/427e4ef6b171fa109787617b3c0e6953</a></em></p>
+<p _ngcontent-cmf-c9="">Next, we need to embed the report in the HTML page. This is similar to ‘Embed for your customers’, except the token type which is ‘Aad’ and access token instead of embed token. Embedding report code is as follows.</p>
+<p _ngcontent-cmf-c9=""><img src="assets/images/02_06.png" alt="Embedding report for your organization" _ngcontent-cmf-c9="">
+<em _ngcontent-cmf-c9="">Embedding report for your organization</em></p>
+<h3 id="conclusion" _ngcontent-cmf-c9="">Conclusion</h3>
+<p _ngcontent-cmf-c9="">Now you’re done with your Angular app, run it and verify the reports. Dashboards and Tiles can be embedded in a similar way. You can find those snippets here.</p>
+<ul _ngcontent-cmf-c9="">
+<li _ngcontent-cmf-c9=""><a href="https://gist.github.com/krishnaanaril/1392403aa328684738e4ed6f0b8a664f" _ngcontent-cmf-c9="">Dashboard</a></li>
+<li _ngcontent-cmf-c9=""><a href="https://gist.github.com/krishnaanaril/211f5b390a5e7e038b7a67dfe387fb29" _ngcontent-cmf-c9="">Tile</a></li>
 </ul>
-<!--scullyContent-end--><scully-content _ngcontent-rtq-c9=""></scully-content>
-    <script>try {window['scullyContent'] = {cssId:"_ngcontent-rtq-c9",html:document.body.innerHTML.split('<!--scullyContent-begin-->')[1].split('<!--scullyContent-end-->')[0]};} catch(e) {console.error('scully could not parse content');}</script></div>
-    <hr _ngcontent-rtq-c9="" class="border-gray-800">    
-</div><!----></app-blog-post><!----><footer _ngcontent-rtq-c7="" class="container mx-auto flex flex-col bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><div _ngcontent-rtq-c7="" class="mt-10"><ul _ngcontent-rtq-c7="" class="flex flex-row justify-between max-w-sm mx-auto pl-4 pr-4"><li _ngcontent-rtq-c7="" class="hover:text-gray-600 dark:hover:text-gray-100"><a _ngcontent-rtq-c7="" href="https://twitter.com/KrishnaAnaril">Twitter</a></li><li _ngcontent-rtq-c7=""><a _ngcontent-rtq-c7="" href="https://krishnamohan.dev/sitemap-blog.xml">Sitemap</a></li><li _ngcontent-rtq-c7=""><a _ngcontent-rtq-c7="" href="https://krishnamohan.dev/feed.xml">RSS</a></li><li _ngcontent-rtq-c7=""><a _ngcontent-rtq-c7="" href="mailto:krishnamohan.a.m@gmail.com">Contact</a></li></ul></div><div _ngcontent-rtq-c7="" class="mx-auto p-5 text-sm"><p _ngcontent-rtq-c7="">© 2021-present <a _ngcontent-rtq-c7="" href="https://krishnamohan.dev/" class="font-bold">Krishna Mohan A M</a>. All Rights Reserved.</p></div></footer></div></app-root>
+<!--scullyContent-end--><scully-content _ngcontent-cmf-c9=""></scully-content>
+    <script>try {window['scullyContent'] = {cssId:"_ngcontent-cmf-c9",html:document.body.innerHTML.split('<!--scullyContent-begin-->')[1].split('<!--scullyContent-end-->')[0]};} catch(e) {console.error('scully could not parse content');}</script></div>
+    <hr _ngcontent-cmf-c9="" class="border-gray-800">    
+</div><!----></app-blog-post><!----><footer _ngcontent-cmf-c7="" class="container mx-auto flex flex-col bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><div _ngcontent-cmf-c7="" class="mt-10"><ul _ngcontent-cmf-c7="" class="flex flex-row justify-between max-w-sm mx-auto pl-4 pr-4"><li _ngcontent-cmf-c7="" class="hover:text-gray-600 dark:hover:text-gray-100"><a _ngcontent-cmf-c7="" href="https://twitter.com/KrishnaAnaril">Twitter</a></li><li _ngcontent-cmf-c7=""><a _ngcontent-cmf-c7="" href="https://krishnamohan.dev/sitemap-blog.xml">Sitemap</a></li><li _ngcontent-cmf-c7=""><a _ngcontent-cmf-c7="" href="https://krishnamohan.dev/feed.xml">RSS</a></li><li _ngcontent-cmf-c7=""><a _ngcontent-cmf-c7="" href="mailto:krishnamohan.a.m@gmail.com">Contact</a></li></ul></div><div _ngcontent-cmf-c7="" class="mx-auto p-5 text-sm"><p _ngcontent-cmf-c7="">© 2021-present <a _ngcontent-cmf-c7="" href="https://krishnamohan.dev/" class="font-bold">Krishna Mohan A M</a>. All Rights Reserved.</p></div></footer></div></app-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
-<script id="ScullyIO-transfer-state"></script><script src="runtime-es2015.eea81c6e822175885f57.js" type="module"></script><script src="runtime-es5.eea81c6e822175885f57.js" nomodule="" defer=""></script><script src="polyfills-es5.29147128fc6f0f3fd286.js" nomodule="" defer=""></script><script src="polyfills-es2015.2045db6d95f407e1e8c7.js" type="module"></script><script src="main-es2015.01946dabfc024e5accee.js" type="module"></script><script src="main-es5.01946dabfc024e5accee.js" nomodule="" defer=""></script>
+<script id="ScullyIO-transfer-state"></script><script src="runtime-es2015.391b605cc0a95ba3fb65.js" type="module"></script><script src="runtime-es5.391b605cc0a95ba3fb65.js" nomodule="" defer=""></script><script src="polyfills-es5.ac79a0df8b05fa0273a1.js" nomodule="" defer=""></script><script src="polyfills-es2015.5b2d648e09a6102d0b99.js" type="module"></script><script src="main-es2015.2fdf5dd6cb88f62da1f4.js" type="module"></script><script src="main-es5.2fdf5dd6cb88f62da1f4.js" nomodule="" defer=""></script>
 
 </body></html>
