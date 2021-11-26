@@ -71,6 +71,7 @@
     "imagemin": "^7.0.1",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-webp": "^5.1.0",
+    "ini": "^2.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.1.1",
