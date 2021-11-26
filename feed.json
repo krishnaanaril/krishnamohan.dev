@@ -7,6 +7,17 @@
     "icon": "https://krishnamohan.dev/assets/images/dp.jpeg",
     "items": [
         {
+            "id": "/blog/what-did-i-learn-this-week-2021---47",
+            "content_html": "<ul>\n<li><strong>Yann Lecun's</strong> Deep learning course is available for <a href=\"https://cds.nyu.edu/deep-learning/\">free</a>.</li>\n<li>How twitter process billions of events in <a href=\"https://blog.twitter.com/engineering/en_us/topics/infrastructure/2021/processing-billions-of-events-in-real-time-at-twitter-\">real time</a>. </li>\n<li><a href=\"https://app.netlify.com/drop\">Netlife drop</a>: Drag and drop a folder with your site’s HTML, CSS, and JS files. Netify will publish them live and give you a link to share it. </li>\n<li>Hidden cameras can be detected using time of <a href=\"https://dl.acm.org/doi/10.1145/3485730.3485941\">flight sensors</a>. </li>\n<li>Sound a post on Sass <a href=\"https://quolum.com/blog/saas/i-analyzed-saas-billing-dark-patterns/\">billing dark patterns</a>. </li>\n<li><a href=\"https://amzn.github.io/ion-docs/\">Amazon Ion</a> is a richly-typed, self-describing, hierarchical data serialization format offering interchangeable binary and text representations. The text format (a superset of JSON) is easy to read and author, supporting rapid prototyping. </li>\n<li>Learned <a href=\"https://iximiuz.com/en/posts/container-learning-path/\">containers</a>. </li>\n</ul>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---47",
+            "title": "What did I learn this week (2021) - 47",
+            "summary": "Weekly summarization and review of things I've learned in the thrid week of November 2021",
+            "date_modified": "2021-11-21T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
             "id": "/blog/what-did-i-learn-this-week-2021---46",
             "content_html": "<ul>\n<li>Found an ML library to <a href=\"https://github.com/microsoft/Bringing-Old-Photos-Back-to-Life\">bring old photos back to life</a>.</li>\n<li>Found an <a href=\"https://skerritt.blog/make-popular-open-source-projects/\">informative blog</a> with tips for making a popular open source project.</li>\n<li><a href=\"https://www.apple.com/business/essentials/\">Apple Business Essentials</a> is a subscription service from Apple to provide device management, round-the-clock support, and iCloud storage for small enterprises with up to 500 employees.</li>\n<li><a href=\"https://www.pritzkerprize.com/\">Pritzker Prize</a> is the highest prize in architecture.</li>\n<li>As of iOS 15, access to the <a href=\"https://www.mysk.blog/2021/10/24/accelerometer-ios/\">accelerometer is open to all apps</a>. Accelerometer data encompasses private information about you that any app can easily expose by applying the right algorithm.</li>\n</ul>",
             "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---46",
