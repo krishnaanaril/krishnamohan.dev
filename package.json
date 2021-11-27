@@ -64,7 +64,7 @@
     "@types/node": "^12.20.4",
     "angular-cli-ghpages": "^1.0.0",
     "autoprefixer": "^10.2.4",
-    "codelyzer": "^6.0.0",
+    "codelyzer": "^6.0.2",
     "copy-webpack-plugin": "^4.5.2",
     "cross-env": "^7.0.3",
     "fast-xml-parser": "^3.18.0",
