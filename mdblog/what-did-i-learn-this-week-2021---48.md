@@ -1,5 +1,5 @@
 ---
-title: 'What did I learn this week (2021) - 47'
+title: 'What did I learn this week (2021) - 48'
 description: Weekly summarization and review of things I've learned in the final week of November 2021 
 published: true
 publishedAt: 2021-11-28T00:00:00.000Z

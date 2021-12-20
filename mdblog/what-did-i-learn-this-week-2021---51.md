@@ -1,11 +1,11 @@
 ---
-title: 'What did I learn this week (2021) - 49'
+title: 'What did I learn this week (2021) - 51'
 description: Weekly summarization and review of things I've learned in the first week of December 2021 
 published: true
-publishedAt: 2021-12-05T00:00:00.000Z
-updatedAt: 2021-12-05T00:00:00.000Z
+publishedAt: 2021-12-19T00:00:00.000Z
+updatedAt: 2021-12-19T00:00:00.000Z
 category: learnings
-image: 'assets/banners/60'
+image: 'assets/banners/62'
 keywords: 
   - deep learning
   - continers
