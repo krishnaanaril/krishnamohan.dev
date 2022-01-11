@@ -7,11 +7,77 @@
     "icon": "https://krishnamohan.dev/assets/images/dp.jpeg",
     "items": [
         {
+            "id": "/blog/what-did-i-learn-this-week-2022---01",
+            "content_html": "<ul>\n<li><a href=\"https://chaidarun.com/ten-years-of-logging-my-life\">Someone</a> logged his life for 10 years.</li>\n<li>Found a <a href=\"http://blog.fogus.me/2021/12/27/the-best-things-and-stuff-of-2021/\">compilation</a> of best things and stuffs of 2021.</li>\n<li>Prince of persia game is available in <a href=\"https://princejs.com/\">web browser</a>.</li>\n<li>Found a modern guide to <a href=\"https://fusionauth.io/learn/expert-advice/oauth/modern-guide-to-oauth/\">OAuth</a>.</li>\n<li><a href=\"https://github.com/RSS-Bridge/rss-bridge\">RSS Bridge</a> - RSS feed for websites missing it</li>\n</ul>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---01",
+            "title": "What did I learn this week (2022) - 01",
+            "summary": "Weekly summarization and review of things I've learned in the first week of January 2022",
+            "date_modified": "2022-01-02T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
+            "id": "/blog/what-did-i-learn-this-week-2021---52",
+            "content_html": "<ul>\n<li><a href=\"https://www.pullrequest.com/\">https://www.pullrequest.com/</a> provides code review as a service.</li>\n<li><a href=\"https://ziglang.org/\">Zig</a> is a general-purpose programming language and toolchain for maintaining robust, optimal, and reusable software.</li>\n<li>How to draw an <a href=\"https://dragonman225.js.org/curved-arrows.html\">S curve</a> in web.</li>\n<li>Finnish babies are sleeping in <a href=\"https://www.bbc.com/news/magazine-22751415\">cardboard boxes</a>.</li>\n<li>Found a free <a href=\"http://www.dspguide.com/\">ebook</a> - The Scientist and Engineer's Guide to Digital Signal Processing</li>\n</ul>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---52",
+            "title": "What did I learn this week (2021) - 52",
+            "summary": "Weekly summarization and review of things I've learned in the final week of December 2021",
+            "date_modified": "2021-12-26T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
+            "id": "/blog/what-did-i-learn-this-week-2021---51",
+            "content_html": "<ul>\n<li><a href=\"https://rarehistoricalphotos.com/leonid-rogozov-appendix-1961/\">Dr. Leonid Rogozov</a>: The Soviet surgeon who removed his own appendix while stranded in Antarctica, 1961</li>\n<li><a href=\"https://traditionalkyoto.com/culture/kintsugi/\">Kintsugi</a>, also known as kintsukuroi, is the Japanese art of repairing broken pottery by mending the areas of breakage with lacquer dusted or mixed with powdered gold, silver, or platinum; the method is similar to the maki-e technique.</li>\n<li>Found <a href=\"https://dimitarsimeonov.com/2021/10/25/how-to-be-a-game-changer-intro\">how to be a game changer</a> article series.</li>\n<li>Dan Luu's thoughts on <a href=\"https://danluu.com/writing-non-advice/\">writing</a>.</li>\n<li>Julia Evans created a <a href=\"https://jvns.ca/blog/2021/12/15/mess-with-dns/\">tool</a> to play around with DNS.</li>\n<li>System design: [How to build large-scale end-to-end encrypted group video calls](https://signal.org/blog/how-to-build-encrypted-group-calls/</li>\n</ul>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---51",
+            "title": "What did I learn this week (2021) - 51",
+            "summary": "Weekly summarization and review of things I've learned in the third week of December 2021",
+            "date_modified": "2021-12-19T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
+            "id": "/blog/what-did-i-learn-this-week-2021---50",
+            "content_html": "<ul>\n<li><a href=\"https://blog.superhuman.com/five-whys-method/\">Five Whys Technique</a></li>\n<li>A bug in <a href=\"https://old.reddit.com/r/GooglePixel/comments/r4xz1f/pixel_prevented_me_from_calling_911/\">Google Pixel</a> prevented the user from calling emergency.</li>\n<li><a href=\"https://tailwindcss.com/blog/tailwindcss-v3\">Tailwind CSS v3.0</a> is available with new features.</li>\n<li>On Thursday, December 9th, a <a href=\"https://www.lunasec.io/docs/blog/log4j-zero-day/\">0-day exploit</a> in the popular Java logging library log4j (version 2) was discovered that results in Remote Code Execution (RCE), by logging a certain string</li>\n</ul>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---50",
+            "title": "What did I learn this week (2021) - 50",
+            "summary": "Weekly summarization and review of things I've learned in the second week of December 2021",
+            "date_modified": "2021-12-12T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
+            "id": "/blog/what-did-i-learn-this-week-2021---49",
+            "content_html": "<ul>\n<li><a href=\"https://en.wikipedia.org/wiki/Susan_Kare\">Susan Kare</a> is an American artist and graphic designer best known for her interface elements and typeface contributions to the first Apple Macintosh from 1983 to 1986.[1] She was employee #10 and Creative Director at NeXT, the company formed by Steve Jobs after he left Apple in 1985. </li>\n<li>Humaaans.com - Mix-&amp;-match illustrations of people with a design library</li>\n<li>Blush.design - Easily create and customize stunning illustrations with collections made by artists across the globe. </li>\n<li><a href=\"https://www.blender.org/download/releases/3-0/\">Blender 3.0</a> is released with better performance and more features. </li>\n<li>Found a <a href=\"http://ui-patterns.com/\">site</a> to learn about UI design patterns. </li>\n<li>Came to know about Steve Krug's <em>Don't make me think</em> book.</li>\n</ul>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---49",
+            "title": "What did I learn this week (2021) - 49",
+            "summary": "Weekly summarization and review of things I've learned in the first week of December 2021",
+            "date_modified": "2021-12-05T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
+            "id": "/blog/what-did-i-learn-this-week-2021---48",
+            "content_html": "<ul>\n<li>Fingerprints <a href=\"https://blog.kraken.com/post/11905/your-fingerprint-can-be-hacked-for-5-heres-how/\">can be hacked</a> without much technical knowledge, but this is <a href=\"https://mathblog.com/are-fingerprints-unique/\">not</a> a new information. Uniqueness of fingerprints are also <a href=\"https://www.youtube.com/watch?v=OPtzRQNHzl0\">questionable</a>.</li>\n<li><a href=\"https://svelte-cubed.vercel.app/docs/getting-started\">Svelte Cubed</a> is a component library for building Three.js scene graphs in Svelte apps. </li>\n<li>Found a beautiful <a href=\"https://dynomight.net/thanks/\">list</a> of underrated reasons to be thankful.</li>\n<li>Found an <a href=\"https://www.thisiscolossal.com/2019/03/freddy-mamanis-neo-andean-architecture/\">article</a> related to neo-andean architecture. Above all i really liked the <a href=\"https://www.thisiscolossal.com\">site</a>.</li>\n</ul>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---48",
+            "title": "What did I learn this week (2021) - 48",
+            "summary": "Weekly summarization and review of things I've learned in the final week of November 2021",
+            "date_modified": "2021-11-28T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
             "id": "/blog/what-did-i-learn-this-week-2021---47",
             "content_html": "<ul>\n<li><strong>Yann Lecun's</strong> Deep learning course is available for <a href=\"https://cds.nyu.edu/deep-learning/\">free</a>.</li>\n<li>How twitter process billions of events in <a href=\"https://blog.twitter.com/engineering/en_us/topics/infrastructure/2021/processing-billions-of-events-in-real-time-at-twitter-\">real time</a>. </li>\n<li><a href=\"https://app.netlify.com/drop\">Netlife drop</a>: Drag and drop a folder with your site’s HTML, CSS, and JS files. Netify will publish them live and give you a link to share it. </li>\n<li>Hidden cameras can be detected using time of <a href=\"https://dl.acm.org/doi/10.1145/3485730.3485941\">flight sensors</a>. </li>\n<li>Sound a post on Sass <a href=\"https://quolum.com/blog/saas/i-analyzed-saas-billing-dark-patterns/\">billing dark patterns</a>. </li>\n<li><a href=\"https://amzn.github.io/ion-docs/\">Amazon Ion</a> is a richly-typed, self-describing, hierarchical data serialization format offering interchangeable binary and text representations. The text format (a superset of JSON) is easy to read and author, supporting rapid prototyping. </li>\n<li>Learned <a href=\"https://iximiuz.com/en/posts/container-learning-path/\">containers</a>. </li>\n</ul>",
             "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2021---47",
             "title": "What did I learn this week (2021) - 47",
-            "summary": "Weekly summarization and review of things I've learned in the thrid week of November 2021",
+            "summary": "Weekly summarization and review of things I've learned in the third week of November 2021",
             "date_modified": "2021-11-21T00:00:00.000Z",
             "author": {
                 "name": "Krishna Mohan A M"
