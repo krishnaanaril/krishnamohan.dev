@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://krishnamohan.dev</id>
     <title>krishnamohan.dev</title>
-    <updated>2022-01-11T06:40:54.054Z</updated>
+    <updated>2022-06-25T18:22:00.895Z</updated>
     <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
     <link rel="alternate" href="https://krishnamohan.dev"/>
     <link rel="self" href="https://krishnamohan.dev/feed.atom"/>
@@ -14,6 +14,102 @@
     <category term="Blog"/>
     <category term="Angular"/>
     <category term="Dotnet"/>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2022) - 05]]></title>
+        <id>/blog/what-did-i-learn-this-week-2022---05</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---05"/>
+        <updated>2022-01-30T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the final week of January 2022]]></summary>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2022) - 04]]></title>
+        <id>/blog/what-did-i-learn-this-week-2022---04</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---04"/>
+        <updated>2022-01-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the fourth week of January 2022]]></summary>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2022) - 03]]></title>
+        <id>/blog/what-did-i-learn-this-week-2022---03</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---03"/>
+        <updated>2022-01-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the third week of January 2022]]></summary>
+        <content type="html"><![CDATA[<ul>
+<li><a href="https://iconoir.com/">Iconoir.com</a> - An open-source svg icons library.</li>
+<li>Why <a href="https://blog.mozilla.org/en/internet-culture/why-are-hyperlinks-blue-revisited/">hyperlinks</a> are blue?</li>
+<li><a href="https://en.wikipedia.org/wiki/Jevons_paradox">Jevons Paradox</a></li>
+<li>Found Git Commit Message <a href="https://gist.github.com/lisawolderiksen/a7b99d94c92c6671181611be1641c733">Templates</a> to Write Better Commit Message</li>
+</ul>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2022) - 06]]></title>
+        <id>/blog/what-did-i-learn-this-week-2022---07</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---07"/>
+        <updated>2022-01-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the second week of February 2022]]></summary>
+        <content type="html"><![CDATA[<ul>
+<li>Curated list of resources on <a href="https://asatarin.github.io/testing-distributed-systems/">testing distributed systems</a>.</li>
+<li>You can search netflix by categories using <a href="https://www.netflix-codes.com/">codes</a></li>
+</ul>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2022) - 02]]></title>
+        <id>/blog/what-did-i-learn-this-week-2022---02</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---02"/>
+        <updated>2022-01-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the second week of January 2022]]></summary>
+        <content type="html"><![CDATA[<ul>
+<li><a href="https://asmtutor.com/">NASM Assembly language tutorial</a> - This project was put together to teach NASM x86 assembly language on linux.</li>
+<li>New word learned: <strong>Plutocrat</strong> - <em>A person whose power derives from their wealth</em>.</li>
+<li><a href="https://howvideo.works/">howvideo.works</a> is an informational site about video and how it works. </li>
+<li><a href="https://iximiuz.com/en/posts/computer-networking-101/">Computer Networking 101</a></li>
+<li><a href="https://eklitzke.org/how-tcp-sockets-work">How TCP sockets work?</a></li>
+<li>Optimizing docker <a href="https://contains.dev/blog/optimizing-docker-image-size">images</a> size</li>
+</ul>]]></content>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[What did I learn this week (2022) - 06]]></title>
+        <id>/blog/what-did-i-learn-this-week-2022---06</id>
+        <link href="https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---06"/>
+        <updated>2022-01-06T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly summarization and review of things I've learned in the first week of February 2022]]></summary>
+        <author>
+            <name>Krishna Mohan A M</name>
+        </author>
+        <contributor>
+            <name>krishna-mohan a m</name>
+        </contributor>
+    </entry>
     <entry>
         <title type="html"><![CDATA[What did I learn this week (2022) - 01]]></title>
         <id>/blog/what-did-i-learn-this-week-2022---01</id>

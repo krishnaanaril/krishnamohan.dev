@@ -7,6 +7,72 @@
     "icon": "https://krishnamohan.dev/assets/images/dp.jpeg",
     "items": [
         {
+            "id": "/blog/what-did-i-learn-this-week-2022---05",
+            "content_html": "",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---05",
+            "title": "What did I learn this week (2022) - 05",
+            "summary": "Weekly summarization and review of things I've learned in the final week of January 2022",
+            "date_modified": "2022-01-30T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
+            "id": "/blog/what-did-i-learn-this-week-2022---04",
+            "content_html": "",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---04",
+            "title": "What did I learn this week (2022) - 04",
+            "summary": "Weekly summarization and review of things I've learned in the fourth week of January 2022",
+            "date_modified": "2022-01-23T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
+            "id": "/blog/what-did-i-learn-this-week-2022---03",
+            "content_html": "<ul>\n<li><a href=\"https://iconoir.com/\">Iconoir.com</a> - An open-source svg icons library.</li>\n<li>Why <a href=\"https://blog.mozilla.org/en/internet-culture/why-are-hyperlinks-blue-revisited/\">hyperlinks</a> are blue?</li>\n<li><a href=\"https://en.wikipedia.org/wiki/Jevons_paradox\">Jevons Paradox</a></li>\n<li>Found Git Commit Message <a href=\"https://gist.github.com/lisawolderiksen/a7b99d94c92c6671181611be1641c733\">Templates</a> to Write Better Commit Message</li>\n</ul>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---03",
+            "title": "What did I learn this week (2022) - 03",
+            "summary": "Weekly summarization and review of things I've learned in the third week of January 2022",
+            "date_modified": "2022-01-16T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
+            "id": "/blog/what-did-i-learn-this-week-2022---07",
+            "content_html": "<ul>\n<li>Curated list of resources on <a href=\"https://asatarin.github.io/testing-distributed-systems/\">testing distributed systems</a>.</li>\n<li>You can search netflix by categories using <a href=\"https://www.netflix-codes.com/\">codes</a></li>\n</ul>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---07",
+            "title": "What did I learn this week (2022) - 06",
+            "summary": "Weekly summarization and review of things I've learned in the second week of February 2022",
+            "date_modified": "2022-01-13T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
+            "id": "/blog/what-did-i-learn-this-week-2022---02",
+            "content_html": "<ul>\n<li><a href=\"https://asmtutor.com/\">NASM Assembly language tutorial</a> - This project was put together to teach NASM x86 assembly language on linux.</li>\n<li>New word learned: <strong>Plutocrat</strong> - <em>A person whose power derives from their wealth</em>.</li>\n<li><a href=\"https://howvideo.works/\">howvideo.works</a> is an informational site about video and how it works. </li>\n<li><a href=\"https://iximiuz.com/en/posts/computer-networking-101/\">Computer Networking 101</a></li>\n<li><a href=\"https://eklitzke.org/how-tcp-sockets-work\">How TCP sockets work?</a></li>\n<li>Optimizing docker <a href=\"https://contains.dev/blog/optimizing-docker-image-size\">images</a> size</li>\n</ul>",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---02",
+            "title": "What did I learn this week (2022) - 02",
+            "summary": "Weekly summarization and review of things I've learned in the second week of January 2022",
+            "date_modified": "2022-01-09T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
+            "id": "/blog/what-did-i-learn-this-week-2022---06",
+            "content_html": "",
+            "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---06",
+            "title": "What did I learn this week (2022) - 06",
+            "summary": "Weekly summarization and review of things I've learned in the first week of February 2022",
+            "date_modified": "2022-01-06T00:00:00.000Z",
+            "author": {
+                "name": "Krishna Mohan A M"
+            }
+        },
+        {
             "id": "/blog/what-did-i-learn-this-week-2022---01",
             "content_html": "<ul>\n<li><a href=\"https://chaidarun.com/ten-years-of-logging-my-life\">Someone</a> logged his life for 10 years.</li>\n<li>Found a <a href=\"http://blog.fogus.me/2021/12/27/the-best-things-and-stuff-of-2021/\">compilation</a> of best things and stuffs of 2021.</li>\n<li>Prince of persia game is available in <a href=\"https://princejs.com/\">web browser</a>.</li>\n<li>Found a modern guide to <a href=\"https://fusionauth.io/learn/expert-advice/oauth/modern-guide-to-oauth/\">OAuth</a>.</li>\n<li><a href=\"https://github.com/RSS-Bridge/rss-bridge\">RSS Bridge</a> - RSS feed for websites missing it</li>\n</ul>",
             "url": "https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---01",
