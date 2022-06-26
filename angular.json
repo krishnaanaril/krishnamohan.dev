@@ -153,7 +153,6 @@
       }
     }
   },
-  "defaultProject": "angular-portfolio",
   "schematics": {
     "@schematics/angular:component": {
       "style": "scss"

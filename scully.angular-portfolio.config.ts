@@ -1,7 +1,7 @@
 import { ScullyConfig , setPluginConfig } from '@scullyio/scully';
 import { getSitemapPlugin, SitemapConfig } from '@gammastream/scully-plugin-sitemap';
 import '@notiz/scully-plugin-rss';
-
+import '@scullyio/scully-plugin-puppeteer';
 
 const SitemapPlugin = getSitemapPlugin();
 const sitemapConfig: SitemapConfig = {

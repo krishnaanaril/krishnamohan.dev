@@ -1,2 +1,11 @@
 identifier: k7h6r5806622u65f
 allowErrorCollect: false
+appPort: 1864
+staticPort: 1668
+reloadPort: 2667
+hostName: localhost
+projectName: angular-portfolio
+homeFolder: E:\KrishnaMohan\Workspace\krishnamohan.dev
+distFolder: dist/angular-portfolio
+outDir: E:\KrishnaMohan\Workspace\krishnamohan.dev\dist\static
+handle404: ''
