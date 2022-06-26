@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1656180601836,
+  "timestamp": 1656207936216,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -222,7 +222,8 @@
         "/assets/images/dp_old.webp",
         "/assets/images/icons/baseline-home-24px.svg",
         "/assets/images/icons/close-24px.svg",
-        "/assets/images/icons/menu-black-24dp.svg"
+        "/assets/images/icons/menu-black-24dp.svg",
+        "/assets/scully-routes.json"
       ],
       "patterns": []
     }
@@ -423,6 +424,7 @@
     "/assets/images/icons/baseline-home-24px.svg": "68559f8a8d88402c37e38f284bb0a3b63b5ee212",
     "/assets/images/icons/close-24px.svg": "8b776764f395386d649c583fa38c20db46b78191",
     "/assets/images/icons/menu-black-24dp.svg": "b83b1b0f15b50524f4c7f532b3553bf103bdc14c",
+    "/assets/scully-routes.json": "fb5928b14947daaeea87ed892e3dd57dcbfb8bdf",
     "/common.5e37bb88ef3d2d7d.js": "6f5fdf2b6545300dc257d65f487db0f41f67c5cd",
     "/favicon.ico": "a2c72cee8720f6a168ed605c5285c277a3f3bf92",
     "/index.html": "681ca5f89f14f425a7d6b4506853be8bb9dbcf4a",

@@ -4,7 +4,7 @@
         <title>krishnamohan.dev</title>
         <link>https://krishnamohan.dev</link>
         <description>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</description>
-        <lastBuildDate>Sat, 25 Jun 2022 18:22:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 26 Jun 2022 01:48:32 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
         <language>en</language>
@@ -19,20 +19,6 @@
         <category>Angular</category>
         <category>Dotnet</category>
         <item>
-            <title><![CDATA[What did I learn this week (2022) - 05]]></title>
-            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---05</link>
-            <guid>/blog/what-did-i-learn-this-week-2022---05</guid>
-            <pubDate>Sun, 30 Jan 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[Weekly summarization and review of things I've learned in the final week of January 2022]]></description>
-        </item>
-        <item>
-            <title><![CDATA[What did I learn this week (2022) - 04]]></title>
-            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---04</link>
-            <guid>/blog/what-did-i-learn-this-week-2022---04</guid>
-            <pubDate>Sun, 23 Jan 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[Weekly summarization and review of things I've learned in the fourth week of January 2022]]></description>
-        </item>
-        <item>
             <title><![CDATA[What did I learn this week (2022) - 03]]></title>
             <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---03</link>
             <guid>/blog/what-did-i-learn-this-week-2022---03</guid>
@@ -43,17 +29,6 @@
 <li>Why <a href="https://blog.mozilla.org/en/internet-culture/why-are-hyperlinks-blue-revisited/">hyperlinks</a> are blue?</li>
 <li><a href="https://en.wikipedia.org/wiki/Jevons_paradox">Jevons Paradox</a></li>
 <li>Found Git Commit Message <a href="https://gist.github.com/lisawolderiksen/a7b99d94c92c6671181611be1641c733">Templates</a> to Write Better Commit Message</li>
-</ul>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[What did I learn this week (2022) - 06]]></title>
-            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---07</link>
-            <guid>/blog/what-did-i-learn-this-week-2022---07</guid>
-            <pubDate>Thu, 13 Jan 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[Weekly summarization and review of things I've learned in the second week of February 2022]]></description>
-            <content:encoded><![CDATA[<ul>
-<li>Curated list of resources on <a href="https://asatarin.github.io/testing-distributed-systems/">testing distributed systems</a>.</li>
-<li>You can search netflix by categories using <a href="https://www.netflix-codes.com/">codes</a></li>
 </ul>]]></content:encoded>
         </item>
         <item>
@@ -70,13 +45,6 @@
 <li><a href="https://eklitzke.org/how-tcp-sockets-work">How TCP sockets work?</a></li>
 <li>Optimizing docker <a href="https://contains.dev/blog/optimizing-docker-image-size">images</a> size</li>
 </ul>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[What did I learn this week (2022) - 06]]></title>
-            <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---06</link>
-            <guid>/blog/what-did-i-learn-this-week-2022---06</guid>
-            <pubDate>Thu, 06 Jan 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[Weekly summarization and review of things I've learned in the first week of February 2022]]></description>
         </item>
         <item>
             <title><![CDATA[What did I learn this week (2022) - 01]]></title>
