@@ -26,6 +26,7 @@ Recently I read a [post by Austin Z. Henley](https://web.eecs.utk.edu/~azh/blog/
 7. EY - Software Engineer (May 2019)
 8. Deloitte - Software Engineer (September 2019)
 9. Wells Fargo - Senior Software Engineer (March 2021)
+10. Nasdaq - Software Developer Senior Specialist (August 2022)
 
 ## Competitive Exams
 
