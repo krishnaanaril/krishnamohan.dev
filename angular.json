@@ -22,7 +22,9 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": [
-              "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard"
+              "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard",
+              "clipboard",
+              "prismjs"
             ],            
             "aot": true,
             "outputPath": "dist/angular-portfolio",
