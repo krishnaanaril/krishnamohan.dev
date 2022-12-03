@@ -28,11 +28,10 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      scrollPositionRestoration: 'enabled',
-      anchorScrolling: 'enabled',
-      urlUpdateStrategy: 'eager',
-      relativeLinkResolution: 'legacy',
-    }),
+    scrollPositionRestoration: 'enabled',
+    anchorScrolling: 'enabled',
+    urlUpdateStrategy: 'eager'
+}),
   ],
   exports: [RouterModule],
 })
