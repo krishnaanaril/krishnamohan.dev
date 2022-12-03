@@ -1,5 +1,17 @@
- 
-# What's new in Angular? -  Standalone components 
+---
+title: What's new in Angular? -  Standalone components 
+description: Last week Angular team released v15 of the framework which is a major release with a lot of new features. Among that, standalone components are out of developer preview and is stable now. It is also accompanied by a set of new standalone APIs to enhance the development.
+published: true
+publishedAt: 2022-11-22T00:00:00.000Z
+updatedAt: 2022-12-03T00:00:00.000Z
+category: tech
+image: 'assets/banners/67'
+keywords: 
+    - standalone
+    - angular    
+authors:
+  - Krishna Mohan A M
+---
 
 >### Prerequisite
 >Basic knowledge in Angular and frontend development.
