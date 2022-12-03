@@ -44,7 +44,7 @@
     "@scullyio/ng-lib": "^2.1.36",
     "@scullyio/scully": "^2.1.36",
     "@scullyio/scully-plugin-puppeteer": "^2.1.36",
-    "angular-cli-ghpages": "^1.0.0",
+    "angular-cli-ghpages": "^1.0.5",
     "core-js": "^2.5.4",
     "prismjs": "^1.28.0",
     "rxjs": "^7.5.5",
