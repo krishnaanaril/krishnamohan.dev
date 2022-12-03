@@ -4,7 +4,7 @@
         <title>krishnamohan.dev</title>
         <link>https://krishnamohan.dev</link>
         <description>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</description>
-        <lastBuildDate>Sat, 03 Dec 2022 11:49:05 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 03 Dec 2022 12:09:12 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Personal site of Krishna Mohan, who blogs about tech, football and trivia.</generator>
         <language>en</language>
@@ -18,6 +18,60 @@
         <category>Blog</category>
         <category>Angular</category>
         <category>Dotnet</category>
+        <item>
+            <title><![CDATA[What's new in Angular? -  Standalone components]]></title>
+            <link>https://krishnamohan.dev/blog/angular-15</link>
+            <guid>/blog/angular-15</guid>
+            <pubDate>Sat, 03 Dec 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Last week Angular team released v15 of the framework which is a major release with a lot of new features. Among that, standalone components are out of developer preview and is stable now. It is also accompanied by a set of new standalone APIs to enhance the development.]]></description>
+            <content:encoded><![CDATA[<blockquote>
+  <h3 id="prerequisite">Prerequisite</h3>
+  <p>Basic knowledge in Angular and frontend development.</p>
+</blockquote>
+<p>Last week Angular team released v15 of the framework which is a major release with a lot of new features. Among that, standalone components are out of developer preview and is stable now. It is also accompanied by a set of new standalone APIs to enhance the development.</p>
+<h2 id="whyisitabigdeal">Why is it a big deal?</h2>
+<p>In prior versions, components do not have an independent existence. They should have an associated <a href="https://angular.io/api/core/NgModule">module</a> and should be declared there. This resulted in a lot of boilerplate code for simple applications. </p>
+<p>For bigger applications lazy loaded modules get bloated with unwanted components. Developers found a workaround for this by using SCAM (Single Component Angular Module) pattern. Here for each component, developers create an <code>NgModule</code> that imports only the declarables used by that specific component. With standalone components we can avoid these bloats and workarounds.</p>
+<p>Another big advantage is it reduces the learning curve for angular. Angular was notorious for its steep learning curve compared to other javascript frameworks like React/Vue. Now with standalone components beginners can bootstrap an angular application without much fuss.</p>
+<h2 id="howdowecreateanewstandalonecomponent">How do we create a new standalone component?</h2>
+<p>Components, directives, and pipes can now be marked as <code>standalone: true</code>.  Their decorators will have a new Boolean flag that needs to be set as <code>true</code>. A sample component is given below.</p>
+<pre><code class="javascript language-javascript">import { USER_NAME } from '../main';
+
+@Component({
+ standalone: true,
+ selector: 'hello',
+ template: `&lt;h1&gt;Hello {{name}}!&lt;/h1&gt;`,
+ styles: [`h1 { font-family: Lato; }`]
+})
+export class HelloComponent  {
+
+ constructor(@Inject(USER_NAME)public name: string){}
+}
+</code></pre>
+<p>Here USER_NAME is an <a href="https://angular.io/api/core/InjectionToken">injetiontoken</a> that is configured using angular dependency injection.</p>
+<p>Also, we can bootstrap an angular application without any <code>NgModule</code> by using a standalone component as the application's root component. This is done using the bootstrapApplication API in <code>main.ts</code>:</p>
+<pre><code class="javascript language-javascript">import { HelloComponent } from './app/hello.component';
+import { InjectionToken } from '@angular/core';
+
+export const USER_NAME = new InjectionToken&lt;string&gt;('User name');
+
+bootstrapApplication(HelloComponent, 
+  {
+ providers: [
+      { provide: USER_NAME, useValue: 'Krishna Mohan'}
+    ]
+  });
+</code></pre>
+<p>You can find the complete working code in <a href="https://stackblitz.com/edit/ang-standalone-km21">stackblitz</a></p>
+<h2 id="wrapup">Wrap up</h2>
+<p>What are your thoughts on standalone components? Do you think that this feature will improve your angular codebase? Share your comments below.</p>
+<h2 id="references">References</h2>
+<ol>
+<li>https://blog.angular.io/angular-v15-is-now-available-df7be7f2f4c8</li>
+<li>https://angular.io/guide/standalone-components</li>
+<li>https://medium.com/marmicode/your-angular-module-is-a-scam-b4136ca3917b</li>
+</ol>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[What did I learn this week (2022) - 03]]></title>
             <link>https://krishnamohan.dev/blog/what-did-i-learn-this-week-2022---03</link>

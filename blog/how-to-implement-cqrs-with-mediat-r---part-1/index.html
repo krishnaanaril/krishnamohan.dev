@@ -16,7 +16,7 @@
   <link rel="manifest" href="manifest.json">  
   <link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
   <meta name="theme-color" content="#1976d2">
-<style>*,:before,:after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}:before,:after{--tw-content:""}html{line-height:1.5;-webkit-text-size-adjust:100%;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";font-feature-settings:normal}body{margin:0;line-height:inherit}*,:before,:after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / .5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }</style><link rel="stylesheet" href="styles.f3d163392c0c6203.css" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.f3d163392c0c6203.css"></noscript><style>ol[_ngcontent-lkw-c8]{list-style-type:decimal}ul[_ngcontent-lkw-c8]{list-style-type:disc;padding-left:2.5rem}p[_ngcontent-lkw-c8]{padding-top:1.25rem;padding-bottom:1.25rem}h2[_ngcontent-lkw-c8]{margin-top:1.25rem;margin-bottom:1.25rem;font-size:1.875rem;line-height:2.25rem}h3[_ngcontent-lkw-c8]{margin-top:.75rem;margin-bottom:.75rem;font-size:1.5rem;line-height:2rem}pre[_ngcontent-lkw-c8]{margin-bottom:1.25rem;padding:1.25rem;font-size:1rem;line-height:1.5rem}a[_ngcontent-lkw-c8]{border-bottom-width:2px;--tw-border-opacity: 1;border-color:rgb(37 99 235 / var(--tw-border-opacity))}</style><meta name="title" content="How to implement CQRS with MediatR - Part 1"><meta name="description" content="This post is about implementing mediator pattern in a dotnet console application using MediatR library."><meta name="og:type" content="article"><meta name="og:url" content="/blog/how-to-implement-cqrs-with-mediat-r---part-1"><meta name="og:title" content="How to implement CQRS with MediatR - Part 1"><meta name="og:description" content="This post is about implementing mediator pattern in a dotnet console application using MediatR library."><meta name="og:image" content="assets/banners/16"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="/blog/how-to-implement-cqrs-with-mediat-r---part-1"><meta name="twitter:title" content="How to implement CQRS with MediatR - Part 1"><meta name="twitter:description" content="This post is about implementing mediator pattern in a dotnet console application using MediatR library."><meta name="twitter:image" content="assets/banners/16"><meta name="twitter:site" content="@krishnaanaril"><meta name="twitter:creator" content="@krishnaanaril"><meta name="keywords" content="dotnet, mediatr, cqrs"><meta name="og:article:published_time" content="2021-02-26T00:00:00.000Z"><meta name="og:article:modified_time" content="2021-02-26T00:00:00.000Z"><meta name="og:article:author" content="Krishna Mohan A M"><meta name="og:article:section" content="Tech"><meta name="og:article:tag" content="dotnet, mediatr, cqrs"><style>
+<style>*,:before,:after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}:before,:after{--tw-content:""}html{line-height:1.5;-webkit-text-size-adjust:100%;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";font-feature-settings:normal}body{margin:0;line-height:inherit}*,:before,:after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / .5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }</style><link rel="stylesheet" href="styles.f3d163392c0c6203.css" media="all" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.f3d163392c0c6203.css"></noscript><style>ol[_ngcontent-pwx-c8]{list-style-type:decimal}ul[_ngcontent-pwx-c8]{list-style-type:disc;padding-left:2.5rem}p[_ngcontent-pwx-c8]{padding-top:1.25rem;padding-bottom:1.25rem}h2[_ngcontent-pwx-c8]{margin-top:1.25rem;margin-bottom:1.25rem;font-size:1.875rem;line-height:2.25rem}h3[_ngcontent-pwx-c8]{margin-top:.75rem;margin-bottom:.75rem;font-size:1.5rem;line-height:2rem}pre[_ngcontent-pwx-c8]{margin-bottom:1.25rem;padding:1.25rem;font-size:1rem;line-height:1.5rem}a[_ngcontent-pwx-c8]{border-bottom-width:2px;--tw-border-opacity: 1;border-color:rgb(37 99 235 / var(--tw-border-opacity))}</style><meta name="title" content="How to implement CQRS with MediatR - Part 1"><meta name="description" content="This post is about implementing mediator pattern in a dotnet console application using MediatR library."><meta name="og:type" content="article"><meta name="og:url" content="/blog/how-to-implement-cqrs-with-mediat-r---part-1"><meta name="og:title" content="How to implement CQRS with MediatR - Part 1"><meta name="og:description" content="This post is about implementing mediator pattern in a dotnet console application using MediatR library."><meta name="og:image" content="assets/banners/16"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="/blog/how-to-implement-cqrs-with-mediat-r---part-1"><meta name="twitter:title" content="How to implement CQRS with MediatR - Part 1"><meta name="twitter:description" content="This post is about implementing mediator pattern in a dotnet console application using MediatR library."><meta name="twitter:image" content="assets/banners/16"><meta name="twitter:site" content="@krishnaanaril"><meta name="twitter:creator" content="@krishnaanaril"><meta name="keywords" content="dotnet, mediatr, cqrs"><meta name="og:article:published_time" content="2021-02-26T00:00:00.000Z"><meta name="og:article:modified_time" content="2021-02-26T00:00:00.000Z"><meta name="og:article:author" content="Krishna Mohan A M"><meta name="og:article:section" content="Tech"><meta name="og:article:tag" content="dotnet, mediatr, cqrs"><style>
       :host {
         display: none;
       }
@@ -26,40 +26,40 @@
     </style><script>window['ScullyIO']='generated';</script></head>
 
 <body scully-version="0.0.0">
-  <app-root _nghost-lkw-c6="" ng-version="15.0.2"><div _ngcontent-lkw-c6="" class="bg-gray-200 text-gray-800 dark:bg-black dark:text-gray-50"><div _ngcontent-lkw-c6="" class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><section _ngcontent-lkw-c6="" class="hidden lg:flex flex-row justify-center"><nav _ngcontent-lkw-c6=""><ul _ngcontent-lkw-c6="" class="lg:text-xl lg:flex lg:flex-row"><li _ngcontent-lkw-c6="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Home</li><li _ngcontent-lkw-c6="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer border-b-2 border-gray-700 dark:border-gray-300" tabindex="0">Blog</li><li _ngcontent-lkw-c6="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Projects</li><li _ngcontent-lkw-c6="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">About</li><!----></ul></nav></section><div _ngcontent-lkw-c6="" class="absolute lg:hidden mr-4 p-4 right-0"><button _ngcontent-lkw-c6="" aria-label="view menu items" class="p-2"><svg _ngcontent-lkw-c6="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" class="fill-current"><path _ngcontent-lkw-c6="" d="M0 0h24v24H0z" fill="none"></path><path _ngcontent-lkw-c6="" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button></div></div><!----><router-outlet _ngcontent-lkw-c6=""></router-outlet><app-blog-post _nghost-lkw-c8=""><div _ngcontent-lkw-c8="" class="container mx-auto min-h-screen bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
-    <div _ngcontent-lkw-c8="">
-        <div _ngcontent-lkw-c8="" aria-label="Blog tags/keywords" class="pt-8 flex flex-row justify-center">
-            <div _ngcontent-lkw-c8="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">dotnet</div><div _ngcontent-lkw-c8="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">mediatr</div><div _ngcontent-lkw-c8="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">cqrs</div><!---->
+  <app-root _nghost-pwx-c6="" ng-version="15.0.2"><div _ngcontent-pwx-c6="" class="bg-gray-200 text-gray-800 dark:bg-black dark:text-gray-50"><div _ngcontent-pwx-c6="" class="container mx-auto bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><section _ngcontent-pwx-c6="" class="hidden lg:flex flex-row justify-center"><nav _ngcontent-pwx-c6=""><ul _ngcontent-pwx-c6="" class="lg:text-xl lg:flex lg:flex-row"><li _ngcontent-pwx-c6="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Home</li><li _ngcontent-pwx-c6="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer border-b-2 border-gray-700 dark:border-gray-300" tabindex="0">Blog</li><li _ngcontent-pwx-c6="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">Projects</li><li _ngcontent-pwx-c6="" routerlinkactive="border-b-2 border-gray-700 dark:border-gray-300" class="p-3 cursor-pointer" tabindex="0">About</li><!----></ul></nav></section><div _ngcontent-pwx-c6="" class="absolute lg:hidden mr-4 p-4 right-0"><button _ngcontent-pwx-c6="" aria-label="view menu items" class="p-2"><svg _ngcontent-pwx-c6="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px" class="fill-current"><path _ngcontent-pwx-c6="" d="M0 0h24v24H0z" fill="none"></path><path _ngcontent-pwx-c6="" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></button></div></div><!----><router-outlet _ngcontent-pwx-c6=""></router-outlet><app-blog-post _nghost-pwx-c8=""><div _ngcontent-pwx-c8="" class="container mx-auto min-h-screen bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50">
+    <div _ngcontent-pwx-c8="">
+        <div _ngcontent-pwx-c8="" aria-label="Blog tags/keywords" class="pt-8 flex flex-row justify-center">
+            <div _ngcontent-pwx-c8="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">dotnet</div><div _ngcontent-pwx-c8="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">mediatr</div><div _ngcontent-pwx-c8="" class="bg-gray-300 dark:bg-gray-700 border border-gray-400 ml-2 mr-2 pb-2 pl-4 pr-4 pt-2 text-sm align-baseline rounded-full">cqrs</div><!---->
         </div>
-        <div _ngcontent-lkw-c8="" class="max-w-screen-lg mx-auto">
-            <h1 _ngcontent-lkw-c8="" class="text-5xl pt-5 pb-5 text-center">How to implement CQRS with MediatR - Part 1</h1>
+        <div _ngcontent-pwx-c8="" class="max-w-screen-lg mx-auto">
+            <h1 _ngcontent-pwx-c8="" class="text-5xl pt-5 pb-5 text-center">How to implement CQRS with MediatR - Part 1</h1>
         </div>
-        <div _ngcontent-lkw-c8="" class="flex flex-row justify-center m-5 max-w-screen-sm mx-auto">
-            <time _ngcontent-lkw-c8="" class="text-center text-xl">Feb 26, 2021</time>
+        <div _ngcontent-pwx-c8="" class="flex flex-row justify-center m-5 max-w-screen-sm mx-auto">
+            <time _ngcontent-pwx-c8="" class="text-center text-xl">Feb 26, 2021</time>
         </div>
     </div>
-    <hr _ngcontent-lkw-c8="" class="mx-auto border-gray-800 w-1/4">
-    <div _ngcontent-lkw-c8="" class="max-w-screen-md mx-auto p-6 md:p-12 leading-8">
-        <!--scullyContent-begin--><p _ngcontent-lkw-c8="">I came to know about <a href="https://github.com/jbogard/MediatR" _ngcontent-lkw-c8="">MediatR</a> library while reading the book <a href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/" _ngcontent-lkw-c8="">.NET Microservices: Architecture for Containerized .NET Applications</a>. Frankly speaking, even though I was aware of <a href="https://github.com/krishnaanaril/try-outs/blob/master/design-patterns/behavioral/mediator.ts" _ngcontent-lkw-c8="">mediator pattern</a>, I haven't used it any of the projects I've worked. May be this is due to the fact that, I've mostly worked in enterprise applications with hardly 100+ users. Any way I consider this as an opportunity to learn a new thing.</p>
-<p _ngcontent-lkw-c8="">In this post we'll be using MediatR with a dotnet console application. If you want to read about its implementation in a WebAPI, check out my other blog <a href="https://krishnamohan.dev/blog/how-to-implement-cqrs-with-mediat-r---part-2" _ngcontent-lkw-c8="">post</a>.</p>
-<h2 id="prerequisites" _ngcontent-lkw-c8="">Prerequisites</h2>
-<ul _ngcontent-lkw-c8="">
-<li _ngcontent-lkw-c8="">Install <a href="https://dotnet.microsoft.com/download" _ngcontent-lkw-c8="">dotnet core</a></li>
-<li _ngcontent-lkw-c8="">Install Visual Studio Code/Visual Studio IDE</li>
+    <hr _ngcontent-pwx-c8="" class="mx-auto border-gray-800 w-1/4">
+    <div _ngcontent-pwx-c8="" class="max-w-screen-md mx-auto p-6 md:p-12 leading-8">
+        <!--scullyContent-begin--><p _ngcontent-pwx-c8="">I came to know about <a href="https://github.com/jbogard/MediatR" _ngcontent-pwx-c8="">MediatR</a> library while reading the book <a href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/" _ngcontent-pwx-c8="">.NET Microservices: Architecture for Containerized .NET Applications</a>. Frankly speaking, even though I was aware of <a href="https://github.com/krishnaanaril/try-outs/blob/master/design-patterns/behavioral/mediator.ts" _ngcontent-pwx-c8="">mediator pattern</a>, I haven't used it any of the projects I've worked. May be this is due to the fact that, I've mostly worked in enterprise applications with hardly 100+ users. Any way I consider this as an opportunity to learn a new thing.</p>
+<p _ngcontent-pwx-c8="">In this post we'll be using MediatR with a dotnet console application. If you want to read about its implementation in a WebAPI, check out my other blog <a href="https://krishnamohan.dev/blog/how-to-implement-cqrs-with-mediat-r---part-2" _ngcontent-pwx-c8="">post</a>.</p>
+<h2 id="prerequisites" _ngcontent-pwx-c8="">Prerequisites</h2>
+<ul _ngcontent-pwx-c8="">
+<li _ngcontent-pwx-c8="">Install <a href="https://dotnet.microsoft.com/download" _ngcontent-pwx-c8="">dotnet core</a></li>
+<li _ngcontent-pwx-c8="">Install Visual Studio Code/Visual Studio IDE</li>
 </ul>
-<h2 id="creating-a-dotnet-console-application" _ngcontent-lkw-c8="">Creating a dotnet console application</h2>
-<p _ngcontent-lkw-c8="">Okay, As the first step we need a console application. We can do so by running our dotnet <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new" _ngcontent-lkw-c8="">cli command</a>.</p>
-<pre _ngcontent-lkw-c8=""><code class="language-bash" _ngcontent-lkw-c8="">dotnet new console MediatRSample
+<h2 id="creating-a-dotnet-console-application" _ngcontent-pwx-c8="">Creating a dotnet console application</h2>
+<p _ngcontent-pwx-c8="">Okay, As the first step we need a console application. We can do so by running our dotnet <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new" _ngcontent-pwx-c8="">cli command</a>.</p>
+<pre _ngcontent-pwx-c8=""><code class="language-bash" _ngcontent-pwx-c8="">dotnet new console MediatRSample
 </code></pre>
-<h2 id="configure-serilog-for-logging-optional" _ngcontent-lkw-c8="">Configure Serilog for logging (Optional)</h2>
-<p _ngcontent-lkw-c8="">I'll be using <a href="https://serilog.net/" _ngcontent-lkw-c8="">Serilog</a> and a flat file sink for logging. To configure this we need to install the following dependencies via Nuget. </p>
-<ul _ngcontent-lkw-c8="">
-<li _ngcontent-lkw-c8="">Microsoft.Extensions.Logging</li>
-<li _ngcontent-lkw-c8="">Serilog</li>
-<li _ngcontent-lkw-c8="">Serilog.Sinks.File</li>
+<h2 id="configure-serilog-for-logging-optional" _ngcontent-pwx-c8="">Configure Serilog for logging (Optional)</h2>
+<p _ngcontent-pwx-c8="">I'll be using <a href="https://serilog.net/" _ngcontent-pwx-c8="">Serilog</a> and a flat file sink for logging. To configure this we need to install the following dependencies via Nuget. </p>
+<ul _ngcontent-pwx-c8="">
+<li _ngcontent-pwx-c8="">Microsoft.Extensions.Logging</li>
+<li _ngcontent-pwx-c8="">Serilog</li>
+<li _ngcontent-pwx-c8="">Serilog.Sinks.File</li>
 </ul>
-<p _ngcontent-lkw-c8="">Then update the <code _ngcontent-lkw-c8="">Program.cs</code> file.</p>
-<pre _ngcontent-lkw-c8=""><code class="language-csharp" _ngcontent-lkw-c8="">static void Main(string[] args)
+<p _ngcontent-pwx-c8="">Then update the <code _ngcontent-pwx-c8="">Program.cs</code> file.</p>
+<pre _ngcontent-pwx-c8=""><code class="language-csharp" _ngcontent-pwx-c8="">static void Main(string[] args)
 {
     var services = ConfigureServices();
     var serviceProvider = services.BuildServiceProvider();        
@@ -81,22 +81,22 @@ private static IServiceCollection ConfigureServices()
     return services;
 }
 </code></pre>
-<h2 id="install-and-configure-mediatr" _ngcontent-lkw-c8="">Install and Configure MediatR</h2>
-<p _ngcontent-lkw-c8="">Next we need to install MediatR (version 9.0.0 at the time of writing) via Nuget. To configure MediatR, add the following snippet to the <code _ngcontent-lkw-c8="">ConfigureServices()</code> method.</p>
-<pre _ngcontent-lkw-c8=""><code class="language-csharp" _ngcontent-lkw-c8="">services.AddMediatR(Assembly.GetExecutingAssembly());
+<h2 id="install-and-configure-mediatr" _ngcontent-pwx-c8="">Install and Configure MediatR</h2>
+<p _ngcontent-pwx-c8="">Next we need to install MediatR (version 9.0.0 at the time of writing) via Nuget. To configure MediatR, add the following snippet to the <code _ngcontent-pwx-c8="">ConfigureServices()</code> method.</p>
+<pre _ngcontent-pwx-c8=""><code class="language-csharp" _ngcontent-pwx-c8="">services.AddMediatR(Assembly.GetExecutingAssembly());
 </code></pre>
-<h2 id="create-a-notification-message-and-its-handler" _ngcontent-lkw-c8="">Create a Notification message and its handler</h2>
-<p _ngcontent-lkw-c8="">Among the two message types provided by MediatR, here we are configuring notification messages.</p>
-<h3 id="create-a-bare-minimum-dto-data-transfer-object" _ngcontent-lkw-c8="">Create a bare minimum DTO (Data Transfer Object)</h3>
-<p _ngcontent-lkw-c8="">This class implements <code _ngcontent-lkw-c8="">INotification</code>, a marker interface to represent a notification.</p>
-<pre _ngcontent-lkw-c8=""><code class="language-csharp" _ngcontent-lkw-c8="">public class NotificationMessage: INotification
+<h2 id="create-a-notification-message-and-its-handler" _ngcontent-pwx-c8="">Create a Notification message and its handler</h2>
+<p _ngcontent-pwx-c8="">Among the two message types provided by MediatR, here we are configuring notification messages.</p>
+<h3 id="create-a-bare-minimum-dto-data-transfer-object" _ngcontent-pwx-c8="">Create a bare minimum DTO (Data Transfer Object)</h3>
+<p _ngcontent-pwx-c8="">This class implements <code _ngcontent-pwx-c8="">INotification</code>, a marker interface to represent a notification.</p>
+<pre _ngcontent-pwx-c8=""><code class="language-csharp" _ngcontent-pwx-c8="">public class NotificationMessage: INotification
 {
     public string Message { get; set; }
 }
 </code></pre>
-<h3 id="create-multiple-handlers" _ngcontent-lkw-c8="">Create multiple handlers</h3>
-<p _ngcontent-lkw-c8="">As notification messages can be handled by multiple handlers, we'll be creating two handlers.</p>
-<pre _ngcontent-lkw-c8=""><code class="language-csharp" _ngcontent-lkw-c8="">public class Notifier01 : INotificationHandler&lt;NotificationMessage&gt;
+<h3 id="create-multiple-handlers" _ngcontent-pwx-c8="">Create multiple handlers</h3>
+<p _ngcontent-pwx-c8="">As notification messages can be handled by multiple handlers, we'll be creating two handlers.</p>
+<pre _ngcontent-pwx-c8=""><code class="language-csharp" _ngcontent-pwx-c8="">public class Notifier01 : INotificationHandler&lt;NotificationMessage&gt;
 {
     public Task Handle(NotificationMessage notification, CancellationToken cancellationToken)
     {
@@ -114,18 +114,18 @@ public class Notifier02 : INotificationHandler&lt;NotificationMessage&gt;
     }
 }
 </code></pre>
-<h2 id="create-a-requestresponse-message-and-its-handler" _ngcontent-lkw-c8="">Create a Request/Response message and its handler</h2>
-<p _ngcontent-lkw-c8="">This message type supports both one way and two way communication, but can only be received by a single handler. If you have defined multiple handlers only the first one will receive the message.</p>
-<h3 id="create-a-request-message-dto" _ngcontent-lkw-c8="">Create a request message DTO</h3>
-<p _ngcontent-lkw-c8="">Response message class implement <code _ngcontent-lkw-c8="">IRequest</code>, a marker interface to represent a request.</p>
-<pre _ngcontent-lkw-c8=""><code class="language-csharp" _ngcontent-lkw-c8="">// We need to mention response type in two way
+<h2 id="create-a-requestresponse-message-and-its-handler" _ngcontent-pwx-c8="">Create a Request/Response message and its handler</h2>
+<p _ngcontent-pwx-c8="">This message type supports both one way and two way communication, but can only be received by a single handler. If you have defined multiple handlers only the first one will receive the message.</p>
+<h3 id="create-a-request-message-dto" _ngcontent-pwx-c8="">Create a request message DTO</h3>
+<p _ngcontent-pwx-c8="">Response message class implement <code _ngcontent-pwx-c8="">IRequest</code>, a marker interface to represent a request.</p>
+<pre _ngcontent-pwx-c8=""><code class="language-csharp" _ngcontent-pwx-c8="">// We need to mention response type in two way
 public class Ping : IRequest&lt;string&gt; { } 
 
 public class OneWaySync : IRequest { }
 </code></pre>
-<h3 id="create-handlers" _ngcontent-lkw-c8="">Create handlers</h3>
-<p _ngcontent-lkw-c8="">For a two way handler we define a class that implements <code _ngcontent-lkw-c8="">IRequestHandler</code>, otherwise for async request use <code _ngcontent-lkw-c8="">AsyncRequestHandler</code> and for sync request <code _ngcontent-lkw-c8="">RequestHandler</code> base classes.</p>
-<pre _ngcontent-lkw-c8=""><code class="language-csharp" _ngcontent-lkw-c8="">public class PingHandler : IRequestHandler&lt;Ping, string&gt;
+<h3 id="create-handlers" _ngcontent-pwx-c8="">Create handlers</h3>
+<p _ngcontent-pwx-c8="">For a two way handler we define a class that implements <code _ngcontent-pwx-c8="">IRequestHandler</code>, otherwise for async request use <code _ngcontent-pwx-c8="">AsyncRequestHandler</code> and for sync request <code _ngcontent-pwx-c8="">RequestHandler</code> base classes.</p>
+<pre _ngcontent-pwx-c8=""><code class="language-csharp" _ngcontent-pwx-c8="">public class PingHandler : IRequestHandler&lt;Ping, string&gt;
 {
     public Task&lt;string&gt; Handle(Ping request, CancellationToken cancellationToken)
     {
@@ -150,18 +150,18 @@ public class OneWaySyncHandler : RequestHandler&lt;OneWaySync&gt;
     }
 }
 </code></pre>
-<h2 id="create-a-mediator-service" _ngcontent-lkw-c8="">Create a mediator service</h2>
-<p _ngcontent-lkw-c8="">Mediator service publishes messages to the handlers. This class contains the <code _ngcontent-lkw-c8="">IMediator</code> object that is inject via DI and contains the knowledge of all the message types and its corresponding handlers.</p>
-<h3 id="create-imediatorservice-interface" _ngcontent-lkw-c8="">Create <code _ngcontent-lkw-c8="">IMediatorService</code> interface</h3>
-<pre _ngcontent-lkw-c8=""><code class="language-csharp" _ngcontent-lkw-c8="">public interface IMediatorService
+<h2 id="create-a-mediator-service" _ngcontent-pwx-c8="">Create a mediator service</h2>
+<p _ngcontent-pwx-c8="">Mediator service publishes messages to the handlers. This class contains the <code _ngcontent-pwx-c8="">IMediator</code> object that is inject via DI and contains the knowledge of all the message types and its corresponding handlers.</p>
+<h3 id="create-imediatorservice-interface" _ngcontent-pwx-c8="">Create <code _ngcontent-pwx-c8="">IMediatorService</code> interface</h3>
+<pre _ngcontent-pwx-c8=""><code class="language-csharp" _ngcontent-pwx-c8="">public interface IMediatorService
 {
     void Notify(string notifyText);
     string RequestResponse();
     void OneWay();
 }
 </code></pre>
-<h3 id="create-mediatorservice-class" _ngcontent-lkw-c8="">Create MediatorService Class</h3>
-<pre _ngcontent-lkw-c8=""><code class="language-csharp" _ngcontent-lkw-c8="">public class MediatorService : IMediatorService
+<h3 id="create-mediatorservice-class" _ngcontent-pwx-c8="">Create MediatorService Class</h3>
+<pre _ngcontent-pwx-c8=""><code class="language-csharp" _ngcontent-pwx-c8="">public class MediatorService : IMediatorService
 {
     private readonly IMediator _mediator;
     public MediatorService(IMediator mediator)
@@ -188,13 +188,13 @@ public class OneWaySyncHandler : RequestHandler&lt;OneWaySync&gt;
     }        
 }
 </code></pre>
-<h3 id="add-mediatorservice-to-di-configuration" _ngcontent-lkw-c8="">Add MediatorService to DI configuration</h3>
-<p _ngcontent-lkw-c8="">Add the following statement in <code _ngcontent-lkw-c8="">ConfigureServices()</code> method of <code _ngcontent-lkw-c8="">Program.cs</code></p>
-<pre _ngcontent-lkw-c8=""><code class="language-csharp" _ngcontent-lkw-c8="">services.AddTransient&lt;IMediatorService, MediatorService&gt;();
+<h3 id="add-mediatorservice-to-di-configuration" _ngcontent-pwx-c8="">Add MediatorService to DI configuration</h3>
+<p _ngcontent-pwx-c8="">Add the following statement in <code _ngcontent-pwx-c8="">ConfigureServices()</code> method of <code _ngcontent-pwx-c8="">Program.cs</code></p>
+<pre _ngcontent-pwx-c8=""><code class="language-csharp" _ngcontent-pwx-c8="">services.AddTransient&lt;IMediatorService, MediatorService&gt;();
 </code></pre>
-<h2 id="run-the-application" _ngcontent-lkw-c8="">Run the application</h2>
-<p _ngcontent-lkw-c8="">Finally we need to issue commands/requests to these created handlers. For that we can create the following methods in the source class.</p>
-<pre _ngcontent-lkw-c8=""><code class="language-csharp" _ngcontent-lkw-c8="">private readonly IMediatorService _notifierMediatorService;
+<h2 id="run-the-application" _ngcontent-pwx-c8="">Run the application</h2>
+<p _ngcontent-pwx-c8="">Finally we need to issue commands/requests to these created handlers. For that we can create the following methods in the source class.</p>
+<pre _ngcontent-pwx-c8=""><code class="language-csharp" _ngcontent-pwx-c8="">private readonly IMediatorService _notifierMediatorService;
 
 // ...
 
@@ -214,24 +214,24 @@ private void OneWay()
     _notifierMediatorService.OneWay();
 }
 </code></pre>
-<p _ngcontent-lkw-c8="">To run the project via dotnet cli, run the following command.</p>
-<pre _ngcontent-lkw-c8=""><code class="language-bash" _ngcontent-lkw-c8="">dotnet run --project &lt;Path to *.csproj file&gt;
+<p _ngcontent-pwx-c8="">To run the project via dotnet cli, run the following command.</p>
+<pre _ngcontent-pwx-c8=""><code class="language-bash" _ngcontent-pwx-c8="">dotnet run --project &lt;Path to *.csproj file&gt;
 </code></pre>
-<p _ngcontent-lkw-c8="">You'll get a similar output as below:</p>
-<pre _ngcontent-lkw-c8=""><code class="language-bash" _ngcontent-lkw-c8="">Notifier 01 -&gt; Message: Test Message
+<p _ngcontent-pwx-c8="">You'll get a similar output as below:</p>
+<pre _ngcontent-pwx-c8=""><code class="language-bash" _ngcontent-pwx-c8="">Notifier 01 -&gt; Message: Test Message
 Notifier 02 -&gt; Message: Test Message
 In App: Pong
 In Sync One Way Handler
 In Async One Way Handler
 </code></pre>
-<h2 id="final-thoughts" _ngcontent-lkw-c8="">Final Thoughts</h2>
-<p _ngcontent-lkw-c8="">Among other things, one of the problem MediatR is trying to solve is <a href="https://stackoverflow.com/questions/2420193/how-to-avoid-dependency-injection-constructor-madness" _ngcontent-lkw-c8="">DI Constructor Explosion</a> which is a highly debated topic. Also by using MediatR everything is done in-process, request initiator and handler runs in the same process which may be cumbersome in some scenarios. If you want event/notification to be completely independent, try <a href="https://www.goparamore.io/" _ngcontent-lkw-c8="">MassTransit</a> or <a href="https://www.goparamore.io/" _ngcontent-lkw-c8="">Brighter</a>.</p>
-<p _ngcontent-lkw-c8="">If you're interested to view the full solution, it is available in <a href="https://github.com/krishnaanaril/try-outs/tree/master/MediatRSample/MediatRSample" _ngcontent-lkw-c8="">GitHub</a>.</p>
-<!--scullyContent-end--><scully-content _ngcontent-lkw-c8=""></scully-content>
-    <script>try {window['scullyContent'] = {cssId:"_ngcontent-lkw-c8",html:document.body.innerHTML.split('<!--scullyContent-begin-->')[1].split('<!--scullyContent-end-->')[0]};} catch(e) {console.error('scully could not parse content');}</script></div>
-    <hr _ngcontent-lkw-c8="" class="border-gray-800">    
-</div><!----></app-blog-post><!----><footer _ngcontent-lkw-c6="" class="container mx-auto flex flex-col bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><div _ngcontent-lkw-c6="" class="mt-10"><ul _ngcontent-lkw-c6="" class="flex flex-row justify-between max-w-sm mx-auto pl-4 pr-4"><li _ngcontent-lkw-c6="" class="hover:text-gray-600 dark:hover:text-gray-100"><a _ngcontent-lkw-c6="" href="https://twitter.com/KrishnaAnaril">Twitter</a></li><li _ngcontent-lkw-c6=""><a _ngcontent-lkw-c6="" href="https://krishnamohan.dev/sitemap-blog.xml">Sitemap</a></li><li _ngcontent-lkw-c6=""><a _ngcontent-lkw-c6="" href="https://krishnamohan.dev/feed.xml">RSS</a></li><li _ngcontent-lkw-c6=""><a _ngcontent-lkw-c6="" href="mailto:krishnamohan.a.m@gmail.com">Contact</a></li></ul></div><div _ngcontent-lkw-c6="" class="mx-auto p-5 text-sm"><p _ngcontent-lkw-c6="">© 2021-present <a _ngcontent-lkw-c6="" href="https://krishnamohan.dev/" class="font-bold">Krishna Mohan A M</a>. All Rights Reserved.</p></div></footer></div></app-root>
+<h2 id="final-thoughts" _ngcontent-pwx-c8="">Final Thoughts</h2>
+<p _ngcontent-pwx-c8="">Among other things, one of the problem MediatR is trying to solve is <a href="https://stackoverflow.com/questions/2420193/how-to-avoid-dependency-injection-constructor-madness" _ngcontent-pwx-c8="">DI Constructor Explosion</a> which is a highly debated topic. Also by using MediatR everything is done in-process, request initiator and handler runs in the same process which may be cumbersome in some scenarios. If you want event/notification to be completely independent, try <a href="https://www.goparamore.io/" _ngcontent-pwx-c8="">MassTransit</a> or <a href="https://www.goparamore.io/" _ngcontent-pwx-c8="">Brighter</a>.</p>
+<p _ngcontent-pwx-c8="">If you're interested to view the full solution, it is available in <a href="https://github.com/krishnaanaril/try-outs/tree/master/MediatRSample/MediatRSample" _ngcontent-pwx-c8="">GitHub</a>.</p>
+<!--scullyContent-end--><scully-content _ngcontent-pwx-c8=""></scully-content>
+    <script>try {window['scullyContent'] = {cssId:"_ngcontent-pwx-c8",html:document.body.innerHTML.split('<!--scullyContent-begin-->')[1].split('<!--scullyContent-end-->')[0]};} catch(e) {console.error('scully could not parse content');}</script></div>
+    <hr _ngcontent-pwx-c8="" class="border-gray-800">    
+</div><!----></app-blog-post><!----><footer _ngcontent-pwx-c6="" class="container mx-auto flex flex-col bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-50"><div _ngcontent-pwx-c6="" class="mt-10"><ul _ngcontent-pwx-c6="" class="flex flex-row justify-between max-w-sm mx-auto pl-4 pr-4"><li _ngcontent-pwx-c6="" class="hover:text-gray-600 dark:hover:text-gray-100"><a _ngcontent-pwx-c6="" href="https://twitter.com/KrishnaAnaril">Twitter</a></li><li _ngcontent-pwx-c6=""><a _ngcontent-pwx-c6="" href="https://krishnamohan.dev/sitemap-blog.xml">Sitemap</a></li><li _ngcontent-pwx-c6=""><a _ngcontent-pwx-c6="" href="https://krishnamohan.dev/feed.xml">RSS</a></li><li _ngcontent-pwx-c6=""><a _ngcontent-pwx-c6="" href="mailto:krishnamohan.a.m@gmail.com">Contact</a></li></ul></div><div _ngcontent-pwx-c6="" class="mx-auto p-5 text-sm"><p _ngcontent-pwx-c6="">© 2021-present <a _ngcontent-pwx-c6="" href="https://krishnamohan.dev/" class="font-bold">Krishna Mohan A M</a>. All Rights Reserved.</p></div></footer></div></app-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
-<script id="ScullyIO-transfer-state"></script><script src="runtime.d92eceacd61b0164.js" type="module"></script><script src="polyfills.8725281b7d3c32e2.js" type="module"></script><script src="main.478bc92d6a663f36.js" type="module"></script>
+<script id="ScullyIO-transfer-state"></script><script src="runtime.18ef60f8e897eaa7.js" type="module"></script><script src="polyfills.8725281b7d3c32e2.js" type="module"></script><script src="main.478bc92d6a663f36.js" type="module"></script>
 
 </body></html>
